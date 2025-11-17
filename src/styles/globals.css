@@ -5,8 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
-
 /* Campfire Design System - Foundation v1.0 */
 /* Warm, Natural, Earthy - Like gathering around a campfire */
 
