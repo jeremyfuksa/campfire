@@ -222,11 +222,20 @@ function ColorsSection() {
       colors: scale.colors.map(c => ({ name: c.name, hex: c.value, variable: c.var }))
     }));
     const jsonData = JSON.stringify(paletteData, null, 2);
-    const success = await copyToClipboard(jsonData);
-    if (success) {
-      toast.success('Palette data copied to clipboard!');
-    } else {
-      toast.error('Failed to copy palette data.');
+    try {
+      const blob = new Blob([jsonData], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'campfire-palettes.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      toast.success('Palette JSON downloaded.');
+    } catch (error) {
+      console.error('Failed to download palette JSON:', error);
+      toast.error('Unable to download palette JSON.');
     }
   };
 
