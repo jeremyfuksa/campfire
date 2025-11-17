@@ -4,9 +4,19 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { toast } from 'sonner';
 
-// Fallback clipboard function that doesn't require permissions
-const copyToClipboard = (text: string): boolean => {
+// Clipboard helper with navigator support + fallback
+const copyToClipboard = async (text: string): Promise<boolean> => {
   try {
+    if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (err) {
+    console.error('Failed navigator copy:', err);
+  }
+
+  try {
+    if (typeof document === 'undefined') return false;
     const textarea = document.createElement('textarea');
     textarea.value = text;
     textarea.style.position = 'fixed';
@@ -17,7 +27,7 @@ const copyToClipboard = (text: string): boolean => {
     document.body.removeChild(textarea);
     return success;
   } catch (err) {
-    console.error('Failed to copy:', err);
+    console.error('Failed fallback copy:', err);
     return false;
   }
 };
@@ -60,8 +70,8 @@ export function DesignTokensPage() {
 function ColorsSection() {
   const [flavor, setFlavor] = useState<'ember' | 'ash'>('ember');
   
-  const handleCopy = (text: string) => {
-    const success = copyToClipboard(text);
+  const handleCopy = async (text: string) => {
+    const success = await copyToClipboard(text);
     if (success) {
       toast.success(`Copied ${text} to clipboard!`);
     } else {
@@ -205,14 +215,14 @@ function ColorsSection() {
     },
   ];
 
-  const exportPalette = () => {
+  const exportPalette = async () => {
     const paletteData = [...allColors, ...semanticColors].map(scale => ({
       name: scale.category,
       description: scale.description,
       colors: scale.colors.map(c => ({ name: c.name, hex: c.value, variable: c.var }))
     }));
     const jsonData = JSON.stringify(paletteData, null, 2);
-    const success = copyToClipboard(jsonData);
+    const success = await copyToClipboard(jsonData);
     if (success) {
       toast.success('Palette data copied to clipboard!');
     } else {
