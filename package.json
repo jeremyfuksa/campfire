@@ -7,12 +7,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jf065530/campfire.git"
+    "url": "https://github.com/jeremyfuksa/campfire.git"
   },
   "bugs": {
-    "url": "https://github.com/jf065530/campfire/issues"
+    "url": "https://github.com/jeremyfuksa/campfire/issues"
   },
-  "homepage": "https://github.com/jf065530/campfire#readme",
+  "homepage": "https://github.com/jeremyfuksa/campfire#readme",
   "keywords": [
     "design-system",
     "react",
