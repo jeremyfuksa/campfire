@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import React, { useState } from "react";
 import { PageWithSidebar } from "./PageWithSidebar";
 import { ComponentDocumentation } from "./ComponentDocumentation";
 
-export function GettingStartedPage() {
+interface GettingStartedPageProps {
+  onOpenReference: () => void;
+}
+
+export function GettingStartedPage({ onOpenReference }: GettingStartedPageProps) {
   const [activeSection, setActiveSection] = useState("install");
 
   const sidebarGroups = [
@@ -25,21 +30,133 @@ export function GettingStartedPage() {
   ];
 
   return (
-    <PageWithSidebar
-      title="Getting Started"
-      description="Install Campfire from npm or clone the repo to explore the docs."
-      sidebarGroups={sidebarGroups}
-      activeSection={activeSection}
-      onSectionChange={setActiveSection}
-      gradientColor="var(--primary-600)"
+    <div className="space-y-10">
+      <HeroSection
+        onInstallClick={() => setActiveSection("install")}
+        onCloneClick={() => setActiveSection("clone")}
+        onOpenReference={onOpenReference}
+      />
+      <PageWithSidebar
+        title="Getting Started"
+        description="Install Campfire from npm or clone the repo to explore the docs."
+        sidebarGroups={sidebarGroups}
+        activeSection={activeSection}
+        onSectionChange={setActiveSection}
+        gradientColor="var(--primary-600)"
+      >
+        {activeSection === "install" && <InstallSection />}
+        {activeSection === "clone" && <CloneSection />}
+        {activeSection === "usage" && <UsageSection />}
+        {activeSection === "publish" && <PublishSection />}
+        {activeSection === "tokens" && <TokensSection />}
+        {activeSection === "support" && <SupportSection />}
+      </PageWithSidebar>
+    </div>
+  );
+}
+
+function HeroSection({
+  onInstallClick,
+  onCloneClick,
+  onOpenReference,
+}: {
+  onInstallClick: () => void;
+  onCloneClick: () => void;
+  onOpenReference: () => void;
+}) {
+  return (
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(96,122,151,0.15), rgba(184,123,106,0.15))",
+        borderBottom: "1px solid var(--border-default)",
+      }}
     >
-      {activeSection === "install" && <InstallSection />}
-      {activeSection === "clone" && <CloneSection />}
-      {activeSection === "usage" && <UsageSection />}
-      {activeSection === "publish" && <PublishSection />}
-      {activeSection === "tokens" && <TokensSection />}
-      {activeSection === "support" && <SupportSection />}
-    </PageWithSidebar>
+      <div className="max-w-6xl mx-auto px-8 py-16 grid gap-10 lg:grid-cols-[2fr,1fr]">
+        <div>
+          <p
+            style={{
+              fontSize: "12px",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "var(--text-tertiary)",
+            }}
+          >
+            Campfire Design System
+          </p>
+          <h2 className="text-4xl font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
+            Warm, practical UI building blocks for modern products.
+          </h2>
+          <p style={{ fontSize: "18px", color: "var(--text-secondary)", lineHeight: 1.7 }}>
+            Install the published npm package or clone the docs to explore. Campfire ships Tailwind-ready
+            tokens, opinionated components, and a full reference so you can light up new experiences fast.
+          </p>
+          <div className="flex flex-wrap gap-3 mt-8">
+            <button
+              className="px-6 py-3 rounded-lg text-white font-medium"
+              style={{ backgroundColor: "var(--primary-600)" }}
+              onClick={onInstallClick}
+            >
+              Install via npm
+            </button>
+            <button
+              className="px-6 py-3 rounded-lg font-medium"
+              style={{
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
+              }}
+              onClick={onCloneClick}
+            >
+              Clone the repo
+            </button>
+            <button
+              className="px-6 py-3 rounded-lg font-medium"
+              style={{
+                color: "var(--interactive-default)",
+                border: "1px solid var(--interactive-default)",
+              }}
+              onClick={onOpenReference}
+            >
+              View complete reference
+            </button>
+          </div>
+        </div>
+        <div
+          className="rounded-3xl p-6 flex flex-col gap-4"
+          style={{
+            backgroundColor: "var(--bg-base)",
+            border: "1px solid var(--border-default)",
+            boxShadow: "var(--shadow-md)",
+          }}
+        >
+          <div>
+            <p style={{ fontSize: "12px", color: "var(--text-tertiary)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Install
+            </p>
+            <code className="block rounded-xl px-3 py-2 mt-2" style={{ backgroundColor: "var(--bg-muted)", color: "var(--text-primary)" }}>
+              npm install @jeremyfuksa/campfire
+            </code>
+          </div>
+          <div>
+            <p style={{ fontSize: "12px", color: "var(--text-tertiary)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Import once
+            </p>
+            <code className="block rounded-xl px-3 py-2 mt-2" style={{ backgroundColor: "var(--bg-muted)", color: "var(--text-primary)" }}>
+              import '@jeremyfuksa/campfire/styles.css';
+            </code>
+          </div>
+          <div>
+            <p style={{ fontSize: "12px", color: "var(--text-tertiary)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Use anywhere
+            </p>
+            <code className="block rounded-xl px-3 py-2 mt-2" style={{ backgroundColor: "var(--bg-muted)", color: "var(--text-primary)" }}>
+              import {'{'} Button {'}'} from '@jeremyfuksa/campfire';
+            </code>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

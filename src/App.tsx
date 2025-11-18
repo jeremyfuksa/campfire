@@ -7,7 +7,7 @@ import { TestingExamplesPage } from "./components/TestingExamplesPage";
 import { GettingStartedPage } from "./components/GettingStartedPage";
 
 export default function App() {
-  const [activePage, setActivePage] = useState("design-tokens");
+  const [activePage, setActivePage] = useState("getting-started");
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   // Apply theme to document
@@ -18,11 +18,6 @@ export default function App() {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
-
-  // If Complete Reference is active, render it standalone without header/nav
-  if (activePage === "complete-reference") {
-    return <CompleteReferencePage />;
-  }
 
   const navigation = [
     {
@@ -49,11 +44,6 @@ export default function App() {
       id: "testing-examples",
       label: "Testing & Examples",
       icon: "fa-solid fa-flask",
-    },
-    {
-      id: "complete-reference",
-      label: "Complete Reference",
-      icon: "fa-solid fa-book",
     },
   ];
 
@@ -190,13 +180,16 @@ export default function App() {
 
       {/* Main Content */}
       <main>
-        {activePage === "getting-started" && <GettingStartedPage />}
+        {activePage === "getting-started" && (
+          <GettingStartedPage onOpenReference={() => setActivePage("complete-reference")} />
+        )}
         {activePage === "design-tokens" && <DesignTokensPage />}
         {activePage === "components" && <FoundationComponentsPage />}
         {activePage === "grids-layouts" && <GridsLayoutsPage />}
         {activePage === "testing-examples" && (
           <TestingExamplesPage />
         )}
+        {activePage === "complete-reference" && <CompleteReferencePage />}
       </main>
 
       {/* Footer - only for pages without sidebars */}
