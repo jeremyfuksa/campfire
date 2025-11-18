@@ -18,3 +18,6 @@ An automated test harness is not yet wired in; rely on `npm run dev` for rapid v
 
 ## Commit & Pull Request Guidelines
 Git metadata is not vendored here, so stick to concise, imperative subjects that mention the scope (for example, `feat: add layout cards` or `fix: sync token export schema`). Each pull request should describe motivation, screenshots for visual tweaks, linked issues (if any), and call out manual steps such as rerunning `npm run tokens`.
+
+## Releases & Versioning
+Cut releases from the repo root using `npm run release`, which now bumps the semantic version (`npm version patch`) before building and publishing the `@jeremyfuksa/campfire` package. When preparing for a commit that will reach users, bump `package.json` manually (`npm version patch|minor|major`) if the change is not covered by a dedicated release script so consumers can rely on explicit semver increments.
