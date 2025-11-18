@@ -22,14 +22,13 @@ This generates ESM, CJS, and type declarations in `dist/`.
 
 ### Publishing / Installing
 
-1. `npm run build:lib`
-2. `npm publish` (or `npm pack` + publish to your registry)
+1. `npm run release` (runs `build:lib` then `npm publish --access public`)
 
 Consumers should install the package and include the CSS/token file once:
 
 ```ts
-import '@campfire/design-system/styles.css';
-import { Button } from '@campfire/design-system';
+import '@jeremyfuksa/campfire/styles.css';
+import { Button } from '@jeremyfuksa/campfire';
 
 export function Example() {
   return <Button>Campfire</Button>;
@@ -37,6 +36,15 @@ export function Example() {
 ```
 
 Because the components rely on CSS custom properties and Tailwind‑style utility classes generated inside `styles/globals.css`, importing the stylesheet is required before using any components.
+
+### Cutting a Release
+
+```bash
+npm version patch   # or minor/major according to changes
+npm run release     # builds dist/ and publishes to npm
+```
+
+Ensure you're logged in (`npm login`) and have registry permissions.
 
 ## Design Tokens → JSON Export
 

@@ -27,6 +27,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:lib": "tsup",
+    "release": "npm run build:lib && npm publish --access public",
     "preview": "vite preview",
     "tokens": "node scripts/export-tokens.js"
   },
