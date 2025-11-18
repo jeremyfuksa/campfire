@@ -1,6 +1,6 @@
 {
   "name": "@jeremyfuksa/campfire",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
   "author": "Campfire Design System Team",
