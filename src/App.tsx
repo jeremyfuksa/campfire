@@ -68,7 +68,12 @@ export default function App() {
           }}
         />
         <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between relative">
-          <div className="flex items-center gap-3">
+          <a
+            href="https://github.com/jeremyfuksa/campfire"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3"
+          >
             <div
               className="w-10 h-10 rounded-lg flex items-center justify-center relative overflow-hidden"
               style={{
@@ -105,7 +110,7 @@ export default function App() {
                 Foundation v1.0 — Warm & Natural
               </p>
             </div>
-          </div>
+          </a>
 
           {/* Theme Toggle */}
           <button
@@ -213,7 +218,7 @@ export default function App() {
               </div>
               <div className="flex gap-6">
                 <a
-                  href="#"
+                  href="/"
                   style={{
                     fontSize: "14px",
                     color: "var(--text-secondary)",
@@ -222,7 +227,9 @@ export default function App() {
                   Documentation
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/jeremyfuksa/campfire"
+                  target="_blank"
+                  rel="noreferrer"
                   style={{
                     fontSize: "14px",
                     color: "var(--text-secondary)",
@@ -231,7 +238,9 @@ export default function App() {
                   GitHub
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/jeremyfuksa/campfire/issues"
+                  target="_blank"
+                  rel="noreferrer"
                   style={{
                     fontSize: "14px",
                     color: "var(--text-secondary)",

@@ -124,9 +124,9 @@ export function PageWithSidebar({
                 © 2025 Campfire Design System. All rights reserved.
               </div>
               <div className="flex gap-6">
-                <a href="#" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Documentation</a>
-                <a href="#" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>GitHub</a>
-                <a href="#" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Support</a>
+                <a href="/" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Documentation</a>
+                <a href="https://github.com/jeremyfuksa/campfire" target="_blank" rel="noreferrer" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>GitHub</a>
+                <a href="https://github.com/jeremyfuksa/campfire/issues" target="_blank" rel="noreferrer" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Support</a>
               </div>
             </div>
           </div>
