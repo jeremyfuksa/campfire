@@ -4,6 +4,7 @@ import { FoundationComponentsPage } from "./components/FoundationComponentsPage_
 import { CompleteReferencePage } from "./components/CompleteReferencePage";
 import { GridsLayoutsPage } from "./components/GridsLayoutsPage";
 import { TestingExamplesPage } from "./components/TestingExamplesPage";
+import { GettingStartedPage } from "./components/GettingStartedPage";
 
 export default function App() {
   const [activePage, setActivePage] = useState("design-tokens");
@@ -24,6 +25,11 @@ export default function App() {
   }
 
   const navigation = [
+    {
+      id: "getting-started",
+      label: "Getting Started",
+      icon: "fa-solid fa-compass",
+    },
     {
       id: "design-tokens",
       label: "Design Tokens",
@@ -184,6 +190,7 @@ export default function App() {
 
       {/* Main Content */}
       <main>
+        {activePage === "getting-started" && <GettingStartedPage />}
         {activePage === "design-tokens" && <DesignTokensPage />}
         {activePage === "components" && <FoundationComponentsPage />}
         {activePage === "grids-layouts" && <GridsLayoutsPage />}
