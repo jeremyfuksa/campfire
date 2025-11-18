@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { PageWithSidebar } from "./PageWithSidebar";
 import { ComponentDocumentation } from "./ComponentDocumentation";
 
@@ -152,7 +153,11 @@ function PublishSection() {
         "Ensure `npm login` is configured before publishing.",
       ]}
       accessibility={[]}
-    />
+    >
+      <div style={{ color: "var(--text-secondary)" }}>
+        Maintain a changelog, tag releases in Git, and verify the docs site before publishing so consumers always have the latest guidance.
+      </div>
+    </ComponentDocumentation>
   );
 }
 
@@ -167,7 +172,11 @@ function TokensSection() {
         "Regenerate tokens by running `npm run tokens`.",
       ]}
       accessibility={[]}
-    />
+    >
+      <p style={{ color: "var(--text-secondary)" }}>
+        The JSON export mirrors the palette defined in `src/styles/globals.css`. Share it with design tools or downstream projects to keep colors aligned.
+      </p>
+    </ComponentDocumentation>
   );
 }
 
@@ -183,6 +192,10 @@ function SupportSection() {
         "Join discussions to shape the roadmap.",
       ]}
       accessibility={[]}
-    />
+    >
+      <p style={{ color: "var(--text-secondary)" }}>
+        Need a custom component or found a bug? File an issue with repro steps, or fork the repo and open a PR. For npm support, use `npm publish --access public` to keep versions synchronized.
+      </p>
+    </ComponentDocumentation>
   );
 }
