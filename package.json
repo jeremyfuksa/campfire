@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/jeremyfuksa/campfire/issues"
   },
-  "homepage": "https://github.com/jeremyfuksa/campfire#readme",
+  "homepage": "https://jeremyfuksa.github.io/campfire",
   "keywords": [
     "design-system",
     "react",
@@ -27,6 +27,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build:lib": "tsup",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "release": "npm version patch && npm run build:lib && npm publish --access public",
     "preview": "vite preview",
     "tokens": "node scripts/export-tokens.js"
@@ -98,6 +100,7 @@
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.22",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.13",
     "tsup": "^8.3.0",

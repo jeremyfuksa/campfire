@@ -2,6 +2,10 @@
 
 This repository contains both the Campfire docs/demo app (served via Vite) and a distributable component library that can be consumed from other projects.
 
+## Live Site
+
+The docs/demo site is deployed to GitHub Pages at https://jeremyfuksa.github.io/campfire so you can browse the getting-started flow, design tokens, and components without cloning the repo.
+
 ## Getting Started
 
 ### Option 1 — Install via npm
