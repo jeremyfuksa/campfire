@@ -1,5 +1,5 @@
 {
-  "name": "@campfire/design-system",
+  "name": "@jeremyfuksa/campfire",
   "version": "0.1.0",
   "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
