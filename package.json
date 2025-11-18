@@ -1,8 +1,28 @@
 {
-  "name": "campfire",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@campfire/design-system",
+  "version": "0.1.0",
+  "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
+  "author": "Campfire Design System Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jf065530/campfire.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jf065530/campfire/issues"
+  },
+  "homepage": "https://github.com/jf065530/campfire#readme",
+  "keywords": [
+    "design-system",
+    "react",
+    "tailwind",
+    "campfire",
+    "ui"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
