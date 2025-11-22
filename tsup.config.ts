@@ -4,9 +4,10 @@ export default defineConfig({
   entry: ["src/lib/index.ts"],
   format: ["esm", "cjs"],
   dts: true,
-  splitting: false,
+  splitting: true,
   clean: true,
   external: ["react", "react-dom"],
   css: true,
   sourcemap: true,
+  treeshake: true,
 });

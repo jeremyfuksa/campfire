@@ -65,3 +65,11 @@ export * from "../components/ui/utils";
 export { BackgroundGradients } from "../components/BackgroundGradients";
 export { ComponentDocumentation } from "../components/ComponentDocumentation";
 export { PageWithSidebar } from "../components/PageWithSidebar";
+
+// Theme utilities
+export {
+  ThemeProvider,
+  useTheme,
+  useResolvedTheme,
+  useThemeToggle,
+} from "../components/theme-provider";
