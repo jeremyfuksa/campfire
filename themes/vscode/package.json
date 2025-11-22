@@ -1,0 +1,46 @@
+{
+  "name": "campfire-theme",
+  "displayName": "Campfire Theme",
+  "description": "A warm, earthy color theme inspired by gathering around a campfire",
+  "version": "0.1.0",
+  "publisher": "campfire-design-system",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "campfire",
+    "warm",
+    "earthy",
+    "natural"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Campfire Light",
+        "uiTheme": "vs",
+        "path": "./campfire-light.json"
+      },
+      {
+        "label": "Campfire Dark",
+        "uiTheme": "vs-dark",
+        "path": "./campfire-dark.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremyfuksa/campfire.git",
+    "directory": "themes/vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/jeremyfuksa/campfire/issues"
+  },
+  "homepage": "https://jeremyfuksa.github.io/campfire",
+  "license": "MIT"
+}

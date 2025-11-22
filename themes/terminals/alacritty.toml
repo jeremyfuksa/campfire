@@ -1,0 +1,74 @@
+# Campfire Theme for Alacritty
+# To use: Copy the desired theme section to your alacritty.toml config file
+
+# ============================================
+# Campfire Light Theme
+# ============================================
+[[colors.campfire-light]]
+[colors.campfire-light.primary]
+background = "#f7f8f9"
+foreground = "#2b303b"
+
+[colors.campfire-light.cursor]
+text = "#f7f8f9"
+cursor = "#4c627d"
+
+[colors.campfire-light.selection]
+text = "#2b303b"
+background = "#d2dae3"
+
+[colors.campfire-light.normal]
+black = "#2b303b"
+red = "#dc3a38"
+green = "#739038"
+yellow = "#ef991f"
+blue = "#4c627d"
+magenta = "#a8654f"
+cyan = "#8899b3"
+white = "#edeef1"
+
+[colors.campfire-light.bright]
+black = "#5e6371"
+red = "#e75351"
+green = "#8fb14b"
+yellow = "#f9c574"
+blue = "#8098b0"
+magenta = "#b87b6a"
+cyan = "#a3b2c9"
+white = "#f7f8f9"
+
+# ============================================
+# Campfire Dark Theme
+# ============================================
+[[colors.campfire-dark]]
+[colors.campfire-dark.primary]
+background = "#1c1f26"
+foreground = "#f7f8f9"
+
+[colors.campfire-dark.cursor]
+text = "#1c1f26"
+cursor = "#acbbcc"
+
+[colors.campfire-dark.selection]
+text = "#f7f8f9"
+background = "#4c627d"
+
+[colors.campfire-dark.normal]
+black = "#2b303b"
+red = "#dc3a38"
+green = "#739038"
+yellow = "#ef991f"
+blue = "#8098b0"
+magenta = "#c9998a"
+cyan = "#a3b2c9"
+white = "#edeef1"
+
+[colors.campfire-dark.bright]
+black = "#5e6371"
+red = "#e75351"
+green = "#8fb14b"
+yellow = "#f9c574"
+blue = "#acbbcc"
+magenta = "#dbbdb3"
+cyan = "#b8c5d9"
+white = "#f7f8f9"

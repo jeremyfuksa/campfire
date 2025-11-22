@@ -1,0 +1,141 @@
+/**
+ * Campfire Design System - Color Variables
+ *
+ * Import this file to use Campfire colors in any CSS project:
+ * @import url('path/to/colors.css');
+ *
+ * Or copy the variables you need into your own stylesheet.
+ */
+
+:root {
+  /* Primary Palette - Cello (Slate Blue-Gray) */
+  --campfire-primary-50: #f5f7f9;
+  --campfire-primary-100: #ebeef2;
+  --campfire-primary-200: #d2dae3;
+  --campfire-primary-300: #acbbcc;
+  --campfire-primary-400: #8098b0;
+  --campfire-primary-500: #607a97;
+  --campfire-primary-600: #4c627d;
+  --campfire-primary-700: #3e4f66;
+  --campfire-primary-800: #364456;
+  --campfire-primary-900: #303a49;
+  --campfire-primary-950: #1f2530;
+
+  /* Secondary Palette - Terracotta Clay (Earthy Red-Brown) */
+  --campfire-secondary-50: #faf6f5;
+  --campfire-secondary-100: #f5ebe8;
+  --campfire-secondary-200: #ead8d2;
+  --campfire-secondary-300: #dbbdb3;
+  --campfire-secondary-400: #c9998a;
+  --campfire-secondary-500: #b87b6a;
+  --campfire-secondary-600: #a8654f;
+  --campfire-secondary-700: #8d5443;
+  --campfire-secondary-800: #75473a;
+  --campfire-secondary-900: #623e34;
+  --campfire-secondary-950: #341f19;
+
+  /* Neutral Palette - Black Rock (Deep Earth Tones) */
+  --campfire-neutral-50: #f7f8f9;
+  --campfire-neutral-100: #edeef1;
+  --campfire-neutral-200: #d8dbe0;
+  --campfire-neutral-300: #b8bcc5;
+  --campfire-neutral-400: #9299a5;
+  --campfire-neutral-500: #747b8a;
+  --campfire-neutral-600: #5e6371;
+  --campfire-neutral-700: #4d515c;
+  --campfire-neutral-800: #42454e;
+  --campfire-neutral-900: #2b303b;
+  --campfire-neutral-950: #1c1f26;
+
+  /* Success Palette - Sage/Forest (Natural Green) */
+  --campfire-success-500: #8fb14b;
+  --campfire-success-600: #739038;
+  --campfire-success-700: #5a6f2d;
+
+  /* Warning Palette - Golden Amber (Warm Glow) */
+  --campfire-warning-500: #f9c574;
+  --campfire-warning-600: #ef991f;
+  --campfire-warning-700: #d97706;
+
+  /* Danger Palette - Flamingo (Earthy Red) */
+  --campfire-danger-500: #e75351;
+  --campfire-danger-600: #dc3a38;
+  --campfire-danger-700: #be2b29;
+
+  /* Info Palette - Blue Calx (Muted Blue) */
+  --campfire-info-500: #b8c5d9;
+  --campfire-info-600: #a3b2c9;
+  --campfire-info-700: #8899b3;
+
+  /* Semantic Tokens - Light Mode */
+  --campfire-bg-base: var(--campfire-neutral-50);
+  --campfire-bg-subtle: var(--campfire-neutral-100);
+  --campfire-bg-muted: var(--campfire-neutral-200);
+  --campfire-bg-emphasis: var(--campfire-neutral-900);
+
+  --campfire-text-primary: var(--campfire-neutral-900);
+  --campfire-text-secondary: var(--campfire-neutral-600);
+  --campfire-text-tertiary: var(--campfire-neutral-500);
+  --campfire-text-disabled: var(--campfire-neutral-400);
+  --campfire-text-inverse: var(--campfire-neutral-50);
+
+  --campfire-border-default: var(--campfire-neutral-200);
+  --campfire-border-strong: var(--campfire-neutral-300);
+  --campfire-border-subtle: var(--campfire-neutral-100);
+
+  --campfire-interactive-default: var(--campfire-primary-600);
+  --campfire-interactive-hover: var(--campfire-primary-700);
+  --campfire-interactive-active: var(--campfire-primary-800);
+  --campfire-interactive-disabled: var(--campfire-neutral-300);
+}
+
+/* Dark Mode Overrides */
+.dark,
+[data-theme="dark"] {
+  /* Semantic Tokens - Dark Mode */
+  --campfire-bg-base: var(--campfire-neutral-950);
+  --campfire-bg-subtle: var(--campfire-neutral-900);
+  --campfire-bg-muted: var(--campfire-neutral-800);
+  --campfire-bg-emphasis: var(--campfire-neutral-50);
+
+  --campfire-text-primary: var(--campfire-neutral-50);
+  --campfire-text-secondary: var(--campfire-neutral-400);
+  --campfire-text-tertiary: var(--campfire-neutral-500);
+  --campfire-text-disabled: var(--campfire-neutral-600);
+  --campfire-text-inverse: var(--campfire-neutral-900);
+
+  --campfire-border-default: var(--campfire-neutral-800);
+  --campfire-border-strong: var(--campfire-neutral-700);
+  --campfire-border-subtle: var(--campfire-neutral-900);
+
+  --campfire-interactive-default: var(--campfire-primary-400);
+  --campfire-interactive-hover: var(--campfire-primary-300);
+  --campfire-interactive-active: var(--campfire-primary-200);
+  --campfire-interactive-disabled: var(--campfire-neutral-700);
+}
+
+/* System Preference */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not([data-theme="light"]) {
+    /* Semantic Tokens - Dark Mode */
+    --campfire-bg-base: var(--campfire-neutral-950);
+    --campfire-bg-subtle: var(--campfire-neutral-900);
+    --campfire-bg-muted: var(--campfire-neutral-800);
+    --campfire-bg-emphasis: var(--campfire-neutral-50);
+
+    --campfire-text-primary: var(--campfire-neutral-50);
+    --campfire-text-secondary: var(--campfire-neutral-400);
+    --campfire-text-tertiary: var(--campfire-neutral-500);
+    --campfire-text-disabled: var(--campfire-neutral-600);
+    --campfire-text-inverse: var(--campfire-neutral-900);
+
+    --campfire-border-default: var(--campfire-neutral-800);
+    --campfire-border-strong: var(--campfire-neutral-700);
+    --campfire-border-subtle: var(--campfire-neutral-900);
+
+    --campfire-interactive-default: var(--campfire-primary-400);
+    --campfire-interactive-hover: var(--campfire-primary-300);
+    --campfire-interactive-active: var(--campfire-primary-200);
+    --campfire-interactive-disabled: var(--campfire-neutral-700);
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemes": [
+    {
+      "name": "Campfire Light",
+      "background": "#f7f8f9",
+      "foreground": "#2b303b",
+      "black": "#2b303b",
+      "blue": "#4c627d",
+      "brightBlack": "#5e6371",
+      "brightBlue": "#8098b0",
+      "brightCyan": "#a3b2c9",
+      "brightGreen": "#8fb14b",
+      "brightPurple": "#b87b6a",
+      "brightRed": "#e75351",
+      "brightWhite": "#f7f8f9",
+      "brightYellow": "#f9c574",
+      "cursorColor": "#4c627d",
+      "cyan": "#8899b3",
+      "green": "#739038",
+      "purple": "#a8654f",
+      "red": "#dc3a38",
+      "selectionBackground": "#d2dae3",
+      "white": "#edeef1",
+      "yellow": "#ef991f"
+    },
+    {
+      "name": "Campfire Dark",
+      "background": "#1c1f26",
+      "foreground": "#f7f8f9",
+      "black": "#2b303b",
+      "blue": "#8098b0",
+      "brightBlack": "#5e6371",
+      "brightBlue": "#acbbcc",
+      "brightCyan": "#b8c5d9",
+      "brightGreen": "#8fb14b",
+      "brightPurple": "#dbbdb3",
+      "brightRed": "#e75351",
+      "brightWhite": "#f7f8f9",
+      "brightYellow": "#f9c574",
+      "cursorColor": "#acbbcc",
+      "cyan": "#a3b2c9",
+      "green": "#739038",
+      "purple": "#c9998a",
+      "red": "#dc3a38",
+      "selectionBackground": "#4c627d",
+      "white": "#edeef1",
+      "yellow": "#ef991f"
+    }
+  ]
+}

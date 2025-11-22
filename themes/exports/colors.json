@@ -1,0 +1,143 @@
+{
+  "name": "Campfire Design System",
+  "version": "0.2.0",
+  "description": "A warm, earthy color system inspired by gathering around a campfire",
+  "palettes": {
+    "primary": {
+      "name": "Cello (Slate Blue-Gray)",
+      "50": "#f5f7f9",
+      "100": "#ebeef2",
+      "200": "#d2dae3",
+      "300": "#acbbcc",
+      "400": "#8098b0",
+      "500": "#607a97",
+      "600": "#4c627d",
+      "700": "#3e4f66",
+      "800": "#364456",
+      "900": "#303a49",
+      "950": "#1f2530"
+    },
+    "secondary": {
+      "name": "Terracotta Clay (Earthy Red-Brown)",
+      "50": "#faf6f5",
+      "100": "#f5ebe8",
+      "200": "#ead8d2",
+      "300": "#dbbdb3",
+      "400": "#c9998a",
+      "500": "#b87b6a",
+      "600": "#a8654f",
+      "700": "#8d5443",
+      "800": "#75473a",
+      "900": "#623e34",
+      "950": "#341f19"
+    },
+    "neutral": {
+      "name": "Black Rock (Deep Earth Tones)",
+      "50": "#f7f8f9",
+      "100": "#edeef1",
+      "200": "#d8dbe0",
+      "300": "#b8bcc5",
+      "400": "#9299a5",
+      "500": "#747b8a",
+      "600": "#5e6371",
+      "700": "#4d515c",
+      "800": "#42454e",
+      "900": "#2b303b",
+      "950": "#1c1f26"
+    },
+    "success": {
+      "name": "Sage/Forest (Natural Green)",
+      "500": "#8fb14b",
+      "600": "#739038",
+      "700": "#5a6f2d"
+    },
+    "warning": {
+      "name": "Golden Amber (Warm Glow)",
+      "500": "#f9c574",
+      "600": "#ef991f",
+      "700": "#d97706"
+    },
+    "danger": {
+      "name": "Flamingo (Earthy Red)",
+      "500": "#e75351",
+      "600": "#dc3a38",
+      "700": "#be2b29"
+    },
+    "info": {
+      "name": "Blue Calx (Muted Blue)",
+      "500": "#b8c5d9",
+      "600": "#a3b2c9",
+      "700": "#8899b3"
+    }
+  },
+  "semantic": {
+    "light": {
+      "bg": {
+        "base": "#f7f8f9",
+        "subtle": "#edeef1",
+        "muted": "#d8dbe0",
+        "emphasis": "#2b303b"
+      },
+      "text": {
+        "primary": "#2b303b",
+        "secondary": "#5e6371",
+        "tertiary": "#747b8a",
+        "disabled": "#9299a5",
+        "inverse": "#f7f8f9"
+      },
+      "border": {
+        "default": "#d8dbe0",
+        "strong": "#b8bcc5",
+        "subtle": "#edeef1"
+      },
+      "interactive": {
+        "default": "#4c627d",
+        "hover": "#3e4f66",
+        "active": "#364456",
+        "disabled": "#b8bcc5"
+      }
+    },
+    "dark": {
+      "bg": {
+        "base": "#1c1f26",
+        "subtle": "#2b303b",
+        "muted": "#42454e",
+        "emphasis": "#f7f8f9"
+      },
+      "text": {
+        "primary": "#f7f8f9",
+        "secondary": "#9299a5",
+        "tertiary": "#747b8a",
+        "disabled": "#5e6371",
+        "inverse": "#2b303b"
+      },
+      "border": {
+        "default": "#42454e",
+        "strong": "#4d515c",
+        "subtle": "#2b303b"
+      },
+      "interactive": {
+        "default": "#8098b0",
+        "hover": "#acbbcc",
+        "active": "#d2dae3",
+        "disabled": "#4d515c"
+      }
+    }
+  },
+  "usage": {
+    "platforms": [
+      "React Components",
+      "VS Code",
+      "Terminal Emulators (Windows Terminal, iTerm2, Alacritty, Kitty)",
+      "Custom CSS/SCSS",
+      "Tailwind CSS"
+    ],
+    "exports": {
+      "json": "colors.json",
+      "css": "colors.css",
+      "scss": "colors.scss",
+      "vscode": "../vscode/",
+      "terminals": "../terminals/"
+    }
+  }
+}

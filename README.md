@@ -66,6 +66,20 @@ Ensure you're logged in (`npm login`) and have registry permissions.
 
 In the docs app (Design Tokens page) you can click **Export JSON** to download `campfire-palettes.json`, which mirrors the palette defined in source and can be imported into other tools.
 
+## Editor & Terminal Themes
+
+Campfire colors are available as themes for popular editors and terminals! See the [`themes/`](./themes) directory for:
+
+- **VS Code** - Full color themes (light & dark)
+- **iTerm2** - macOS terminal themes
+- **Windows Terminal** - Windows terminal color schemes
+- **Hyper** - Cross-platform terminal themes
+- **Alacritty** - GPU-accelerated terminal themes
+- **Kitty** - Fast terminal emulator themes
+- **Color Exports** - JSON, CSS for custom integrations
+
+📖 **[Installation Guide](./themes/README.md)**
+
 ## Theme Customization
 
 Campfire includes a powerful theming system that supports light, dark, and system preference modes.
