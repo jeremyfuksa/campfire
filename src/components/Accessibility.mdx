@@ -1,0 +1,201 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Documentation/Accessibility" />
+
+# Accessibility
+
+Campfire Design System is built with accessibility as a **core principle**, not an afterthought. All 69 components follow **WCAG 2.1 Level AA** standards.
+
+## ✅ What's Included
+
+### Semantic HTML
+Every component uses proper HTML semantics:
+- `<button>` for actions
+- `<a>` for navigation
+- Proper heading hierarchy
+- Landmark regions (`main`, `nav`, `aside`)
+
+### ARIA Support
+- Descriptive labels on all interactive elements
+- Proper roles and states
+- Live regions for dynamic updates
+- Relationship attributes (`aria-labelledby`, `aria-describedby`)
+
+### Keyboard Navigation
+All components are fully keyboard accessible:
+
+| Component | Keys |
+|-----------|------|
+| **All** | `Tab`, `Shift+Tab`, `Enter`, `Escape` |
+| **DataTable** | Arrow keys to navigate rows |
+| **TreeView** | Arrows to expand/collapse/navigate |
+| **Slider** | Arrows to adjust, `Home`/`End` for min/max |
+| **Tabs** | Arrow Left/Right to switch tabs |
+| **Menus** | Arrow Up/Down to navigate items |
+
+### Focus Management
+- Visible focus indicators (3px ring)
+- Focus trap in modals and dialogs
+- Focus restoration when closing overlays
+- Skip links for keyboard users
+
+### Color Contrast
+- Text: **4.5:1** minimum (AA standard)
+- Large text: **3:1** minimum
+- UI components: **3:1** against background
+- Status indicators use icons + text (not color alone)
+
+## 🧪 Testing
+
+All components include **automated accessibility tests** using `jest-axe`:
+
+\`\`\`tsx
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+test('should have no accessibility violations', async () => {
+  const { container } = render(<Button>Click me</Button>);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+\`\`\`
+
+**Run tests:**
+\`\`\`bash
+npm test
+\`\`\`
+
+## 📖 Best Practices
+
+### Buttons
+\`\`\`tsx
+// ✅ Good - descriptive text
+<Button>Save changes</Button>
+
+// ✅ Good - icon with label
+<Button aria-label="Delete item">
+  <i className="fa-solid fa-trash" />
+</Button>
+
+// ❌ Bad - unlabeled icon
+<Button>
+  <i className="fa-solid fa-trash" />
+</Button>
+\`\`\`
+
+### Forms
+\`\`\`tsx
+// ✅ Good - associated label
+<Label htmlFor="email">Email</Label>
+<Input id="email" type="email" />
+
+// ✅ Good - error state
+<Input
+  id="password"
+  aria-invalid={hasError}
+  aria-describedby="password-error"
+/>
+{hasError && (
+  <span id="password-error" role="alert">
+    Password must be at least 8 characters
+  </span>
+)}
+\`\`\`
+
+### Dynamic Content
+\`\`\`tsx
+// ✅ Good - announces to screen readers
+<div role="status" aria-live="polite">
+  {items.length} items in cart
+</div>
+
+// ✅ Good - urgent message
+<div role="alert" aria-live="assertive">
+  Error: Failed to save changes
+</div>
+\`\`\`
+
+## 🎯 Screen Reader Support
+
+Tested with:
+- **NVDA** (Windows)
+- **JAWS** (Windows)
+- **VoiceOver** (macOS/iOS)
+- **TalkBack** (Android)
+
+## 🔍 Testing Tools
+
+### Automated
+- **axe DevTools** browser extension
+- **WAVE** accessibility checker
+- **Lighthouse** (Chrome DevTools)
+
+### Manual
+1. **Keyboard only** - Unplug mouse, use Tab/arrows
+2. **Screen reader** - Enable VoiceOver/NVDA
+3. **Zoom to 200%** - Check layout doesn't break
+4. **High contrast mode** - Test in Windows high contrast
+
+## ♿ Component Examples
+
+### DataTable
+- Sortable columns announce sort direction
+- Row selection with checkbox + label
+- Pagination buttons have descriptive labels
+- Search input has proper label
+
+\`\`\`tsx
+<DataTable
+  data={users}
+  columns={columns}
+  selectable  // Checkboxes with aria-labels
+  aria-label="User list"
+/>
+\`\`\`
+
+### Dialog
+- Focus trapped inside modal
+- First focusable element receives focus
+- `Escape` to close
+- Focus returns to trigger button
+
+\`\`\`tsx
+<Dialog>
+  <DialogTitle>Confirm action</DialogTitle>
+  <DialogDescription>
+    This will permanently delete the item.
+  </DialogDescription>
+  {/* Focus automatically managed */}
+</Dialog>
+\`\`\`
+
+### Rating
+- Each star is a focusable button
+- Current rating announced
+- Arrow keys to navigate
+- `Enter`/`Space` to select
+
+\`\`\`tsx
+<Rating
+  value={rating}
+  onChange={setRating}
+  aria-label="Rate this product"
+/>
+\`\`\`
+
+## 📚 Resources
+
+- [WCAG 2.1 Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/)
+- [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/)
+- [Radix UI Accessibility](https://www.radix-ui.com/primitives/docs/overview/accessibility)
+- [WebAIM](https://webaim.org/)
+
+## 🐛 Report Issues
+
+Found an accessibility issue? Please [open an issue](https://github.com/jeremyfuksa/campfire/issues) with:
+- Steps to reproduce
+- Assistive technology used (if applicable)
+- WCAG criterion affected (if known)
+
+---
+
+**Every user matters.** Accessibility isn't a feature—it's a requirement.
