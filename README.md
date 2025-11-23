@@ -140,22 +140,6 @@ function QuickToggle() {
 }
 ```
 
-### Customizing Colors
-
-Override CSS custom properties to customize the theme:
-
-```css
-:root {
-  --primary-600: #your-color;
-  --interactive-default: var(--primary-600);
-}
-
-.dark {
-  --primary-400: #your-dark-color;
-  --interactive-default: var(--primary-400);
-}
-```
-
 ## Testing
 
 Campfire uses Vitest and React Testing Library for comprehensive testing.

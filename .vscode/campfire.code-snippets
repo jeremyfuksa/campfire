@@ -1,0 +1,711 @@
+{
+  "Campfire Button": {
+    "prefix": "cf-button",
+    "body": [
+      "<Button variant=\"${1|default,destructive,outline,secondary,ghost,link|}\" size=\"${2|default,sm,lg,icon|}\">",
+      "  ${3:Click me}",
+      "</Button>"
+    ],
+    "description": "Campfire Button component with variants"
+  },
+  "Campfire Input": {
+    "prefix": "cf-input",
+    "body": [
+      "<Input",
+      "  type=\"${1|text,email,password,number,tel,url|}\"",
+      "  placeholder=\"${2:Enter text...}\"",
+      "  value={${3:value}}",
+      "  onChange={(e) => ${4:setValue}(e.target.value)}",
+      "/>"
+    ],
+    "description": "Campfire Input component"
+  },
+  "Campfire Card": {
+    "prefix": "cf-card",
+    "body": [
+      "<Card>",
+      "  <CardHeader>",
+      "    <CardTitle>${1:Card Title}</CardTitle>",
+      "    <CardDescription>${2:Card description}</CardDescription>",
+      "  </CardHeader>",
+      "  <CardContent>",
+      "    ${3:// Content}",
+      "  </CardContent>",
+      "  <CardFooter>",
+      "    ${4:// Footer}",
+      "  </CardFooter>",
+      "</Card>"
+    ],
+    "description": "Campfire Card component with header, content, and footer"
+  },
+  "Campfire Alert": {
+    "prefix": "cf-alert",
+    "body": [
+      "<Alert variant=\"${1|default,destructive|}\">",
+      "  <AlertTitle>${2:Alert Title}</AlertTitle>",
+      "  <AlertDescription>${3:Alert description}</AlertDescription>",
+      "</Alert>"
+    ],
+    "description": "Campfire Alert component"
+  },
+  "Campfire Dialog": {
+    "prefix": "cf-dialog",
+    "body": [
+      "<Dialog open={${1:open}} onOpenChange={${2:setOpen}}>",
+      "  <DialogTrigger asChild>",
+      "    <Button>${3:Open Dialog}</Button>",
+      "  </DialogTrigger>",
+      "  <DialogContent>",
+      "    <DialogHeader>",
+      "      <DialogTitle>${4:Dialog Title}</DialogTitle>",
+      "      <DialogDescription>${5:Dialog description}</DialogDescription>",
+      "    </DialogHeader>",
+      "    ${6:// Content}",
+      "    <DialogFooter>",
+      "      ${7:// Footer buttons}",
+      "    </DialogFooter>",
+      "  </DialogContent>",
+      "</Dialog>"
+    ],
+    "description": "Campfire Dialog component"
+  },
+  "Campfire DataTable": {
+    "prefix": "cf-datatable",
+    "body": [
+      "const columns: ColumnDef<${1:DataType}>[] = [",
+      "  {",
+      "    id: \"${2:id}\",",
+      "    header: \"${3:Column Header}\",",
+      "    accessor: (row) => row.${4:field},",
+      "  },",
+      "];",
+      "",
+      "<DataTable",
+      "  data={${5:data}}",
+      "  columns={columns}",
+      "  pageSize={${6:10}}",
+      "  selectable={${7|true,false|}}",
+      "/>"
+    ],
+    "description": "Campfire DataTable with column definitions"
+  },
+  "Campfire Tabs": {
+    "prefix": "cf-tabs",
+    "body": [
+      "<Tabs defaultValue=\"${1:tab1}\">",
+      "  <TabsList>",
+      "    <TabsTrigger value=\"${2:tab1}\">${3:Tab 1}</TabsTrigger>",
+      "    <TabsTrigger value=\"${4:tab2}\">${5:Tab 2}</TabsTrigger>",
+      "  </TabsList>",
+      "  <TabsContent value=\"${2:tab1}\">",
+      "    ${6:// Tab 1 content}",
+      "  </TabsContent>",
+      "  <TabsContent value=\"${4:tab2}\">",
+      "    ${7:// Tab 2 content}",
+      "  </TabsContent>",
+      "</Tabs>"
+    ],
+    "description": "Campfire Tabs component"
+  },
+  "Campfire Select": {
+    "prefix": "cf-select",
+    "body": [
+      "<Select value={${1:value}} onValueChange={${2:setValue}}>",
+      "  <SelectTrigger>",
+      "    <SelectValue placeholder=\"${3:Select...}\" />",
+      "  </SelectTrigger>",
+      "  <SelectContent>",
+      "    <SelectItem value=\"${4:option1}\">${5:Option 1}</SelectItem>",
+      "    <SelectItem value=\"${6:option2}\">${7:Option 2}</SelectItem>",
+      "  </SelectContent>",
+      "</Select>"
+    ],
+    "description": "Campfire Select component"
+  },
+  "Campfire Autocomplete": {
+    "prefix": "cf-autocomplete",
+    "body": [
+      "<Autocomplete",
+      "  options={${1:options}}",
+      "  value={${2:value}}",
+      "  onChange={${3:setValue}}",
+      "  placeholder=\"${4:Search...}\"",
+      "  multiple={${5|false,true|}}",
+      "/>"
+    ],
+    "description": "Campfire Autocomplete component"
+  },
+  "Campfire Form with Label": {
+    "prefix": "cf-form-field",
+    "body": [
+      "<div className=\"space-y-2\">",
+      "  <Label htmlFor=\"${1:fieldId}\">${2:Field Label}</Label>",
+      "  <Input id=\"${1:fieldId}\" ${3}/>",
+      "  <HelperText>${4:Helper text}</HelperText>",
+      "</div>"
+    ],
+    "description": "Campfire form field with label and helper text"
+  },
+  "Campfire Checkbox": {
+    "prefix": "cf-checkbox",
+    "body": [
+      "<div className=\"flex items-center space-x-2\">",
+      "  <Checkbox id=\"${1:checkboxId}\" checked={${2:checked}} onCheckedChange={${3:setChecked}} />",
+      "  <Label htmlFor=\"${1:checkboxId}\">${4:Checkbox label}</Label>",
+      "</div>"
+    ],
+    "description": "Campfire Checkbox with label"
+  },
+  "Campfire RadioGroup": {
+    "prefix": "cf-radiogroup",
+    "body": [
+      "<RadioGroup value={${1:value}} onValueChange={${2:setValue}}>",
+      "  <div className=\"flex items-center space-x-2\">",
+      "    <RadioGroupItem value=\"${3:option1}\" id=\"${4:radio1}\" />",
+      "    <Label htmlFor=\"${4:radio1}\">${5:Option 1}</Label>",
+      "  </div>",
+      "  <div className=\"flex items-center space-x-2\">",
+      "    <RadioGroupItem value=\"${6:option2}\" id=\"${7:radio2}\" />",
+      "    <Label htmlFor=\"${7:radio2}\">${8:Option 2}</Label>",
+      "  </div>",
+      "</RadioGroup>"
+    ],
+    "description": "Campfire RadioGroup component"
+  },
+  "Campfire Switch": {
+    "prefix": "cf-switch",
+    "body": [
+      "<div className=\"flex items-center space-x-2\">",
+      "  <Switch id=\"${1:switchId}\" checked={${2:checked}} onCheckedChange={${3:setChecked}} />",
+      "  <Label htmlFor=\"${1:switchId}\">${4:Switch label}</Label>",
+      "</div>"
+    ],
+    "description": "Campfire Switch with label"
+  },
+  "Campfire Textarea": {
+    "prefix": "cf-textarea",
+    "body": [
+      "<Textarea",
+      "  placeholder=\"${1:Enter text...}\"",
+      "  value={${2:value}}",
+      "  onChange={(e) => ${3:setValue}(e.target.value)}",
+      "  rows={${4:4}}",
+      "/>"
+    ],
+    "description": "Campfire Textarea component"
+  },
+  "Campfire Slider": {
+    "prefix": "cf-slider",
+    "body": [
+      "<Slider",
+      "  value={[${1:value}]}",
+      "  onValueChange={(v) => ${2:setValue}(v[0])}",
+      "  min={${3:0}}",
+      "  max={${4:100}}",
+      "  step={${5:1}}",
+      "/>"
+    ],
+    "description": "Campfire Slider component"
+  },
+  "Campfire Badge": {
+    "prefix": "cf-badge",
+    "body": [
+      "<Badge variant=\"${1|default,secondary,destructive,outline|}\">${2:Badge text}</Badge>"
+    ],
+    "description": "Campfire Badge component"
+  },
+  "Campfire Toast": {
+    "prefix": "cf-toast",
+    "body": [
+      "toast({",
+      "  title: \"${1:Title}\",",
+      "  description: \"${2:Description}\",",
+      "  variant: \"${3|default,destructive|}\",",
+      "})"
+    ],
+    "description": "Campfire Toast notification"
+  },
+  "Campfire Dropdown Menu": {
+    "prefix": "cf-dropdown",
+    "body": [
+      "<DropdownMenu>",
+      "  <DropdownMenuTrigger asChild>",
+      "    <Button variant=\"outline\">${1:Open Menu}</Button>",
+      "  </DropdownMenuTrigger>",
+      "  <DropdownMenuContent>",
+      "    <DropdownMenuItem onClick={() => ${2}}>${3:Item 1}</DropdownMenuItem>",
+      "    <DropdownMenuItem onClick={() => ${4}}>${5:Item 2}</DropdownMenuItem>",
+      "    <DropdownMenuSeparator />",
+      "    <DropdownMenuItem onClick={() => ${6}}>${7:Item 3}</DropdownMenuItem>",
+      "  </DropdownMenuContent>",
+      "</DropdownMenu>"
+    ],
+    "description": "Campfire Dropdown Menu"
+  },
+  "Campfire Popover": {
+    "prefix": "cf-popover",
+    "body": [
+      "<Popover>",
+      "  <PopoverTrigger asChild>",
+      "    <Button variant=\"outline\">${1:Open Popover}</Button>",
+      "  </PopoverTrigger>",
+      "  <PopoverContent>",
+      "    ${2:// Content}",
+      "  </PopoverContent>",
+      "</Popover>"
+    ],
+    "description": "Campfire Popover component"
+  },
+  "Campfire Tooltip": {
+    "prefix": "cf-tooltip",
+    "body": [
+      "<Tooltip>",
+      "  <TooltipTrigger asChild>",
+      "    ${1:<Button>Hover me</Button>}",
+      "  </TooltipTrigger>",
+      "  <TooltipContent>",
+      "    <p>${2:Tooltip text}</p>",
+      "  </TooltipContent>",
+      "</Tooltip>"
+    ],
+    "description": "Campfire Tooltip component"
+  },
+  "Campfire Accordion": {
+    "prefix": "cf-accordion",
+    "body": [
+      "<Accordion type=\"${1|single,multiple|}\" collapsible>",
+      "  <AccordionItem value=\"${2:item1}\">",
+      "    <AccordionTrigger>${3:Item 1}</AccordionTrigger>",
+      "    <AccordionContent>",
+      "      ${4:// Content 1}",
+      "    </AccordionContent>",
+      "  </AccordionItem>",
+      "  <AccordionItem value=\"${5:item2}\">",
+      "    <AccordionTrigger>${6:Item 2}</AccordionTrigger>",
+      "    <AccordionContent>",
+      "      ${7:// Content 2}",
+      "    </AccordionContent>",
+      "  </AccordionItem>",
+      "</Accordion>"
+    ],
+    "description": "Campfire Accordion component"
+  },
+  "Campfire Avatar": {
+    "prefix": "cf-avatar",
+    "body": [
+      "<Avatar>",
+      "  <AvatarImage src=\"${1:https://example.com/avatar.jpg}\" alt=\"${2:User name}\" />",
+      "  <AvatarFallback>${3:UN}</AvatarFallback>",
+      "</Avatar>"
+    ],
+    "description": "Campfire Avatar component"
+  },
+  "Campfire Progress": {
+    "prefix": "cf-progress",
+    "body": [
+      "<Progress value={${1:progress}} className=\"${2:w-full}\" />"
+    ],
+    "description": "Campfire Progress bar"
+  },
+  "Campfire Separator": {
+    "prefix": "cf-separator",
+    "body": [
+      "<Separator orientation=\"${1|horizontal,vertical|}\" />"
+    ],
+    "description": "Campfire Separator component"
+  },
+  "Campfire Skeleton": {
+    "prefix": "cf-skeleton",
+    "body": [
+      "<Skeleton className=\"${1:h-4 w-full}\" />"
+    ],
+    "description": "Campfire Skeleton loader"
+  },
+  "Campfire Table": {
+    "prefix": "cf-table",
+    "body": [
+      "<Table>",
+      "  <TableHeader>",
+      "    <TableRow>",
+      "      <TableHead>${1:Column 1}</TableHead>",
+      "      <TableHead>${2:Column 2}</TableHead>",
+      "    </TableRow>",
+      "  </TableHeader>",
+      "  <TableBody>",
+      "    <TableRow>",
+      "      <TableCell>${3:Data 1}</TableCell>",
+      "      <TableCell>${4:Data 2}</TableCell>",
+      "    </TableRow>",
+      "  </TableBody>",
+      "</Table>"
+    ],
+    "description": "Campfire Table component"
+  },
+  "Campfire Breadcrumb": {
+    "prefix": "cf-breadcrumb",
+    "body": [
+      "<Breadcrumb>",
+      "  <BreadcrumbList>",
+      "    <BreadcrumbItem>",
+      "      <BreadcrumbLink href=\"${1:/}\">${2:Home}</BreadcrumbLink>",
+      "    </BreadcrumbItem>",
+      "    <BreadcrumbSeparator />",
+      "    <BreadcrumbItem>",
+      "      <BreadcrumbPage>${3:Current Page}</BreadcrumbPage>",
+      "    </BreadcrumbItem>",
+      "  </BreadcrumbList>",
+      "</Breadcrumb>"
+    ],
+    "description": "Campfire Breadcrumb navigation"
+  },
+  "Campfire Pagination": {
+    "prefix": "cf-pagination",
+    "body": [
+      "<Pagination>",
+      "  <PaginationContent>",
+      "    <PaginationItem>",
+      "      <PaginationPrevious href=\"${1:#}\" />",
+      "    </PaginationItem>",
+      "    <PaginationItem>",
+      "      <PaginationLink href=\"${2:#}\">1</PaginationLink>",
+      "    </PaginationItem>",
+      "    <PaginationItem>",
+      "      <PaginationNext href=\"${3:#}\" />",
+      "    </PaginationItem>",
+      "  </PaginationContent>",
+      "</Pagination>"
+    ],
+    "description": "Campfire Pagination component"
+  },
+  "Campfire Sheet": {
+    "prefix": "cf-sheet",
+    "body": [
+      "<Sheet open={${1:open}} onOpenChange={${2:setOpen}}>",
+      "  <SheetTrigger asChild>",
+      "    <Button>${3:Open Sheet}</Button>",
+      "  </SheetTrigger>",
+      "  <SheetContent side=\"${4|right,left,top,bottom|}\">",
+      "    <SheetHeader>",
+      "      <SheetTitle>${5:Sheet Title}</SheetTitle>",
+      "      <SheetDescription>${6:Sheet description}</SheetDescription>",
+      "    </SheetHeader>",
+      "    ${7:// Content}",
+      "  </SheetContent>",
+      "</Sheet>"
+    ],
+    "description": "Campfire Sheet side panel"
+  },
+  "Campfire Calendar": {
+    "prefix": "cf-calendar",
+    "body": [
+      "<Calendar",
+      "  mode=\"single\"",
+      "  selected={${1:date}}",
+      "  onSelect={${2:setDate}}",
+      "  className=\"${3:rounded-md border}\"",
+      "/>"
+    ],
+    "description": "Campfire Calendar component"
+  },
+  "Campfire DateRangePicker": {
+    "prefix": "cf-daterange",
+    "body": [
+      "<DateRangePicker",
+      "  value={${1:dateRange}}",
+      "  onChange={${2:setDateRange}}",
+      "/>"
+    ],
+    "description": "Campfire DateRangePicker component"
+  },
+  "Campfire TimePicker": {
+    "prefix": "cf-timepicker",
+    "body": [
+      "<TimePicker",
+      "  value={${1:time}}",
+      "  onChange={${2:setTime}}",
+      "  format=\"${3|12h,24h|}\"",
+      "/>"
+    ],
+    "description": "Campfire TimePicker component"
+  },
+  "Campfire DateTimePicker": {
+    "prefix": "cf-datetime",
+    "body": [
+      "<DateTimePicker",
+      "  value={${1:dateTime}}",
+      "  onChange={${2:setDateTime}}",
+      "/>"
+    ],
+    "description": "Campfire DateTimePicker component"
+  },
+  "Campfire ColorPicker": {
+    "prefix": "cf-colorpicker",
+    "body": [
+      "<ColorPicker",
+      "  value={${1:color}}",
+      "  onChange={${2:setColor}}",
+      "  showInput={${3|true,false|}}",
+      "/>"
+    ],
+    "description": "Campfire ColorPicker component"
+  },
+  "Campfire Rating": {
+    "prefix": "cf-rating",
+    "body": [
+      "<Rating",
+      "  value={${1:rating}}",
+      "  onChange={${2:setRating}}",
+      "  max={${3:5}}",
+      "  icon=\"${4|star,heart|}\"",
+      "/>"
+    ],
+    "description": "Campfire Rating component"
+  },
+  "Campfire Spinner": {
+    "prefix": "cf-spinner",
+    "body": [
+      "<Spinner size=\"${1|sm,md,lg,xl|}\" />"
+    ],
+    "description": "Campfire Spinner loading indicator"
+  },
+  "Campfire NumericInput": {
+    "prefix": "cf-numeric",
+    "body": [
+      "<NumericInput",
+      "  value={${1:value}}",
+      "  onChange={${2:setValue}}",
+      "  min={${3:0}}",
+      "  max={${4:100}}",
+      "  step={${5:1}}",
+      "/>"
+    ],
+    "description": "Campfire NumericInput component"
+  },
+  "Campfire Timeline": {
+    "prefix": "cf-timeline",
+    "body": [
+      "const items: TimelineItem[] = [",
+      "  {",
+      "    id: \"${1:1}\",",
+      "    title: \"${2:Event Title}\",",
+      "    description: \"${3:Event description}\",",
+      "    date: \"${4:Jan 1, 2025}\",",
+      "    status: \"${5|success,warning,error,default|}\",",
+      "  },",
+      "];",
+      "",
+      "<Timeline items={items} />"
+    ],
+    "description": "Campfire Timeline component"
+  },
+  "Campfire TreeView": {
+    "prefix": "cf-treeview",
+    "body": [
+      "<TreeView",
+      "  data={${1:treeData}}",
+      "  onSelect={${2:handleSelect}}",
+      "/>"
+    ],
+    "description": "Campfire TreeView component"
+  },
+  "Campfire Stepper": {
+    "prefix": "cf-stepper",
+    "body": [
+      "<Stepper activeStep={${1:activeStep}}>",
+      "  <Step label=\"${2:Step 1}\" />",
+      "  <Step label=\"${3:Step 2}\" />",
+      "  <Step label=\"${4:Step 3}\" />",
+      "</Stepper>"
+    ],
+    "description": "Campfire Stepper component"
+  },
+  "Campfire Chip": {
+    "prefix": "cf-chip",
+    "body": [
+      "<Chip onRemove={() => ${1}}>",
+      "  ${2:Chip text}",
+      "</Chip>"
+    ],
+    "description": "Campfire Chip component"
+  },
+  "Campfire StatusDot": {
+    "prefix": "cf-statusdot",
+    "body": [
+      "<StatusDot status=\"${1|success,warning,error,info,default|}\" />"
+    ],
+    "description": "Campfire StatusDot indicator"
+  },
+  "Campfire EmptyState": {
+    "prefix": "cf-emptystate",
+    "body": [
+      "<EmptyState",
+      "  title=\"${1:No data found}\"",
+      "  description=\"${2:Try adjusting your filters}\"",
+      "  icon={${3:<i className=\"fa-solid fa-inbox\" />}}",
+      ">",
+      "  ${4:<Button>Add Item</Button>}",
+      "</EmptyState>"
+    ],
+    "description": "Campfire EmptyState placeholder"
+  },
+  "Campfire FileUpload": {
+    "prefix": "cf-fileupload",
+    "body": [
+      "<FileUpload",
+      "  onUpload={(files) => ${1:handleUpload}(files)}",
+      "  accept=\"${2:image/*}\"",
+      "  multiple={${3|false,true|}}",
+      "/>"
+    ],
+    "description": "Campfire FileUpload component"
+  },
+  "Campfire SearchInput": {
+    "prefix": "cf-search",
+    "body": [
+      "<SearchInput",
+      "  value={${1:query}}",
+      "  onChange={${2:setQuery}}",
+      "  placeholder=\"${3:Search...}\"",
+      "/>"
+    ],
+    "description": "Campfire SearchInput component"
+  },
+  "Campfire Command": {
+    "prefix": "cf-command",
+    "body": [
+      "<Command>",
+      "  <CommandInput placeholder=\"${1:Search...}\" />",
+      "  <CommandList>",
+      "    <CommandEmpty>No results found.</CommandEmpty>",
+      "    <CommandGroup heading=\"${2:Suggestions}\">",
+      "      <CommandItem onSelect={() => ${3}}>${4:Item 1}</CommandItem>",
+      "      <CommandItem onSelect={() => ${5}}>${6:Item 2}</CommandItem>",
+      "    </CommandGroup>",
+      "  </CommandList>",
+      "</Command>"
+    ],
+    "description": "Campfire Command palette"
+  },
+  "Campfire HoverCard": {
+    "prefix": "cf-hovercard",
+    "body": [
+      "<HoverCard>",
+      "  <HoverCardTrigger asChild>",
+      "    ${1:<Button>Hover me</Button>}",
+      "  </HoverCardTrigger>",
+      "  <HoverCardContent>",
+      "    ${2:// Content}",
+      "  </HoverCardContent>",
+      "</HoverCard>"
+    ],
+    "description": "Campfire HoverCard component"
+  },
+  "Campfire AlertDialog": {
+    "prefix": "cf-alertdialog",
+    "body": [
+      "<AlertDialog open={${1:open}} onOpenChange={${2:setOpen}}>",
+      "  <AlertDialogTrigger asChild>",
+      "    <Button variant=\"destructive\">${3:Delete}</Button>",
+      "  </AlertDialogTrigger>",
+      "  <AlertDialogContent>",
+      "    <AlertDialogHeader>",
+      "      <AlertDialogTitle>${4:Are you sure?}</AlertDialogTitle>",
+      "      <AlertDialogDescription>",
+      "        ${5:This action cannot be undone.}",
+      "      </AlertDialogDescription>",
+      "    </AlertDialogHeader>",
+      "    <AlertDialogFooter>",
+      "      <AlertDialogCancel>Cancel</AlertDialogCancel>",
+      "      <AlertDialogAction onClick={() => ${6}}>Continue</AlertDialogAction>",
+      "    </AlertDialogFooter>",
+      "  </AlertDialogContent>",
+      "</AlertDialog>"
+    ],
+    "description": "Campfire AlertDialog confirmation"
+  },
+  "Campfire ContextMenu": {
+    "prefix": "cf-contextmenu",
+    "body": [
+      "<ContextMenu>",
+      "  <ContextMenuTrigger>",
+      "    ${1:// Right-click trigger element}",
+      "  </ContextMenuTrigger>",
+      "  <ContextMenuContent>",
+      "    <ContextMenuItem onClick={() => ${2}}>${3:Item 1}</ContextMenuItem>",
+      "    <ContextMenuItem onClick={() => ${4}}>${5:Item 2}</ContextMenuItem>",
+      "  </ContextMenuContent>",
+      "</ContextMenu>"
+    ],
+    "description": "Campfire ContextMenu right-click menu"
+  },
+  "Campfire NavigationMenu": {
+    "prefix": "cf-navmenu",
+    "body": [
+      "<NavigationMenu>",
+      "  <NavigationMenuList>",
+      "    <NavigationMenuItem>",
+      "      <NavigationMenuTrigger>${1:Menu Item}</NavigationMenuTrigger>",
+      "      <NavigationMenuContent>",
+      "        ${2:// Content}",
+      "      </NavigationMenuContent>",
+      "    </NavigationMenuItem>",
+      "  </NavigationMenuList>",
+      "</NavigationMenu>"
+    ],
+    "description": "Campfire NavigationMenu component"
+  },
+  "Campfire StatCard": {
+    "prefix": "cf-statcard",
+    "body": [
+      "<StatCard",
+      "  title=\"${1:Total Users}\"",
+      "  value=\"${2:1,234}\"",
+      "  trend={${3:12.5}}",
+      "  icon={${4:<i className=\"fa-solid fa-users\" />}}",
+      "/>"
+    ],
+    "description": "Campfire StatCard metric display"
+  },
+  "Campfire Collapsible": {
+    "prefix": "cf-collapsible",
+    "body": [
+      "<Collapsible open={${1:open}} onOpenChange={${2:setOpen}}>",
+      "  <CollapsibleTrigger asChild>",
+      "    <Button variant=\"ghost\">${3:Toggle}</Button>",
+      "  </CollapsibleTrigger>",
+      "  <CollapsibleContent>",
+      "    ${4:// Content}",
+      "  </CollapsibleContent>",
+      "</Collapsible>"
+    ],
+    "description": "Campfire Collapsible component"
+  },
+  "Campfire ScrollArea": {
+    "prefix": "cf-scrollarea",
+    "body": [
+      "<ScrollArea className=\"${1:h-72 w-48}\">",
+      "  ${2:// Content}",
+      "</ScrollArea>"
+    ],
+    "description": "Campfire ScrollArea component"
+  },
+  "Campfire Toggle": {
+    "prefix": "cf-toggle",
+    "body": [
+      "<Toggle pressed={${1:pressed}} onPressedChange={${2:setPressed}}>",
+      "  ${3:Toggle text}",
+      "</Toggle>"
+    ],
+    "description": "Campfire Toggle component"
+  },
+  "Campfire ToggleGroup": {
+    "prefix": "cf-togglegroup",
+    "body": [
+      "<ToggleGroup type=\"${1|single,multiple|}\" value={${2:value}} onValueChange={${3:setValue}}>",
+      "  <ToggleGroupItem value=\"${4:option1}\">${5:Option 1}</ToggleGroupItem>",
+      "  <ToggleGroupItem value=\"${6:option2}\">${7:Option 2}</ToggleGroupItem>",
+      "</ToggleGroup>"
+    ],
+    "description": "Campfire ToggleGroup component"
+  }
+}

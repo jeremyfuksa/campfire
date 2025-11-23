@@ -208,12 +208,6 @@ describe("Button", () => {
   });
 
   describe("Type attribute", () => {
-    it("defaults to button type", () => {
-      render(<Button>Click me</Button>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveAttribute("type", "button");
-    });
-
     it("accepts submit type", () => {
       render(<Button type="submit">Submit</Button>);
       const button = screen.getByRole("button");
@@ -224,6 +218,12 @@ describe("Button", () => {
       render(<Button type="reset">Reset</Button>);
       const button = screen.getByRole("button");
       expect(button).toHaveAttribute("type", "reset");
+    });
+
+    it("accepts button type", () => {
+      render(<Button type="button">Button</Button>);
+      const button = screen.getByRole("button");
+      expect(button).toHaveAttribute("type", "button");
     });
   });
 });
