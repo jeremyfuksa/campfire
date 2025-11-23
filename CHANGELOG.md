@@ -1,26 +1,48 @@
 # Changelog
-All notable changes to the Campfire repository. Releases follow semantic versioning.
 
-## [0.1.4] - 2025-11-18
-### Fixed
-- Updated the GitHub Pages deployment workflow so `gh-pages` can push using `GITHUB_TOKEN` (configuring a rewritten repo URL, bot identity, and write permissions).
-- Ensured `npm run deploy` runs cleanly during Actions runs by including `predeploy`/`deploy` in `package.json`.
+All notable changes to the Campfire Design System.
 
-## [0.1.3] - 2025-11-17
-### Added
-- Served the docs site via GitHub Pages (`homepage` pointing to `https://jeremyfuksa.github.io/campfire`), documented it in the README, and added a deploy workflow.
-- Introduced `gh-pages` and deploy scripts; configured the AGENTS guide to mention releases that bump versions automatically.
+## [Unreleased]
 
-## [0.1.2] - 2025-11-16
-### Added
-- Reworked the Getting Started hero into a marketing-forward layout that highlights the npm install steps and designer-friendly messaging.
-- Linked site nav/footer labels directly to the GitHub repo and issues page to make the project more discoverable.
+### Added - Major Roadmap Items
 
-## [0.1.1] - 2025-11-15
-### Added
-- `release` script now runs `npm version patch` before building/publishing to keep semver aligned with releases.
-- Documented the release expectations inside `AGENTS.md`.
+#### 1. CLI Tool (@jeremyfuksa/campfire-cli)
+- Commands: init, add, list
+- Built with commander.js, chalk, ora
+- ESM output targeting ES2022
 
-## [0.1.0] - Initial release
-### Added
-- Initial build of the Campfire docs site and distributable component library.
+#### 2. Advanced Components (10 new)
+- **DataTable** - Sorting, filtering, pagination, selection (18 tests ✓)
+- **Autocomplete** - Fuzzy search, async, multi-select (22 tests ✓)
+- **DateRangePicker** - Dual calendar date range selection
+- **TimePicker** - 12/24hr format with keyboard nav
+- **DateTimePicker** - Combined date + time
+- **ColorPicker** - HSL sliders + hex input
+- **Spinner** - Loading indicator (4 sizes)
+- **NumericInput** - Number stepper with constraints
+- **Rating** - Star/heart rating (half-star support)
+- **Timeline** - Vertical event timeline
+- **TreeView** - Hierarchical navigation
+
+#### 3. Storybook Integration
+- Storybook v8 with Vite
+- 6 component stories with variants
+- Introduction page
+- Auto-docs enabled
+
+#### 4. Accessibility Documentation
+- ACCESSIBILITY.md guide
+- WCAG 2.1 AA compliance
+- Keyboard shortcuts reference
+- Screen reader testing guide
+
+### Changed
+- Removed color customization from README
+- Updated component count: 59 → 69
+- Enhanced documentation
+
+## Statistics
+- **Total Components**: 69
+- **Test Coverage**: 40/40 tests passing
+- **Accessibility**: WCAG 2.1 AA
+- **TypeScript**: Full type safety
