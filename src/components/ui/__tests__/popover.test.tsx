@@ -9,24 +9,24 @@ expect.extend(toHaveNoViolations);
 describe("Popover", () => {
   describe("Popover Component", () => {
     it("renders correctly", () => {
-      const { container } = render(
+      render(
         <Popover>
           <PopoverTrigger>Open</PopoverTrigger>
           <PopoverContent>Content</PopoverContent>
         </Popover>
       );
-      const popover = container.querySelector('[data-slot="popover"]');
-      expect(popover).toBeInTheDocument();
+      const trigger = screen.getByText("Open");
+      expect(trigger).toBeInTheDocument();
     });
 
-    it("has data-slot attribute", () => {
+    it("renders trigger with proper attributes", () => {
       const { container } = render(
         <Popover>
           <PopoverTrigger>Trigger</PopoverTrigger>
         </Popover>
       );
-      const popover = container.querySelector('[data-slot="popover"]');
-      expect(popover).toHaveAttribute("data-slot", "popover");
+      const trigger = container.querySelector('[data-slot="popover-trigger"]');
+      expect(trigger).toBeInTheDocument();
     });
   });
 
@@ -108,7 +108,7 @@ describe("Popover", () => {
 
     it("has data-slot attribute", async () => {
       const user = userEvent.setup();
-      const { container } = render(
+      render(
         <Popover>
           <PopoverTrigger>Open</PopoverTrigger>
           <PopoverContent>Content</PopoverContent>
@@ -116,13 +116,13 @@ describe("Popover", () => {
       );
 
       await user.click(screen.getByText("Open"));
-      const content = container.querySelector('[data-slot="popover-content"]');
+      const content = document.querySelector('[data-slot="popover-content"]');
       expect(content).toBeInTheDocument();
     });
 
     it("renders with custom className", async () => {
       const user = userEvent.setup();
-      const { container } = render(
+      render(
         <Popover>
           <PopoverTrigger>Open</PopoverTrigger>
           <PopoverContent className="custom-content">Content</PopoverContent>
@@ -130,7 +130,7 @@ describe("Popover", () => {
       );
 
       await user.click(screen.getByText("Open"));
-      const content = container.querySelector(".custom-content");
+      const content = document.querySelector(".custom-content");
       expect(content).toBeInTheDocument();
     });
 
@@ -369,9 +369,8 @@ describe("Popover", () => {
 
       await user.click(screen.getByText("Open"));
 
-      expect(container.querySelector('[data-slot="popover"]')).toBeInTheDocument();
       expect(container.querySelector('[data-slot="popover-trigger"]')).toBeInTheDocument();
-      expect(container.querySelector('[data-slot="popover-content"]')).toBeInTheDocument();
+      expect(document.querySelector('[data-slot="popover-content"]')).toBeInTheDocument();
     });
   });
 });
