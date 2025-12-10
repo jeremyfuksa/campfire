@@ -20,6 +20,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Single: Story = {
+  args: {},
   render: () => (
     <Accordion type="single" collapsible className="w-[450px]">
       <AccordionItem value="item-1">
@@ -47,6 +48,7 @@ export const Single: Story = {
 };
 
 export const Multiple: Story = {
+  args: {},
   render: () => (
     <Accordion type="multiple" className="w-[450px]">
       <AccordionItem value="item-1">
@@ -73,6 +75,7 @@ export const Multiple: Story = {
 };
 
 export const DefaultOpen: Story = {
+  args: {},
   render: () => (
     <Accordion type="single" defaultValue="item-2" collapsible className="w-[450px]">
       <AccordionItem value="item-1">
@@ -94,6 +97,7 @@ export const DefaultOpen: Story = {
 };
 
 export const FAQ: Story = {
+  args: {},
   render: () => (
     <Accordion type="single" collapsible className="w-[500px]">
       <AccordionItem value="q1">
