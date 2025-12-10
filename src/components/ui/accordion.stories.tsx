@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import {
   Accordion,
   AccordionContent,
@@ -7,22 +6,26 @@ import {
   AccordionTrigger,
 } from "./accordion";
 
-const meta = {
+const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Accordion>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Single: Story = {
-  args: {},
-  render: () => (
-    <Accordion type="single" collapsible className="w-[450px]">
+  args: {
+    type: "single",
+    collapsible: true,
+    className: "w-[450px]",
+  },
+  render: (args) => (
+    <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
@@ -48,9 +51,12 @@ export const Single: Story = {
 };
 
 export const Multiple: Story = {
-  args: {},
-  render: () => (
-    <Accordion type="multiple" className="w-[450px]">
+  args: {
+    type: "multiple",
+    className: "w-[450px]",
+  },
+  render: (args) => (
+    <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Can multiple items be open?</AccordionTrigger>
         <AccordionContent>
@@ -75,9 +81,14 @@ export const Multiple: Story = {
 };
 
 export const DefaultOpen: Story = {
-  args: {},
-  render: () => (
-    <Accordion type="single" defaultValue="item-2" collapsible className="w-[450px]">
+  args: {
+    type: "single",
+    defaultValue: "item-2",
+    collapsible: true,
+    className: "w-[450px]",
+  },
+  render: (args) => (
+    <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>First Item</AccordionTrigger>
         <AccordionContent>Content for the first item.</AccordionContent>
@@ -97,9 +108,13 @@ export const DefaultOpen: Story = {
 };
 
 export const FAQ: Story = {
-  args: {},
-  render: () => (
-    <Accordion type="single" collapsible className="w-[500px]">
+  args: {
+    type: "single",
+    collapsible: true,
+    className: "w-[500px]",
+  },
+  render: (args) => (
+    <Accordion {...args}>
       <AccordionItem value="q1">
         <AccordionTrigger>What payment methods do you accept?</AccordionTrigger>
         <AccordionContent>
