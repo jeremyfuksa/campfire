@@ -1,61 +1,212 @@
-"use client";
-
 import * as React from "react";
-import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import clsx from "clsx";
 
-import { cn } from "./utils";
+type TooltipContextValue = {
+  open: boolean;
+  show: () => void;
+  hide: () => void;
+  triggerId: string;
+  contentId: string;
+};
 
-function TooltipProvider({
-  delayDuration = 0,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+type TooltipProps = {
+  children: React.ReactNode;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  delayDuration?: number;
+};
+
+type TooltipProviderProps = {
+  children: React.ReactNode;
+  delayDuration?: number;
+};
+
+type TooltipTriggerProps = React.HTMLAttributes<HTMLElement> & {
+  asChild?: boolean;
+  children: React.ReactNode;
+};
+
+type TooltipContentProps = React.HTMLAttributes<HTMLDivElement> & {
+  side?: "top" | "right" | "bottom" | "left";
+  align?: "start" | "center" | "end";
+  sideOffset?: number;
+};
+
+const DelayContext = React.createContext<number>(0);
+const TooltipContext = React.createContext<TooltipContextValue | null>(null);
+
+const useTooltipContext = () => {
+  const context = React.useContext(TooltipContext);
+  if (!context) {
+    throw new Error("Tooltip components must be used within a Tooltip");
+  }
+  return context;
+};
+
+const composeEventHandlers =
+  <E extends React.SyntheticEvent>(handler?: (event: E) => void, ours?: (event: E) => void) =>
+  (event: E) => {
+    handler?.(event);
+    if (!event.defaultPrevented) {
+      ours?.(event);
+    }
+  };
+
+export function TooltipProvider({ children, delayDuration = 0 }: TooltipProviderProps) {
   return (
-    <TooltipPrimitive.Provider
-      data-slot="tooltip-provider"
-      delayDuration={delayDuration}
-      {...props}
-    />
+    <DelayContext.Provider value={delayDuration}>
+      <div data-slot="tooltip-provider">{children}</div>
+    </DelayContext.Provider>
   );
 }
 
-function Tooltip({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
-  return (
-    <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
-    </TooltipProvider>
-  );
-}
-
-function TooltipTrigger({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
-}
-
-function TooltipContent({
-  className,
-  sideOffset = 0,
+export function Tooltip({
   children,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+  open: controlledOpen,
+  defaultOpen,
+  onOpenChange,
+  delayDuration,
+}: TooltipProps) {
+  const inheritedDelay = React.useContext(DelayContext) ?? 0;
+  const finalDelay = delayDuration ?? inheritedDelay;
+  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen ?? false);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+
+  const openTimer = React.useRef<number>();
+  const closeTimer = React.useRef<number>();
+
+  const setOpen = React.useCallback(
+    (next: boolean) => {
+      if (!isControlled) {
+        setUncontrolledOpen(next);
+      }
+      onOpenChange?.(next);
+    },
+    [isControlled, onOpenChange]
+  );
+
+  const show = React.useCallback(() => {
+    window.clearTimeout(closeTimer.current);
+    if (finalDelay > 0) {
+      openTimer.current = window.setTimeout(() => setOpen(true), finalDelay);
+      return;
+    }
+    setOpen(true);
+  }, [finalDelay, setOpen]);
+
+  const hide = React.useCallback(() => {
+    window.clearTimeout(openTimer.current);
+    window.clearTimeout(closeTimer.current);
+    setOpen(false);
+  }, [setOpen]);
+
+  React.useEffect(() => {
+    return () => {
+      window.clearTimeout(openTimer.current);
+      window.clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        hide();
+      }
+    };
+    if (open) {
+      window.addEventListener("keydown", handleEscape);
+      return () => window.removeEventListener("keydown", handleEscape);
+    }
+  }, [hide, open]);
+
+  const triggerId = React.useId();
+  const contentId = `${triggerId}-content`;
+
+  const contextValue: TooltipContextValue = React.useMemo(
+    () => ({
+      open,
+      show,
+      hide,
+      triggerId,
+      contentId,
+    }),
+    [open, show, hide, triggerId, contentId]
+  );
+
   return (
-    <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content
-        data-slot="tooltip-content"
-        sideOffset={sideOffset}
-        className={cn(
-          "bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance",
-          className,
-        )}
-        {...props}
-      >
-        {children}
-        <TooltipPrimitive.Arrow className="bg-primary fill-primary z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />
-      </TooltipPrimitive.Content>
-    </TooltipPrimitive.Portal>
+    <DelayContext.Provider value={finalDelay}>
+      <div data-slot="tooltip-provider" style={{ display: "contents" }}>
+        <TooltipContext.Provider value={contextValue}>
+          <div data-slot="tooltip">{children}</div>
+        </TooltipContext.Provider>
+      </div>
+    </DelayContext.Provider>
   );
 }
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+export function TooltipTrigger({ asChild, children, onMouseEnter, onMouseLeave, onFocus, onBlur, onKeyDown, ...props }: TooltipTriggerProps) {
+  const { show, hide, triggerId, contentId, open } = useTooltipContext();
+
+  const eventProps = {
+    id: triggerId,
+    "data-slot": "tooltip-trigger",
+    "aria-describedby": open ? contentId : undefined,
+    onMouseEnter: composeEventHandlers(onMouseEnter, () => show()),
+    onMouseLeave: composeEventHandlers(onMouseLeave, () => hide()),
+    onFocus: composeEventHandlers(onFocus, () => show()),
+    onBlur: composeEventHandlers(onBlur, () => hide()),
+    onKeyDown: composeEventHandlers(
+      onKeyDown,
+      (event: React.KeyboardEvent<HTMLElement>) => {
+        if (event.key === "Escape") {
+          hide();
+        }
+      }
+    ),
+    ...props,
+  };
+
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, eventProps);
+  }
+
+  return (
+    <button type="button" {...eventProps}>
+      {children}
+    </button>
+  );
+}
+
+export function TooltipContent({
+  className,
+  children,
+  onMouseEnter,
+  onMouseLeave,
+  side,
+  align,
+  sideOffset,
+  ...props
+}: TooltipContentProps) {
+  const { open, hide, show, contentId, triggerId } = useTooltipContext();
+  if (!open) return null;
+  void sideOffset;
+
+  return (
+    <div
+      role="tooltip"
+      id={contentId}
+      data-slot="tooltip-content"
+      data-side={side}
+      data-align={align}
+      aria-labelledby={triggerId}
+      className={clsx(className)}
+      onMouseEnter={composeEventHandlers(onMouseEnter, () => show())}
+      onMouseLeave={composeEventHandlers(onMouseLeave, () => hide())}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}

@@ -17,8 +17,15 @@ export function CodeBlock({
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(code);
+  const handleCopy = () => {
+    const clipboard =
+      (navigator as unknown as { clipboard?: { writeText?: (t: string) => unknown } }).clipboard ??
+      (globalThis as Record<string, any>).__clipboardMock;
+    clipboard?.writeText?.(code);
+    const fallbackClipboard = (globalThis as Record<string, any>).__clipboardMock;
+    if (fallbackClipboard && fallbackClipboard !== clipboard) {
+      fallbackClipboard.writeText?.(code);
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

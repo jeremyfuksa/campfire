@@ -11,9 +11,14 @@ import {
 import { cn } from "./utils";
 
 function Select({
+  children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
+  return (
+    <div data-slot="select">
+      <SelectPrimitive.Root {...props}>{children}</SelectPrimitive.Root>
+    </div>
+  );
 }
 
 function SelectGroup({

@@ -54,6 +54,7 @@ export function Link({
         className
       )}
       style={style}
+      data-slot="link"
       {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
       {...props}
     >

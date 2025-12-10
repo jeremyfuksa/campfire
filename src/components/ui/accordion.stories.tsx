@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import {
   Accordion,
   AccordionContent,
@@ -107,7 +108,8 @@ export const FAQ: Story = {
         <AccordionContent>
           Standard shipping takes 5-7 business days. Express shipping (2-3 days)
           and overnight options are also available at checkout.
-        </AccordionContent>
+        </AccordionC
+ontent>
       </AccordionItem>
       <AccordionItem value="q3">
         <AccordionTrigger>What is your return policy?</AccordionTrigger>

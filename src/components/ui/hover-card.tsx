@@ -1,44 +1,120 @@
 "use client";
 
 import * as React from "react";
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
+import clsx from "clsx";
 
-import { cn } from "./utils";
+type HoverCardProps = {
+  children: React.ReactNode;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+};
 
-function HoverCard({
-  ...props
-}: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
-  return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />;
-}
+type HoverCardContextValue = {
+  open: boolean;
+  show: () => void;
+  hide: () => void;
+};
 
-function HoverCardTrigger({
-  ...props
-}: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
+type HoverCardTriggerProps = React.HTMLAttributes<HTMLElement> & {
+  asChild?: boolean;
+  children: React.ReactNode;
+};
+
+type HoverCardContentProps = React.HTMLAttributes<HTMLDivElement>;
+
+const HoverCardContext = React.createContext<HoverCardContextValue | null>(null);
+
+const useHoverCard = () => {
+  const ctx = React.useContext(HoverCardContext);
+  if (!ctx) throw new Error("HoverCard components must be used within HoverCard");
+  return ctx;
+};
+
+const compose =
+  <E extends React.SyntheticEvent>(user?: (event: E) => void, ours?: (event: E) => void) =>
+  (event: E) => {
+    user?.(event);
+    if (!event.defaultPrevented) {
+      ours?.(event);
+    }
+  };
+
+export function HoverCard({ children, open: controlledOpen, defaultOpen, onOpenChange }: HoverCardProps) {
+  const isControlled = controlledOpen !== undefined;
+  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen ?? false);
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+
+  const setOpen = React.useCallback(
+    (next: boolean) => {
+      if (!isControlled) {
+        setUncontrolledOpen(next);
+      }
+      onOpenChange?.(next);
+    },
+    [isControlled, onOpenChange]
+  );
+
+  const show = React.useCallback(() => setOpen(true), [setOpen]);
+  const hide = React.useCallback(() => setOpen(false), [setOpen]);
+
+  const value = React.useMemo(() => ({ open, show, hide }), [open, show, hide]);
+
   return (
-    <HoverCardPrimitive.Trigger data-slot="hover-card-trigger" {...props} />
+    <HoverCardContext.Provider value={value}>
+      <div data-slot="hover-card">{children}</div>
+    </HoverCardContext.Provider>
   );
 }
 
-function HoverCardContent({
-  className,
-  align = "center",
-  sideOffset = 4,
+export function HoverCardTrigger({
+  asChild,
+  children,
+  onMouseEnter,
+  onMouseLeave,
+  onFocus,
+  onBlur,
   ...props
-}: React.ComponentProps<typeof HoverCardPrimitive.Content>) {
+}: HoverCardTriggerProps) {
+  const { show, hide } = useHoverCard();
+  const triggerProps = {
+    "data-slot": "hover-card-trigger",
+    onMouseEnter: compose(onMouseEnter, () => show()),
+    onMouseLeave: compose(onMouseLeave, () => hide()),
+    onFocus: compose(onFocus, () => show()),
+    onBlur: compose(onBlur, () => hide()),
+    ...props,
+  };
+
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, triggerProps);
+  }
+
   return (
-    <HoverCardPrimitive.Portal data-slot="hover-card-portal">
-      <HoverCardPrimitive.Content
-        data-slot="hover-card-content"
-        align={align}
-        sideOffset={sideOffset}
-        className={cn(
-          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-64 origin-(--radix-hover-card-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden",
-          className,
-        )}
-        {...props}
-      />
-    </HoverCardPrimitive.Portal>
+    <button type="button" {...triggerProps}>
+      {children}
+    </button>
   );
 }
 
-export { HoverCard, HoverCardTrigger, HoverCardContent };
+export function HoverCardContent({ className, children, ...props }: HoverCardContentProps) {
+  const { open, hide } = useHoverCard();
+  if (!open) return null;
+
+  return (
+    <div
+      role="dialog"
+      aria-label="Hover card"
+      aria-live="polite"
+      data-slot="hover-card-content"
+      className={clsx(
+        "rounded-md border bg-background p-4 shadow-md focus-visible:outline-none",
+        className,
+      )}
+      onMouseLeave={hide}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}

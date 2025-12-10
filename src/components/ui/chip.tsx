@@ -74,6 +74,7 @@ export function Chip({
         <button
           type="button"
           onClick={handleRemove}
+          aria-label="Remove chip"
           className="hover:opacity-70 transition-opacity"
         >
           <i className="fa-solid fa-xmark" style={{ fontSize: '12px' }}></i>

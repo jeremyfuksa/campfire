@@ -1,53 +1,57 @@
 "use client";
 
 import * as React from "react";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
-
 import { cn } from "./utils";
 
-function Avatar({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
-  return (
-    <AvatarPrimitive.Root
+type AvatarProps = React.ComponentProps<"div">;
+type AvatarImageProps = React.ComponentProps<"img">;
+type AvatarFallbackProps = React.ComponentProps<"span">;
+
+const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
+  ({ className, children, ...props }, ref) => (
+    <div
+      ref={ref}
       data-slot="avatar"
       className={cn(
         "relative flex size-10 shrink-0 overflow-hidden rounded-full",
         className,
       )}
       {...props}
-    />
-  );
-}
+    >
+      {children}
+    </div>
+  ),
+);
+Avatar.displayName = "Avatar";
 
-function AvatarImage({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
-  return (
-    <AvatarPrimitive.Image
+const AvatarImage = React.forwardRef<HTMLImageElement, AvatarImageProps>(
+  ({ className, alt = "", ...props }, ref) => (
+    <img
+      ref={ref}
       data-slot="avatar-image"
-      className={cn("aspect-square size-full", className)}
+      className={cn("aspect-square size-full object-cover", className)}
+      alt={alt}
       {...props}
     />
-  );
-}
+  ),
+);
+AvatarImage.displayName = "AvatarImage";
 
-function AvatarFallback({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
-  return (
-    <AvatarPrimitive.Fallback
+const AvatarFallback = React.forwardRef<HTMLSpanElement, AvatarFallbackProps>(
+  ({ className, children, ...props }, ref) => (
+    <span
+      ref={ref}
       data-slot="avatar-fallback"
       className={cn(
         "bg-muted flex size-full items-center justify-center rounded-full",
         className,
       )}
       {...props}
-    />
-  );
-}
+    >
+      {children}
+    </span>
+  ),
+);
+AvatarFallback.displayName = "AvatarFallback";
 
 export { Avatar, AvatarImage, AvatarFallback };
