@@ -30,6 +30,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "test": "vitest",
+    "test:smoke": "vitest run src/test",
     "release": "npm version patch && npm run build:lib && npm publish --access public",
     "preview": "vite preview",
     "tokens": "node scripts/export-tokens.js"
@@ -97,6 +98,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "jest-axe": "^9.0.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",

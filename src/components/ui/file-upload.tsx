@@ -7,15 +7,20 @@ interface FileUploadProps {
   multiple?: boolean;
   maxSize?: number; // in MB
   onFilesSelected?: (files: File[]) => void;
+  /** @deprecated Use onFilesSelected instead. */
+  onFileSelect?: (files: File[]) => void;
+  label?: string;
   className?: string;
 }
 
-export function FileUpload({ 
-  accept, 
-  multiple = false, 
+export function FileUpload({
+  accept,
+  multiple = false,
   maxSize = 10,
   onFilesSelected,
-  className 
+  onFileSelect,
+  label = "Click to upload",
+  className,
 }: FileUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
@@ -32,6 +37,7 @@ export function FileUpload({
 
     setSelectedFiles(validFiles);
     onFilesSelected?.(validFiles);
+    onFileSelect?.(validFiles);
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -94,7 +100,7 @@ export function FileUpload({
           ></i>
           <div>
             <p style={{ color: 'var(--text-primary)' }}>
-              <span style={{ color: 'var(--interactive-default)' }}>Click to upload</span> or drag and drop
+              <span style={{ color: 'var(--interactive-default)' }}>{label}</span> or drag and drop
             </p>
             <p style={{ fontSize: '14px', color: 'var(--text-tertiary)', marginTop: '4px' }}>
               {accept ? `${accept} files` : 'Any file type'} (max {maxSize}MB)

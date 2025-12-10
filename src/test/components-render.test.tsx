@@ -67,11 +67,6 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -81,14 +76,6 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
@@ -205,7 +192,6 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  Toaster,
 } from "../lib";
 
 const FormExample = () => {
@@ -303,14 +289,6 @@ const ComponentGallery = () => (
       <CardFooter>Footer</CardFooter>
     </Card>
 
-    <Carousel>
-      <CarouselContent>
-        <CarouselItem>Item</CarouselItem>
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-
     <div style={{ width: 320, height: 200 }}>
       <ChartContainer
         config={{ value: { label: "Value", color: "hsl(var(--primary))" } }}
@@ -335,20 +313,6 @@ const ComponentGallery = () => (
       <CollapsibleTrigger>Open</CollapsibleTrigger>
       <CollapsibleContent>Hidden</CollapsibleContent>
     </Collapsible>
-
-    <Command>
-      <CommandInput placeholder="Search" />
-      <CommandList>
-        <CommandEmpty>Empty</CommandEmpty>
-        <CommandGroup heading="Group">
-          <CommandItem>Item</CommandItem>
-        </CommandGroup>
-        <CommandSeparator />
-        <CommandItem>
-          Shortcut <CommandShortcut>⌘K</CommandShortcut>
-        </CommandItem>
-      </CommandList>
-    </Command>
 
     <ContextMenu>
       <ContextMenuTrigger>Trigger</ContextMenuTrigger>
@@ -547,7 +511,6 @@ const ComponentGallery = () => (
       </Tooltip>
     </TooltipProvider>
 
-    <Toaster />
   </div>
 );
 

@@ -30,6 +30,12 @@ Object.defineProperty(window, "matchMedia", {
   }),
 });
 
+if (!globalThis.matchMedia) {
+  // Some libraries read matchMedia off globalThis; provide the same stub.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (globalThis as any).matchMedia = window.matchMedia;
+}
+
 Object.defineProperty(navigator, "clipboard", {
   writable: true,
   value: {
@@ -53,6 +59,16 @@ Object.defineProperty(Element.prototype, "scrollIntoView", {
   value: vi.fn(),
 });
 
+Object.defineProperty(HTMLElement.prototype, "scrollIntoView", {
+  writable: true,
+  value: vi.fn(),
+});
+
+Object.defineProperty(SVGElement.prototype, "scrollIntoView", {
+  writable: true,
+  value: vi.fn(),
+});
+
 Element.prototype.getBoundingClientRect = function () {
   return {
     x: 0,
@@ -66,3 +82,8 @@ Element.prototype.getBoundingClientRect = function () {
     toJSON: () => ({}),
   };
 };
+
+Object.defineProperty(document, "elementFromPoint", {
+  writable: true,
+  value: () => document.body || null,
+});
