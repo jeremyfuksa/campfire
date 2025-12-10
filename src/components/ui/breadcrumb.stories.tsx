@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -18,9 +18,8 @@ const meta = {
 } satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>
@@ -40,7 +39,7 @@ export const Default: Story = {
   ),
 };
 
-export const TwoLevels: Story = {
+export const TwoLevels = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>
@@ -56,7 +55,7 @@ export const TwoLevels: Story = {
   ),
 };
 
-export const DeepNesting: Story = {
+export const DeepNesting = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>
@@ -84,7 +83,7 @@ export const DeepNesting: Story = {
   ),
 };
 
-export const WithIcons: Story = {
+export const WithIcons = {
   render: () => (
     <Breadcrumb>
       <BreadcrumbList>

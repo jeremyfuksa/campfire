@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { Autocomplete, AutocompleteOption } from "./autocomplete";
 
@@ -25,23 +25,22 @@ const meta = {
 } satisfies Meta<typeof Autocomplete>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     options: fruits,
     placeholder: "Select a fruit",
   },
 };
 
-export const WithValue: Story = {
+export const WithValue = {
   args: {
     options: fruits,
     value: "banana",
   },
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => {
     const [value, setValue] = useState<string[]>([]);
     return (
@@ -58,7 +57,7 @@ export const Multiple: Story = {
   },
 };
 
-export const WithMaxSelected: Story = {
+export const WithMaxSelected = {
   render: () => {
     const [value, setValue] = useState<string[]>([]);
     return (
@@ -76,7 +75,7 @@ export const WithMaxSelected: Story = {
   },
 };
 
-export const Creatable: Story = {
+export const Creatable = {
   render: () => {
     const [options, setOptions] = useState(fruits);
     const [value, setValue] = useState<string>();
@@ -99,7 +98,7 @@ export const Creatable: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     options: fruits,
     disabled: true,

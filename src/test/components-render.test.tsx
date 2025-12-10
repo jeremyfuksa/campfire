@@ -4,7 +4,7 @@ import { describe, it, vi } from "vitest";
 import { useForm } from "react-hook-form";
 
 vi.mock("recharts", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("recharts")>("recharts");
+  const actual = await importOriginal<typeof import("recharts")>();
   return {
     ...actual,
     ResponsiveContainer: ({
@@ -119,6 +119,7 @@ import {
   HoverCardTrigger,
   Input,
   InputOTP,
+  InputOTPSlot,
   KeyboardKey,
   Label,
   Link,
@@ -375,7 +376,12 @@ const ComponentGallery = () => (
     </HoverCard>
 
     <Input aria-label="input" />
-    <InputOTP maxLength={4} />
+    <InputOTP maxLength={4}>
+      <InputOTPSlot index={0} />
+      <InputOTPSlot index={1} />
+      <InputOTPSlot index={2} />
+      <InputOTPSlot index={3} />
+    </InputOTP>
     <KeyboardKey>⌘</KeyboardKey>
     <Label htmlFor="input">Label</Label>
     <Link href="#">Link</Link>
@@ -471,7 +477,14 @@ const ComponentGallery = () => (
 
     <StatusDot status="active" />
 
-    <Stepper steps={["One", "Two", "Three"]} currentStep={1} />
+    <Stepper
+      steps={[
+        { label: "One" },
+        { label: "Two" },
+        { label: "Three" },
+      ]}
+      currentStep={1}
+    />
 
     <Switch aria-label="switch" />
 

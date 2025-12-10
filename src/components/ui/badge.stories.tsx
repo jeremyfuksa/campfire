@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Badge } from "./badge";
 
 const meta = {
@@ -17,36 +17,35 @@ const meta = {
 } satisfies Meta<typeof Badge>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     children: "Badge",
   },
 };
 
-export const Secondary: Story = {
+export const Secondary = {
   args: {
     variant: "secondary",
     children: "Secondary",
   },
 };
 
-export const Destructive: Story = {
+export const Destructive = {
   args: {
     variant: "destructive",
     children: "Destructive",
   },
 };
 
-export const Outline: Story = {
+export const Outline = {
   args: {
     variant: "outline",
     children: "Outline",
   },
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   render: () => (
     <Badge>
       <i className="fa-solid fa-check mr-1"></i>
@@ -55,7 +54,7 @@ export const WithIcon: Story = {
   ),
 };
 
-export const AllVariants: Story = {
+export const AllVariants = {
   render: () => (
     <div className="flex gap-2">
       <Badge>Default</Badge>
@@ -66,7 +65,7 @@ export const AllVariants: Story = {
   ),
 };
 
-export const StatusBadges: Story = {
+export const StatusBadges = {
   render: () => (
     <div className="flex flex-col gap-2">
       <div className="flex gap-2">

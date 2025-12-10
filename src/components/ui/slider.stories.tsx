@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Slider } from "./slider";
 import { useState } from "react";
 import { Label } from "./label";
@@ -13,9 +13,8 @@ const meta = {
 } satisfies Meta<typeof Slider>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     defaultValue: [50],
     max: 100,
@@ -24,7 +23,7 @@ export const Default: Story = {
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => {
     const [value, setValue] = useState([50]);
     return (
@@ -39,7 +38,7 @@ export const WithLabel: Story = {
   },
 };
 
-export const Range: Story = {
+export const Range = {
   render: () => {
     const [value, setValue] = useState([25, 75]);
     return (
@@ -56,7 +55,7 @@ export const Range: Story = {
   },
 };
 
-export const WithSteps: Story = {
+export const WithSteps = {
   render: () => {
     const [value, setValue] = useState([50]);
     return (
@@ -71,7 +70,7 @@ export const WithSteps: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     defaultValue: [50],
     max: 100,
@@ -81,7 +80,7 @@ export const Disabled: Story = {
   },
 };
 
-export const MinMax: Story = {
+export const MinMax = {
   render: () => {
     const [value, setValue] = useState([20]);
     return (

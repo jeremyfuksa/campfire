@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -23,9 +23,8 @@ const meta = {
 } satisfies Meta<typeof ContextMenu>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
@@ -41,7 +40,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithIcons: Story = {
+export const WithIcons = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
@@ -70,7 +69,7 @@ export const WithIcons: Story = {
   ),
 };
 
-export const WithShortcuts: Story = {
+export const WithShortcuts = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
@@ -99,7 +98,7 @@ export const WithShortcuts: Story = {
   ),
 };
 
-export const WithCheckboxes: Story = {
+export const WithCheckboxes = {
   render: () => {
     const [showBookmarks, setShowBookmarks] = useState(true);
     const [showHistory, setShowHistory] = useState(false);
@@ -130,7 +129,7 @@ export const WithCheckboxes: Story = {
   },
 };
 
-export const WithRadio: Story = {
+export const WithRadio = {
   render: () => {
     const [theme, setTheme] = useState("light");
 
@@ -153,7 +152,7 @@ export const WithRadio: Story = {
   },
 };
 
-export const OnCard: Story = {
+export const OnCard = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger>

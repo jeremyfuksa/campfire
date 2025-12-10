@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { ColorPicker } from "./color-picker";
 
@@ -12,9 +12,8 @@ const meta = {
 } satisfies Meta<typeof ColorPicker>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => {
     const [color, setColor] = useState("#3b82f6");
     return (
@@ -26,14 +25,14 @@ export const Default: Story = {
   },
 };
 
-export const WithoutInput: Story = {
+export const WithoutInput = {
   render: () => {
     const [color, setColor] = useState("#ec4899");
     return <ColorPicker value={color} onChange={setColor} showInput={false} />;
   },
 };
 
-export const CustomPresets: Story = {
+export const CustomPresets = {
   render: () => {
     const [color, setColor] = useState("#000000");
     return (
@@ -55,7 +54,7 @@ export const CustomPresets: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     value: "#3b82f6",
     disabled: true,

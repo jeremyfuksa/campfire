@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Card,
   CardContent,
@@ -21,9 +21,8 @@ const meta = {
 } satisfies Meta<typeof Card>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Card className="w-[350px]">
       <CardHeader>
@@ -40,7 +39,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithForm: Story = {
+export const WithForm = {
   render: () => (
     <Card className="w-[350px]">
       <CardHeader>
@@ -66,7 +65,7 @@ export const WithForm: Story = {
   ),
 };
 
-export const Simple: Story = {
+export const Simple = {
   render: () => (
     <Card className="w-[350px]">
       <CardHeader>
@@ -79,7 +78,7 @@ export const Simple: Story = {
   ),
 };
 
-export const NoFooter: Story = {
+export const NoFooter = {
   render: () => (
     <Card className="w-[350px]">
       <CardHeader>

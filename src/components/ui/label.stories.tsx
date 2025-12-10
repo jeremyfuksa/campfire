@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Label } from "./label";
 import { Input } from "./input";
 import { Checkbox } from "./checkbox";
@@ -13,16 +13,15 @@ const meta = {
 } satisfies Meta<typeof Label>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     children: "Label",
     htmlFor: "input",
   },
 };
 
-export const WithInput: Story = {
+export const WithInput = {
   render: () => (
     <div className="space-y-2 w-[300px]">
       <Label htmlFor="email">Email address</Label>
@@ -31,7 +30,7 @@ export const WithInput: Story = {
   ),
 };
 
-export const WithCheckbox: Story = {
+export const WithCheckbox = {
   render: () => (
     <div className="flex items-center space-x-2">
       <Checkbox id="terms" />
@@ -42,7 +41,7 @@ export const WithCheckbox: Story = {
   ),
 };
 
-export const Required: Story = {
+export const Required = {
   render: () => (
     <div className="space-y-2 w-[300px]">
       <Label htmlFor="name">
@@ -53,7 +52,7 @@ export const Required: Story = {
   ),
 };
 
-export const WithDescription: Story = {
+export const WithDescription = {
   render: () => (
     <div className="space-y-2 w-[350px]">
       <Label htmlFor="bio">
@@ -70,7 +69,7 @@ export const WithDescription: Story = {
   ),
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => (
     <div className="space-y-4 w-[300px]">
       <div className="space-y-2">

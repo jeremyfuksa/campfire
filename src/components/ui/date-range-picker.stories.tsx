@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
+import type { DateRange } from "./date-range-picker";
 import { DateRangePicker } from "./date-range-picker";
 import { useState } from "react";
 import { Label } from "./label";
@@ -13,11 +14,10 @@ const meta = {
 } satisfies Meta<typeof DateRangePicker>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => {
-    const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({
+    const [dateRange, setDateRange] = useState<DateRange | undefined>({
       from: new Date(2025, 0, 1),
       to: new Date(2025, 0, 7),
     });
@@ -25,16 +25,16 @@ export const Default: Story = {
   },
 };
 
-export const NoSelection: Story = {
+export const NoSelection = {
   render: () => {
-    const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>();
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
     return <DateRangePicker value={dateRange} onChange={setDateRange} />;
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => {
-    const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>();
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
     return (
       <div className="space-y-2">
         <Label>Select Date Range</Label>
@@ -50,9 +50,9 @@ export const WithLabel: Story = {
   },
 };
 
-export const Preset: Story = {
+export const Preset = {
   render: () => {
-    const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({
+    const [dateRange, setDateRange] = useState<DateRange | undefined>({
       from: new Date(2025, 0, 1),
       to: new Date(2025, 0, 31),
     });

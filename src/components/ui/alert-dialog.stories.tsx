@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,9 +22,8 @@ const meta = {
 } satisfies Meta<typeof AlertDialog>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -47,7 +46,7 @@ export const Default: Story = {
   ),
 };
 
-export const Destructive: Story = {
+export const Destructive = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -72,7 +71,7 @@ export const Destructive: Story = {
   ),
 };
 
-export const Confirmation: Story = {
+export const Confirmation = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -95,7 +94,7 @@ export const Confirmation: Story = {
   ),
 };
 
-export const WithoutCancel: Story = {
+export const WithoutCancel = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>

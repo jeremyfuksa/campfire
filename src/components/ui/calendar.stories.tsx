@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { DateRange } from "react-day-picker";
+import type { Meta } from "@storybook/react";
 import { Calendar } from "./calendar";
 import { useState } from "react";
 
@@ -12,9 +13,8 @@ const meta = {
 } satisfies Meta<typeof Calendar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => {
     const [date, setDate] = useState<Date | undefined>(new Date());
     return (
@@ -28,7 +28,7 @@ export const Default: Story = {
   },
 };
 
-export const NoSelection: Story = {
+export const NoSelection = {
   render: () => {
     const [date, setDate] = useState<Date | undefined>();
     return (
@@ -42,9 +42,9 @@ export const NoSelection: Story = {
   },
 };
 
-export const Range: Story = {
+export const Range = {
   render: () => {
-    const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>();
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
     return (
       <Calendar
         mode="range"
@@ -56,21 +56,25 @@ export const Range: Story = {
   },
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => {
     const [dates, setDates] = useState<Date[]>([]);
+    const handleSelect = (selected: Date[] | undefined) => {
+      setDates(selected ?? []);
+    };
     return (
       <Calendar
         mode="multiple"
         selected={dates}
-        onSelect={setDates}
+        onSelect={handleSelect}
         className="rounded-md border"
+        required={false}
       />
     );
   },
 };
 
-export const WithValue: Story = {
+export const WithValue = {
   render: () => {
     const [date, setDate] = useState<Date | undefined>(new Date(2025, 0, 15));
     return (

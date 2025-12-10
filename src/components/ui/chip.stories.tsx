@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Chip } from "./chip";
 
 const meta = {
@@ -11,22 +11,21 @@ const meta = {
 } satisfies Meta<typeof Chip>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     children: "Chip",
   },
 };
 
-export const WithRemove: Story = {
+export const WithRemove = {
   args: {
     children: "Removable",
     onRemove: () => alert("Chip removed"),
   },
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Chip>React</Chip>
@@ -37,7 +36,7 @@ export const Multiple: Story = {
   ),
 };
 
-export const WithRemoveHandlers: Story = {
+export const WithRemoveHandlers = {
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Chip onRemove={() => console.log("Removed React")}>React</Chip>
@@ -48,7 +47,7 @@ export const WithRemoveHandlers: Story = {
   ),
 };
 
-export const Tags: Story = {
+export const Tags = {
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Chip onRemove={() => {}}>JavaScript</Chip>
@@ -61,7 +60,7 @@ export const Tags: Story = {
   ),
 };
 
-export const Skills: Story = {
+export const Skills = {
   render: () => (
     <div className="w-[400px] space-y-3">
       <div>

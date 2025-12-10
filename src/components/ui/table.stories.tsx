@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Table,
   TableBody,
@@ -21,7 +21,6 @@ const meta = {
 } satisfies Meta<typeof Table>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const invoices = [
   { id: "INV001", customer: "John Doe", amount: "$250.00", status: "Paid" },
@@ -31,7 +30,7 @@ const invoices = [
   { id: "INV005", customer: "Charlie Wilson", amount: "$550.00", status: "Pending" },
 ];
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Table>
       <TableHeader>
@@ -56,7 +55,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithCaption: Story = {
+export const WithCaption = {
   render: () => (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -80,7 +79,7 @@ export const WithCaption: Story = {
   ),
 };
 
-export const WithFooter: Story = {
+export const WithFooter = {
   render: () => (
     <Table>
       <TableHeader>
@@ -109,7 +108,7 @@ export const WithFooter: Story = {
   ),
 };
 
-export const WithBadges: Story = {
+export const WithBadges = {
   render: () => (
     <Table>
       <TableHeader>
@@ -140,7 +139,7 @@ export const WithBadges: Story = {
   ),
 };
 
-export const Striped: Story = {
+export const Striped = {
   render: () => (
     <Table>
       <TableHeader>

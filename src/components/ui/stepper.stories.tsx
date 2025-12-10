@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Stepper, Step } from "./stepper";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { Button } from "./button";
+import { Stepper, type Step } from "./stepper";
 
 const meta = {
   title: "Components/Stepper",
@@ -13,44 +13,47 @@ const meta = {
 } satisfies Meta<typeof Stepper>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const baseSteps: Step[] = [
+  { label: "Account" },
+  { label: "Profile" },
+  { label: "Preferences" },
+];
+
+const longSteps: Step[] = [
+  { label: "Start" },
+  { label: "Details" },
+  { label: "Review" },
+  { label: "Payment" },
+  { label: "Complete" },
+];
+
+export const Default = {
   args: {
-    activeStep: 0,
-    children: [
-      <Step key="1" label="Account" />,
-      <Step key="2" label="Profile" />,
-      <Step key="3" label="Preferences" />,
-    ],
+    steps: baseSteps,
+    currentStep: 1,
   },
 };
 
-export const Interactive: Story = {
+export const Interactive = {
   render: () => {
-    const [activeStep, setActiveStep] = useState(0);
-    const steps = ["Account", "Profile", "Preferences", "Review"];
-
+    const [currentStep, setCurrentStep] = useState(1);
     return (
       <div className="w-[500px] space-y-4">
-        <Stepper activeStep={activeStep}>
-          {steps.map((label, index) => (
-            <Step key={index} label={label} />
-          ))}
-        </Stepper>
+        <Stepper steps={longSteps} currentStep={currentStep} />
         <div className="flex justify-between">
           <Button
             variant="outline"
-            onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
-            disabled={activeStep === 0}
+            onClick={() => setCurrentStep((prev) => Math.max(0, prev - 1))}
+            disabled={currentStep === 0}
           >
             Back
           </Button>
           <Button
             onClick={() =>
-              setActiveStep(Math.min(steps.length - 1, activeStep + 1))
+              setCurrentStep((prev) => Math.min(longSteps.length - 1, prev + 1))
             }
-            disabled={activeStep === steps.length - 1}
+            disabled={currentStep === longSteps.length - 1}
           >
             Next
           </Button>
@@ -60,50 +63,23 @@ export const Interactive: Story = {
   },
 };
 
-export const ThreeSteps: Story = {
+export const ThreeSteps = {
   args: {
-    activeStep: 1,
-    children: [
-      <Step key="1" label="Select" />,
-      <Step key="2" label="Configure" />,
-      <Step key="3" label="Deploy" />,
-    ],
+    steps: baseSteps,
+    currentStep: 1,
   },
 };
 
-export const FiveSteps: Story = {
+export const FiveSteps = {
   args: {
-    activeStep: 2,
-    children: [
-      <Step key="1" label="Start" />,
-      <Step key="2" label="Details" />,
-      <Step key="3" label="Review" />,
-      <Step key="4" label="Payment" />,
-      <Step key="5" label="Complete" />,
-    ],
+    steps: longSteps,
+    currentStep: 2,
   },
 };
 
-export const FirstStep: Story = {
+export const LastStep = {
   args: {
-    activeStep: 0,
-    children: [
-      <Step key="1" label="Step 1" />,
-      <Step key="2" label="Step 2" />,
-      <Step key="3" label="Step 3" />,
-      <Step key="4" label="Step 4" />,
-    ],
-  },
-};
-
-export const LastStep: Story = {
-  args: {
-    activeStep: 3,
-    children: [
-      <Step key="1" label="Step 1" />,
-      <Step key="2" label="Step 2" />,
-      <Step key="3" label="Step 3" />,
-      <Step key="4" label="Complete" />,
-    ],
+    steps: longSteps,
+    currentStep: longSteps.length - 1,
   },
 };

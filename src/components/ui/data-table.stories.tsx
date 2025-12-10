@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { DataTable, Column } from "./data-table";
 
 interface User {
@@ -70,9 +70,8 @@ const meta = {
 } satisfies Meta<typeof DataTable>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     data: users,
     columns,
@@ -80,17 +79,17 @@ export const Default: Story = {
   },
 };
 
-export const WithSelection: Story = {
+export const WithSelection = {
   args: {
     data: users,
     columns,
     selectable: true,
     pageSize: 5,
-    onSelectionChange: (rows) => console.log("Selected:", rows),
+    onSelectionChange: (rows: User[]) => console.log("Selected:", rows),
   },
 };
 
-export const LargePageSize: Story = {
+export const LargePageSize = {
   args: {
     data: users,
     columns,
@@ -98,7 +97,7 @@ export const LargePageSize: Story = {
   },
 };
 
-export const EmptyState: Story = {
+export const EmptyState = {
   args: {
     data: [],
     columns,

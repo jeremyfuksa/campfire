@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Spinner } from "./spinner";
 
 const meta = {
@@ -17,39 +17,38 @@ const meta = {
 } satisfies Meta<typeof Spinner>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     size: "md",
   },
 };
 
-export const Small: Story = {
+export const Small = {
   args: {
     size: "sm",
   },
 };
 
-export const Medium: Story = {
+export const Medium = {
   args: {
     size: "md",
   },
 };
 
-export const Large: Story = {
+export const Large = {
   args: {
     size: "lg",
   },
 };
 
-export const ExtraLarge: Story = {
+export const ExtraLarge = {
   args: {
     size: "xl",
   },
 };
 
-export const AllSizes: Story = {
+export const AllSizes = {
   render: () => (
     <div className="flex items-end gap-4">
       <div className="flex flex-col items-center gap-2">
@@ -72,7 +71,7 @@ export const AllSizes: Story = {
   ),
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => (
     <div className="flex flex-col items-center gap-2">
       <Spinner size="lg" />
@@ -81,7 +80,7 @@ export const WithLabel: Story = {
   ),
 };
 
-export const InButton: Story = {
+export const InButton = {
   render: () => (
     <button className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md">
       <Spinner size="sm" />

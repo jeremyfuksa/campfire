@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 import { Button } from "./button";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
@@ -13,9 +13,8 @@ const meta = {
 } satisfies Meta<typeof HoverCard>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -45,7 +44,7 @@ export const Default: Story = {
   ),
 };
 
-export const Simple: Story = {
+export const Simple = {
   render: () => (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -58,7 +57,7 @@ export const Simple: Story = {
   ),
 };
 
-export const WithLink: Story = {
+export const WithLink = {
   render: () => (
     <p className="text-sm">
       Visit our{" "}
@@ -82,7 +81,7 @@ export const WithLink: Story = {
   ),
 };
 
-export const ProductPreview: Story = {
+export const ProductPreview = {
   render: () => (
     <HoverCard>
       <HoverCardTrigger asChild>

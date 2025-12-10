@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Button } from "./button";
 
 const meta = {
@@ -21,78 +21,77 @@ const meta = {
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     children: "Button",
   },
 };
 
-export const Destructive: Story = {
+export const Destructive = {
   args: {
     variant: "destructive",
     children: "Delete",
   },
 };
 
-export const Outline: Story = {
+export const Outline = {
   args: {
     variant: "outline",
     children: "Outline",
   },
 };
 
-export const Secondary: Story = {
+export const Secondary = {
   args: {
     variant: "secondary",
     children: "Secondary",
   },
 };
 
-export const Ghost: Story = {
+export const Ghost = {
   args: {
     variant: "ghost",
     children: "Ghost",
   },
 };
 
-export const Link: Story = {
+export const Link = {
   args: {
     variant: "link",
     children: "Link",
   },
 };
 
-export const Small: Story = {
+export const Small = {
   args: {
     size: "sm",
     children: "Small",
   },
 };
 
-export const Large: Story = {
+export const Large = {
   args: {
     size: "lg",
     children: "Large",
   },
 };
 
-export const Icon: Story = {
+export const Icon = {
   args: {
     size: "icon",
     children: "🔥",
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     disabled: true,
     children: "Disabled",
   },
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   args: {
     children: (
       <>
@@ -103,7 +102,7 @@ export const WithIcon: Story = {
   },
 };
 
-export const Loading: Story = {
+export const Loading = {
   args: {
     disabled: true,
     children: (

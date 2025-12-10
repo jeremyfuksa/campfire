@@ -3,6 +3,59 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import { afterEach, beforeAll, vi } from "vitest";
 
+const safeReplaceSync = () => {
+  if (typeof CSSStyleSheet === "undefined") return;
+  CSSStyleSheet.prototype.replaceSync = function () {
+    return;
+  };
+};
+
+if (typeof CSSStyleSheet !== "undefined") {
+  safeReplaceSync();
+} else {
+  const interval = setInterval(() => {
+    if (typeof CSSStyleSheet !== "undefined") {
+      safeReplaceSync();
+      clearInterval(interval);
+    }
+  }, 10);
+}
+
+const originalConsoleError = console.error;
+console.error = (...args: unknown[]) => {
+  if (
+    args[0] &&
+    typeof args[0] === "string" &&
+    args[0].includes("Could not parse CSS stylesheet")
+  ) {
+    return;
+  }
+  originalConsoleError(...args);
+};
+
+const originalConsoleWarn = console.warn;
+console.warn = (...args: unknown[]) => {
+  if (
+    args[0] &&
+    typeof args[0] === "string" &&
+    args[0].includes("Could not parse CSS stylesheet")
+  ) {
+    return;
+  }
+  originalConsoleWarn(...args);
+};
+
+const originalStderrWrite = process.stderr.write.bind(process.stderr);
+process.stderr.write = (chunk: string | Uint8Array, ...rest: unknown[]) => {
+  if (
+    typeof chunk === "string" &&
+    chunk.includes("Could not parse CSS stylesheet")
+  ) {
+    return true;
+  }
+  return originalStderrWrite(chunk, ...rest);
+};
+
 // Cleanup after each test
 afterEach(() => {
   cleanup();

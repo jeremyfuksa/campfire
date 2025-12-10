@@ -1,13 +1,12 @@
-import { defineConfig, UserConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import type { InlineConfig } from "vitest";
+/// <reference types="vitest" />
 
-interface VitestUserConfigExport extends UserConfig {
-  test: InlineConfig;
-}
+import type { TestUserConfig } from "vitest/config";
+import type { UserConfig } from "vite";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+const config = {
   base: "/campfire/",
   plugins: [react()],
   server: {
@@ -18,4 +17,6 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
   },
-} as VitestUserConfigExport);
+} satisfies UserConfig & { test?: TestUserConfig };
+
+export default defineConfig(config);

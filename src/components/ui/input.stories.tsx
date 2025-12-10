@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Input } from "./input";
 import { Label } from "./label";
 
@@ -18,15 +18,14 @@ const meta = {
 } satisfies Meta<typeof Input>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     placeholder: "Enter text...",
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => (
     <div className="space-y-2">
       <Label htmlFor="email">Email</Label>
@@ -35,41 +34,41 @@ export const WithLabel: Story = {
   ),
 };
 
-export const Email: Story = {
+export const Email = {
   args: {
     type: "email",
     placeholder: "name@example.com",
   },
 };
 
-export const Password: Story = {
+export const Password = {
   args: {
     type: "password",
     placeholder: "Enter password",
   },
 };
 
-export const Number: Story = {
+export const Number = {
   args: {
     type: "number",
     placeholder: "Enter number",
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     placeholder: "Disabled input",
     disabled: true,
   },
 };
 
-export const WithValue: Story = {
+export const WithValue = {
   args: {
     defaultValue: "Hello world",
   },
 };
 
-export const Search: Story = {
+export const Search = {
   args: {
     type: "search",
     placeholder: "Search...",

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import { Rating } from "./rating";
 
@@ -22,58 +22,57 @@ const meta = {
 } satisfies Meta<typeof Rating>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => {
     const [value, setValue] = useState(0);
     return <Rating value={value} onChange={setValue} />;
   },
 };
 
-export const WithValue: Story = {
+export const WithValue = {
   args: {
     value: 3.5,
     allowHalf: true,
   },
 };
 
-export const ReadOnly: Story = {
+export const ReadOnly = {
   args: {
     value: 4,
     readOnly: true,
   },
 };
 
-export const Small: Story = {
+export const Small = {
   render: () => {
     const [value, setValue] = useState(0);
     return <Rating value={value} onChange={setValue} size="sm" />;
   },
 };
 
-export const Large: Story = {
+export const Large = {
   render: () => {
     const [value, setValue] = useState(0);
     return <Rating value={value} onChange={setValue} size="lg" />;
   },
 };
 
-export const Hearts: Story = {
+export const Hearts = {
   render: () => {
     const [value, setValue] = useState(0);
     return <Rating value={value} onChange={setValue} icon="heart" />;
   },
 };
 
-export const MaxTen: Story = {
+export const MaxTen = {
   render: () => {
     const [value, setValue] = useState(0);
     return <Rating value={value} onChange={setValue} max={10} />;
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     value: 3,
     disabled: true,

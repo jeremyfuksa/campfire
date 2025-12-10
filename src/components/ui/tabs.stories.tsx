@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
 import { Input } from "./input";
@@ -15,9 +15,8 @@ const meta = {
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Tabs defaultValue="tab1" className="w-[400px]">
       <TabsList>
@@ -38,7 +37,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithCards: Story = {
+export const WithCards = {
   render: () => (
     <Tabs defaultValue="account" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
@@ -89,7 +88,7 @@ export const WithCards: Story = {
   ),
 };
 
-export const FourTabs: Story = {
+export const FourTabs = {
   render: () => (
     <Tabs defaultValue="overview" className="w-[500px]">
       <TabsList>

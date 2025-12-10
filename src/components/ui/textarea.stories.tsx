@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Textarea } from "./textarea";
 import { Label } from "./label";
 
@@ -12,15 +12,14 @@ const meta = {
 } satisfies Meta<typeof Textarea>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     placeholder: "Type your message here...",
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => (
     <div className="space-y-2 w-[400px]">
       <Label htmlFor="message">Message</Label>
@@ -29,28 +28,28 @@ export const WithLabel: Story = {
   ),
 };
 
-export const WithValue: Story = {
+export const WithValue = {
   args: {
     defaultValue:
       "This is a textarea with some default text content. You can edit this text.",
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     placeholder: "Disabled textarea",
     disabled: true,
   },
 };
 
-export const WithRows: Story = {
+export const WithRows = {
   args: {
     placeholder: "Textarea with 8 rows",
     rows: 8,
   },
 };
 
-export const LimitedHeight: Story = {
+export const LimitedHeight = {
   args: {
     placeholder: "This textarea has a max height",
     className: "max-h-32",

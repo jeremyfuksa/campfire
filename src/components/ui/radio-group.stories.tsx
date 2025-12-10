@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { RadioGroup, RadioGroupItem } from "./radio-group";
 import { Label } from "./label";
 
@@ -12,9 +12,8 @@ const meta = {
 } satisfies Meta<typeof RadioGroup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <RadioGroup defaultValue="option1">
       <div className="flex items-center space-x-2">
@@ -33,7 +32,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithDescription: Story = {
+export const WithDescription = {
   render: () => (
     <RadioGroup defaultValue="comfortable">
       <div className="flex items-center space-x-2">
@@ -61,7 +60,7 @@ export const WithDescription: Story = {
   ),
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   render: () => (
     <RadioGroup defaultValue="option1" disabled>
       <div className="flex items-center space-x-2">

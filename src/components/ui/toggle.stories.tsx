@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Toggle } from "./toggle";
 import { useState } from "react";
 
@@ -22,22 +22,21 @@ const meta = {
 } satisfies Meta<typeof Toggle>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     children: "Toggle",
   },
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   args: {
     children: <i className="fa-solid fa-bold"></i>,
     "aria-label": "Toggle bold",
   },
 };
 
-export const Outline: Story = {
+export const Outline = {
   args: {
     variant: "outline",
     children: <i className="fa-solid fa-italic"></i>,
@@ -45,7 +44,7 @@ export const Outline: Story = {
   },
 };
 
-export const Small: Story = {
+export const Small = {
   args: {
     size: "sm",
     children: <i className="fa-solid fa-underline"></i>,
@@ -53,7 +52,7 @@ export const Small: Story = {
   },
 };
 
-export const Large: Story = {
+export const Large = {
   args: {
     size: "lg",
     children: <i className="fa-solid fa-strikethrough"></i>,
@@ -61,7 +60,7 @@ export const Large: Story = {
   },
 };
 
-export const Interactive: Story = {
+export const Interactive = {
   render: () => {
     const [pressed, setPressed] = useState(false);
     return (
@@ -78,7 +77,7 @@ export const Interactive: Story = {
   },
 };
 
-export const TextFormatting: Story = {
+export const TextFormatting = {
   render: () => (
     <div className="flex gap-1">
       <Toggle aria-label="Toggle bold">
@@ -97,7 +96,7 @@ export const TextFormatting: Story = {
   ),
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     disabled: true,
     children: <i className="fa-solid fa-bold"></i>,

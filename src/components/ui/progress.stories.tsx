@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Progress } from "./progress";
 import { useEffect, useState } from "react";
 
@@ -12,30 +12,29 @@ const meta = {
 } satisfies Meta<typeof Progress>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     value: 50,
     className: "w-[300px]",
   },
 };
 
-export const Empty: Story = {
+export const Empty = {
   args: {
     value: 0,
     className: "w-[300px]",
   },
 };
 
-export const Full: Story = {
+export const Full = {
   args: {
     value: 100,
     className: "w-[300px]",
   },
 };
 
-export const Animated: Story = {
+export const Animated = {
   render: () => {
     const [progress, setProgress] = useState(0);
 
@@ -62,7 +61,7 @@ export const Animated: Story = {
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => (
     <div className="space-y-2 w-[300px]">
       <div className="flex justify-between text-sm">
@@ -74,7 +73,7 @@ export const WithLabel: Story = {
   ),
 };
 
-export const MultipleStates: Story = {
+export const MultipleStates = {
   render: () => (
     <div className="space-y-4 w-[300px]">
       <div className="space-y-2">

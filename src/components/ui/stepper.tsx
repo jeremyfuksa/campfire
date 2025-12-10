@@ -1,12 +1,12 @@
 import React from 'react';
 import { cn } from './utils';
 
-interface Step {
+export interface Step {
   label: string;
   description?: string;
 }
 
-interface StepperProps {
+export interface StepperProps {
   steps: Step[];
   currentStep: number;
   className?: string;

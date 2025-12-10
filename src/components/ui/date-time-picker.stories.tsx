@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { DateTimePicker } from "./date-time-picker";
 import { useState } from "react";
 import { Label } from "./label";
@@ -13,25 +13,26 @@ const meta = {
 } satisfies Meta<typeof DateTimePicker>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => {
-    const [dateTime, setDateTime] = useState<Date>();
+    const [dateTime, setDateTime] = useState<Date | undefined>();
     return <DateTimePicker value={dateTime} onChange={setDateTime} />;
   },
 };
 
-export const WithValue: Story = {
+export const WithValue = {
   render: () => {
-    const [dateTime, setDateTime] = useState<Date>(new Date(2025, 0, 15, 14, 30));
+    const [dateTime, setDateTime] = useState<Date | undefined>(
+      new Date(2025, 0, 15, 14, 30),
+    );
     return <DateTimePicker value={dateTime} onChange={setDateTime} />;
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => {
-    const [dateTime, setDateTime] = useState<Date>();
+    const [dateTime, setDateTime] = useState<Date | undefined>();
     return (
       <div className="space-y-2">
         <Label>Select Date and Time</Label>
@@ -46,9 +47,11 @@ export const WithLabel: Story = {
   },
 };
 
-export const EventScheduling: Story = {
+export const EventScheduling = {
   render: () => {
-    const [dateTime, setDateTime] = useState<Date>(new Date(2025, 0, 20, 15, 0));
+    const [dateTime, setDateTime] = useState<Date | undefined>(
+      new Date(2025, 0, 20, 15, 0),
+    );
     return (
       <div className="space-y-2 w-[300px]">
         <Label>Event Start Time</Label>

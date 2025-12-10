@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Timeline, TimelineItem } from "./timeline";
 
 const events: TimelineItem[] = [
@@ -49,15 +49,14 @@ const meta = {
 } satisfies Meta<typeof Timeline>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     items: events,
   },
 };
 
-export const WithIcons: Story = {
+export const WithIcons = {
   args: {
     items: [
       {
@@ -96,7 +95,7 @@ export const WithIcons: Story = {
   },
 };
 
-export const Simple: Story = {
+export const Simple = {
   args: {
     items: [
       {

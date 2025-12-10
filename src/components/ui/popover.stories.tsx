@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Button } from "./button";
 import { Input } from "./input";
@@ -14,9 +14,8 @@ const meta = {
 } satisfies Meta<typeof Popover>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Popover>
       <PopoverTrigger asChild>
@@ -29,7 +28,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithForm: Story = {
+export const WithForm = {
   render: () => (
     <Popover>
       <PopoverTrigger asChild>
@@ -59,7 +58,7 @@ export const WithForm: Story = {
   ),
 };
 
-export const WithList: Story = {
+export const WithList = {
   render: () => (
     <Popover>
       <PopoverTrigger asChild>
@@ -85,7 +84,7 @@ export const WithList: Story = {
   ),
 };
 
-export const Positioning: Story = {
+export const Positioning = {
   render: () => (
     <div className="flex gap-2">
       <Popover>

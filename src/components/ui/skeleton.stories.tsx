@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Skeleton } from "./skeleton";
 
 const meta = {
@@ -11,21 +11,20 @@ const meta = {
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     className: "h-4 w-[250px]",
   },
 };
 
-export const Circle: Story = {
+export const Circle = {
   args: {
     className: "h-12 w-12 rounded-full",
   },
 };
 
-export const Card: Story = {
+export const Card = {
   render: () => (
     <div className="flex items-center space-x-4">
       <Skeleton className="h-12 w-12 rounded-full" />
@@ -37,7 +36,7 @@ export const Card: Story = {
   ),
 };
 
-export const CardFull: Story = {
+export const CardFull = {
   render: () => (
     <div className="w-[350px] space-y-3 p-4 border rounded-lg">
       <Skeleton className="h-[200px] w-full rounded-md" />
@@ -53,7 +52,7 @@ export const CardFull: Story = {
   ),
 };
 
-export const List: Story = {
+export const List = {
   render: () => (
     <div className="space-y-3 w-[400px]">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -69,7 +68,7 @@ export const List: Story = {
   ),
 };
 
-export const Table: Story = {
+export const Table = {
   render: () => (
     <div className="space-y-2 w-[500px]">
       <div className="flex gap-4">

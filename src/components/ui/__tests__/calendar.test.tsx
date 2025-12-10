@@ -10,7 +10,7 @@ describe("Calendar", () => {
 
   it("renders with selected date", () => {
     const date = new Date(2024, 0, 15);
-    render(<Calendar selected={date} />);
+    render(<Calendar mode="single" selected={date} />);
     expect(screen.getByRole("grid")).toBeInTheDocument();
   });
 });

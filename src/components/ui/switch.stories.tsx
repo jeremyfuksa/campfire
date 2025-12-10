@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Switch } from "./switch";
 import { Label } from "./label";
 
@@ -12,13 +12,12 @@ const meta = {
 } satisfies Meta<typeof Switch>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {},
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => (
     <div className="flex items-center space-x-2">
       <Switch id="airplane-mode" />
@@ -27,26 +26,26 @@ export const WithLabel: Story = {
   ),
 };
 
-export const Checked: Story = {
+export const Checked = {
   args: {
     defaultChecked: true,
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     disabled: true,
   },
 };
 
-export const DisabledChecked: Story = {
+export const DisabledChecked = {
   args: {
     disabled: true,
     defaultChecked: true,
   },
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => (
     <div className="space-y-4">
       <div className="flex items-center space-x-2">

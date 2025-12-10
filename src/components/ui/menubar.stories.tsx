@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Menubar,
   MenubarContent,
@@ -23,9 +23,8 @@ const meta = {
 } satisfies Meta<typeof Menubar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Menubar>
       <MenubarMenu>
@@ -76,7 +75,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithCheckboxes: Story = {
+export const WithCheckboxes = {
   render: () => {
     const [showStatusBar, setShowStatusBar] = useState(true);
     const [showPanel, setShowPanel] = useState(false);
@@ -102,7 +101,7 @@ export const WithCheckboxes: Story = {
   },
 };
 
-export const WithRadio: Story = {
+export const WithRadio = {
   render: () => {
     const [theme, setTheme] = useState("light");
 
@@ -123,7 +122,7 @@ export const WithRadio: Story = {
   },
 };
 
-export const ApplicationMenu: Story = {
+export const ApplicationMenu = {
   render: () => (
     <Menubar>
       <MenubarMenu>

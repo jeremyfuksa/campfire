@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { SearchInput } from "./search-input";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
+import { SearchInput } from "./search-input";
 
 const meta = {
   title: "Components/SearchInput",
@@ -12,23 +12,32 @@ const meta = {
 } satisfies Meta<typeof SearchInput>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const suggestions = [
+  "React components",
+  "Vue components",
+  "Design systems",
+  "Accessibility",
+  "Autocomplete",
+  "Filtered lists",
+];
+
+export const Default = {
   args: {
     placeholder: "Search...",
+    suggestions,
   },
 };
 
-export const Interactive: Story = {
+export const Interactive = {
   render: () => {
     const [query, setQuery] = useState("");
     return (
       <div className="w-[300px] space-y-2">
         <SearchInput
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          suggestions={suggestions}
           placeholder="Search products..."
+          onSearch={(value) => setQuery(value)}
         />
         {query && (
           <p className="text-sm text-muted-foreground">
@@ -40,40 +49,38 @@ export const Interactive: Story = {
   },
 };
 
-export const WithValue: Story = {
+export const WithSuggestions = {
   args: {
-    defaultValue: "React components",
-    placeholder: "Search...",
+    suggestions,
+    placeholder: "Popular searches",
   },
 };
 
-export const Large: Story = {
+export const Large = {
   render: () => (
     <SearchInput
       placeholder="Search documentation..."
+      suggestions={suggestions}
       className="w-[500px] h-12 text-lg"
     />
   ),
 };
 
-export const WithClear: Story = {
+export const WithCallback = {
   render: () => {
-    const [query, setQuery] = useState("Clear me");
+    const [query, setQuery] = useState("");
     return (
       <div className="w-[300px] space-y-2">
         <div className="relative">
           <SearchInput
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            suggestions={suggestions}
             placeholder="Search..."
+            onSearch={(value) => setQuery(value)}
           />
           {query && (
-            <button
-              onClick={() => setQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-            >
-              <i className="fa-solid fa-xmark"></i>
-            </button>
+            <p className="text-sm text-muted-foreground">
+              Last search: {query}
+            </p>
           )}
         </div>
       </div>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Tooltip,
   TooltipContent,
@@ -24,9 +24,8 @@ const meta = {
 } satisfies Meta<typeof Tooltip>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -39,7 +38,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -54,7 +53,7 @@ export const WithIcon: Story = {
   ),
 };
 
-export const LongText: Story = {
+export const LongText = {
   render: () => (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -70,7 +69,7 @@ export const LongText: Story = {
   ),
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => (
     <div className="flex gap-2">
       <Tooltip>
@@ -109,7 +108,7 @@ export const Multiple: Story = {
   ),
 };
 
-export const OnText: Story = {
+export const OnText = {
   render: () => (
     <p className="text-sm">
       This is some text with a{" "}

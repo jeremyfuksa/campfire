@@ -1,3 +1,10 @@
+const isVitest =
+  typeof process !== "undefined" && process.env.VITEST === "true";
+
+if (!isVitest) {
+  void import("../styles/fonts.css");
+}
+
 import "../styles/globals.css";
 
 export * from "../components/ui/accordion";

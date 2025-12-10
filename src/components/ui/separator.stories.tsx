@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Separator } from "./separator";
 
 const meta = {
@@ -17,9 +17,8 @@ const meta = {
 } satisfies Meta<typeof Separator>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Horizontal: Story = {
+export const Horizontal = {
   render: () => (
     <div className="w-[300px]">
       <div className="space-y-1">
@@ -40,7 +39,7 @@ export const Horizontal: Story = {
   ),
 };
 
-export const Vertical: Story = {
+export const Vertical = {
   render: () => (
     <div className="flex h-10 items-center space-x-4">
       <div className="text-sm">Home</div>
@@ -54,7 +53,7 @@ export const Vertical: Story = {
   ),
 };
 
-export const InCard: Story = {
+export const InCard = {
   render: () => (
     <div className="w-[350px] space-y-4 p-4 border rounded-lg">
       <div>
@@ -88,7 +87,7 @@ export const InCard: Story = {
   ),
 };
 
-export const WithText: Story = {
+export const WithText = {
   render: () => (
     <div className="w-[400px]">
       <div className="relative">

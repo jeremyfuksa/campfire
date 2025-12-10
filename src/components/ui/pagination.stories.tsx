@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Pagination,
   PaginationContent,
@@ -19,9 +19,8 @@ const meta = {
 } satisfies Meta<typeof Pagination>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Pagination>
       <PaginationContent>
@@ -47,7 +46,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithEllipsis: Story = {
+export const WithEllipsis = {
   render: () => (
     <Pagination>
       <PaginationContent>
@@ -79,7 +78,7 @@ export const WithEllipsis: Story = {
   ),
 };
 
-export const FirstPage: Story = {
+export const FirstPage = {
   render: () => (
     <Pagination>
       <PaginationContent>
@@ -105,7 +104,7 @@ export const FirstPage: Story = {
   ),
 };
 
-export const LastPage: Story = {
+export const LastPage = {
   render: () => (
     <Pagination>
       <PaginationContent>
@@ -131,7 +130,7 @@ export const LastPage: Story = {
   ),
 };
 
-export const ManyPages: Story = {
+export const ManyPages = {
   render: () => (
     <Pagination>
       <PaginationContent>

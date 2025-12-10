@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 import { useState } from "react";
 
@@ -26,9 +26,8 @@ const meta = {
 } satisfies Meta<typeof ToggleGroup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Single: Story = {
+export const Single = {
   render: () => (
     <ToggleGroup type="single" defaultValue="center">
       <ToggleGroupItem value="left" aria-label="Align left">
@@ -44,7 +43,7 @@ export const Single: Story = {
   ),
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => (
     <ToggleGroup type="multiple" defaultValue={["bold", "italic"]}>
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
@@ -63,7 +62,7 @@ export const Multiple: Story = {
   ),
 };
 
-export const Outline: Story = {
+export const Outline = {
   render: () => (
     <ToggleGroup type="single" variant="outline">
       <ToggleGroupItem value="day">Day</ToggleGroupItem>
@@ -74,7 +73,7 @@ export const Outline: Story = {
   ),
 };
 
-export const Small: Story = {
+export const Small = {
   render: () => (
     <ToggleGroup type="single" size="sm">
       <ToggleGroupItem value="xs">XS</ToggleGroupItem>
@@ -86,7 +85,7 @@ export const Small: Story = {
   ),
 };
 
-export const Large: Story = {
+export const Large = {
   render: () => (
     <ToggleGroup type="single" size="lg">
       <ToggleGroupItem value="grid">
@@ -101,7 +100,7 @@ export const Large: Story = {
   ),
 };
 
-export const Interactive: Story = {
+export const Interactive = {
   render: () => {
     const [value, setValue] = useState("center");
     return (
@@ -118,7 +117,7 @@ export const Interactive: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   render: () => (
     <ToggleGroup type="single" disabled>
       <ToggleGroupItem value="option1">Option 1</ToggleGroupItem>

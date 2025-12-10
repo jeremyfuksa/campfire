@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
+import type { Meta } from "@storybook/react";
 import {
   Accordion,
   AccordionContent,
@@ -16,15 +17,14 @@ const meta: Meta<typeof Accordion> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Single: Story = {
+export const Single = {
   args: {
     type: "single",
     collapsible: true,
     className: "w-[450px]",
   },
-  render: (args) => (
+  render: (args: ComponentProps<typeof Accordion>) => (
     <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -50,12 +50,12 @@ export const Single: Story = {
   ),
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   args: {
     type: "multiple",
     className: "w-[450px]",
   },
-  render: (args) => (
+  render: (args: ComponentProps<typeof Accordion>) => (
     <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Can multiple items be open?</AccordionTrigger>
@@ -80,14 +80,14 @@ export const Multiple: Story = {
   ),
 };
 
-export const DefaultOpen: Story = {
+export const DefaultOpen = {
   args: {
     type: "single",
     defaultValue: "item-2",
     collapsible: true,
     className: "w-[450px]",
   },
-  render: (args) => (
+  render: (args: ComponentProps<typeof Accordion>) => (
     <Accordion {...args}>
       <AccordionItem value="item-1">
         <AccordionTrigger>First Item</AccordionTrigger>
@@ -107,13 +107,13 @@ export const DefaultOpen: Story = {
   ),
 };
 
-export const FAQ: Story = {
+export const FAQ = {
   args: {
     type: "single",
     collapsible: true,
     className: "w-[500px]",
   },
-  render: (args) => (
+  render: (args: ComponentProps<typeof Accordion>) => (
     <Accordion {...args}>
       <AccordionItem value="q1">
         <AccordionTrigger>What payment methods do you accept?</AccordionTrigger>

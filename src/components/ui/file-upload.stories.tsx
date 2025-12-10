@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { FileUpload } from "./file-upload";
 
 const meta = {
@@ -11,45 +11,44 @@ const meta = {
 } satisfies Meta<typeof FileUpload>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
-    onUpload: (files) => console.log("Files uploaded:", files),
+    onFilesSelected: (files: File[]) => console.log("Files uploaded:", files),
   },
 };
 
-export const ImagesOnly: Story = {
+export const ImagesOnly = {
   args: {
-    onUpload: (files) => console.log("Images uploaded:", files),
+    onFilesSelected: (files: File[]) => console.log("Images uploaded:", files),
     accept: "image/*",
   },
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   args: {
-    onUpload: (files) => console.log("Multiple files:", files),
+    onFilesSelected: (files: File[]) => console.log("Multiple files:", files),
     multiple: true,
   },
 };
 
-export const WithMaxSize: Story = {
+export const WithMaxSize = {
   args: {
-    onUpload: (files) => console.log("Files uploaded:", files),
-    maxSize: 5 * 1024 * 1024, // 5MB
+    onFilesSelected: (files: File[]) => console.log("Files uploaded:", files),
+    maxSize: 5, // MB
   },
 };
 
-export const PDFOnly: Story = {
+export const PDFOnly = {
   args: {
-    onUpload: (files) => console.log("PDF uploaded:", files),
+    onFilesSelected: (files: File[]) => console.log("PDF uploaded:", files),
     accept: "application/pdf",
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
-    onUpload: (files) => console.log("Files:", files),
+    onFilesSelected: (files: File[]) => console.log("Files:", files),
     disabled: true,
   },
 };

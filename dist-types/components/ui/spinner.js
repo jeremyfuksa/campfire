@@ -1,0 +1,16 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+import { cn } from "./utils";
+const sizeClasses = {
+    sm: "h-4 w-4 border-2",
+    md: "h-8 w-8 border-2",
+    lg: "h-12 w-12 border-3",
+    xl: "h-16 w-16 border-4",
+};
+export function Spinner({ size = "md", variant = "default", className, ...props }) {
+    return (_jsx("div", { role: "status", "aria-label": "Loading", className: cn("inline-block animate-spin rounded-full", sizeClasses[size], className), style: {
+            borderTopColor: variant === "primary" ? "var(--primary)" : "var(--neutral-300)",
+            borderRightColor: "transparent",
+            borderBottomColor: "transparent",
+            borderLeftColor: "transparent",
+        }, ...props, children: _jsx("span", { className: "sr-only", children: "Loading..." }) }));
+}

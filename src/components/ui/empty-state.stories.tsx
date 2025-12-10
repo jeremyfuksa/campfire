@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { EmptyState } from "./empty-state";
 import { Button } from "./button";
 
@@ -12,16 +12,15 @@ const meta = {
 } satisfies Meta<typeof EmptyState>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     title: "No data found",
     description: "Get started by creating your first item",
   },
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   args: {
     title: "No messages",
     description: "You don't have any messages yet",
@@ -29,7 +28,7 @@ export const WithIcon: Story = {
   },
 };
 
-export const WithAction: Story = {
+export const WithAction = {
   args: {
     title: "No projects",
     description: "Create your first project to get started",
@@ -38,7 +37,7 @@ export const WithAction: Story = {
   },
 };
 
-export const NoResults: Story = {
+export const NoResults = {
   args: {
     title: "No results found",
     description: "Try adjusting your search or filter to find what you're looking for",
@@ -47,7 +46,7 @@ export const NoResults: Story = {
   },
 };
 
-export const EmptyInbox: Story = {
+export const EmptyInbox = {
   args: {
     title: "Inbox Zero!",
     description: "All caught up! You have no unread messages.",
@@ -55,7 +54,7 @@ export const EmptyInbox: Story = {
   },
 };
 
-export const NoFiles: Story = {
+export const NoFiles = {
   args: {
     title: "No files uploaded",
     description: "Upload your first file to get started",
@@ -69,7 +68,7 @@ export const NoFiles: Story = {
   },
 };
 
-export const NoConnections: Story = {
+export const NoConnections = {
   args: {
     title: "No connections",
     description: "Connect your accounts to get started with integrations",
@@ -78,7 +77,7 @@ export const NoConnections: Story = {
   },
 };
 
-export const ErrorState: Story = {
+export const ErrorState = {
   args: {
     title: "Something went wrong",
     description: "We encountered an error loading your data. Please try again.",

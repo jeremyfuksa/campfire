@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 const meta = {
@@ -11,9 +11,8 @@ const meta = {
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Avatar>
       <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -22,7 +21,7 @@ export const Default: Story = {
   ),
 };
 
-export const Fallback: Story = {
+export const Fallback = {
   render: () => (
     <Avatar>
       <AvatarImage src="invalid-url" alt="User" />
@@ -31,7 +30,7 @@ export const Fallback: Story = {
   ),
 };
 
-export const NoImage: Story = {
+export const NoImage = {
   render: () => (
     <Avatar>
       <AvatarFallback>AB</AvatarFallback>
@@ -39,7 +38,7 @@ export const NoImage: Story = {
   ),
 };
 
-export const Sizes: Story = {
+export const Sizes = {
   render: () => (
     <div className="flex items-end gap-2">
       <Avatar className="h-8 w-8">
@@ -62,7 +61,7 @@ export const Sizes: Story = {
   ),
 };
 
-export const Group: Story = {
+export const Group = {
   render: () => (
     <div className="flex -space-x-4">
       <Avatar className="border-2 border-background">
@@ -85,7 +84,7 @@ export const Group: Story = {
   ),
 };
 
-export const WithStatus: Story = {
+export const WithStatus = {
   render: () => (
     <div className="flex gap-4">
       <div className="relative">

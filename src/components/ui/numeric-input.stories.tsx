@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { NumericInput } from "./numeric-input";
 import { useState } from "react";
 import { Label } from "./label";
@@ -13,9 +13,8 @@ const meta = {
 } satisfies Meta<typeof NumericInput>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     defaultValue: 0,
     min: 0,
@@ -24,9 +23,9 @@ export const Default: Story = {
   },
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => {
-    const [value, setValue] = useState(5);
+    const [value, setValue] = useState<number | undefined>(5);
     return (
       <div className="space-y-2 w-[200px]">
         <div className="flex justify-between">
@@ -39,9 +38,9 @@ export const WithLabel: Story = {
   },
 };
 
-export const WithRange: Story = {
+export const WithRange = {
   render: () => {
-    const [value, setValue] = useState(50);
+    const [value, setValue] = useState<number | undefined>(50);
     return (
       <div className="space-y-2 w-[200px]">
         <Label>Amount (0-100)</Label>
@@ -51,9 +50,9 @@ export const WithRange: Story = {
   },
 };
 
-export const Decimal: Story = {
+export const Decimal = {
   render: () => {
-    const [value, setValue] = useState(2.5);
+    const [value, setValue] = useState<number | undefined>(2.5);
     return (
       <div className="space-y-2 w-[200px]">
         <Label>Price ($)</Label>
@@ -69,16 +68,16 @@ export const Decimal: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     value: 10,
     disabled: true,
   },
 };
 
-export const NegativeRange: Story = {
+export const NegativeRange = {
   render: () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState<number | undefined>(0);
     return (
       <div className="space-y-2 w-[200px]">
         <Label>Temperature (°C)</Label>
@@ -94,9 +93,9 @@ export const NegativeRange: Story = {
   },
 };
 
-export const LargeSteps: Story = {
+export const LargeSteps = {
   render: () => {
-    const [value, setValue] = useState(100);
+    const [value, setValue] = useState<number | undefined>(100);
     return (
       <div className="space-y-2 w-[200px]">
         <Label>Budget ($)</Label>

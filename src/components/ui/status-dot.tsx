@@ -4,9 +4,11 @@ import { cn } from './utils';
 export type StatusValue =
   | 'success'
   | 'warning'
+  | 'error'
   | 'danger'
   | 'info'
   | 'neutral'
+  | 'default'
   | 'active'
   | 'away'
   | 'offline';
@@ -25,8 +27,10 @@ export function StatusDot({ status, variant, label, pulse = false, className }: 
     success: 'var(--success-600)',
     warning: 'var(--warning-600)',
     danger: 'var(--danger-600)',
+    error: 'var(--danger-600)',
     info: 'var(--info-600)',
     neutral: 'var(--neutral-500)',
+    default: 'var(--neutral-500)',
     active: 'var(--success-500)',
     away: 'var(--warning-500)',
     offline: 'var(--neutral-400)',

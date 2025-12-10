@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,9 +18,8 @@ const meta = {
 } satisfies Meta<typeof NavigationMenu>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <NavigationMenu>
       <NavigationMenuList>
@@ -64,7 +63,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithGrid: Story = {
+export const WithGrid = {
   render: () => (
     <NavigationMenu>
       <NavigationMenuList>
@@ -108,7 +107,7 @@ export const WithGrid: Story = {
   ),
 };
 
-export const Simple: Story = {
+export const Simple = {
   render: () => (
     <NavigationMenu>
       <NavigationMenuList>

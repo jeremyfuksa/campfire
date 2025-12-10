@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { ScrollArea } from "./scroll-area";
 import { Separator } from "./separator";
 
@@ -12,13 +12,12 @@ const meta = {
 } satisfies Meta<typeof ScrollArea>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `v1.2.0-beta.${a.length - i}`
 );
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <ScrollArea className="h-72 w-48 rounded-md border">
       <div className="p-4">
@@ -34,7 +33,7 @@ export const Default: Story = {
   ),
 };
 
-export const Horizontal: Story = {
+export const Horizontal = {
   render: () => (
     <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
       <div className="flex w-max space-x-4 p-4">
@@ -53,7 +52,7 @@ export const Horizontal: Story = {
   ),
 };
 
-export const LongContent: Story = {
+export const LongContent = {
   render: () => (
     <ScrollArea className="h-[400px] w-[500px] rounded-md border p-4">
       <h3 className="mb-4 text-lg font-semibold">Long Article</h3>
@@ -92,7 +91,7 @@ export const LongContent: Story = {
   ),
 };
 
-export const Small: Story = {
+export const Small = {
   render: () => (
     <ScrollArea className="h-32 w-32 rounded-md border">
       <div className="p-2">

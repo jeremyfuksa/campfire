@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Alert, AlertDescription, AlertTitle } from "./alert";
 
 const meta = {
@@ -17,9 +17,8 @@ const meta = {
 } satisfies Meta<typeof Alert>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Alert className="w-[400px]">
       <AlertTitle>Heads up!</AlertTitle>
@@ -30,7 +29,7 @@ export const Default: Story = {
   ),
 };
 
-export const Destructive: Story = {
+export const Destructive = {
   render: () => (
     <Alert variant="destructive" className="w-[400px]">
       <AlertTitle>Error</AlertTitle>
@@ -41,7 +40,7 @@ export const Destructive: Story = {
   ),
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   render: () => (
     <Alert className="w-[400px]">
       <i className="fa-solid fa-circle-info mr-2"></i>
@@ -53,7 +52,7 @@ export const WithIcon: Story = {
   ),
 };
 
-export const TitleOnly: Story = {
+export const TitleOnly = {
   render: () => (
     <Alert className="w-[400px]">
       <AlertTitle>Operation successful</AlertTitle>
@@ -61,7 +60,7 @@ export const TitleOnly: Story = {
   ),
 };
 
-export const DescriptionOnly: Story = {
+export const DescriptionOnly = {
   render: () => (
     <Alert className="w-[400px]">
       <AlertDescription>

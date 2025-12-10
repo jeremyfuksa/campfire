@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { StatusDot } from "./status-dot";
 
 const meta = {
@@ -17,39 +17,38 @@ const meta = {
 } satisfies Meta<typeof StatusDot>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Success: Story = {
+export const Success = {
   args: {
     status: "success",
   },
 };
 
-export const Warning: Story = {
+export const Warning = {
   args: {
     status: "warning",
   },
 };
 
-export const Error: Story = {
+export const Error = {
   args: {
     status: "error",
   },
 };
 
-export const Info: Story = {
+export const Info = {
   args: {
     status: "info",
   },
 };
 
-export const Default: Story = {
+export const Default = {
   args: {
     status: "default",
   },
 };
 
-export const AllStatuses: Story = {
+export const AllStatuses = {
   render: () => (
     <div className="flex items-center gap-4">
       <div className="flex items-center gap-2">
@@ -76,7 +75,7 @@ export const AllStatuses: Story = {
   ),
 };
 
-export const InList: Story = {
+export const InList = {
   render: () => (
     <div className="space-y-2 w-[300px]">
       <div className="flex items-center justify-between p-2 border rounded">
@@ -104,7 +103,7 @@ export const InList: Story = {
   ),
 };
 
-export const UserStatus: Story = {
+export const UserStatus = {
   render: () => (
     <div className="space-y-3 w-[250px]">
       <div className="flex items-center gap-3">

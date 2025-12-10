@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Select,
   SelectContent,
@@ -19,9 +19,8 @@ const meta = {
 } satisfies Meta<typeof Select>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Select>
       <SelectTrigger className="w-[180px]">
@@ -36,7 +35,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithGroups: Story = {
+export const WithGroups = {
   render: () => (
     <Select>
       <SelectTrigger className="w-[200px]">
@@ -60,7 +59,7 @@ export const WithGroups: Story = {
   ),
 };
 
-export const WithDefaultValue: Story = {
+export const WithDefaultValue = {
   render: () => (
     <Select defaultValue="option2">
       <SelectTrigger className="w-[180px]">
@@ -75,7 +74,7 @@ export const WithDefaultValue: Story = {
   ),
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   render: () => (
     <Select disabled>
       <SelectTrigger className="w-[180px]">
@@ -89,7 +88,7 @@ export const Disabled: Story = {
   ),
 };
 
-export const ManyOptions: Story = {
+export const ManyOptions = {
   render: () => (
     <Select>
       <SelectTrigger className="w-[180px]">

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { TreeView } from "./tree-view";
+import type { Meta } from "@storybook/react";
+import { TreeView, type TreeNode } from "./tree-view";
 
 const meta = {
   title: "Components/TreeView",
@@ -11,7 +11,6 @@ const meta = {
 } satisfies Meta<typeof TreeView>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const fileSystemData = [
   {
@@ -92,26 +91,26 @@ const organizationData = [
   },
 ];
 
-export const Default: Story = {
+export const Default = {
   args: {
     data: fileSystemData,
   },
 };
 
-export const FileSystem: Story = {
+export const FileSystem = {
   args: {
     data: fileSystemData,
-    onSelect: (node) => console.log("Selected:", node),
+    onSelect: (node: TreeNode) => console.log("Selected:", node),
   },
 };
 
-export const Organization: Story = {
+export const Organization = {
   args: {
     data: organizationData,
   },
 };
 
-export const SimpleTree: Story = {
+export const SimpleTree = {
   args: {
     data: [
       {
@@ -134,7 +133,7 @@ export const SimpleTree: Story = {
   },
 };
 
-export const DeepNesting: Story = {
+export const DeepNesting = {
   args: {
     data: [
       {

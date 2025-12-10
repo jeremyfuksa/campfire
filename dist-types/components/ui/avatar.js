@@ -1,0 +1,11 @@
+"use client";
+import { jsx as _jsx } from "react/jsx-runtime";
+import * as React from "react";
+import { cn } from "./utils";
+const Avatar = React.forwardRef(({ className, children, ...props }, ref) => (_jsx("div", { ref: ref, "data-slot": "avatar", className: cn("relative flex size-10 shrink-0 overflow-hidden rounded-full", className), ...props, children: children })));
+Avatar.displayName = "Avatar";
+const AvatarImage = React.forwardRef(({ className, alt = "", ...props }, ref) => (_jsx("img", { ref: ref, "data-slot": "avatar-image", className: cn("aspect-square size-full object-cover", className), alt: alt, ...props })));
+AvatarImage.displayName = "AvatarImage";
+const AvatarFallback = React.forwardRef(({ className, children, ...props }, ref) => (_jsx("span", { ref: ref, "data-slot": "avatar-fallback", className: cn("bg-muted flex size-full items-center justify-center rounded-full", className), ...props, children: children })));
+AvatarFallback.displayName = "AvatarFallback";
+export { Avatar, AvatarImage, AvatarFallback };

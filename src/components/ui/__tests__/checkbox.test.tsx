@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe, toHaveNoViolations } from "jest-axe";
 import * as React from "react";
+import type { CheckedState } from "@radix-ui/react-checkbox";
 import { Checkbox } from "../checkbox";
 
 expect.extend(toHaveNoViolations);
@@ -116,7 +117,7 @@ describe("Checkbox", () => {
   describe("Controlled Component", () => {
     it("works as controlled component", async () => {
       const ControlledCheckbox = () => {
-        const [checked, setChecked] = React.useState(false);
+        const [checked, setChecked] = React.useState<CheckedState>(false);
         return (
           <Checkbox
             checked={checked}

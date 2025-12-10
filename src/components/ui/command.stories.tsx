@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Command,
   CommandEmpty,
@@ -20,9 +20,8 @@ const meta = {
 } satisfies Meta<typeof Command>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Command className="rounded-lg border shadow-md w-[450px]">
       <CommandInput placeholder="Type a command or search..." />
@@ -62,7 +61,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithShortcuts: Story = {
+export const WithShortcuts = {
   render: () => (
     <Command className="rounded-lg border shadow-md w-[450px]">
       <CommandInput placeholder="Type a command..." />
@@ -108,7 +107,7 @@ export const WithShortcuts: Story = {
   ),
 };
 
-export const Simple: Story = {
+export const Simple = {
   render: () => (
     <Command className="rounded-lg border w-[350px]">
       <CommandInput placeholder="Search fruits..." />
@@ -126,7 +125,7 @@ export const Simple: Story = {
   ),
 };
 
-export const MultipleGroups: Story = {
+export const MultipleGroups = {
   render: () => (
     <Command className="rounded-lg border shadow-md w-[450px]">
       <CommandInput placeholder="Search..." />

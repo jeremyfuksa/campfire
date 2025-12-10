@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,9 +25,8 @@ const meta = {
 } satisfies Meta<typeof DropdownMenu>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -42,7 +41,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithIcons: Story = {
+export const WithIcons = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -69,7 +68,7 @@ export const WithIcons: Story = {
   ),
 };
 
-export const WithLabel: Story = {
+export const WithLabel = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -87,7 +86,7 @@ export const WithLabel: Story = {
   ),
 };
 
-export const WithCheckboxes: Story = {
+export const WithCheckboxes = {
   render: () => {
     const [showStatusBar, setShowStatusBar] = useState(true);
     const [showActivityBar, setShowActivityBar] = useState(false);
@@ -125,7 +124,7 @@ export const WithCheckboxes: Story = {
   },
 };
 
-export const WithRadio: Story = {
+export const WithRadio = {
   render: () => {
     const [position, setPosition] = useState("bottom");
 
@@ -148,7 +147,7 @@ export const WithRadio: Story = {
   },
 };
 
-export const WithShortcuts: Story = {
+export const WithShortcuts = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

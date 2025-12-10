@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Sheet,
   SheetContent,
@@ -22,9 +22,8 @@ const meta = {
 } satisfies Meta<typeof Sheet>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
@@ -43,7 +42,7 @@ export const Default: Story = {
   ),
 };
 
-export const Left: Story = {
+export const Left = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
@@ -59,7 +58,7 @@ export const Left: Story = {
   ),
 };
 
-export const Right: Story = {
+export const Right = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
@@ -75,7 +74,7 @@ export const Right: Story = {
   ),
 };
 
-export const Top: Story = {
+export const Top = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
@@ -91,7 +90,7 @@ export const Top: Story = {
   ),
 };
 
-export const Bottom: Story = {
+export const Bottom = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
@@ -107,7 +106,7 @@ export const Bottom: Story = {
   ),
 };
 
-export const WithForm: Story = {
+export const WithForm = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>

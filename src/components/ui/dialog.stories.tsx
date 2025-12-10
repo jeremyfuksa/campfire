@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Dialog,
   DialogContent,
@@ -22,9 +22,8 @@ const meta = {
 } satisfies Meta<typeof Dialog>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -47,7 +46,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithForm: Story = {
+export const WithForm = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -78,7 +77,7 @@ export const WithForm: Story = {
   ),
 };
 
-export const Confirmation: Story = {
+export const Confirmation = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -100,7 +99,7 @@ export const Confirmation: Story = {
   ),
 };
 
-export const NoFooter: Story = {
+export const NoFooter = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { StatCard } from "./stat-card";
 
 const meta = {
@@ -11,112 +11,115 @@ const meta = {
 } satisfies Meta<typeof StatCard>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const positive = (value: number) => ({ value, isPositive: true });
+const negative = (value: number) => ({ value, isPositive: false });
+
+export const Default = {
   args: {
-    title: "Total Revenue",
+    label: "Total Revenue",
     value: "$45,231.89",
-    trend: 20.1,
+    trend: positive(20.1),
+    icon: "fa-dollar-sign",
   },
 };
 
-export const WithIcon: Story = {
+export const WithIcon = {
   args: {
-    title: "Total Users",
+    label: "Total Users",
     value: "12,234",
-    trend: 15.3,
-    icon: <i className="fa-solid fa-users"></i>,
+    trend: positive(15.3),
+    icon: "fa-users",
   },
 };
 
-export const NegativeTrend: Story = {
+export const NegativeTrend = {
   args: {
-    title: "Bounce Rate",
+    label: "Bounce Rate",
     value: "32.4%",
-    trend: -5.2,
-    icon: <i className="fa-solid fa-chart-line"></i>,
+    trend: negative(5.2),
+    icon: "fa-chart-line",
   },
 };
 
-export const NoTrend: Story = {
+export const NoTrend = {
   args: {
-    title: "Active Projects",
+    label: "Active Projects",
     value: "24",
-    icon: <i className="fa-solid fa-folder"></i>,
+    icon: "fa-folder",
   },
 };
 
-export const Dashboard: Story = {
+export const Dashboard = {
   render: () => (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <StatCard
-        title="Total Revenue"
+        label="Total Revenue"
         value="$45,231.89"
-        trend={20.1}
-        icon={<i className="fa-solid fa-dollar-sign"></i>}
+        trend={positive(20.1)}
+        icon="fa-dollar-sign"
       />
       <StatCard
-        title="Subscriptions"
+        label="Subscriptions"
         value="+2,350"
-        trend={15.3}
-        icon={<i className="fa-solid fa-users"></i>}
+        trend={positive(15.3)}
+        icon="fa-users"
       />
       <StatCard
-        title="Sales"
+        label="Sales"
         value="+12,234"
-        trend={19.2}
-        icon={<i className="fa-solid fa-credit-card"></i>}
+        trend={positive(19.2)}
+        icon="fa-credit-card"
       />
       <StatCard
-        title="Active Now"
+        label="Active Now"
         value="+573"
-        trend={8.1}
-        icon={<i className="fa-solid fa-activity"></i>}
+        trend={positive(8.1)}
+        icon="fa-activity"
       />
     </div>
   ),
 };
 
-export const MetricsGrid: Story = {
+export const MetricsGrid = {
   render: () => (
     <div className="grid gap-4 md:grid-cols-3">
       <StatCard
-        title="Page Views"
+        label="Page Views"
         value="125,432"
-        trend={12.5}
-        icon={<i className="fa-solid fa-eye"></i>}
+        trend={positive(12.5)}
+        icon="fa-eye"
       />
       <StatCard
-        title="Unique Visitors"
+        label="Unique Visitors"
         value="45,231"
-        trend={8.3}
-        icon={<i className="fa-solid fa-user"></i>}
+        trend={positive(8.3)}
+        icon="fa-user"
       />
       <StatCard
-        title="Avg. Session"
+        label="Avg. Session"
         value="2m 34s"
-        trend={-3.2}
-        icon={<i className="fa-solid fa-clock"></i>}
+        trend={negative(3.2)}
+        icon="fa-clock"
       />
     </div>
   ),
 };
 
-export const LargeValue: Story = {
+export const LargeValue = {
   args: {
-    title: "Total Downloads",
+    label: "Total Downloads",
     value: "1,234,567",
-    trend: 45.2,
-    icon: <i className="fa-solid fa-download"></i>,
+    trend: positive(45.2),
+    icon: "fa-download",
   },
 };
 
-export const SmallTrend: Story = {
+export const SmallTrend = {
   args: {
-    title: "Conversion Rate",
+    label: "Conversion Rate",
     value: "3.2%",
-    trend: 0.8,
-    icon: <i className="fa-solid fa-percentage"></i>,
+    trend: positive(0.8),
+    icon: "fa-percentage",
   },
 };

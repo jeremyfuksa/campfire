@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./collapsible";
 import { Button } from "./button";
 import { useState } from "react";
@@ -13,9 +13,8 @@ const meta = {
 } satisfies Meta<typeof Collapsible>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -47,7 +46,7 @@ export const Default: Story = {
   },
 };
 
-export const DefaultOpen: Story = {
+export const DefaultOpen = {
   render: () => {
     const [isOpen, setIsOpen] = useState(true);
     return (
@@ -75,7 +74,7 @@ export const DefaultOpen: Story = {
   },
 };
 
-export const WithButton: Story = {
+export const WithButton = {
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
