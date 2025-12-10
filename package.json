@@ -29,8 +29,9 @@
     "build:lib": "tsup",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "test": "vitest",
-    "test:smoke": "vitest run src/test",
+    "test": "vitest run src/test",
+    "test:full": "vitest",
+    "test:smoke": "npm run test",
     "release": "npm version patch && npm run build:lib && npm publish --access public",
     "preview": "vite preview",
     "tokens": "node scripts/export-tokens.js"
