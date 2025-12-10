@@ -108,8 +108,7 @@ export const FAQ: Story = {
         <AccordionContent>
           Standard shipping takes 5-7 business days. Express shipping (2-3 days)
           and overnight options are also available at checkout.
-        </AccordionC
-ontent>
+        </AccordionContent>
       </AccordionItem>
       <AccordionItem value="q3">
         <AccordionTrigger>What is your return policy?</AccordionTrigger>
