@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink } from 'lucide-react';
 import { cn } from './utils';
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -60,10 +61,12 @@ export function Link({
     >
       {children}
       {external && (
-        <i 
-          className="fa-solid fa-arrow-up-right-from-square ml-1" 
-          style={{ fontSize: '0.75em' }}
-        ></i>
+        <ExternalLink
+          size={12}
+          className="inline-block ml-1 align-[-0.15em]"
+          data-testid="link-external-icon"
+          aria-hidden="true"
+        />
       )}
     </a>
   );

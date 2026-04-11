@@ -1,4 +1,20 @@
 import React, { useState } from 'react';
+import {
+  Mail,
+  Lock,
+  Loader2,
+  Search,
+  Bell,
+  User,
+  Pencil,
+  Trash2,
+  MoreHorizontal,
+  FolderOpen,
+  AlertCircle,
+  Copy,
+  RotateCw,
+  CheckCircle2,
+} from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -56,7 +72,7 @@ export function ExamplesPage() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={setEmail}
-                icon="fa-envelope"
+                icon={Mail}
               />
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
@@ -66,7 +82,7 @@ export function ExamplesPage() {
                   </a>
                 </div>
                 <div className="relative">
-                  <i className="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)', fontSize: '14px' }}></i>
+                  <Lock size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)' }} />
                   <Input 
                     id="login-password" 
                     type="password" 
@@ -88,7 +104,7 @@ export function ExamplesPage() {
               <Button className="w-full" onClick={handleLogin} disabled={isLoading}>
                 {isLoading ? (
                   <>
-                    <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                    <Loader2 size={16} className="mr-2 animate-spin" />
                     Signing in...
                   </>
                 ) : (
@@ -117,19 +133,19 @@ export function ExamplesPage() {
                 <h3>Campfire Dashboard</h3>
               </div>
               <div className="relative">
-                <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)', fontSize: '14px' }}></i>
+                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)' }} />
                 <Input placeholder="Search..." className="w-64 h-9 pl-10" />
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Button variant="ghost" size="sm" className="relative">
-                <i className="fa-solid fa-bell"></i>
+                <Bell size={16} />
                 <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center" style={{ fontSize: '10px' }}>
                   3
                 </Badge>
               </Button>
               <Button variant="ghost" size="sm">
-                <i className="fa-solid fa-user"></i>
+                <User size={16} />
               </Button>
             </div>
           </div>
@@ -184,13 +200,13 @@ export function ExamplesPage() {
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <Button variant="ghost" size="sm">
-                        <i className="fa-solid fa-pen"></i>
+                        <Pencil size={16} />
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <i className="fa-solid fa-trash"></i>
+                        <Trash2 size={16} />
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <i className="fa-solid fa-ellipsis"></i>
+                        <MoreHorizontal size={16} />
                       </Button>
                     </div>
                   </TableCell>
@@ -302,7 +318,7 @@ export function ExamplesPage() {
         <Card className="p-12">
           <div className="flex flex-col items-center text-center space-y-4">
             <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--bg-muted)' }}>
-              <i className="fa-solid fa-folder-open" style={{ color: 'var(--text-tertiary)', fontSize: '32px' }}></i>
+              <FolderOpen size={32} style={{ color: 'var(--text-tertiary)' }} />
             </div>
             <div className="space-y-2">
               <h3>No projects yet</h3>
@@ -346,7 +362,7 @@ export function ExamplesPage() {
         <Card className="p-8">
           <div className="space-y-6">
             <Alert variant="destructive" className="flex items-center gap-3">
-              <i className="fa-solid fa-circle-exclamation flex-shrink-0" style={{ fontSize: '16px' }}></i>
+              <AlertCircle size={16} className="flex-shrink-0" />
               <AlertDescription className="flex-1">
                 Failed to load data. Please check your connection and try again.
               </AlertDescription>
@@ -354,7 +370,7 @@ export function ExamplesPage() {
             
             <div className="flex flex-col items-center text-center space-y-4 py-8">
               <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--danger-100)' }}>
-                <i className="fa-solid fa-circle-exclamation" style={{ color: 'var(--danger-600)', fontSize: '32px' }}></i>
+                <AlertCircle size={32} style={{ color: 'var(--danger-600)' }} />
               </div>
               <div className="space-y-2">
                 <h3>Something went wrong</h3>
@@ -364,11 +380,11 @@ export function ExamplesPage() {
               </div>
               <div className="flex gap-3">
                 <Button variant="outline">
-                  <i className="fa-solid fa-copy mr-2"></i>
+                  <Copy size={16} className="mr-2" />
                   Copy Error
                 </Button>
                 <Button>
-                  <i className="fa-solid fa-rotate-right mr-2"></i>
+                  <RotateCw size={16} className="mr-2" />
                   Try Again
                 </Button>
               </div>
@@ -383,7 +399,7 @@ export function ExamplesPage() {
         <Card className="p-12">
           <div className="flex flex-col items-center text-center space-y-4">
             <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--success-100)' }}>
-              <i className="fa-solid fa-circle-check" style={{ color: 'var(--success-600)', fontSize: '32px' }}></i>
+              <CheckCircle2 size={32} style={{ color: 'var(--success-600)' }} />
             </div>
             <div className="space-y-2">
               <h3>Successfully saved!</h3>

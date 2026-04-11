@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Bold, Italic, Strikethrough, Underline } from "lucide-react";
 import { Toggle } from "./toggle";
 import { useState } from "react";
 
@@ -31,7 +32,7 @@ export const Default = {
 
 export const WithIcon = {
   args: {
-    children: <i className="fa-solid fa-bold"></i>,
+    children: <Bold size={16} />,
     "aria-label": "Toggle bold",
   },
 };
@@ -39,7 +40,7 @@ export const WithIcon = {
 export const Outline = {
   args: {
     variant: "outline",
-    children: <i className="fa-solid fa-italic"></i>,
+    children: <Italic size={16} />,
     "aria-label": "Toggle italic",
   },
 };
@@ -47,7 +48,7 @@ export const Outline = {
 export const Small = {
   args: {
     size: "sm",
-    children: <i className="fa-solid fa-underline"></i>,
+    children: <Underline size={14} />,
     "aria-label": "Toggle underline",
   },
 };
@@ -55,7 +56,7 @@ export const Small = {
 export const Large = {
   args: {
     size: "lg",
-    children: <i className="fa-solid fa-strikethrough"></i>,
+    children: <Strikethrough size={18} />,
     "aria-label": "Toggle strikethrough",
   },
 };
@@ -66,7 +67,7 @@ export const Interactive = {
     return (
       <div className="space-y-2">
         <Toggle pressed={pressed} onPressedChange={setPressed}>
-          <i className="fa-solid fa-bold mr-2"></i>
+          <Bold size={16} className="mr-2" />
           Bold
         </Toggle>
         <p className="text-sm text-muted-foreground">
@@ -81,16 +82,16 @@ export const TextFormatting = {
   render: () => (
     <div className="flex gap-1">
       <Toggle aria-label="Toggle bold">
-        <i className="fa-solid fa-bold"></i>
+        <Bold size={16} />
       </Toggle>
       <Toggle aria-label="Toggle italic">
-        <i className="fa-solid fa-italic"></i>
+        <Italic size={16} />
       </Toggle>
       <Toggle aria-label="Toggle underline">
-        <i className="fa-solid fa-underline"></i>
+        <Underline size={16} />
       </Toggle>
       <Toggle aria-label="Toggle strikethrough">
-        <i className="fa-solid fa-strikethrough"></i>
+        <Strikethrough size={16} />
       </Toggle>
     </div>
   ),
@@ -99,7 +100,7 @@ export const TextFormatting = {
 export const Disabled = {
   args: {
     disabled: true,
-    children: <i className="fa-solid fa-bold"></i>,
+    children: <Bold size={16} />,
     "aria-label": "Toggle bold",
   },
 };

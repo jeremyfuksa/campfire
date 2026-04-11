@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
 import { Button } from './button';
 
 interface CopyButtonProps {
@@ -38,7 +39,7 @@ export function CopyButton({
       onClick={handleCopy}
       className={className}
     >
-      <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
+      {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
       {showText && <span className="ml-2">{copied ? 'Copied!' : 'Copy'}</span>}
     </Button>
   );

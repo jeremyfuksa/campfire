@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Clock, Code, Hammer, X } from "lucide-react";
 import { Timeline, TimelineItem } from "./timeline";
 
 const events: TimelineItem[] = [
@@ -64,7 +65,7 @@ export const WithIcons = {
         title: "Code Committed",
         description: "Feature branch merged to main",
         date: "2h ago",
-        icon: <i className="fa-solid fa-code text-xs"></i>,
+        icon: <Code size={12} />,
         status: "success",
       },
       {
@@ -72,7 +73,7 @@ export const WithIcons = {
         title: "Build Started",
         description: "CI/CD pipeline initiated",
         date: "1h ago",
-        icon: <i className="fa-solid fa-hammer text-xs"></i>,
+        icon: <Hammer size={12} />,
         status: "warning",
       },
       {
@@ -80,7 +81,7 @@ export const WithIcons = {
         title: "Tests Failed",
         description: "3 unit tests failing",
         date: "45m ago",
-        icon: <i className="fa-solid fa-xmark text-xs"></i>,
+        icon: <X size={12} />,
         status: "error",
       },
       {
@@ -88,7 +89,7 @@ export const WithIcons = {
         title: "Deploy Pending",
         description: "Waiting for approval",
         date: "30m ago",
-        icon: <i className="fa-solid fa-clock text-xs"></i>,
+        icon: <Clock size={12} />,
         status: "default",
       },
     ],

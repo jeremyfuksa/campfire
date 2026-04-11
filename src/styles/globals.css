@@ -156,6 +156,10 @@
   --line-height-5xl: 3.5rem; /* 56px */
   --line-height-6xl: 4rem;   /* 64px */
 
+  /* Font Families */
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
   /* Font Weights */
   --font-weight-light: 300;
   --font-weight-regular: 400;
@@ -314,7 +318,11 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-sans);
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
   }
 }
 
@@ -416,9 +424,10 @@ body {
    CAMPFIRE CHARACTER ENHANCEMENTS
    =================================== */
 
-/* Smooth, warm transitions */
-* {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* Campfire easing curve, exposed as a token so components can opt in
+   without hijacking every transition on the page. */
+:root {
+  --ease-campfire: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Warmer focus states with glow */
@@ -428,11 +437,7 @@ body {
 }
 
 /* Subtle texture on cards and elevated surfaces */
-.campfire-card,
-[class*="card"],
-[class*="sheet"],
-[class*="dialog"],
-[class*="popover"] {
+.campfire-card {
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.2s ease;
 }
@@ -441,16 +446,16 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* Interactive elements get warmer on hover */
-button:not(:disabled):hover,
-a:hover,
-[role="button"]:hover {
+/* Opt-in "warm lift" interaction for buttons and links that want the
+   Campfire character. Scoped with .campfire-lift so global elements
+   — especially buttons inside other transforms (sliders, drag handles,
+   tooltips) — are not affected. */
+.campfire-lift:not(:disabled):hover {
   transform: translateY(-1px);
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease var(--ease-campfire);
 }
 
-button:active,
-[role="button"]:active {
+.campfire-lift:not(:disabled):active {
   transform: translateY(0);
 }
 

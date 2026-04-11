@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
+import { DollarSign, Users } from "lucide-react";
 import { StatCard } from "../stat-card";
 
 expect.extend(toHaveNoViolations);
@@ -19,45 +20,51 @@ describe("StatCard", () => {
 
   describe("Icon", () => {
     it("renders with icon", () => {
-      const { container } = render(<StatCard label="Users" value="100" icon="fa-users" />);
-      expect(container.querySelector(".fa-users")).toBeInTheDocument();
-    });
-
-    it("renders without icon", () => {
-      const { container } = render(<StatCard label="Users" value="100" />);
-      expect(container.querySelector("i")).not.toBeInTheDocument();
-    });
-
-    it("applies custom icon colors", () => {
-      const { container } = render(
+      render(
         <StatCard
           label="Users"
           value="100"
-          icon="fa-users"
+          icon={<Users data-testid="stat-icon-users" />}
+        />,
+      );
+      expect(screen.getByTestId("stat-card-icon")).toBeInTheDocument();
+      expect(screen.getByTestId("stat-icon-users")).toBeInTheDocument();
+    });
+
+    it("renders without icon", () => {
+      render(<StatCard label="Users" value="100" />);
+      expect(screen.queryByTestId("stat-card-icon")).not.toBeInTheDocument();
+    });
+
+    it("applies custom icon colors", () => {
+      render(
+        <StatCard
+          label="Users"
+          value="100"
+          icon={<Users />}
           iconColor="red"
           iconBgColor="blue"
-        />
+        />,
       );
-      const iconContainer = container.querySelector(".w-12.h-12");
-      expect(iconContainer).toBeInTheDocument();
+      expect(screen.getByTestId("stat-card-icon")).toBeInTheDocument();
     });
   });
 
   describe("Trend", () => {
     it("renders positive trend", () => {
-      const { container } = render(
-        <StatCard label="Sales" value="$1,000" trend={{ value: 12, isPositive: true }} />
+      render(
+        <StatCard label="Sales" value="$1,000" trend={{ value: 12, isPositive: true }} />,
       );
       expect(screen.getByText("12%")).toBeInTheDocument();
-      expect(container.querySelector(".fa-arrow-up")).toBeInTheDocument();
+      expect(screen.getByTestId("stat-card-trend-up")).toBeInTheDocument();
     });
 
     it("renders negative trend", () => {
-      const { container } = render(
-        <StatCard label="Sales" value="$1,000" trend={{ value: 5, isPositive: false }} />
+      render(
+        <StatCard label="Sales" value="$1,000" trend={{ value: 5, isPositive: false }} />,
       );
       expect(screen.getByText("5%")).toBeInTheDocument();
-      expect(container.querySelector(".fa-arrow-down")).toBeInTheDocument();
+      expect(screen.getByTestId("stat-card-trend-down")).toBeInTheDocument();
     });
 
     it("displays absolute value for negative trend", () => {
@@ -66,15 +73,15 @@ describe("StatCard", () => {
     });
 
     it("renders without trend", () => {
-      const { container } = render(<StatCard label="Count" value="50" />);
-      expect(container.querySelector(".fa-arrow-up")).not.toBeInTheDocument();
-      expect(container.querySelector(".fa-arrow-down")).not.toBeInTheDocument();
+      render(<StatCard label="Count" value="50" />);
+      expect(screen.queryByTestId("stat-card-trend-up")).not.toBeInTheDocument();
+      expect(screen.queryByTestId("stat-card-trend-down")).not.toBeInTheDocument();
     });
   });
 
   it("renders with custom className", () => {
     const { container } = render(
-      <StatCard label="Test" value="123" className="custom-stat" />
+      <StatCard label="Test" value="123" className="custom-stat" />,
     );
     expect(container.querySelector(".custom-stat")).toBeInTheDocument();
   });
@@ -90,9 +97,9 @@ describe("StatCard", () => {
       <StatCard
         label="Revenue"
         value="$10,000"
-        icon="fa-dollar-sign"
+        icon={<DollarSign />}
         trend={{ value: 15, isPositive: true }}
-      />
+      />,
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();

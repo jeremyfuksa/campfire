@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Calendar as CalendarIcon } from "lucide-react";
 import { Calendar } from "./calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Button } from "./button";
@@ -74,7 +75,7 @@ export function DateRangePicker({
           )}
           disabled={disabled}
         >
-          <i className="fa-regular fa-calendar mr-2"></i>
+          <CalendarIcon size={16} className="mr-2" aria-hidden="true" />
           {displayText}
         </Button>
       </PopoverTrigger>

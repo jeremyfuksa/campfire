@@ -12,6 +12,7 @@ import {
   ContextMenuShortcut,
 } from "./context-menu";
 import { useState } from "react";
+import { Copy, Download, FolderOpen, Pencil, Share2, Trash2 } from "lucide-react";
 
 const meta = {
   title: "Components/ContextMenu",
@@ -48,20 +49,20 @@ export const WithIcons = {
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
         <ContextMenuItem>
-          <i className="fa-solid fa-folder-open mr-2"></i>
+          <FolderOpen size={14} className="mr-2" />
           Open
         </ContextMenuItem>
         <ContextMenuItem>
-          <i className="fa-solid fa-download mr-2"></i>
+          <Download size={14} className="mr-2" />
           Download
         </ContextMenuItem>
         <ContextMenuItem>
-          <i className="fa-solid fa-share mr-2"></i>
+          <Share2 size={14} className="mr-2" />
           Share
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem>
-          <i className="fa-solid fa-trash mr-2"></i>
+          <Trash2 size={14} className="mr-2" />
           Delete
         </ContextMenuItem>
       </ContextMenuContent>
@@ -169,20 +170,20 @@ export const OnCard = {
       </ContextMenuTrigger>
       <ContextMenuContent className="w-64">
         <ContextMenuItem>
-          <i className="fa-solid fa-pen mr-2"></i>
+          <Pencil size={14} className="mr-2" />
           Edit
         </ContextMenuItem>
         <ContextMenuItem>
-          <i className="fa-solid fa-copy mr-2"></i>
+          <Copy size={14} className="mr-2" />
           Duplicate
         </ContextMenuItem>
         <ContextMenuItem>
-          <i className="fa-solid fa-share mr-2"></i>
+          <Share2 size={14} className="mr-2" />
           Share
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem className="text-destructive">
-          <i className="fa-solid fa-trash mr-2"></i>
+          <Trash2 size={14} className="mr-2" />
           Delete
         </ContextMenuItem>
       </ContextMenuContent>

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
+import { Info, Star } from "lucide-react";
 import { HelperText } from "../helper-text";
 
 expect.extend(toHaveNoViolations);
@@ -18,66 +19,57 @@ describe("HelperText", () => {
     });
 
     it("renders error variant", () => {
-      const { container } = render(<HelperText variant="error">Error message</HelperText>);
+      render(<HelperText variant="error">Error message</HelperText>);
       expect(screen.getByText("Error message")).toBeInTheDocument();
-      const icon = container.querySelector(".fa-circle-exclamation");
-      expect(icon).toBeInTheDocument();
+      expect(screen.getByTestId("helper-text-icon-error")).toBeInTheDocument();
     });
 
     it("renders success variant", () => {
-      const { container } = render(<HelperText variant="success">Success message</HelperText>);
+      render(<HelperText variant="success">Success message</HelperText>);
       expect(screen.getByText("Success message")).toBeInTheDocument();
-      const icon = container.querySelector(".fa-circle-check");
-      expect(icon).toBeInTheDocument();
+      expect(screen.getByTestId("helper-text-icon-success")).toBeInTheDocument();
     });
 
     it("renders warning variant", () => {
-      const { container } = render(<HelperText variant="warning">Warning message</HelperText>);
+      render(<HelperText variant="warning">Warning message</HelperText>);
       expect(screen.getByText("Warning message")).toBeInTheDocument();
-      const icon = container.querySelector(".fa-triangle-exclamation");
-      expect(icon).toBeInTheDocument();
+      expect(screen.getByTestId("helper-text-icon-warning")).toBeInTheDocument();
     });
   });
 
   describe("Icons", () => {
     it("renders default icon for error variant", () => {
-      const { container } = render(<HelperText variant="error">Error</HelperText>);
-      const icon = container.querySelector(".fa-circle-exclamation");
-      expect(icon).toBeInTheDocument();
+      render(<HelperText variant="error">Error</HelperText>);
+      expect(screen.getByTestId("helper-text-icon-error")).toBeInTheDocument();
     });
 
     it("renders custom icon", () => {
-      const { container } = render(
-        <HelperText variant="default" icon="fa-info-circle">
+      render(
+        <HelperText variant="default" icon={<Info data-testid="custom-info-icon" />}>
           Custom icon
-        </HelperText>
+        </HelperText>,
       );
-      const icon = container.querySelector(".fa-info-circle");
-      expect(icon).toBeInTheDocument();
+      expect(screen.getByTestId("custom-info-icon")).toBeInTheDocument();
     });
 
     it("custom icon overrides default variant icon", () => {
-      const { container } = render(
-        <HelperText variant="error" icon="fa-star">
+      render(
+        <HelperText variant="error" icon={<Star data-testid="custom-star-icon" />}>
           Custom icon overrides
-        </HelperText>
+        </HelperText>,
       );
-      const customIcon = container.querySelector(".fa-star");
-      const defaultIcon = container.querySelector(".fa-circle-exclamation");
-      expect(customIcon).toBeInTheDocument();
-      expect(defaultIcon).not.toBeInTheDocument();
+      expect(screen.getByTestId("custom-star-icon")).toBeInTheDocument();
     });
 
     it("does not render icon for default variant without custom icon", () => {
-      const { container } = render(<HelperText variant="default">No icon</HelperText>);
-      const icon = container.querySelector("i");
-      expect(icon).not.toBeInTheDocument();
+      render(<HelperText variant="default">No icon</HelperText>);
+      expect(screen.queryByTestId("helper-text-icon-default")).not.toBeInTheDocument();
     });
   });
 
   it("renders with custom className", () => {
     const { container } = render(
-      <HelperText className="custom-helper">Custom</HelperText>
+      <HelperText className="custom-helper">Custom</HelperText>,
     );
     const helperText = container.querySelector(".custom-helper");
     expect(helperText).toBeInTheDocument();
@@ -93,7 +85,7 @@ describe("HelperText", () => {
     const variants = ["default", "error", "success", "warning"] as const;
     for (const variant of variants) {
       const { container } = render(
-        <HelperText variant={variant}>{variant} text</HelperText>
+        <HelperText variant={variant}>{variant} text</HelperText>,
       );
       const results = await axe(container);
       expect(results).toHaveNoViolations();

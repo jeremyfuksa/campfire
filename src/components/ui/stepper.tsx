@@ -1,4 +1,5 @@
 import React from 'react';
+import { Check } from 'lucide-react';
 import { cn } from './utils';
 
 export interface Step {
@@ -36,10 +37,13 @@ export function Stepper({ steps, currentStep, className }: StepperProps) {
                 }}
               >
                 {isCompleted ? (
-                  <i 
-                    className="fa-solid fa-check" 
-                    style={{ fontSize: '14px', color: 'white' }}
-                  ></i>
+                  <Check
+                    size={14}
+                    color="white"
+                    strokeWidth={3}
+                    data-testid="stepper-check"
+                    aria-hidden="true"
+                  />
                 ) : (
                   <span 
                     style={{ 

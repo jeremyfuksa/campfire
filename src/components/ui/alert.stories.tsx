@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Info } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "./alert";
 
 const meta = {
@@ -43,7 +44,7 @@ export const Destructive = {
 export const WithIcon = {
   render: () => (
     <Alert className="w-[400px]">
-      <i className="fa-solid fa-circle-info mr-2"></i>
+      <Info size={16} className="mr-2" />
       <AlertTitle>Information</AlertTitle>
       <AlertDescription>
         This is an informational message with an icon.

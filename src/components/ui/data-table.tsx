@@ -1,4 +1,13 @@
 import React, { useState, useMemo } from 'react';
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from 'lucide-react';
 import { cn } from './utils';
 import { Button } from './button';
 import { Input } from './input';
@@ -203,15 +212,15 @@ export function DataTable<T extends Record<string, any>>({
                     <div className="flex items-center gap-2">
                       {column.header}
                       {column.sortable && (
-                        <span style={{ color: 'var(--neutral-500)' }}>
+                        <span style={{ color: 'var(--neutral-500)' }} aria-hidden="true">
                           {sortColumn === column.id ? (
                             sortDirection === 'asc' ? (
-                              <i className="fa-solid fa-arrow-up text-xs"></i>
+                              <ArrowUp size={12} />
                             ) : (
-                              <i className="fa-solid fa-arrow-down text-xs"></i>
+                              <ArrowDown size={12} />
                             )
                           ) : (
-                            <i className="fa-solid fa-sort text-xs"></i>
+                            <ArrowUpDown size={12} />
                           )}
                         </span>
                       )}
@@ -326,7 +335,7 @@ export function DataTable<T extends Record<string, any>>({
               disabled={currentPage === 0}
               aria-label="Go to first page"
             >
-              <i className="fa-solid fa-angles-left"></i>
+              <ChevronsLeft size={14} aria-hidden="true" />
             </Button>
             <Button
               variant="outline"
@@ -335,7 +344,7 @@ export function DataTable<T extends Record<string, any>>({
               disabled={currentPage === 0}
               aria-label="Go to previous page"
             >
-              <i className="fa-solid fa-angle-left"></i>
+              <ChevronLeft size={14} aria-hidden="true" />
             </Button>
             <Button
               variant="outline"
@@ -344,7 +353,7 @@ export function DataTable<T extends Record<string, any>>({
               disabled={currentPage >= totalPages - 1}
               aria-label="Go to next page"
             >
-              <i className="fa-solid fa-angle-right"></i>
+              <ChevronRight size={14} aria-hidden="true" />
             </Button>
             <Button
               variant="outline"
@@ -353,7 +362,7 @@ export function DataTable<T extends Record<string, any>>({
               disabled={currentPage >= totalPages - 1}
               aria-label="Go to last page"
             >
-              <i className="fa-solid fa-angles-right"></i>
+              <ChevronsRight size={14} aria-hidden="true" />
             </Button>
           </div>
         </div>
