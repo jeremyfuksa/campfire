@@ -1,13 +1,13 @@
 {
   "name": "@jeremyfuksa/campfire",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
   "author": "Campfire Design System Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremyfuksa/campfire.git"
+    "url": "git+https://github.com/jeremyfuksa/campfire.git"
   },
   "bugs": {
     "url": "https://github.com/jeremyfuksa/campfire/issues"

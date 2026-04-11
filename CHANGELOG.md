@@ -4,6 +4,8 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-04-11
+
 ### Changed - Production Readiness Pass
 
 #### Icon library: Font Awesome → Lucide (**breaking**)
