@@ -1,4 +1,15 @@
 import type { Meta } from "@storybook/react";
+import {
+  AlignCenter,
+  AlignLeft,
+  AlignRight,
+  Bold,
+  Grid,
+  Italic,
+  List,
+  Strikethrough,
+  Underline,
+} from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 import { useState } from "react";
 
@@ -31,13 +42,13 @@ export const Single = {
   render: () => (
     <ToggleGroup type="single" defaultValue="center">
       <ToggleGroupItem value="left" aria-label="Align left">
-        <i className="fa-solid fa-align-left"></i>
+        <AlignLeft size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem value="center" aria-label="Align center">
-        <i className="fa-solid fa-align-center"></i>
+        <AlignCenter size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem value="right" aria-label="Align right">
-        <i className="fa-solid fa-align-right"></i>
+        <AlignRight size={16} />
       </ToggleGroupItem>
     </ToggleGroup>
   ),
@@ -47,16 +58,16 @@ export const Multiple = {
   render: () => (
     <ToggleGroup type="multiple" defaultValue={["bold", "italic"]}>
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
-        <i className="fa-solid fa-bold"></i>
+        <Bold size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem value="italic" aria-label="Toggle italic">
-        <i className="fa-solid fa-italic"></i>
+        <Italic size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem value="underline" aria-label="Toggle underline">
-        <i className="fa-solid fa-underline"></i>
+        <Underline size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
-        <i className="fa-solid fa-strikethrough"></i>
+        <Strikethrough size={16} />
       </ToggleGroupItem>
     </ToggleGroup>
   ),
@@ -89,11 +100,11 @@ export const Large = {
   render: () => (
     <ToggleGroup type="single" size="lg">
       <ToggleGroupItem value="grid">
-        <i className="fa-solid fa-grid mr-2"></i>
+        <Grid size={16} className="mr-2" />
         Grid
       </ToggleGroupItem>
       <ToggleGroupItem value="list">
-        <i className="fa-solid fa-list mr-2"></i>
+        <List size={16} className="mr-2" />
         List
       </ToggleGroupItem>
     </ToggleGroup>

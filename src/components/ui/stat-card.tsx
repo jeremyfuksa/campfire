@@ -1,10 +1,11 @@
 import React from 'react';
+import { ArrowDown, ArrowUp } from 'lucide-react';
 import { Card, CardContent } from './card';
 
 interface StatCardProps {
   label: string;
   value: string | number;
-  icon?: string;
+  icon?: React.ReactNode;
   iconColor?: string;
   iconBgColor?: string;
   trend?: {
@@ -14,15 +15,16 @@ interface StatCardProps {
   className?: string;
 }
 
-export function StatCard({ 
-  label, 
-  value, 
-  icon, 
+export function StatCard({
+  label,
+  value,
+  icon,
   iconColor = 'var(--interactive-default)',
   iconBgColor = 'var(--bg-muted)',
-  trend, 
-  className = '' 
+  trend,
+  className = '',
 }: StatCardProps) {
+  const TrendIcon = trend?.isPositive ? ArrowUp : ArrowDown;
   return (
     <Card className={className}>
       <CardContent className="pt-6">
@@ -36,17 +38,18 @@ export function StatCard({
             </p>
             {trend && (
               <div className="flex items-center gap-1 mt-2">
-                <i 
-                  className={`fa-solid ${trend.isPositive ? 'fa-arrow-up' : 'fa-arrow-down'}`}
-                  style={{ 
-                    fontSize: '12px',
-                    color: trend.isPositive ? 'var(--success-600)' : 'var(--danger-600)' 
+                <TrendIcon
+                  aria-hidden="true"
+                  data-testid={trend.isPositive ? 'stat-card-trend-up' : 'stat-card-trend-down'}
+                  size={12}
+                  style={{
+                    color: trend.isPositive ? 'var(--success-600)' : 'var(--danger-600)',
                   }}
-                ></i>
-                <span 
-                  style={{ 
+                />
+                <span
+                  style={{
                     fontSize: '14px',
-                    color: trend.isPositive ? 'var(--success-600)' : 'var(--danger-600)'
+                    color: trend.isPositive ? 'var(--success-600)' : 'var(--danger-600)',
                   }}
                 >
                   {Math.abs(trend.value)}%
@@ -55,14 +58,12 @@ export function StatCard({
             )}
           </div>
           {icon && (
-            <div 
+            <div
               className="flex items-center justify-center w-12 h-12 rounded-lg"
-              style={{ backgroundColor: iconBgColor }}
+              data-testid="stat-card-icon"
+              style={{ backgroundColor: iconBgColor, color: iconColor }}
             >
-              <i 
-                className={`fa-solid ${icon}`}
-                style={{ fontSize: '20px', color: iconColor }}
-              ></i>
+              {icon}
             </div>
           )}
         </div>

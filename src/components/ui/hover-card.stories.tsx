@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Calendar, Laptop } from "lucide-react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 import { Button } from "./button";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
@@ -32,7 +33,7 @@ export const Default = {
               The React Framework – created and maintained by @vercel.
             </p>
             <div className="flex items-center pt-2">
-              <i className="fa-solid fa-calendar mr-2 h-4 w-4 opacity-70"></i>
+              <Calendar size={14} className="mr-2 opacity-70" />
               <span className="text-xs text-muted-foreground">
                 Joined December 2021
               </span>
@@ -90,7 +91,7 @@ export const ProductPreview = {
       <HoverCardContent className="w-80">
         <div className="space-y-2">
           <div className="h-40 bg-muted rounded-md flex items-center justify-center">
-            <i className="fa-solid fa-laptop text-4xl text-muted-foreground"></i>
+            <Laptop size={48} className="text-muted-foreground" />
           </div>
           <h4 className="font-semibold">MacBook Pro 16"</h4>
           <p className="text-sm text-muted-foreground">

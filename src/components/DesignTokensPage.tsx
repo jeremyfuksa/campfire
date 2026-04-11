@@ -1,4 +1,23 @@
 import React, { useState } from 'react';
+import {
+  Download,
+  Sun,
+  Moon,
+  Copy,
+  Flame,
+  Palette,
+  Paintbrush,
+  Check,
+  Coffee,
+  Lightbulb,
+  Heart,
+  Waves,
+  Mountain,
+  Leaf,
+  AlertTriangle,
+  Info,
+  type LucideIcon,
+} from 'lucide-react';
 import { PageWithSidebar } from './PageWithSidebar';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
@@ -38,12 +57,12 @@ export function DesignTokensPage() {
   const sidebarGroups = [
     {
       items: [
-        { id: 'colors', label: 'Colors', icon: 'fa-solid fa-palette' },
-        { id: 'typography', label: 'Typography', icon: 'fa-solid fa-font' },
-        { id: 'spacing', label: 'Spacing & Sizing', icon: 'fa-solid fa-ruler' },
-        { id: 'shadows', label: 'Shadows & Effects', icon: 'fa-solid fa-cube' },
-        { id: 'borders', label: 'Borders & Radii', icon: 'fa-solid fa-square' },
-        { id: 'transitions', label: 'Transitions', icon: 'fa-solid fa-wand-magic-sparkles' },
+        { id: 'colors', label: 'Colors' },
+        { id: 'typography', label: 'Typography' },
+        { id: 'spacing', label: 'Spacing & Sizing' },
+        { id: 'shadows', label: 'Shadows & Effects' },
+        { id: 'borders', label: 'Borders & Radii' },
+        { id: 'transitions', label: 'Transitions' },
       ]
     }
   ];
@@ -115,11 +134,16 @@ function ColorsSection() {
     ]
   };
 
-  const allColors = [
+  const allColors: Array<{
+    category: string;
+    description: string;
+    icon: LucideIcon;
+    colors: Array<{ name: string; value: string; var: string; main?: boolean }>;
+  }> = [
     {
       category: 'Cello',
       description: 'Slate Blue-Gray • Primary',
-      icon: 'fa-solid fa-water',
+      icon: Waves,
       colors: [
         { name: 'primary-50', value: '#f5f7f9', var: '--primary-50' },
         { name: 'primary-100', value: '#ebeef2', var: '--primary-100' },
@@ -137,7 +161,7 @@ function ColorsSection() {
     {
       category: 'Terracotta',
       description: 'Earthy Red-Brown • Secondary',
-      icon: 'fa-solid fa-fire-flame-curved',
+      icon: Flame,
       colors: [
         { name: 'secondary-50', value: '#faf6f5', var: '--secondary-50' },
         { name: 'secondary-100', value: '#f5ebe8', var: '--secondary-100' },
@@ -155,7 +179,7 @@ function ColorsSection() {
     {
       category: 'Black Rock',
       description: 'Deep Earth Tones • Neutral',
-      icon: 'fa-solid fa-mountain',
+      icon: Mountain,
       colors: [
         { name: 'neutral-50', value: '#f7f8f9', var: '--neutral-50' },
         { name: 'neutral-100', value: '#edeef1', var: '--neutral-100' },
@@ -172,11 +196,16 @@ function ColorsSection() {
     }
   ];
 
-  const semanticColors = [
-    { 
-      category: 'Sage', 
+  const semanticColors: Array<{
+    category: string;
+    description: string;
+    icon: LucideIcon;
+    colors: Array<{ name: string; value: string; var: string }>;
+  }> = [
+    {
+      category: 'Sage',
       description: 'Natural Green • Success',
-      icon: 'fa-solid fa-leaf',
+      icon: Leaf,
       colors: [
         { name: 'success-500', value: '#8fb14b', var: '--success-500' },
         { name: 'success-600', value: '#739038', var: '--success-600' },
@@ -186,7 +215,7 @@ function ColorsSection() {
     { 
       category: 'Golden Amber', 
       description: 'Warm Glow • Warning',
-      icon: 'fa-solid fa-lightbulb',
+      icon: Lightbulb,
       colors: [
         { name: 'warning-500', value: '#f9c574', var: '--warning-500' },
         { name: 'warning-600', value: '#ef991f', var: '--warning-600' },
@@ -196,7 +225,7 @@ function ColorsSection() {
     { 
       category: 'Flamingo', 
       description: 'Earthy Red • Danger',
-      icon: 'fa-solid fa-triangle-exclamation',
+      icon: AlertTriangle,
       colors: [
         { name: 'danger-500', value: '#e75351', var: '--danger-500' },
         { name: 'danger-600', value: '#dc3a38', var: '--danger-600' },
@@ -206,7 +235,7 @@ function ColorsSection() {
     { 
       category: 'Blue Calx', 
       description: 'Muted Blue • Info',
-      icon: 'fa-solid fa-circle-info',
+      icon: Info,
       colors: [
         { name: 'info-500', value: '#b8c5d9', var: '--info-500' },
         { name: 'info-600', value: '#a3b2c9', var: '--info-600' },
@@ -250,7 +279,7 @@ function ColorsSection() {
           </p>
         </div>
         <Button onClick={exportPalette} variant="outline">
-          <i className="fa-solid fa-download mr-2"></i>
+          <Download size={16} className="mr-2" />
           Export JSON
         </Button>
       </div>
@@ -270,7 +299,7 @@ function ColorsSection() {
           <div>
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border-default)' }}>
-                <i className="fa-solid fa-sun" style={{ color: 'var(--primary-600)' }}></i>
+                <Sun size={16} style={{ color: 'var(--primary-600)' }} />
                 <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>Ember (Light)</span>
               </div>
             </div>
@@ -297,7 +326,7 @@ function ColorsSection() {
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                       style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
                     >
-                      <i className="fa-solid fa-copy" style={{ fontSize: '16px', color: 'white' }}></i>
+                      <Copy size={16} style={{ color: 'white' }} />
                     </div>
                   </div>
                   <div className="text-center">
@@ -314,7 +343,7 @@ function ColorsSection() {
           <div>
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border-default)' }}>
-                <i className="fa-solid fa-moon" style={{ color: 'var(--primary-600)' }}></i>
+                <Moon size={16} style={{ color: 'var(--primary-600)' }} />
                 <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>Ash (Dark)</span>
               </div>
             </div>
@@ -341,7 +370,7 @@ function ColorsSection() {
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                       style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
                     >
-                      <i className="fa-solid fa-copy" style={{ fontSize: '16px', color: 'white' }}></i>
+                      <Copy size={16} style={{ color: 'white' }} />
                     </div>
                   </div>
                   <div className="text-center">
@@ -363,7 +392,7 @@ function ColorsSection() {
             className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
             style={{ backgroundColor: 'var(--secondary-600)' }}
           >
-            <i className="fa-solid fa-fire" style={{ fontSize: '18px', color: 'white' }}></i>
+            <Flame size={18} style={{ color: 'white' }} />
           </div>
           <div>
             <h3 className="mb-2" style={{ fontSize: '18px' }}>Click any color to copy its hex code</h3>
@@ -375,15 +404,15 @@ function ColorsSection() {
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Badge variant="secondary">
-                <i className="fa-solid fa-palette mr-2"></i>
+                <Palette size={14} className="mr-2" />
                 7 Color Scales
               </Badge>
               <Badge variant="secondary">
-                <i className="fa-solid fa-swatchbook mr-2"></i>
+                <Paintbrush size={14} className="mr-2" />
                 37 Total Shades
               </Badge>
               <Badge variant="secondary">
-                <i className="fa-solid fa-fire mr-2"></i>
+                <Flame size={14} className="mr-2" />
                 Warm & Earthy
               </Badge>
             </div>
@@ -392,17 +421,19 @@ function ColorsSection() {
       </div>
 
       {/* Main Color Scales */}
-      {allColors.map((scale) => (
+      {allColors.map((scale) => {
+        const ScaleIcon = scale.icon;
+        return (
         <section key={scale.category}>
           <div className="flex items-center gap-3 mb-4">
-            <div 
+            <div
               className="w-10 h-10 rounded-lg flex items-center justify-center"
-              style={{ 
+              style={{
                 backgroundColor: 'var(--bg-muted)',
                 color: 'var(--text-secondary)'
               }}
             >
-              <i className={scale.icon} style={{ fontSize: '16px' }}></i>
+              <ScaleIcon size={16} />
             </div>
             <div>
               <h3 className="mb-0" style={{ fontSize: '20px' }}>{scale.category}</h3>
@@ -439,7 +470,7 @@ function ColorsSection() {
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
                   >
-                    <i className="fa-solid fa-copy" style={{ fontSize: '14px', color: 'white' }}></i>
+                    <Copy size={14} style={{ color: 'white' }} />
                   </div>
                 </div>
                 <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>{color.name}</div>
@@ -461,23 +492,26 @@ function ColorsSection() {
             ))}
           </div>
         </section>
-      ))}
+        );
+      })}
 
       {/* Semantic Colors */}
       <section>
         <h3 className="mb-6" style={{ color: 'var(--text-secondary)' }}>Semantic Colors</h3>
         <div className="grid grid-cols-2 gap-8">
-          {semanticColors.map((scale) => (
+          {semanticColors.map((scale) => {
+            const ScaleIcon = scale.icon;
+            return (
             <div key={scale.category}>
               <div className="flex items-center gap-3 mb-4">
-                <div 
+                <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center"
-                  style={{ 
+                  style={{
                     backgroundColor: 'var(--bg-muted)',
                     color: 'var(--text-secondary)'
                   }}
                 >
-                  <i className={scale.icon} style={{ fontSize: '14px' }}></i>
+                  <ScaleIcon size={14} />
                 </div>
                 <div>
                   <h4 className="mb-0" style={{ fontSize: '16px' }}>{scale.category}</h4>
@@ -509,7 +543,7 @@ function ColorsSection() {
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                         style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
                       >
-                        <i className="fa-solid fa-copy" style={{ fontSize: '12px', color: 'white' }}></i>
+                        <Copy size={12} style={{ color: 'white' }} />
                       </div>
                     </div>
                     <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>{color.name}</div>
@@ -518,7 +552,8 @@ function ColorsSection() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -529,25 +564,25 @@ function ColorsSection() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--primary-600)' }}>
-                <i className="fa-solid fa-fire" style={{ fontSize: '16px', color: 'white' }}></i>
+                <Flame size={16} style={{ color: 'white' }} />
               </div>
               <h3 className="mb-0">Campfire</h3>
             </div>
             <ul className="space-y-2" style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Warm, earthy, grounded aesthetic</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Natural color inspiration (clay, stone, sage)</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Professional, sophisticated tones</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Perfect for creative, organic brands</span>
               </li>
             </ul>
@@ -555,32 +590,32 @@ function ColorsSection() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#89b4fa' }}>
-                <i className="fa-solid fa-mug-hot" style={{ fontSize: '16px', color: 'white' }}></i>
+                <Coffee size={16} style={{ color: 'white' }} />
               </div>
               <h3 className="mb-0">Catppuccin</h3>
             </div>
             <ul className="space-y-2" style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Soothing, pastel, cozy aesthetic</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Warm-meets-cool balanced tones</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Soft, comfortable color palette</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="fa-solid fa-check mt-1" style={{ fontSize: '12px', color: 'var(--success-600)' }}></i>
+                <Check size={12} className="mt-1" style={{ color: 'var(--success-600)' }} />
                 <span>Ideal for modern, friendly interfaces</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="mt-6 p-4 rounded-lg flex items-center gap-3" style={{ backgroundColor: 'var(--bg-base)', border: '1px dashed var(--border-default)' }}>
-          <i className="fa-solid fa-lightbulb" style={{ fontSize: '20px', color: 'var(--warning-500)' }}></i>
+          <Lightbulb size={20} style={{ color: 'var(--warning-500)' }} />
           <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: 0 }}>
             <strong>Pro Tip:</strong> Use Catppuccin for playful, cozy applications and Campfire for more grounded, 
             professional projects. They complement each other beautifully!
@@ -591,7 +626,7 @@ function ColorsSection() {
             variant="outline"
             onClick={() => window.open('https://catppuccin.com', '_blank')}
           >
-            <i className="fa-solid fa-heart mr-2" style={{ color: 'var(--danger-500)' }}></i>
+            <Heart size={14} className="mr-2" style={{ color: 'var(--danger-500)' }} />
             Visit Catppuccin
           </Button>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { type LucideIcon } from 'lucide-react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
@@ -17,20 +18,20 @@ interface InputFieldProps extends BaseFieldProps {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
-  icon?: string;
+  icon?: LucideIcon;
 }
 
-export function FormInputField({ 
-  id, 
-  label, 
-  type = 'text', 
-  placeholder, 
-  error, 
+export function FormInputField({
+  id,
+  label,
+  type = 'text',
+  placeholder,
+  error,
   helperText,
   required,
   value,
   onChange,
-  icon
+  icon: Icon
 }: InputFieldProps) {
   return (
     <div className="space-y-2">
@@ -39,11 +40,12 @@ export function FormInputField({
         {required && <span style={{ color: 'var(--danger-600)' }}> *</span>}
       </Label>
       <div className="relative">
-        {icon && (
-          <i 
-            className={`fa-solid ${icon} absolute left-3 top-1/2 -translate-y-1/2`} 
-            style={{ color: 'var(--text-tertiary)', fontSize: '14px' }}
-          ></i>
+        {Icon && (
+          <Icon
+            size={14}
+            className="absolute left-3 top-1/2 -translate-y-1/2"
+            style={{ color: 'var(--text-tertiary)' }}
+          />
         )}
         <Input
           id={id}
@@ -52,7 +54,7 @@ export function FormInputField({
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
           aria-invalid={!!error}
-          className={icon ? 'pl-10' : ''}
+          className={Icon ? 'pl-10' : ''}
         />
       </div>
       {error && (

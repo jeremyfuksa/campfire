@@ -27,7 +27,28 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from './ui/dropdown-menu';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
-import { Info } from 'lucide-react';
+import {
+  Info,
+  Loader2,
+  Search,
+  ChevronRight,
+  ChevronDown,
+  CheckCircle2,
+  AlertTriangle,
+  AlertCircle,
+  Home,
+  Save,
+  Palette,
+  Eye,
+  Pencil,
+  Copy,
+  Trash2,
+  MoreHorizontal,
+  Menu,
+  User,
+  Settings,
+  HelpCircle,
+} from 'lucide-react';
 
 export function FoundationComponentsPage() {
   const [activeSection, setActiveSection] = useState('button');
@@ -36,51 +57,51 @@ export function FoundationComponentsPage() {
     {
       title: 'Form Controls',
       items: [
-        { id: 'button', label: 'Button', icon: 'fa-solid fa-hand-pointer' },
-        { id: 'input', label: 'Input', icon: 'fa-solid fa-keyboard' },
-        { id: 'textarea', label: 'Textarea', icon: 'fa-solid fa-align-left' },
-        { id: 'checkbox', label: 'Checkbox', icon: 'fa-solid fa-square-check' },
-        { id: 'radio', label: 'Radio', icon: 'fa-solid fa-circle-dot' },
-        { id: 'switch', label: 'Switch', icon: 'fa-solid fa-toggle-on' },
-        { id: 'select', label: 'Select', icon: 'fa-solid fa-caret-down' },
-        { id: 'slider', label: 'Slider', icon: 'fa-solid fa-sliders' },
-        { id: 'label', label: 'Label', icon: 'fa-solid fa-tag' },
+        { id: 'button', label: 'Button' },
+        { id: 'input', label: 'Input' },
+        { id: 'textarea', label: 'Textarea' },
+        { id: 'checkbox', label: 'Checkbox' },
+        { id: 'radio', label: 'Radio' },
+        { id: 'switch', label: 'Switch' },
+        { id: 'select', label: 'Select' },
+        { id: 'slider', label: 'Slider' },
+        { id: 'label', label: 'Label' },
       ]
     },
     {
       title: 'Display',
       items: [
-        { id: 'card', label: 'Card', icon: 'fa-solid fa-address-card' },
-        { id: 'badge', label: 'Badge', icon: 'fa-solid fa-certificate' },
-        { id: 'avatar', label: 'Avatar', icon: 'fa-solid fa-user-circle' },
-        { id: 'alert', label: 'Alert', icon: 'fa-solid fa-triangle-exclamation' },
-        { id: 'progress', label: 'Progress', icon: 'fa-solid fa-spinner' },
-        { id: 'table', label: 'Table', icon: 'fa-solid fa-table' },
-        { id: 'separator', label: 'Separator', icon: 'fa-solid fa-minus' },
+        { id: 'card', label: 'Card' },
+        { id: 'badge', label: 'Badge' },
+        { id: 'avatar', label: 'Avatar' },
+        { id: 'alert', label: 'Alert' },
+        { id: 'progress', label: 'Progress' },
+        { id: 'table', label: 'Table' },
+        { id: 'separator', label: 'Separator' },
       ]
     },
     {
       title: 'Navigation',
       items: [
-        { id: 'breadcrumb', label: 'Breadcrumb', icon: 'fa-solid fa-chevron-right' },
-        { id: 'tabs', label: 'Tabs', icon: 'fa-solid fa-folder' },
+        { id: 'breadcrumb', label: 'Breadcrumb' },
+        { id: 'tabs', label: 'Tabs' },
       ]
     },
     {
       title: 'Overlays',
       items: [
-        { id: 'dialog', label: 'Dialog', icon: 'fa-solid fa-window-maximize' },
-        { id: 'sheet', label: 'Sheet', icon: 'fa-solid fa-bars' },
-        { id: 'popover', label: 'Popover', icon: 'fa-solid fa-message' },
-        { id: 'tooltip', label: 'Tooltip', icon: 'fa-solid fa-comment' },
-        { id: 'dropdown', label: 'Dropdown Menu', icon: 'fa-solid fa-ellipsis' },
-        { id: 'hover-card', label: 'Hover Card', icon: 'fa-solid fa-square-up-right' },
+        { id: 'dialog', label: 'Dialog' },
+        { id: 'sheet', label: 'Sheet' },
+        { id: 'popover', label: 'Popover' },
+        { id: 'tooltip', label: 'Tooltip' },
+        { id: 'dropdown', label: 'Dropdown Menu' },
+        { id: 'hover-card', label: 'Hover Card' },
       ]
     },
     {
       title: 'Layout',
       items: [
-        { id: 'accordion', label: 'Accordion', icon: 'fa-solid fa-list' },
+        { id: 'accordion', label: 'Accordion' },
       ]
     }
   ];
@@ -183,7 +204,7 @@ function ButtonSection() {
           <Button>Default</Button>
           <Button disabled>Disabled</Button>
           <Button>
-            <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+            <Loader2 size={16} className="mr-2 animate-spin" />
             Loading
           </Button>
         </div>
@@ -194,12 +215,12 @@ function ButtonSection() {
         <h3 className="mb-4" style={{ color: 'var(--text-secondary)' }}>With Icons</h3>
         <div className="flex flex-wrap gap-4">
           <Button>
-            <i className="fa-solid fa-magnifying-glass mr-2"></i>
+            <Search size={16} className="mr-2" />
             Search
           </Button>
           <Button variant="outline">
             Download
-            <i className="fa-solid fa-chevron-right ml-2"></i>
+            <ChevronRight size={16} className="ml-2" />
           </Button>
         </div>
       </div>
@@ -260,7 +281,7 @@ function InputSection() {
         <div className="space-y-2">
           <Label htmlFor="with-icon">With Icon</Label>
           <div className="relative">
-            <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)', fontSize: '14px' }}></i>
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)' }} />
             <Input id="with-icon" placeholder="Search..." className="pl-10" />
           </div>
         </div>
@@ -697,28 +718,28 @@ function AlertSection() {
     >
       <div className="space-y-4 max-w-2xl">
         <Alert style={{ backgroundColor: 'var(--primary-700)', borderColor: 'var(--primary-800)', color: 'white' }} className="flex items-center gap-3">
-          <i className="fa-solid fa-circle-info flex-shrink-0" style={{ fontSize: '16px' }}></i>
+          <Info size={16} className="flex-shrink-0" />
           <AlertDescription className="flex-1" style={{ color: 'white' }}>
             This is an informational message with important details.
           </AlertDescription>
         </Alert>
 
         <Alert style={{ backgroundColor: 'var(--success-700)', borderColor: 'var(--success-700)', color: 'white' }} className="flex items-center gap-3">
-          <i className="fa-solid fa-circle-check flex-shrink-0" style={{ fontSize: '16px' }}></i>
+          <CheckCircle2 size={16} className="flex-shrink-0" />
           <AlertDescription className="flex-1" style={{ color: 'white' }}>
             Your changes have been saved successfully!
           </AlertDescription>
         </Alert>
 
         <Alert style={{ backgroundColor: 'var(--warning-700)', borderColor: 'var(--warning-700)', color: 'white' }} className="flex items-center gap-3">
-          <i className="fa-solid fa-triangle-exclamation flex-shrink-0" style={{ fontSize: '16px' }}></i>
+          <AlertTriangle size={16} className="flex-shrink-0" />
           <AlertDescription className="flex-1" style={{ color: 'white' }}>
             Warning: This action may have unintended consequences.
           </AlertDescription>
         </Alert>
 
         <Alert variant="destructive" className="flex items-center gap-3">
-          <i className="fa-solid fa-circle-exclamation flex-shrink-0" style={{ fontSize: '16px' }}></i>
+          <AlertCircle size={16} className="flex-shrink-0" />
           <AlertDescription className="flex-1">
             Error: Unable to complete the request. Please try again.
           </AlertDescription>
@@ -778,7 +799,7 @@ function BreadcrumbSection() {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="#">
-                <i className="fa-solid fa-house mr-1" style={{ fontSize: '12px' }}></i>
+                <Home size={12} className="mr-1 inline" />
                 Home
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -847,7 +868,7 @@ function TooltipSection() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="outline" size="icon">
-                <i className="fa-solid fa-info-circle"></i>
+                <Info size={16} />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -860,7 +881,7 @@ function TooltipSection() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="outline">
-                <i className="fa-solid fa-save mr-2"></i>
+                <Save size={16} className="mr-2" />
                 Save
               </Button>
             </TooltipTrigger>
@@ -1624,7 +1645,7 @@ function PopoverSection() {
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline">
-              <i className="fa-solid fa-palette mr-2"></i>
+              <Palette size={16} className="mr-2" />
               Color
             </Button>
           </PopoverTrigger>
@@ -1684,25 +1705,25 @@ function DropdownSection() {
           <DropdownMenuTrigger asChild>
             <Button variant="outline">
               Actions
-              <i className="fa-solid fa-chevron-down ml-2" style={{ fontSize: '12px' }}></i>
+              <ChevronDown size={12} className="ml-2" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem>
-              <i className="fa-solid fa-eye mr-2" style={{ fontSize: '14px' }}></i>
+              <Eye size={14} className="mr-2" />
               View
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <i className="fa-solid fa-pencil mr-2" style={{ fontSize: '14px' }}></i>
+              <Pencil size={14} className="mr-2" />
               Edit
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <i className="fa-solid fa-copy mr-2" style={{ fontSize: '14px' }}></i>
+              <Copy size={14} className="mr-2" />
               Duplicate
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem style={{ color: 'var(--destructive-600)' }}>
-              <i className="fa-solid fa-trash mr-2" style={{ fontSize: '14px' }}></i>
+              <Trash2 size={14} className="mr-2" />
               Delete
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -1711,7 +1732,7 @@ function DropdownSection() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
-              <i className="fa-solid fa-ellipsis"></i>
+              <MoreHorizontal size={16} />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
@@ -1862,7 +1883,7 @@ function SheetSection() {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline">
-              <i className="fa-solid fa-bars mr-2"></i>
+              <Menu size={16} className="mr-2" />
               Menu
             </Button>
           </SheetTrigger>
@@ -1872,19 +1893,19 @@ function SheetSection() {
             </SheetHeader>
             <div className="py-4 space-y-2">
               <Button variant="ghost" className="w-full justify-start">
-                <i className="fa-solid fa-home mr-2"></i>
+                <Home size={16} className="mr-2" />
                 Home
               </Button>
               <Button variant="ghost" className="w-full justify-start">
-                <i className="fa-solid fa-user mr-2"></i>
+                <User size={16} className="mr-2" />
                 Profile
               </Button>
               <Button variant="ghost" className="w-full justify-start">
-                <i className="fa-solid fa-cog mr-2"></i>
+                <Settings size={16} className="mr-2" />
                 Settings
               </Button>
               <Button variant="ghost" className="w-full justify-start">
-                <i className="fa-solid fa-question-circle mr-2"></i>
+                <HelpCircle size={16} className="mr-2" />
                 Help
               </Button>
             </div>

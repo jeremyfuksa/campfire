@@ -1,4 +1,17 @@
 import type { Meta } from "@storybook/react";
+import {
+  Activity,
+  BarChart3,
+  Clock,
+  CreditCard,
+  DollarSign,
+  Download,
+  Eye,
+  Folder,
+  Percent,
+  User,
+  Users,
+} from "lucide-react";
 import { StatCard } from "./stat-card";
 
 const meta = {
@@ -20,7 +33,7 @@ export const Default = {
     label: "Total Revenue",
     value: "$45,231.89",
     trend: positive(20.1),
-    icon: "fa-dollar-sign",
+    icon: <DollarSign size={20} />,
   },
 };
 
@@ -29,7 +42,7 @@ export const WithIcon = {
     label: "Total Users",
     value: "12,234",
     trend: positive(15.3),
-    icon: "fa-users",
+    icon: <Users size={20} />,
   },
 };
 
@@ -38,7 +51,7 @@ export const NegativeTrend = {
     label: "Bounce Rate",
     value: "32.4%",
     trend: negative(5.2),
-    icon: "fa-chart-line",
+    icon: <BarChart3 size={20} />,
   },
 };
 
@@ -46,7 +59,7 @@ export const NoTrend = {
   args: {
     label: "Active Projects",
     value: "24",
-    icon: "fa-folder",
+    icon: <Folder size={20} />,
   },
 };
 
@@ -57,25 +70,25 @@ export const Dashboard = {
         label="Total Revenue"
         value="$45,231.89"
         trend={positive(20.1)}
-        icon="fa-dollar-sign"
+        icon={<DollarSign size={20} />}
       />
       <StatCard
         label="Subscriptions"
         value="+2,350"
         trend={positive(15.3)}
-        icon="fa-users"
+        icon={<Users size={20} />}
       />
       <StatCard
         label="Sales"
         value="+12,234"
         trend={positive(19.2)}
-        icon="fa-credit-card"
+        icon={<CreditCard size={20} />}
       />
       <StatCard
         label="Active Now"
         value="+573"
         trend={positive(8.1)}
-        icon="fa-activity"
+        icon={<Activity size={20} />}
       />
     </div>
   ),
@@ -88,19 +101,19 @@ export const MetricsGrid = {
         label="Page Views"
         value="125,432"
         trend={positive(12.5)}
-        icon="fa-eye"
+        icon={<Eye size={20} />}
       />
       <StatCard
         label="Unique Visitors"
         value="45,231"
         trend={positive(8.3)}
-        icon="fa-user"
+        icon={<User size={20} />}
       />
       <StatCard
         label="Avg. Session"
         value="2m 34s"
         trend={negative(3.2)}
-        icon="fa-clock"
+        icon={<Clock size={20} />}
       />
     </div>
   ),
@@ -111,7 +124,7 @@ export const LargeValue = {
     label: "Total Downloads",
     value: "1,234,567",
     trend: positive(45.2),
-    icon: "fa-download",
+    icon: <Download size={20} />,
   },
 };
 
@@ -120,6 +133,6 @@ export const SmallTrend = {
     label: "Conversion Rate",
     value: "3.2%",
     trend: positive(0.8),
-    icon: "fa-percentage",
+    icon: <Percent size={20} />,
   },
 };

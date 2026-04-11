@@ -15,7 +15,7 @@ export function KeyboardKey({ children, className }: KeyboardKeyProps) {
       )}
       style={{
         fontSize: '12px',
-        fontFamily: 'JetBrains Mono, monospace',
+        fontFamily: 'var(--font-mono)',
         backgroundColor: 'var(--bg-base)',
         borderColor: 'var(--border-default)',
         color: 'var(--text-secondary)',

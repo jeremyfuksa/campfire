@@ -1,8 +1,9 @@
 import React from 'react';
+import { Inbox } from 'lucide-react';
 import { Button } from './button';
 
 interface EmptyStateProps {
-  icon?: string;
+  icon?: React.ReactNode;
   title: string;
   description?: string;
   action?: {
@@ -12,23 +13,22 @@ interface EmptyStateProps {
   className?: string;
 }
 
-export function EmptyState({ 
-  icon = 'fa-inbox', 
-  title, 
-  description, 
+export function EmptyState({
+  icon,
+  title,
+  description,
   action,
-  className = ''
+  className = '',
 }: EmptyStateProps) {
+  const renderedIcon = icon ?? <Inbox size={24} aria-hidden="true" />;
   return (
     <div className={`flex flex-col items-center justify-center py-16 px-4 text-center ${className}`}>
-      <div 
+      <div
         className="mb-4 flex items-center justify-center w-16 h-16 rounded-full"
-        style={{ backgroundColor: 'var(--bg-muted)' }}
+        data-testid="empty-state-icon"
+        style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--text-tertiary)' }}
       >
-        <i 
-          className={`fa-solid ${icon}`} 
-          style={{ fontSize: '24px', color: 'var(--text-tertiary)' }}
-        ></i>
+        {renderedIcon}
       </div>
       <h3 className="mb-2">{title}</h3>
       {description && (

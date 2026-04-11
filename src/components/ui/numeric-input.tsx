@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { Input } from "./input";
 import { Button } from "./button";
 import { cn } from "./utils";
@@ -99,7 +100,7 @@ export function NumericInput({
             className="h-4 w-6 p-0"
             aria-label="Increment"
           >
-            <i className="fa-solid fa-chevron-up text-xs"></i>
+            <ChevronUp size={12} aria-hidden="true" />
           </Button>
           <Button
             type="button"
@@ -110,7 +111,7 @@ export function NumericInput({
             className="h-4 w-6 p-0"
             aria-label="Decrement"
           >
-            <i className="fa-solid fa-chevron-down text-xs"></i>
+            <ChevronDown size={12} aria-hidden="true" />
           </Button>
         </div>
       )}

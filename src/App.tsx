@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Compass, Palette, Boxes, LayoutGrid, FlaskConical, Flame, Moon, Sun } from "lucide-react";
 import { DesignTokensPage } from "./components/DesignTokensPage";
 import { FoundationComponentsPage } from "./components/FoundationComponentsPage_new";
 import { CompleteReferencePage } from "./components/CompleteReferencePage";
@@ -23,27 +24,27 @@ export default function App() {
     {
       id: "getting-started",
       label: "Getting Started",
-      icon: "fa-solid fa-compass",
+      icon: Compass,
     },
     {
       id: "design-tokens",
       label: "Design Tokens",
-      icon: "fa-solid fa-palette",
+      icon: Palette,
     },
     {
       id: "components",
       label: "Components",
-      icon: "fa-solid fa-cubes",
+      icon: Boxes,
     },
     {
       id: "grids-layouts",
       label: "Grids & Layouts",
-      icon: "fa-solid fa-table-cells",
+      icon: LayoutGrid,
     },
     {
       id: "testing-examples",
       label: "Testing & Examples",
-      icon: "fa-solid fa-flask",
+      icon: FlaskConical,
     },
   ];
 
@@ -81,10 +82,7 @@ export default function App() {
                   "linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%)",
               }}
             >
-              <i
-                className="fa-solid fa-fire"
-                style={{ fontSize: "18px", color: "white" }}
-              ></i>
+              <Flame size={18} style={{ color: "white" }} />
             </div>
             <div>
               <h1
@@ -124,10 +122,7 @@ export default function App() {
               color: "var(--text-primary)",
             }}
           >
-            <i
-              className={`fa-solid ${theme === "light" ? "fa-moon" : "fa-sun"}`}
-              style={{ fontSize: "14px" }}
-            ></i>
+            {theme === "light" ? <Moon size={14} /> : <Sun size={14} />}
             <span style={{ fontSize: "14px" }}>
               {theme === "light" ? "Dark" : "Light"}
             </span>
@@ -164,10 +159,7 @@ export default function App() {
                       : "2px solid transparent",
                   }}
                 >
-                  <i
-                    className={item.icon}
-                    style={{ fontSize: "14px" }}
-                  ></i>
+                  <item.icon size={14} />
                   <span
                     style={{
                       fontSize: "14px",

@@ -20,7 +20,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { Calendar } from './ui/calendar';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
-import { Loader2, ChevronDown } from 'lucide-react';
+import { Loader2, ChevronDown, Calendar as CalendarIcon, Smile, Calculator, User, Settings, Home, Search, Bell } from 'lucide-react';
 
 export function ExtendedComponentsPage() {
   const [activeSection, setActiveSection] = useState('dialog');
@@ -29,42 +29,42 @@ export function ExtendedComponentsPage() {
     {
       title: 'Overlays',
       items: [
-        { id: 'dialog', label: 'Dialog', icon: 'fa-solid fa-window-restore' },
-        { id: 'sheet', label: 'Sheet', icon: 'fa-solid fa-bars' },
-        { id: 'drawer', label: 'Drawer', icon: 'fa-solid fa-up-down-left-right' },
-        { id: 'popover', label: 'Popover', icon: 'fa-solid fa-message' },
+        { id: 'dialog', label: 'Dialog' },
+        { id: 'sheet', label: 'Sheet' },
+        { id: 'drawer', label: 'Drawer' },
+        { id: 'popover', label: 'Popover' },
       ]
     },
     {
       title: 'Navigation',
       items: [
-        { id: 'tabs', label: 'Tabs', icon: 'fa-solid fa-folder-tree' },
-        { id: 'accordion', label: 'Accordion', icon: 'fa-solid fa-list' },
-        { id: 'dropdown', label: 'Dropdown Menu', icon: 'fa-solid fa-ellipsis-vertical' },
-        { id: 'command', label: 'Command', icon: 'fa-solid fa-terminal' },
+        { id: 'tabs', label: 'Tabs' },
+        { id: 'accordion', label: 'Accordion' },
+        { id: 'dropdown', label: 'Dropdown Menu' },
+        { id: 'command', label: 'Command' },
       ]
     },
     {
       title: 'Data Display',
       items: [
-        { id: 'table', label: 'Table', icon: 'fa-solid fa-table' },
-        { id: 'avatar', label: 'Avatar', icon: 'fa-solid fa-user-circle' },
-        { id: 'skeleton', label: 'Skeleton', icon: 'fa-solid fa-spinner' },
+        { id: 'table', label: 'Table' },
+        { id: 'avatar', label: 'Avatar' },
+        { id: 'skeleton', label: 'Skeleton' },
       ]
     },
     {
       title: 'Form Controls',
       items: [
-        { id: 'progress', label: 'Progress', icon: 'fa-solid fa-bars-progress' },
-        { id: 'slider', label: 'Slider', icon: 'fa-solid fa-sliders' },
-        { id: 'textarea', label: 'Textarea', icon: 'fa-solid fa-align-justify' },
+        { id: 'progress', label: 'Progress' },
+        { id: 'slider', label: 'Slider' },
+        { id: 'textarea', label: 'Textarea' },
       ]
     },
     {
       title: 'Examples',
       items: [
-        { id: 'loading', label: 'Loading Spinner', icon: 'fa-solid fa-circle-notch' },
-        { id: 'navbar', label: 'Nav Bar', icon: 'fa-solid fa-bars' },
+        { id: 'loading', label: 'Loading Spinner' },
+        { id: 'navbar', label: 'Nav Bar' },
       ]
     }
   ];
@@ -614,25 +614,25 @@ function CommandSection() {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Suggestions">
             <CommandItem>
-              <i className="fa-solid fa-calendar mr-2"></i>
+              <CalendarIcon size={14} className="mr-2" />
               <span>Calendar</span>
             </CommandItem>
             <CommandItem>
-              <i className="fa-solid fa-face-smile mr-2"></i>
+              <Smile size={14} className="mr-2" />
               <span>Search Emoji</span>
             </CommandItem>
             <CommandItem>
-              <i className="fa-solid fa-calculator mr-2"></i>
+              <Calculator size={14} className="mr-2" />
               <span>Calculator</span>
             </CommandItem>
           </CommandGroup>
           <CommandGroup heading="Settings">
             <CommandItem>
-              <i className="fa-solid fa-user mr-2"></i>
+              <User size={14} className="mr-2" />
               <span>Profile</span>
             </CommandItem>
             <CommandItem>
-              <i className="fa-solid fa-gear mr-2"></i>
+              <Settings size={14} className="mr-2" />
               <span>Settings</span>
             </CommandItem>
           </CommandGroup>
@@ -1100,7 +1100,7 @@ function NavBarSection() {
         <nav className="h-16 px-6 flex items-center justify-between" style={{ backgroundColor: 'var(--bg-base)', borderBottom: '1px solid var(--border-default)' }}>
           <div className="flex items-center gap-8">
             <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--primary-600)' }}>
-              <i className="fa-solid fa-house" style={{ color: 'white', fontSize: '18px' }}></i>
+              <Home size={18} style={{ color: 'white' }} />
             </div>
             <div className="flex gap-6">
               <a href="#" style={{ color: 'var(--interactive-default)', borderBottom: '2px solid var(--interactive-default)', paddingBottom: '4px' }}>Dashboard</a>
@@ -1111,14 +1111,14 @@ function NavBarSection() {
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm">
-              <i className="fa-solid fa-magnifying-glass"></i>
+              <Search size={16} />
             </Button>
             <Button variant="ghost" size="sm" className="relative">
-              <i className="fa-solid fa-bell"></i>
+              <Bell size={16} />
               <span className="absolute top-1 right-1 w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--danger-500)' }} />
             </Button>
             <Button variant="ghost" size="sm">
-              <i className="fa-solid fa-user"></i>
+              <User size={16} />
             </Button>
           </div>
         </nav>

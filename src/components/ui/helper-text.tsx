@@ -1,18 +1,28 @@
 import React from 'react';
+import { AlertCircle, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { cn } from './utils';
+
+type HelperTextVariant = 'default' | 'error' | 'success' | 'warning';
 
 interface HelperTextProps {
   children: React.ReactNode;
-  variant?: 'default' | 'error' | 'success' | 'warning';
-  icon?: string;
+  variant?: HelperTextVariant;
+  icon?: React.ReactNode;
   className?: string;
 }
 
-export function HelperText({ 
-  children, 
+const DEFAULT_VARIANT_ICON: Record<HelperTextVariant, React.ReactNode> = {
+  default: null,
+  error: <AlertCircle size={12} aria-hidden="true" />,
+  success: <CheckCircle2 size={12} aria-hidden="true" />,
+  warning: <AlertTriangle size={12} aria-hidden="true" />,
+};
+
+export function HelperText({
+  children,
   variant = 'default',
   icon,
-  className 
+  className,
 }: HelperTextProps) {
   const getVariantColor = () => {
     switch (variant) {
@@ -27,31 +37,21 @@ export function HelperText({
     }
   };
 
-  const getDefaultIcon = () => {
-    switch (variant) {
-      case 'error':
-        return 'fa-circle-exclamation';
-      case 'success':
-        return 'fa-circle-check';
-      case 'warning':
-        return 'fa-triangle-exclamation';
-      default:
-        return '';
-    }
-  };
-
-  const displayIcon = icon || getDefaultIcon();
+  const displayIcon = icon ?? DEFAULT_VARIANT_ICON[variant];
 
   return (
-    <p 
+    <p
       className={cn('flex items-start gap-1.5', className)}
       style={{ fontSize: '14px', color: getVariantColor() }}
     >
       {displayIcon && (
-        <i 
-          className={`fa-solid ${displayIcon} flex-shrink-0 mt-0.5`}
-          style={{ fontSize: '12px' }}
-        ></i>
+        <span
+          className="flex-shrink-0 mt-0.5 inline-flex items-center"
+          data-testid={`helper-text-icon-${variant}`}
+          aria-hidden="true"
+        >
+          {displayIcon}
+        </span>
       )}
       <span>{children}</span>
     </p>
