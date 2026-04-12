@@ -3,7 +3,7 @@
   "displayName": "Campfire Theme",
   "description": "A warm, earthy color theme inspired by gathering around a campfire",
   "version": "0.1.0",
-  "publisher": "campfire-design-system",
+  "publisher": "jeremyfuksa",
   "engines": {
     "vscode": "^1.80.0"
   },
