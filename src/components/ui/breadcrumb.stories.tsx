@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Home, Settings, User } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -88,22 +89,22 @@ export const WithIcons = {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">
-            <i className="fa-solid fa-house mr-1"></i>
+          <BreadcrumbLink href="/" className="inline-flex items-center">
+            <Home size={14} className="mr-1" />
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/settings">
-            <i className="fa-solid fa-gear mr-1"></i>
+          <BreadcrumbLink href="/settings" className="inline-flex items-center">
+            <Settings size={14} className="mr-1" />
             Settings
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>
-            <i className="fa-solid fa-user mr-1"></i>
+          <BreadcrumbPage className="inline-flex items-center">
+            <User size={14} className="mr-1" />
             Profile
           </BreadcrumbPage>
         </BreadcrumbItem>

@@ -1,4 +1,21 @@
 import React, { useState } from 'react';
+import {
+  Flame,
+  Bell,
+  Users,
+  BarChart3,
+  CheckCircle2,
+  Clock,
+  Plus,
+  MoreHorizontal,
+  Lightbulb,
+  Box,
+  FileText,
+  ArrowRight,
+  Heart,
+  Bookmark,
+  Share2,
+} from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
@@ -62,7 +79,7 @@ function DashboardView() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--primary-600), var(--secondary-600))' }}>
-                <i className="fa-solid fa-fire" style={{ color: 'white', fontSize: '18px' }}></i>
+                <Flame size={18} style={{ color: 'white' }} />
               </div>
               <div>
                 <h2 style={{ fontSize: '18px', marginBottom: '0' }}>Project Dashboard</h2>
@@ -73,7 +90,7 @@ function DashboardView() {
           <div className="flex items-center gap-4">
             <SearchInput placeholder="Search..." className="w-64" />
             <Button variant="ghost" size="sm" className="relative">
-              <i className="fa-solid fa-bell" style={{ fontSize: '16px' }}></i>
+              <Bell size={16} />
               <span className="absolute top-0 right-0 w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--danger-500)' }} />
             </Button>
             <Avatar className="h-9 w-9">
@@ -88,7 +105,7 @@ function DashboardView() {
         <StatCard
           label="Total Users"
           value="2,847"
-          icon="fa-users"
+          icon={<Users size={20} />}
           iconColor="var(--primary-600)"
           iconBgColor="var(--primary-100)"
           trend={{ value: 12, isPositive: true }}
@@ -96,7 +113,7 @@ function DashboardView() {
         <StatCard
           label="Revenue"
           value="$48.2k"
-          icon="fa-chart-line"
+          icon={<BarChart3 size={20} />}
           iconColor="var(--secondary-600)"
           iconBgColor="var(--secondary-100)"
           trend={{ value: 8, isPositive: true }}
@@ -104,7 +121,7 @@ function DashboardView() {
         <StatCard
           label="Completed"
           value="127"
-          icon="fa-circle-check"
+          icon={<CheckCircle2 size={20} />}
           iconColor="var(--success-600)"
           iconBgColor="var(--success-100)"
           trend={{ value: 3, isPositive: false }}
@@ -112,7 +129,7 @@ function DashboardView() {
         <StatCard
           label="Pending"
           value="23"
-          icon="fa-clock"
+          icon={<Clock size={20} />}
           iconColor="var(--warning-600)"
           iconBgColor="var(--warning-100)"
         />
@@ -188,7 +205,7 @@ function DashboardView() {
               <CardDescription>Manage your team and their permissions</CardDescription>
             </div>
             <Button>
-              <i className="fa-solid fa-plus mr-2" style={{ fontSize: '16px' }}></i>
+              <Plus size={16} className="mr-2" />
               Add Member
             </Button>
           </div>
@@ -236,7 +253,7 @@ function DashboardView() {
                     <TableCell style={{ fontSize: '14px', color: 'var(--text-tertiary)' }}>{member.lastActive}</TableCell>
                     <TableCell className="text-right">
                       <Button variant="ghost" size="sm">
-                        <i className="fa-solid fa-ellipsis" style={{ fontSize: '16px' }}></i>
+                        <MoreHorizontal size={16} />
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -298,7 +315,7 @@ function ArticleView() {
 
           <div className="p-6 rounded-lg" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)', margin: '32px 0' }}>
             <div className="flex gap-3">
-              <i className="fa-solid fa-lightbulb" style={{ fontSize: '20px', color: 'var(--warning-600)', marginTop: '2px' }}></i>
+              <Lightbulb size={20} style={{ color: 'var(--warning-600)', marginTop: '2px' }} />
               <div>
                 <p style={{ fontWeight: '600', marginBottom: '8px', fontSize: '16px' }}>Key Insight</p>
                 <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '0' }}>
@@ -346,7 +363,7 @@ function ArticleView() {
             <Card>
               <CardContent className="pt-6">
                 <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style={{ backgroundColor: 'var(--primary-100)' }}>
-                  <i className="fa-solid fa-box" style={{ fontSize: '20px', color: 'var(--primary-600)' }}></i>
+                  <Box size={20} style={{ color: 'var(--primary-600)' }} />
                 </div>
                 <h4 style={{ marginBottom: '8px' }}>Buttons</h4>
                 <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '0' }}>
@@ -357,7 +374,7 @@ function ArticleView() {
             <Card>
               <CardContent className="pt-6">
                 <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-100)' }}>
-                  <i className="fa-solid fa-file-lines" style={{ fontSize: '20px', color: 'var(--secondary-600)' }}></i>
+                  <FileText size={20} style={{ color: 'var(--secondary-600)' }} />
                 </div>
                 <h4 style={{ marginBottom: '8px' }}>Forms</h4>
                 <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '0' }}>
@@ -432,7 +449,7 @@ function ArticleView() {
             </p>
             <Button>
               Explore Components
-              <i className="fa-solid fa-arrow-right ml-2" style={{ fontSize: '16px' }}></i>
+              <ArrowRight size={16} className="ml-2" />
             </Button>
           </div>
         </div>
@@ -447,15 +464,15 @@ function ArticleView() {
             </div>
             <div className="flex gap-3">
               <Button variant="outline" size="sm">
-                <i className="fa-solid fa-heart mr-2" style={{ fontSize: '16px' }}></i>
+                <Heart size={16} className="mr-2" />
                 124
               </Button>
               <Button variant="outline" size="sm">
-                <i className="fa-solid fa-bookmark mr-2" style={{ fontSize: '16px' }}></i>
+                <Bookmark size={16} className="mr-2" />
                 Save
               </Button>
               <Button variant="outline" size="sm">
-                <i className="fa-solid fa-share-nodes mr-2" style={{ fontSize: '16px' }}></i>
+                <Share2 size={16} className="mr-2" />
                 Share
               </Button>
             </div>

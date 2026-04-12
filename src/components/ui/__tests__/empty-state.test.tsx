@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe, toHaveNoViolations } from "jest-axe";
+import { File as FileIcon, List, Search } from "lucide-react";
 import { EmptyState } from "../empty-state";
 
 expect.extend(toHaveNoViolations);
@@ -31,15 +32,18 @@ describe("EmptyState", () => {
 
   describe("Icon", () => {
     it("renders with default icon", () => {
-      const { container } = render(<EmptyState title="Empty" />);
-      const icon = container.querySelector(".fa-inbox");
-      expect(icon).toBeInTheDocument();
+      render(<EmptyState title="Empty" />);
+      expect(screen.getByTestId("empty-state-icon")).toBeInTheDocument();
     });
 
     it("renders with custom icon", () => {
-      const { container } = render(<EmptyState title="No files" icon="fa-file" />);
-      const icon = container.querySelector(".fa-file");
-      expect(icon).toBeInTheDocument();
+      render(
+        <EmptyState
+          title="No files"
+          icon={<FileIcon data-testid="custom-file-icon" />}
+        />,
+      );
+      expect(screen.getByTestId("custom-file-icon")).toBeInTheDocument();
     });
   });
 
@@ -90,7 +94,7 @@ describe("EmptyState", () => {
     it("renders empty search results", () => {
       render(
         <EmptyState
-          icon="fa-magnifying-glass"
+          icon={<Search />}
           title="No results found"
           description="Try adjusting your search terms"
         />
@@ -102,7 +106,6 @@ describe("EmptyState", () => {
     it("renders empty inbox", () => {
       render(
         <EmptyState
-          icon="fa-inbox"
           title="Inbox is empty"
           description="All caught up! No new messages."
         />
@@ -114,7 +117,7 @@ describe("EmptyState", () => {
       const handleCreate = vi.fn();
       render(
         <EmptyState
-          icon="fa-list"
+          icon={<List />}
           title="No items yet"
           description="Get started by creating your first item"
           action={{ label: "Create Item", onClick: handleCreate }}

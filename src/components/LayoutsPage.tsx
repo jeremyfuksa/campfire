@@ -8,10 +8,10 @@ export function LayoutsPage() {
   const sidebarGroups = [
     {
       items: [
-        { id: 'grid', label: 'Grid System', icon: 'fa-solid fa-border-all' },
-        { id: 'flex', label: 'Flexbox Patterns', icon: 'fa-solid fa-align-left' },
-        { id: 'responsive', label: 'Responsive Layouts', icon: 'fa-solid fa-mobile-screen' },
-        { id: 'container', label: 'Container Patterns', icon: 'fa-solid fa-window-maximize' },
+        { id: 'grid', label: 'Grid System' },
+        { id: 'flex', label: 'Flexbox Patterns' },
+        { id: 'responsive', label: 'Responsive Layouts' },
+        { id: 'container', label: 'Container Patterns' },
       ]
     }
   ];

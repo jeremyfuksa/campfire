@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "./utils";
 
 export interface TreeNode {
@@ -105,11 +106,10 @@ function TreeNodeComponent({
         }}
       >
         {hasChildren && (
-          <i
-            className={cn(
-              "fa-solid fa-chevron-right text-xs transition-transform",
-              isExpanded && "rotate-90"
-            )}
+          <ChevronRight
+            size={12}
+            className={cn("transition-transform", isExpanded && "rotate-90")}
+            aria-hidden="true"
           />
         )}
         {!hasChildren && <span className="w-3" />}

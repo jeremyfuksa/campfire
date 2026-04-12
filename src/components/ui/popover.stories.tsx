@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { LogOut, Settings, User } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Button } from "./button";
 import { Input } from "./input";
@@ -66,16 +67,16 @@ export const WithList = {
       </PopoverTrigger>
       <PopoverContent className="w-56">
         <div className="space-y-1">
-          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent">
-            <i className="fa-solid fa-user mr-2"></i>
+          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent inline-flex items-center">
+            <User size={14} className="mr-2" />
             Profile
           </button>
-          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent">
-            <i className="fa-solid fa-gear mr-2"></i>
+          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent inline-flex items-center">
+            <Settings size={14} className="mr-2" />
             Settings
           </button>
-          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent">
-            <i className="fa-solid fa-right-from-bracket mr-2"></i>
+          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent inline-flex items-center">
+            <LogOut size={14} className="mr-2" />
             Logout
           </button>
         </div>

@@ -1,5 +1,19 @@
 import type { Meta } from "@storybook/react";
 import {
+  Calculator,
+  Calendar,
+  ClipboardPaste,
+  Copy,
+  CreditCard,
+  File as FileIcon,
+  FolderOpen,
+  Save,
+  Scissors,
+  Settings,
+  Smile,
+  User,
+} from "lucide-react";
+import {
   Command,
   CommandEmpty,
   CommandGroup,
@@ -29,30 +43,30 @@ export const Default = {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           <CommandItem>
-            <i className="fa-solid fa-calendar mr-2"></i>
+            <Calendar size={14} className="mr-2" />
             Calendar
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-face-smile mr-2"></i>
+            <Smile size={14} className="mr-2" />
             Search Emoji
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-calculator mr-2"></i>
+            <Calculator size={14} className="mr-2" />
             Calculator
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
           <CommandItem>
-            <i className="fa-solid fa-user mr-2"></i>
+            <User size={14} className="mr-2" />
             Profile
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-credit-card mr-2"></i>
+            <CreditCard size={14} className="mr-2" />
             Billing
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-gear mr-2"></i>
+            <Settings size={14} className="mr-2" />
             Settings
           </CommandItem>
         </CommandGroup>
@@ -69,17 +83,17 @@ export const WithShortcuts = {
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="File">
           <CommandItem>
-            <i className="fa-solid fa-file mr-2"></i>
+            <FileIcon size={14} className="mr-2" />
             New File
             <CommandShortcut>⌘N</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-folder-open mr-2"></i>
+            <FolderOpen size={14} className="mr-2" />
             Open File
             <CommandShortcut>⌘O</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-floppy-disk mr-2"></i>
+            <Save size={14} className="mr-2" />
             Save
             <CommandShortcut>⌘S</CommandShortcut>
           </CommandItem>
@@ -87,17 +101,17 @@ export const WithShortcuts = {
         <CommandSeparator />
         <CommandGroup heading="Edit">
           <CommandItem>
-            <i className="fa-solid fa-copy mr-2"></i>
+            <Copy size={14} className="mr-2" />
             Copy
             <CommandShortcut>⌘C</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-scissors mr-2"></i>
+            <Scissors size={14} className="mr-2" />
             Cut
             <CommandShortcut>⌘X</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <i className="fa-solid fa-paste mr-2"></i>
+            <ClipboardPaste size={14} className="mr-2" />
             Paste
             <CommandShortcut>⌘V</CommandShortcut>
           </CommandItem>

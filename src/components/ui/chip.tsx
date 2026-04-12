@@ -1,4 +1,5 @@
 import React from 'react';
+import { X } from 'lucide-react';
 import { cn } from './utils';
 
 interface ChipProps {
@@ -7,18 +8,18 @@ interface ChipProps {
   variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
   onRemove?: () => void;
   onClose?: () => void;
-  icon?: string;
+  icon?: React.ReactNode;
   className?: string;
 }
 
-export function Chip({ 
-  label, 
+export function Chip({
+  label,
   children,
-  variant = 'default', 
+  variant = 'default',
   onRemove,
   onClose,
   icon,
-  className 
+  className,
 }: ChipProps) {
   const handleRemove = onClose || onRemove;
   const getVariantStyles = () => {
@@ -27,31 +28,31 @@ export function Chip({
         return {
           backgroundColor: 'var(--primary-100)',
           color: 'var(--primary-700)',
-          borderColor: 'var(--primary-200)'
+          borderColor: 'var(--primary-200)',
         };
       case 'success':
         return {
           backgroundColor: 'var(--success-500)',
           color: 'white',
-          borderColor: 'var(--success-600)'
+          borderColor: 'var(--success-600)',
         };
       case 'warning':
         return {
           backgroundColor: 'var(--warning-500)',
           color: 'var(--neutral-900)',
-          borderColor: 'var(--warning-600)'
+          borderColor: 'var(--warning-600)',
         };
       case 'danger':
         return {
           backgroundColor: 'var(--danger-500)',
           color: 'white',
-          borderColor: 'var(--danger-600)'
+          borderColor: 'var(--danger-600)',
         };
       default:
         return {
           backgroundColor: 'var(--bg-muted)',
           color: 'var(--text-primary)',
-          borderColor: 'var(--border-default)'
+          borderColor: 'var(--border-default)',
         };
     }
   };
@@ -62,12 +63,14 @@ export function Chip({
     <div
       className={cn(
         'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-sm',
-        className
+        className,
       )}
       style={styles}
     >
       {icon && (
-        <i className={`fa-solid ${icon}`} style={{ fontSize: '12px' }}></i>
+        <span className="inline-flex items-center" data-testid="chip-icon" aria-hidden="true">
+          {icon}
+        </span>
       )}
       <span>{children || label}</span>
       {handleRemove && (
@@ -76,8 +79,9 @@ export function Chip({
           onClick={handleRemove}
           aria-label="Remove chip"
           className="hover:opacity-70 transition-opacity"
+          data-testid="chip-remove"
         >
-          <i className="fa-solid fa-xmark" style={{ fontSize: '12px' }}></i>
+          <X size={12} aria-hidden="true" />
         </button>
       )}
     </div>

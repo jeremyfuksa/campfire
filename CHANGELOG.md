@@ -4,6 +4,61 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-04-11
+
+### Changed - Production Readiness Pass
+
+#### Icon library: Font Awesome → Lucide (**breaking**)
+- Removed the Font Awesome CDN `@import` from `src/styles/fonts.css`.
+- All 17 exported library components (`EmptyState`, `Chip`, `StatCard`,
+  `HelperText`, `ListGroup`, `Autocomplete`, `CopyButton`, `CodeBlock`,
+  `DataTable`, `DateRangePicker`, `DateTimePicker`, `FileUpload`, `Link`,
+  `NumericInput`, `Rating`, `Stepper`, `TreeView`) now use `lucide-react`
+  internally, matching the shadcn-native primitives.
+- Components that exposed `icon` as a Font Awesome class string
+  (`StatCard`, `EmptyState`, `Chip`, `HelperText`, `ListGroupItem`) now
+  accept `icon?: React.ReactNode` — consumers pass a Lucide (or any other)
+  React element.
+- `Rating` now picks Lucide `Star` / `StarHalf` / `Heart` based on its
+  existing `icon?: "star" | "heart"` prop — the public API is preserved.
+- Tests and stories have been updated to match the new API.
+
+#### Typography tokens
+- Added `--font-sans` and `--font-mono` CSS custom properties in
+  `globals.css`. `body` now uses `var(--font-sans)` instead of hardcoding
+  `'Manrope'`.
+- Wired **Fira Code** into the Google Fonts import so `--font-mono`
+  resolves to an actual loaded typeface. `code`, `kbd`, `samp`, and `pre`
+  default to `var(--font-mono)`.
+- `CodeBlock` and `KeyboardKey` no longer hardcode `'JetBrains Mono'` —
+  both now reference `var(--font-mono)`.
+- `tailwind.config.ts` exposes `fontFamily.sans` and `fontFamily.mono` so
+  the `font-sans` / `font-mono` utilities resolve to the tokens.
+
+#### Scoped global rules
+- The global `button:hover { transform: translateY(-1px) }` rule is now
+  an opt-in `.campfire-lift` class, so sliders, drag handles, and
+  transformed ancestors are no longer disturbed.
+- The wildcard `* { transition-timing-function: cubic-bezier(...) }` rule
+  was replaced with a `--ease-campfire` custom property and a
+  `transitionTimingFunction.campfire` Tailwind extension (opt-in via the
+  `ease-campfire` utility).
+
+#### Tailwind color scale
+- `tailwind.config.ts` now exposes the full `primary-50..950`,
+  `secondary-50..950`, `neutral-50..950`, and `success/warning/danger/info`
+  scales as Tailwind colors — consumers can use `bg-primary-700`,
+  `text-secondary-500`, etc. instead of dropping to inline
+  `style={{ color: 'var(--primary-700)' }}`.
+
+#### Packaging
+- Moved `react` and `react-dom` from `dependencies` to `peerDependencies`
+  (`^18.3.0 || ^19.0.0`), so consuming apps no longer bundle a duplicate
+  React copy.
+- Fixed a pre-existing dts build error by typing `process` via `globalThis`
+  instead of relying on `@types/node`. The full `tsup` build (ESM + CJS
+  + d.ts) now succeeds.
+
 ### Added - Major Roadmap Items
 
 #### 1. CLI Tool (@jeremyfuksa/campfire-cli)

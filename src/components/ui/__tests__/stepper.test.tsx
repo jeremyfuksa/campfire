@@ -32,9 +32,8 @@ describe("Stepper", () => {
   });
 
   it("shows completed steps with checkmarks", () => {
-    const { container } = render(<Stepper steps={steps} currentStep={2} />);
-    const checkmarks = container.querySelectorAll(".fa-check");
-    expect(checkmarks).toHaveLength(2);
+    render(<Stepper steps={steps} currentStep={2} />);
+    expect(screen.getAllByTestId("stepper-check")).toHaveLength(2);
   });
 
   it("shows step numbers for incomplete steps", () => {

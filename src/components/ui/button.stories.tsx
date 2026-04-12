@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Download, Loader2 } from "lucide-react";
 import { Button } from "./button";
 
 const meta = {
@@ -95,7 +96,7 @@ export const WithIcon = {
   args: {
     children: (
       <>
-        <i className="fa-solid fa-download mr-2"></i>
+        <Download size={16} className="mr-2" />
         Download
       </>
     ),
@@ -107,7 +108,7 @@ export const Loading = {
     disabled: true,
     children: (
       <>
-        <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+        <Loader2 size={16} className="mr-2 animate-spin" />
         Loading...
       </>
     ),

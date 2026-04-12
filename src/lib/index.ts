@@ -1,5 +1,5 @@
-const isVitest =
-  typeof process !== "undefined" && process.env.VITEST === "true";
+const globalProcess = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process;
+const isVitest = globalProcess?.env?.VITEST === "true";
 
 if (!isVitest) {
   void import("../styles/fonts.css");

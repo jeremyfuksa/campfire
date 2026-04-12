@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
 import { cn } from './utils';
 import { Button } from './button';
 
@@ -41,7 +42,7 @@ export function CodeBlock({
         className="flex items-center justify-between px-4 py-2 border-b"
         style={{ borderColor: 'var(--neutral-800)' }}
       >
-        <span style={{ fontSize: '12px', color: 'var(--neutral-400)', fontFamily: 'JetBrains Mono, monospace' }}>
+        <span style={{ fontSize: '12px', color: 'var(--neutral-400)', fontFamily: 'var(--font-mono)' }}>
           {language}
         </span>
         <Button
@@ -50,17 +51,17 @@ export function CodeBlock({
           onClick={handleCopy}
           style={{ color: 'var(--neutral-400)' }}
         >
-          <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
+          {copied ? <Check size={14} aria-hidden="true" /> : <Copy size={14} aria-hidden="true" />}
           <span className="ml-2">{copied ? 'Copied!' : 'Copy'}</span>
         </Button>
       </div>
       <div className="overflow-x-auto">
         <pre className="p-4" style={{ margin: 0 }}>
-          <code style={{ 
-            fontFamily: 'JetBrains Mono, monospace',
+          <code style={{
+            fontFamily: 'var(--font-mono)',
             fontSize: '14px',
             lineHeight: '1.6',
-            color: 'var(--neutral-100)'
+            color: 'var(--neutral-100)',
           }}>
             {showLineNumbers ? (
               lines.map((line, index) => (

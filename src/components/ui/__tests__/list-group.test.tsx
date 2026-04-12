@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe, toHaveNoViolations } from "jest-axe";
+import { Mail, User } from "lucide-react";
 import { ListGroup, ListGroupItem } from "../list-group";
 
 expect.extend(toHaveNoViolations);
@@ -19,14 +20,15 @@ describe("ListGroup", () => {
   });
 
   it("renders items with icons", () => {
-    const { container } = render(
+    render(
       <ListGroup>
-        <ListGroupItem icon="fa-user">User</ListGroupItem>
-        <ListGroupItem icon="fa-envelope">Email</ListGroupItem>
-      </ListGroup>
+        <ListGroupItem icon={<User data-testid="user-icon" />}>User</ListGroupItem>
+        <ListGroupItem icon={<Mail data-testid="mail-icon" />}>Email</ListGroupItem>
+      </ListGroup>,
     );
-    expect(container.querySelector(".fa-user")).toBeInTheDocument();
-    expect(container.querySelector(".fa-envelope")).toBeInTheDocument();
+    expect(screen.getByTestId("user-icon")).toBeInTheDocument();
+    expect(screen.getByTestId("mail-icon")).toBeInTheDocument();
+    expect(screen.getAllByTestId("list-group-item-icon")).toHaveLength(2);
   });
 
   it("renders items with actions", () => {

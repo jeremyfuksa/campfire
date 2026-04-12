@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./collapsible";
 import { Button } from "./button";
 import { useState } from "react";
@@ -25,7 +26,7 @@ export const Default = {
           </h4>
           <CollapsibleTrigger asChild>
             <Button variant="ghost" size="sm">
-              <i className={`fa-solid fa-chevron-${isOpen ? 'up' : 'down'}`}></i>
+              {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
               <span className="sr-only">Toggle</span>
             </Button>
           </CollapsibleTrigger>
@@ -55,7 +56,7 @@ export const DefaultOpen = {
           <h4 className="text-sm font-semibold">Settings</h4>
           <CollapsibleTrigger asChild>
             <Button variant="ghost" size="sm">
-              <i className={`fa-solid fa-chevron-${isOpen ? 'up' : 'down'}`}></i>
+              {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </Button>
           </CollapsibleTrigger>
         </div>
@@ -82,7 +83,7 @@ export const WithButton = {
         <CollapsibleTrigger asChild>
           <Button variant="outline" className="w-full justify-between">
             Advanced Options
-            <i className={`fa-solid fa-chevron-${isOpen ? 'up' : 'down'} ml-2`}></i>
+            {isOpen ? <ChevronUp size={16} className="ml-2" /> : <ChevronDown size={16} className="ml-2" />}
           </Button>
         </CollapsibleTrigger>
         <CollapsibleContent className="space-y-2 pt-2">

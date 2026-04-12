@@ -1,4 +1,13 @@
 import type { Meta } from "@storybook/react";
+import {
+  AlertTriangle,
+  CheckCircle2,
+  CloudUpload,
+  Folder,
+  Inbox,
+  LinkIcon,
+  Search,
+} from "lucide-react";
 import { EmptyState } from "./empty-state";
 import { Button } from "./button";
 
@@ -24,7 +33,7 @@ export const WithIcon = {
   args: {
     title: "No messages",
     description: "You don't have any messages yet",
-    icon: <i className="fa-solid fa-inbox text-4xl"></i>,
+    icon: <Inbox size={40} />,
   },
 };
 
@@ -32,7 +41,7 @@ export const WithAction = {
   args: {
     title: "No projects",
     description: "Create your first project to get started",
-    icon: <i className="fa-solid fa-folder text-4xl"></i>,
+    icon: <Folder size={40} />,
     children: <Button>Create Project</Button>,
   },
 };
@@ -41,7 +50,7 @@ export const NoResults = {
   args: {
     title: "No results found",
     description: "Try adjusting your search or filter to find what you're looking for",
-    icon: <i className="fa-solid fa-magnifying-glass text-4xl"></i>,
+    icon: <Search size={40} />,
     children: <Button variant="outline">Clear Filters</Button>,
   },
 };
@@ -50,7 +59,7 @@ export const EmptyInbox = {
   args: {
     title: "Inbox Zero!",
     description: "All caught up! You have no unread messages.",
-    icon: <i className="fa-solid fa-check-circle text-4xl text-green-500"></i>,
+    icon: <CheckCircle2 size={40} className="text-green-500" />,
   },
 };
 
@@ -58,7 +67,7 @@ export const NoFiles = {
   args: {
     title: "No files uploaded",
     description: "Upload your first file to get started",
-    icon: <i className="fa-solid fa-cloud-arrow-up text-4xl"></i>,
+    icon: <CloudUpload size={40} />,
     children: (
       <div className="flex gap-2">
         <Button>Upload File</Button>
@@ -72,7 +81,7 @@ export const NoConnections = {
   args: {
     title: "No connections",
     description: "Connect your accounts to get started with integrations",
-    icon: <i className="fa-solid fa-link-slash text-4xl"></i>,
+    icon: <LinkIcon size={40} />,
     children: <Button>Add Connection</Button>,
   },
 };
@@ -81,7 +90,7 @@ export const ErrorState = {
   args: {
     title: "Something went wrong",
     description: "We encountered an error loading your data. Please try again.",
-    icon: <i className="fa-solid fa-triangle-exclamation text-4xl text-destructive"></i>,
+    icon: <AlertTriangle size={40} className="text-destructive" />,
     children: <Button variant="outline">Retry</Button>,
   },
 };

@@ -1,4 +1,17 @@
 import React, { useState } from 'react';
+import {
+  FlaskConical,
+  BarChart3,
+  Users,
+  DollarSign,
+  TrendingDown,
+  Flame,
+  Plus,
+  UserPlus,
+  Download,
+  Settings,
+  type LucideIcon,
+} from 'lucide-react';
 import type { CheckedState as CheckboxCheckedState } from '@radix-ui/react-checkbox';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -58,7 +71,7 @@ export function TestingExamplesPage() {
           {/* Header */}
           <div className="mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border-default)' }}>
-              <i className="fa-solid fa-flask" style={{ fontSize: '12px', color: 'var(--primary-600)' }}></i>
+              <FlaskConical size={12} style={{ color: 'var(--primary-600)' }} />
               <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Testing Area</span>
             </div>
             <h1 className="mb-4">Testing & Examples</h1>
@@ -177,15 +190,17 @@ export function TestingExamplesPage() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-              {[
-                { title: 'Analytics', icon: 'fa-chart-line', value: '12,543', change: '+12.5%', positive: true },
-                { title: 'Users', icon: 'fa-users', value: '8,241', change: '+8.2%', positive: true },
-                { title: 'Revenue', icon: 'fa-dollar-sign', value: '$45.2K', change: '-2.4%', positive: false },
-              ].map((stat) => (
+              {([
+                { title: 'Analytics', icon: BarChart3, value: '12,543', change: '+12.5%', positive: true },
+                { title: 'Users', icon: Users, value: '8,241', change: '+8.2%', positive: true },
+                { title: 'Revenue', icon: DollarSign, value: '$45.2K', change: '-2.4%', positive: false },
+              ] as Array<{ title: string; icon: LucideIcon; value: string; change: string; positive: boolean }>).map((stat) => {
+                const StatIcon = stat.icon;
+                return (
                 <Card key={stat.title}>
                   <CardHeader className="flex flex-row items-center justify-between pb-2">
                     <CardTitle style={{ fontSize: '14px' }}>{stat.title}</CardTitle>
-                    <i className={`fa-solid ${stat.icon}`} style={{ fontSize: '14px', color: 'var(--text-tertiary)' }}></i>
+                    <StatIcon size={14} style={{ color: 'var(--text-tertiary)' }} />
                   </CardHeader>
                   <CardContent>
                     <div className="mb-1" style={{ fontSize: '32px' }}>{stat.value}</div>
@@ -194,7 +209,8 @@ export function TestingExamplesPage() {
                     </p>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -206,7 +222,7 @@ export function TestingExamplesPage() {
                 <CardContent>
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--primary-100)' }}>
-                      <i className="fa-solid fa-fire" style={{ fontSize: '20px', color: 'var(--primary-600)' }}></i>
+                      <Flame size={20} style={{ color: 'var(--primary-600)' }} />
                     </div>
                     <div>
                       <h3 className="mb-2">Quick Setup</h3>
@@ -319,20 +335,23 @@ export function TestingExamplesPage() {
             <div className="space-y-6">
               {/* Stats Row */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {[
-                  { label: 'Total Revenue', value: '$124.5K', icon: 'fa-dollar-sign', color: 'primary' },
-                  { label: 'Active Users', value: '8,241', icon: 'fa-users', color: 'secondary' },
-                  { label: 'Conversion', value: '3.24%', icon: 'fa-chart-line', color: 'success' },
-                  { label: 'Bounce Rate', value: '42.3%', icon: 'fa-arrow-trend-down', color: 'warning' },
-                ].map((stat) => (
+                {([
+                  { label: 'Total Revenue', value: '$124.5K', icon: DollarSign, color: 'primary' },
+                  { label: 'Active Users', value: '8,241', icon: Users, color: 'secondary' },
+                  { label: 'Conversion', value: '3.24%', icon: BarChart3, color: 'success' },
+                  { label: 'Bounce Rate', value: '42.3%', icon: TrendingDown, color: 'warning' },
+                ] as Array<{ label: string; value: string; icon: LucideIcon; color: string }>).map((stat) => {
+                  const StatIcon = stat.icon;
+                  return (
                   <div key={stat.label} className="rounded-lg p-4" style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border-default)' }}>
                     <div className="flex items-center justify-between mb-2">
                       <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>{stat.label}</span>
-                      <i className={`fa-solid ${stat.icon}`} style={{ fontSize: '14px', color: `var(--${stat.color}-600)` }}></i>
+                      <StatIcon size={14} style={{ color: `var(--${stat.color}-600)` }} />
                     </div>
                     <div style={{ fontSize: '24px', color: 'var(--text-primary)' }}>{stat.value}</div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Main Dashboard Grid */}
@@ -375,19 +394,19 @@ export function TestingExamplesPage() {
                     </CardHeader>
                     <CardContent className="space-y-2">
                       <Button className="w-full justify-start" variant="outline">
-                        <i className="fa-solid fa-plus mr-2"></i>
+                        <Plus size={16} className="mr-2" />
                         New Project
                       </Button>
                       <Button className="w-full justify-start" variant="outline">
-                        <i className="fa-solid fa-user-plus mr-2"></i>
+                        <UserPlus size={16} className="mr-2" />
                         Invite Team
                       </Button>
                       <Button className="w-full justify-start" variant="outline">
-                        <i className="fa-solid fa-download mr-2"></i>
+                        <Download size={16} className="mr-2" />
                         Export Data
                       </Button>
                       <Button className="w-full justify-start" variant="outline">
-                        <i className="fa-solid fa-cog mr-2"></i>
+                        <Settings size={16} className="mr-2" />
                         Settings
                       </Button>
                     </CardContent>

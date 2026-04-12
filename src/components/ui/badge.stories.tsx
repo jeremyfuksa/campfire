@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Check } from "lucide-react";
 import { Badge } from "./badge";
 
 const meta = {
@@ -48,7 +49,7 @@ export const Outline = {
 export const WithIcon = {
   render: () => (
     <Badge>
-      <i className="fa-solid fa-check mr-1"></i>
+      <Check size={12} className="mr-1" />
       Verified
     </Badge>
   ),
