@@ -15,7 +15,7 @@ All components use semantic HTML elements where possible:
 Every interactive element has proper ARIA labeling:
 ```tsx
 <Button aria-label="Close dialog">
-  <i className="fa-solid fa-xmark"></i>
+  <X size={16} />
 </Button>
 ```
 
@@ -46,12 +46,12 @@ All interactive components support keyboard navigation:
 
 // ✅ Good - icon with aria-label
 <Button aria-label="Delete item">
-  <i className="fa-solid fa-trash"></i>
+  <Trash2 size={16} />
 </Button>
 
 // ❌ Bad - icon without label
 <Button>
-  <i className="fa-solid fa-trash"></i>
+  <Trash2 size={16} />
 </Button>
 ```
 

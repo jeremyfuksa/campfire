@@ -16,7 +16,7 @@ import { StatCard } from './ui/stat-card';
 import { ListGroup, ListGroupItem } from './ui/list-group';
 import { FileUpload } from './ui/file-upload';
 import { EmptyState } from './ui/empty-state';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Tag, Star, Flame, Home, Folder, Users, Settings, Lock, Inbox, FolderOpen, DollarSign, ShoppingCart, BarChart3 } from 'lucide-react';
 
 export function UtilityComponentsPage() {
   const [activeSection, setActiveSection] = useState('chip');
@@ -24,18 +24,18 @@ export function UtilityComponentsPage() {
   const sidebarGroups = [
     {
       items: [
-        { id: 'chip', label: 'Chip', icon: 'fa-solid fa-times-circle' },
-        { id: 'status-dot', label: 'Status Dot', icon: 'fa-solid fa-circle' },
-        { id: 'helper-text', label: 'Helper Text', icon: 'fa-solid fa-circle-info' },
-        { id: 'link', label: 'Link', icon: 'fa-solid fa-link' },
-        { id: 'copy-button', label: 'Copy Button', icon: 'fa-solid fa-copy' },
-        { id: 'keyboard-key', label: 'Keyboard Key', icon: 'fa-solid fa-keyboard' },
-        { id: 'code-block', label: 'Code Block', icon: 'fa-solid fa-code' },
-        { id: 'search-input', label: 'Search Input', icon: 'fa-solid fa-magnifying-glass' },
-        { id: 'stat-card', label: 'Stat Card', icon: 'fa-solid fa-chart-line' },
-        { id: 'list-group', label: 'List Group', icon: 'fa-solid fa-list-ul' },
-        { id: 'file-upload', label: 'File Upload', icon: 'fa-solid fa-upload' },
-        { id: 'empty-state', label: 'Empty State', icon: 'fa-solid fa-inbox' },
+        { id: 'chip', label: 'Chip' },
+        { id: 'status-dot', label: 'Status Dot' },
+        { id: 'helper-text', label: 'Helper Text' },
+        { id: 'link', label: 'Link' },
+        { id: 'copy-button', label: 'Copy Button' },
+        { id: 'keyboard-key', label: 'Keyboard Key' },
+        { id: 'code-block', label: 'Code Block' },
+        { id: 'search-input', label: 'Search Input' },
+        { id: 'stat-card', label: 'Stat Card' },
+        { id: 'list-group', label: 'List Group' },
+        { id: 'file-upload', label: 'File Upload' },
+        { id: 'empty-state', label: 'Empty State' },
       ]
     }
   ];
@@ -120,15 +120,15 @@ function ChipSection() {
         <h3 className="mb-4" style={{ color: 'var(--text-secondary)' }}>With Icons</h3>
         <div className="flex flex-wrap gap-2">
           <Chip>
-            <i className="fa-solid fa-tag mr-1"></i>
+            <Tag size={12} className="mr-1" />
             Featured
           </Chip>
           <Chip>
-            <i className="fa-solid fa-star mr-1"></i>
+            <Star size={12} className="mr-1" />
             Premium
           </Chip>
           <Chip onClose={() => console.log('Close')}>
-            <i className="fa-solid fa-fire mr-1"></i>
+            <Flame size={12} className="mr-1" />
             Trending
           </Chip>
         </div>
@@ -603,25 +603,25 @@ function StatCardSection() {
         <StatCard
           label="Total Revenue"
           value="$45,231"
-          icon="fa-sack-dollar"
+          icon={<DollarSign size={20} />}
           trend={{ value: 20.1, isPositive: true }}
         />
         <StatCard
           label="Active Users"
           value="2,345"
-          icon="fa-users"
+          icon={<Users size={20} />}
           trend={{ value: 12.5, isPositive: true }}
         />
         <StatCard
           label="Orders"
           value="1,234"
-          icon="fa-cart-shopping"
+          icon={<ShoppingCart size={20} />}
           trend={{ value: 5.2, isPositive: false }}
         />
         <StatCard
           label="Conversion Rate"
           value="3.24%"
-          icon="fa-chart-line"
+          icon={<BarChart3 size={20} />}
           trend={{ value: 2.1, isPositive: true }}
         />
       </div>
@@ -663,23 +663,23 @@ function ListGroupSection() {
       <div className="max-w-md">
         <ListGroup>
           <ListGroupItem active>
-            <i className="fa-solid fa-house mr-2"></i>
+            <Home size={14} className="mr-2 inline" />
             Dashboard
           </ListGroupItem>
           <ListGroupItem>
-            <i className="fa-solid fa-folder mr-2"></i>
+            <Folder size={14} className="mr-2 inline" />
             Projects
           </ListGroupItem>
           <ListGroupItem>
-            <i className="fa-solid fa-users mr-2"></i>
+            <Users size={14} className="mr-2 inline" />
             Team
           </ListGroupItem>
           <ListGroupItem>
-            <i className="fa-solid fa-gear mr-2"></i>
+            <Settings size={14} className="mr-2 inline" />
             Settings
           </ListGroupItem>
           <ListGroupItem disabled>
-            <i className="fa-solid fa-lock mr-2"></i>
+            <Lock size={14} className="mr-2 inline" />
             Locked Feature
           </ListGroupItem>
         </ListGroup>
@@ -760,14 +760,14 @@ function EmptyStateSection() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <EmptyState
-          icon="fa-inbox"
+          icon={<Inbox size={24} aria-hidden="true" />}
           title="No messages"
           description="You don't have any messages yet. Start a conversation to get started."
           action={{ label: 'New Message', onClick: () => console.log('New message') }}
         />
 
         <EmptyState
-          icon="fa-folder-open"
+          icon={<FolderOpen size={24} aria-hidden="true" />}
           title="No projects found"
           description="Create your first project to get started with Campfire."
           action={{ label: 'Create Project', onClick: () => console.log('Create project') }}

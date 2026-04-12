@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Heart, Star, StarHalf } from "lucide-react";
 import { cn } from "./utils";
 
 export interface RatingProps {
@@ -15,10 +16,10 @@ export interface RatingProps {
   icon?: "star" | "heart";
 }
 
-const sizeClasses = {
-  sm: "text-sm",
-  md: "text-lg",
-  lg: "text-2xl",
+const sizePx = {
+  sm: 14,
+  md: 20,
+  lg: 28,
 };
 
 export function Rating({
@@ -48,38 +49,64 @@ export function Rating({
     setHoverValue(null);
   };
 
-  const getIconClass = (index: number) => {
-    const currentValue = hoverValue ?? value;
-    const baseIcon = icon === "star" ? "fa-star" : "fa-heart";
-
-    if (allowHalf) {
-      if (currentValue >= index + 1) {
-        return `fa-solid ${baseIcon}`;
-      } else if (currentValue >= index + 0.5) {
-        return `fa-solid fa-star-half-stroke`;
-      }
-      return `fa-regular ${baseIcon}`;
-    }
-
-    return currentValue >= index + 1 ? `fa-solid ${baseIcon}` : `fa-regular ${baseIcon}`;
-  };
-
   const getColor = (index: number) => {
     const currentValue = hoverValue ?? value;
     if (currentValue >= index + (allowHalf ? 0.5 : 1)) {
-      return "var(--warning)";
+      return "var(--warning-500)";
     }
     return "var(--neutral-400)";
+  };
+
+  const renderIcon = (index: number) => {
+    const currentValue = hoverValue ?? value;
+    const filled = currentValue >= index + 1;
+    const half = allowHalf && !filled && currentValue >= index + 0.5;
+    const color = getColor(index);
+    const iconSize = sizePx[size];
+    const strokeWidth = 2;
+
+    if (icon === "heart") {
+      return (
+        <Heart
+          size={iconSize}
+          strokeWidth={strokeWidth}
+          color={color}
+          fill={filled ? color : "none"}
+          aria-hidden="true"
+        />
+      );
+    }
+
+    if (half) {
+      return (
+        <StarHalf
+          size={iconSize}
+          strokeWidth={strokeWidth}
+          color={color}
+          fill={color}
+          aria-hidden="true"
+        />
+      );
+    }
+
+    return (
+      <Star
+        size={iconSize}
+        strokeWidth={strokeWidth}
+        color={color}
+        fill={filled ? color : "none"}
+        aria-hidden="true"
+      />
+    );
   };
 
   return (
     <div
       className={cn(
         "inline-flex items-center gap-1",
-        sizeClasses[size],
         (readOnly || disabled) && "pointer-events-none",
         disabled && "opacity-50",
-        className
+        className,
       )}
       role="radiogroup"
       aria-label="Rating"
@@ -94,14 +121,11 @@ export function Rating({
           disabled={disabled || readOnly}
           className={cn(
             "cursor-pointer transition-colors",
-            !readOnly && !disabled && "hover:scale-110"
+            !readOnly && !disabled && "hover:scale-110",
           )}
           aria-label={`Rate ${index + 1} out of ${max}`}
         >
-          <i
-            className={getIconClass(index)}
-            style={{ color: getColor(index) }}
-          />
+          {renderIcon(index)}
         </button>
       ))}
     </div>

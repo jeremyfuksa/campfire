@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LayoutGrid, Eye, EyeOff, Info } from 'lucide-react';
 
 export function GridsLayoutsPage() {
   const [showGrid, setShowGrid] = useState(false);
@@ -35,7 +36,7 @@ export function GridsLayoutsPage() {
           {/* Header */}
           <div className="mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border-default)' }}>
-              <i className="fa-solid fa-table-cells" style={{ fontSize: '12px', color: 'var(--primary-600)' }}></i>
+              <LayoutGrid size={12} style={{ color: 'var(--primary-600)' }} />
               <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Layout System</span>
             </div>
             <h1 className="mb-4">Grids & Layouts</h1>
@@ -101,7 +102,7 @@ export function GridsLayoutsPage() {
                 border: `1px solid ${showGrid ? 'var(--primary-600)' : 'var(--border-default)'}`,
               }}
             >
-              <i className={`fa-solid ${showGrid ? 'fa-eye-slash' : 'fa-eye'} mr-2`} style={{ fontSize: '14px' }}></i>
+              {showGrid ? <EyeOff size={14} className="mr-2 inline" /> : <Eye size={14} className="mr-2 inline" />}
               {showGrid ? 'Hide Grid' : 'Show Grid'}
             </button>
 
@@ -283,7 +284,7 @@ export function GridsLayoutsPage() {
             
             <div className="mt-4 p-4 rounded-lg" style={{ backgroundColor: 'var(--bg-muted)', border: '1px solid var(--border-default)' }}>
               <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: 0 }}>
-                <i className="fa-solid fa-info-circle mr-2" style={{ color: 'var(--primary-600)' }}></i>
+                <Info size={14} className="mr-2 inline" style={{ color: 'var(--primary-600)' }} />
                 Resize your browser to see the grid adapt: 1 column (mobile) → 2 columns (tablet) → 4 columns (desktop)
               </p>
             </div>

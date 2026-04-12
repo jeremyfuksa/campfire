@@ -14,6 +14,7 @@ import {
 } from "./dropdown-menu";
 import { Button } from "./button";
 import { useState } from "react";
+import { LogOut, MoreVertical, Settings, User } from "lucide-react";
 
 const meta = {
   title: "Components/DropdownMenu",
@@ -45,22 +46,22 @@ export const WithIcons = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
-          <i className="fa-solid fa-ellipsis-vertical"></i>
+        <Button variant="outline" size="icon">
+          <MoreVertical size={16} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <i className="fa-solid fa-user mr-2"></i>
+          <User size={14} className="mr-2" />
           Profile
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <i className="fa-solid fa-gear mr-2"></i>
+          <Settings size={14} className="mr-2" />
           Settings
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <i className="fa-solid fa-right-from-bracket mr-2"></i>
+          <LogOut size={14} className="mr-2" />
           Logout
         </DropdownMenuItem>
       </DropdownMenuContent>

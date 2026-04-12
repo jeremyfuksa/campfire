@@ -22,7 +22,7 @@ export function ListGroup({ children, className }: ListGroupProps) {
 
 interface ListGroupItemProps {
   children: React.ReactNode;
-  icon?: string;
+  icon?: React.ReactNode;
   action?: React.ReactNode;
   onClick?: () => void;
   active?: boolean;
@@ -60,10 +60,14 @@ export function ListGroupItem({
     >
       <div className="flex items-center gap-3 flex-1">
         {icon && (
-          <i 
-            className={`fa-solid ${icon}`}
-            style={{ fontSize: '16px', color: 'var(--text-secondary)' }}
-          ></i>
+          <span
+            className="inline-flex items-center"
+            data-testid="list-group-item-icon"
+            aria-hidden="true"
+            style={{ color: 'var(--text-secondary)' }}
+          >
+            {icon}
+          </span>
         )}
         <span style={{ color: 'var(--text-primary)' }}>{children}</span>
       </div>

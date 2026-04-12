@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Check, ChevronDown, Loader2, Plus, Search, X } from "lucide-react";
 import { Command, CommandList, CommandEmpty, CommandItem } from "./command";
 import { Popover, PopoverContent } from "./popover";
 import { Badge } from "./badge";
@@ -181,7 +182,7 @@ export function Autocomplete({
                   disabled={disabled}
                   aria-label={`Remove ${option.label}`}
                 >
-                  <i className="fa-solid fa-xmark text-xs"></i>
+                  <X size={12} aria-hidden="true" />
                 </button>
               </Badge>
             ))
@@ -192,10 +193,14 @@ export function Autocomplete({
             <span className="text-muted-foreground text-sm">{placeholder}</span>
           ) : null}
         </div>
-        <i className={cn(
-          "fa-solid fa-chevron-down text-muted-foreground text-xs transition-transform",
-          open && "rotate-180"
-        )}></i>
+        <ChevronDown
+          size={14}
+          className={cn(
+            "text-muted-foreground transition-transform",
+            open && "rotate-180",
+          )}
+          aria-hidden="true"
+        />
       </div>
 
       <PopoverContent
@@ -205,7 +210,7 @@ export function Autocomplete({
       >
         <Command>
           <div className="flex items-center border-b px-3">
-            <i className="fa-solid fa-search text-muted-foreground mr-2 text-sm"></i>
+            <Search size={14} className="text-muted-foreground mr-2" aria-hidden="true" />
             <input
               ref={inputRef}
               value={search}
@@ -217,8 +222,8 @@ export function Autocomplete({
           </div>
           <CommandList>
             {loading ? (
-              <div className="py-6 text-center text-sm">
-                <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+              <div className="py-6 text-center text-sm flex items-center justify-center gap-2">
+                <Loader2 size={14} className="animate-spin" aria-hidden="true" />
                 Loading...
               </div>
             ) : filteredOptions.length === 0 && !showCreateOption ? (
@@ -241,12 +246,12 @@ export function Autocomplete({
                             ? "bg-primary text-primary-foreground border-primary"
                             : "border-neutral-300"
                         )}>
-                          {isSelected && <i className="fa-solid fa-check text-xs"></i>}
+                          {isSelected && <Check size={12} aria-hidden="true" />}
                         </div>
                       )}
                       <span className="flex-1">{option.label}</span>
                       {!multiple && isSelected && (
-                        <i className="fa-solid fa-check text-primary ml-2 text-sm"></i>
+                        <Check size={14} className="text-primary ml-2" aria-hidden="true" />
                       )}
                     </CommandItem>
                   );
@@ -257,7 +262,7 @@ export function Autocomplete({
                     onSelect={handleCreate}
                     className="text-primary"
                   >
-                    <i className="fa-solid fa-plus mr-2 text-xs"></i>
+                    <Plus size={12} className="mr-2" aria-hidden="true" />
                     Create "{search}"
                   </CommandItem>
                 )}

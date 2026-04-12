@@ -1,5 +1,6 @@
 node_modules
 dist/
+dist-types/
 storybook-static/
 .parcel-cache
 .cache

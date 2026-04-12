@@ -90,17 +90,13 @@ describe("Link", () => {
     });
 
     it("renders external icon for external links", () => {
-      const { container } = render(
-        <Link href="https://example.com" external>External</Link>
-      );
-      const icon = container.querySelector(".fa-arrow-up-right-from-square");
-      expect(icon).toBeInTheDocument();
+      render(<Link href="https://example.com" external>External</Link>);
+      expect(screen.getByTestId("link-external-icon")).toBeInTheDocument();
     });
 
     it("does not render external icon for internal links", () => {
-      const { container } = render(<Link href="/internal">Internal</Link>);
-      const icon = container.querySelector(".fa-arrow-up-right-from-square");
-      expect(icon).not.toBeInTheDocument();
+      render(<Link href="/internal">Internal</Link>);
+      expect(screen.queryByTestId("link-external-icon")).not.toBeInTheDocument();
     });
 
     it("does not set target blank for non-external links", () => {

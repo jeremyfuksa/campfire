@@ -4,7 +4,7 @@ import { BackgroundGradients } from './BackgroundGradients';
 interface SidebarItem {
   id: string;
   label: string;
-  icon?: string;
+  icon?: React.ReactNode;
 }
 
 interface SidebarGroup {
@@ -87,7 +87,15 @@ export function PageWithSidebar({
                         fontSize: '14px'
                       }}
                     >
-                      {item.icon && <i className={item.icon} style={{ fontSize: '14px', width: '16px' }}></i>}
+                      {item.icon && (
+                        <span
+                          className="inline-flex items-center justify-center"
+                          aria-hidden="true"
+                          style={{ width: '16px' }}
+                        >
+                          {item.icon}
+                        </span>
+                      )}
                       <span>{item.label}</span>
                     </button>
                   );

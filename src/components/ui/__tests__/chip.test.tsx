@@ -2,6 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe, toHaveNoViolations } from "jest-axe";
+import { Star } from "lucide-react";
 import { Chip } from "../chip";
 
 expect.extend(toHaveNoViolations);
@@ -52,18 +53,19 @@ describe("Chip", () => {
 
   describe("With Icon", () => {
     it("renders with icon", () => {
-      const { container } = render(<Chip label="With Icon" icon="fa-star" />);
-      const icon = container.querySelector(".fa-star");
-      expect(icon).toBeInTheDocument();
+      render(
+        <Chip label="With Icon" icon={<Star data-testid="chip-star-icon" />} />,
+      );
+      expect(screen.getByTestId("chip-star-icon")).toBeInTheDocument();
+      expect(screen.getByTestId("chip-icon")).toBeInTheDocument();
     });
   });
 
   describe("Removable", () => {
     it("renders remove button with onRemove", () => {
       const handleRemove = vi.fn();
-      const { container } = render(<Chip label="Removable" onRemove={handleRemove} />);
-      const removeButton = container.querySelector(".fa-xmark");
-      expect(removeButton).toBeInTheDocument();
+      render(<Chip label="Removable" onRemove={handleRemove} />);
+      expect(screen.getByTestId("chip-remove")).toBeInTheDocument();
     });
 
     it("calls onRemove when clicked", async () => {

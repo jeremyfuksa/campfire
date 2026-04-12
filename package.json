@@ -1,13 +1,13 @@
 {
   "name": "@jeremyfuksa/campfire",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
   "author": "Campfire Design System Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremyfuksa/campfire.git"
+    "url": "git+https://github.com/jeremyfuksa/campfire.git"
   },
   "bugs": {
     "url": "https://github.com/jeremyfuksa/campfire/issues"
@@ -86,9 +86,7 @@
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.1",
     "lucide-react": "^0.487.0",
-    "react": "^18.3.1",
     "react-day-picker": "^9.4.3",
-    "react-dom": "^18.3.1",
     "react-hook-form": "^7.55.0",
     "react-resizable-panels": "^3.0.6",
     "recharts": "^3.4.1",
@@ -98,7 +96,13 @@
     "vaul": "^1.1.1",
     "zod": "^4.1.12"
   },
+  "peerDependencies": {
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0"
+  },
   "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
     "@storybook/addon-links": "^8.6.14",

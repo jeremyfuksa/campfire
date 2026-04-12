@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { CalendarClock } from "lucide-react";
 import { Calendar } from "./calendar";
 import { TimePicker } from "./time-picker";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
@@ -99,7 +100,7 @@ export function DateTimePicker({
           )}
           disabled={disabled}
         >
-          <i className="fa-regular fa-calendar-clock mr-2"></i>
+          <CalendarClock size={16} className="mr-2" aria-hidden="true" />
           {displayText}
         </Button>
       </PopoverTrigger>

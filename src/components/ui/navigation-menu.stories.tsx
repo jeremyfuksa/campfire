@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { BarChart3, Rocket, Shield, Users } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -72,28 +73,28 @@ export const WithGrid = {
           <NavigationMenuContent>
             <div className="grid grid-cols-2 gap-3 p-4 w-[600px]">
               <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
-                <i className="fa-solid fa-rocket text-lg mb-2"></i>
+                <Rocket size={18} className="mb-2" />
                 <div className="font-medium">Fast Performance</div>
                 <p className="text-sm text-muted-foreground">
                   Lightning-fast load times
                 </p>
               </NavigationMenuLink>
               <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
-                <i className="fa-solid fa-shield text-lg mb-2"></i>
+                <Shield size={18} className="mb-2" />
                 <div className="font-medium">Secure</div>
                 <p className="text-sm text-muted-foreground">
                   Enterprise-grade security
                 </p>
               </NavigationMenuLink>
               <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
-                <i className="fa-solid fa-chart-line text-lg mb-2"></i>
+                <BarChart3 size={18} className="mb-2" />
                 <div className="font-medium">Analytics</div>
                 <p className="text-sm text-muted-foreground">
                   Detailed insights
                 </p>
               </NavigationMenuLink>
               <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
-                <i className="fa-solid fa-users text-lg mb-2"></i>
+                <Users size={18} className="mb-2" />
                 <div className="font-medium">Collaboration</div>
                 <p className="text-sm text-muted-foreground">
                   Work together seamlessly

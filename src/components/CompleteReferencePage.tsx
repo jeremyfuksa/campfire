@@ -1,4 +1,26 @@
 import React, { useState } from 'react';
+import {
+  Moon,
+  Sun,
+  Flame,
+  Loader2,
+  Search,
+  Download,
+  Info,
+  CheckCircle2,
+  AlertTriangle,
+  AlertCircle,
+  ChevronDown,
+  User,
+  Settings,
+  Keyboard,
+  LogOut,
+  Users,
+  DollarSign,
+  BarChart3,
+  Percent,
+  type LucideIcon,
+} from 'lucide-react';
 import type { CheckedState as CheckboxCheckedState } from '@radix-ui/react-checkbox';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -56,14 +78,14 @@ export function CompleteReferencePage() {
             color: 'var(--text-primary)',
           }}
         >
-          <i className={`fa-solid ${theme === 'light' ? 'fa-moon' : 'fa-sun'}`} style={{ fontSize: '14px' }}></i>
+          {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
           <span style={{ fontSize: '14px' }}>{theme === 'light' ? 'Dark' : 'Light'}</span>
         </button>
         <div className="flex justify-center mb-6">
           <div className="w-20 h-20 rounded-xl flex items-center justify-center relative overflow-hidden"
             style={{ background: 'linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%)' }}
           >
-            <i className="fa-solid fa-fire" style={{ fontSize: '36px', color: 'white' }}></i>
+            <Flame size={36} style={{ color: 'white' }} />
           </div>
         </div>
         <h1 style={{ fontSize: '48px', marginBottom: '16px' }}>Campfire Design System</h1>
@@ -578,7 +600,7 @@ export function CompleteReferencePage() {
                   <Button>Default</Button>
                   <Button disabled>Disabled</Button>
                   <Button>
-                    <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                    <Loader2 size={16} className="mr-2 animate-spin" />
                     Loading
                   </Button>
                 </div>
@@ -587,12 +609,12 @@ export function CompleteReferencePage() {
                 <h4 className="mb-4" style={{ fontSize: '18px', color: 'var(--text-secondary)' }}>With Icons</h4>
                 <div className="flex flex-wrap gap-4">
                   <Button>
-                    <i className="fa-solid fa-magnifying-glass mr-2"></i>
+                    <Search size={16} className="mr-2" />
                     Search
                   </Button>
                   <Button variant="outline">
                     Download
-                    <i className="fa-solid fa-download ml-2"></i>
+                    <Download size={16} className="ml-2" />
                   </Button>
                 </div>
               </div>
@@ -614,7 +636,7 @@ export function CompleteReferencePage() {
               <div className="space-y-2">
                 <Label htmlFor="input-icon">With Icon</Label>
                 <div className="relative">
-                  <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)' }}></i>
+                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'var(--text-tertiary)' }} />
                   <Input id="input-icon" placeholder="Search..." className="pl-10" />
                 </div>
               </div>
@@ -769,25 +791,25 @@ export function CompleteReferencePage() {
             <h3 className="mb-6" style={{ fontSize: '28px' }}>Alert</h3>
             <div className="space-y-4 max-w-2xl">
               <Alert style={{ backgroundColor: 'var(--primary-700)', borderColor: 'var(--primary-800)', color: 'white' }} className="flex items-center gap-3">
-                <i className="fa-solid fa-circle-info flex-shrink-0" style={{ fontSize: '16px' }}></i>
+                <Info size={16} className="flex-shrink-0" />
                 <AlertDescription className="flex-1" style={{ color: 'white' }}>
                   This is an informational message.
                 </AlertDescription>
               </Alert>
               <Alert style={{ backgroundColor: 'var(--success-700)', borderColor: 'var(--success-700)', color: 'white' }} className="flex items-center gap-3">
-                <i className="fa-solid fa-circle-check flex-shrink-0" style={{ fontSize: '16px' }}></i>
+                <CheckCircle2 size={16} className="flex-shrink-0" />
                 <AlertDescription className="flex-1" style={{ color: 'white' }}>
                   Your changes have been saved successfully!
                 </AlertDescription>
               </Alert>
               <Alert style={{ backgroundColor: 'var(--warning-700)', borderColor: 'var(--warning-700)', color: 'white' }} className="flex items-center gap-3">
-                <i className="fa-solid fa-triangle-exclamation flex-shrink-0" style={{ fontSize: '16px' }}></i>
+                <AlertTriangle size={16} className="flex-shrink-0" />
                 <AlertDescription className="flex-1" style={{ color: 'white' }}>
                   Warning: This action may have unintended consequences.
                 </AlertDescription>
               </Alert>
               <Alert variant="destructive" className="flex items-center gap-3">
-                <i className="fa-solid fa-circle-exclamation flex-shrink-0" style={{ fontSize: '16px' }}></i>
+                <AlertCircle size={16} className="flex-shrink-0" />
                 <AlertDescription className="flex-1">
                   Error: Unable to complete the request.
                 </AlertDescription>
@@ -1190,27 +1212,27 @@ export function CompleteReferencePage() {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
                   Open Menu
-                  <i className="fa-solid fa-chevron-down ml-2" style={{ fontSize: '12px' }}></i>
+                  <ChevronDown size={12} className="ml-2" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <i className="fa-solid fa-user mr-2" style={{ fontSize: '14px' }}></i>
+                  <User size={14} className="mr-2" />
                   Profile
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <i className="fa-solid fa-gear mr-2" style={{ fontSize: '14px' }}></i>
+                  <Settings size={14} className="mr-2" />
                   Settings
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <i className="fa-solid fa-keyboard mr-2" style={{ fontSize: '14px' }}></i>
+                  <Keyboard size={14} className="mr-2" />
                   Keyboard Shortcuts
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <i className="fa-solid fa-right-from-bracket mr-2" style={{ fontSize: '14px' }}></i>
+                  <LogOut size={14} className="mr-2" />
                   Log out
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -1449,17 +1471,19 @@ export function CompleteReferencePage() {
           <div className="mb-16">
             <h3 className="mb-6" style={{ fontSize: '28px' }}>Dashboard Metrics</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { label: 'Total Users', value: '12,345', icon: 'fa-users', change: '+12%' },
-                { label: 'Revenue', value: '$45,678', icon: 'fa-dollar-sign', change: '+8%' },
-                { label: 'Active Sessions', value: '234', icon: 'fa-chart-line', change: '+23%' },
-                { label: 'Conversion Rate', value: '3.2%', icon: 'fa-percentage', change: '-2%' },
-              ].map((metric, i) => (
+              {([
+                { label: 'Total Users', value: '12,345', icon: Users, change: '+12%' },
+                { label: 'Revenue', value: '$45,678', icon: DollarSign, change: '+8%' },
+                { label: 'Active Sessions', value: '234', icon: BarChart3, change: '+23%' },
+                { label: 'Conversion Rate', value: '3.2%', icon: Percent, change: '-2%' },
+              ] as Array<{ label: string; value: string; icon: LucideIcon; change: string }>).map((metric, i) => {
+                const MetricIcon = metric.icon;
+                return (
                 <Card key={i}>
                   <CardContent className="pt-6">
                     <div className="flex items-center justify-between mb-4">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--primary-100)' }}>
-                        <i className={`fa-solid ${metric.icon}`} style={{ color: 'var(--primary-600)' }}></i>
+                        <MetricIcon size={16} style={{ color: 'var(--primary-600)' }} />
                       </div>
                       <Badge variant={metric.change.startsWith('+') ? 'secondary' : 'destructive'}>
                         {metric.change}
@@ -1469,7 +1493,8 @@ export function CompleteReferencePage() {
                     <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>{metric.label}</div>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -1478,7 +1503,7 @@ export function CompleteReferencePage() {
         <section className="text-center py-16" style={{ borderTop: '2px solid var(--border-default)' }}>
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--primary-600) 0%, var(--secondary-600) 100%)' }}>
-              <i className="fa-solid fa-fire" style={{ fontSize: '24px', color: 'white' }}></i>
+              <Flame size={24} style={{ color: 'white' }} />
             </div>
           </div>
           <h3 className="mb-2">Campfire Design System</h3>

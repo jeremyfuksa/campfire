@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { CloudUpload, File as FileIcon, X } from 'lucide-react';
 import { cn } from './utils';
 import { Button } from './button';
 
@@ -94,10 +95,11 @@ export function FileUpload({
           className="hidden"
         />
         <div className="flex flex-col items-center gap-2">
-          <i 
-            className="fa-solid fa-cloud-arrow-up" 
-            style={{ fontSize: '32px', color: 'var(--text-tertiary)' }}
-          ></i>
+          <CloudUpload
+            size={32}
+            style={{ color: 'var(--text-tertiary)' }}
+            aria-hidden="true"
+          />
           <div>
             <p style={{ color: 'var(--text-primary)' }}>
               <span style={{ color: 'var(--interactive-default)' }}>{label}</span> or drag and drop
@@ -121,10 +123,11 @@ export function FileUpload({
               }}
             >
               <div className="flex items-center gap-3">
-                <i 
-                  className="fa-solid fa-file" 
-                  style={{ fontSize: '16px', color: 'var(--text-tertiary)' }}
-                ></i>
+                <FileIcon
+                  size={16}
+                  style={{ color: 'var(--text-tertiary)' }}
+                  aria-hidden="true"
+                />
                 <div>
                   <p style={{ fontSize: '14px', color: 'var(--text-primary)' }}>
                     {file.name}
@@ -142,7 +145,7 @@ export function FileUpload({
                   removeFile(index);
                 }}
               >
-                <i className="fa-solid fa-xmark"></i>
+                <X size={16} aria-label="Remove file" />
               </Button>
             </div>
           ))}

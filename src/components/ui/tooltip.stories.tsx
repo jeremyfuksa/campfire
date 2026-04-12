@@ -1,4 +1,5 @@
 import type { Meta } from "@storybook/react";
+import { Info, Pencil, Share2, Trash2 } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -43,7 +44,7 @@ export const WithIcon = {
     <Tooltip>
       <TooltipTrigger asChild>
         <Button size="icon" variant="outline">
-          <i className="fa-solid fa-info"></i>
+          <Info size={16} />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
@@ -75,7 +76,7 @@ export const Multiple = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button size="icon" variant="outline">
-            <i className="fa-solid fa-trash"></i>
+            <Trash2 size={16} />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -86,7 +87,7 @@ export const Multiple = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button size="icon" variant="outline">
-            <i className="fa-solid fa-pen"></i>
+            <Pencil size={16} />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -97,7 +98,7 @@ export const Multiple = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button size="icon" variant="outline">
-            <i className="fa-solid fa-share"></i>
+            <Share2 size={16} />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
