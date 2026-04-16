@@ -471,27 +471,23 @@ body {
   box-shadow: var(--shadow-focus);
 }
 
-/* Subtle texture on cards and elevated surfaces */
-.campfire-card {
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease;
-}
+/* Opt-in card elevation. Apply .campfire-card to get hover-lift on cards. */
+@layer components {
+  .campfire-card {
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s var(--ease-campfire);
+  }
+  .campfire-card:hover {
+    box-shadow: var(--shadow-md);
+  }
 
-.campfire-card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-/* Opt-in "warm lift" interaction for buttons and links that want the
-   Campfire character. Scoped with .campfire-lift so global elements
-   — especially buttons inside other transforms (sliders, drag handles,
-   tooltips) — are not affected. */
-.campfire-lift:not(:disabled):hover {
-  transform: translateY(-1px);
-  transition: transform 0.15s ease var(--ease-campfire);
-}
-
-.campfire-lift:not(:disabled):active {
-  transform: translateY(0);
+  .campfire-lift:not(:disabled):hover {
+    transform: translateY(-1px);
+    transition: transform 0.15s var(--ease-campfire);
+  }
+  .campfire-lift:not(:disabled):active {
+    transform: translateY(0);
+  }
 }
 
 /* Smooth scrolling for better feel */
