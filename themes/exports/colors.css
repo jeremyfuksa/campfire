@@ -67,6 +67,22 @@
   --campfire-info-600: #a3b2c9;
   --campfire-info-700: #8899b3;
 
+  /* Signature Colors: Ember (Light Mode) */
+  --campfire-clay: #e5beb0;
+  --campfire-flamingo: #f08080;
+  --campfire-terracotta: #db9073;
+  --campfire-ember: #f5a855;
+  --campfire-golden-amber: #ffc05c;
+  --campfire-hay: #f2d88f;
+  --campfire-sage: #a8c76f;
+  --campfire-moss: #88a055;
+  --campfire-pine: #75acaf;
+  --campfire-cello: #7da0c0;
+  --campfire-blue-calx: #bccfe5;
+  --campfire-dusk: #b8a0cc;
+  --campfire-mauve-earth: #c898ad;
+  --campfire-stone: #a0a8b5;
+
   /* Semantic Tokens - Light Mode */
   --campfire-bg-base: var(--campfire-neutral-50);
   --campfire-bg-subtle: var(--campfire-neutral-100);
@@ -92,6 +108,22 @@
 /* Dark Mode Overrides */
 .dark,
 [data-theme="dark"] {
+  /* Signature Colors: Ash (Dark Mode) */
+  --campfire-clay: #c89c8d;
+  --campfire-flamingo: #dc3a38;
+  --campfire-terracotta: #a8654f;
+  --campfire-ember: #d97706;
+  --campfire-golden-amber: #ef991f;
+  --campfire-hay: #d4b86a;
+  --campfire-sage: #739038;
+  --campfire-moss: #5a6f2d;
+  --campfire-pine: #4a7c7e;
+  --campfire-cello: #4c627d;
+  --campfire-blue-calx: #a3b2c9;
+  --campfire-dusk: #8b7a9f;
+  --campfire-mauve-earth: #9b6b7f;
+  --campfire-stone: #747b8a;
+
   /* Semantic Tokens - Dark Mode */
   --campfire-bg-base: var(--campfire-neutral-950);
   --campfire-bg-subtle: var(--campfire-neutral-900);
@@ -117,6 +149,22 @@
 /* System Preference */
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not([data-theme="light"]) {
+    /* Signature Colors: Ash (Dark Mode) */
+    --campfire-clay: #c89c8d;
+    --campfire-flamingo: #dc3a38;
+    --campfire-terracotta: #a8654f;
+    --campfire-ember: #d97706;
+    --campfire-golden-amber: #ef991f;
+    --campfire-hay: #d4b86a;
+    --campfire-sage: #739038;
+    --campfire-moss: #5a6f2d;
+    --campfire-pine: #4a7c7e;
+    --campfire-cello: #4c627d;
+    --campfire-blue-calx: #a3b2c9;
+    --campfire-dusk: #8b7a9f;
+    --campfire-mauve-earth: #9b6b7f;
+    --campfire-stone: #747b8a;
+
     /* Semantic Tokens - Dark Mode */
     --campfire-bg-base: var(--campfire-neutral-950);
     --campfire-bg-subtle: var(--campfire-neutral-900);

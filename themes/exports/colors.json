@@ -70,6 +70,42 @@
       "700": "#8899b3"
     }
   },
+  "signature": {
+    "ember": {
+      "name": "Ember (Light Mode) — brighter, warmer tones",
+      "clay": "#e5beb0",
+      "flamingo": "#f08080",
+      "terracotta": "#db9073",
+      "ember": "#f5a855",
+      "golden-amber": "#ffc05c",
+      "hay": "#f2d88f",
+      "sage": "#a8c76f",
+      "moss": "#88a055",
+      "pine": "#75acaf",
+      "cello": "#7da0c0",
+      "blue-calx": "#bccfe5",
+      "dusk": "#b8a0cc",
+      "mauve-earth": "#c898ad",
+      "stone": "#a0a8b5"
+    },
+    "ash": {
+      "name": "Ash (Dark Mode) — deeper, muted tones",
+      "clay": "#c89c8d",
+      "flamingo": "#dc3a38",
+      "terracotta": "#a8654f",
+      "ember": "#d97706",
+      "golden-amber": "#ef991f",
+      "hay": "#d4b86a",
+      "sage": "#739038",
+      "moss": "#5a6f2d",
+      "pine": "#4a7c7e",
+      "cello": "#4c627d",
+      "blue-calx": "#a3b2c9",
+      "dusk": "#8b7a9f",
+      "mauve-earth": "#9b6b7f",
+      "stone": "#747b8a"
+    }
+  },
   "semantic": {
     "light": {
       "bg": {

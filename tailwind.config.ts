@@ -41,6 +41,23 @@ const config: Config = {
         danger: statusScale("danger"),
         info: statusScale("info"),
 
+        // Signature colors (Ember in light mode, Ash in dark mode).
+        // Mode-aware via CSS custom properties — values flip automatically.
+        clay: "var(--clay)",
+        flamingo: "var(--flamingo)",
+        terracotta: "var(--terracotta)",
+        ember: "var(--ember)",
+        "golden-amber": "var(--golden-amber)",
+        hay: "var(--hay)",
+        sage: "var(--sage)",
+        moss: "var(--moss)",
+        pine: "var(--pine)",
+        cello: "var(--cello)",
+        "blue-calx": "var(--blue-calx)",
+        dusk: "var(--dusk)",
+        "mauve-earth": "var(--mauve-earth)",
+        stone: "var(--stone)",
+
         // shadcn bridge tokens — keep existing names so existing components
         // keep working.
         background: "var(--bg-base)",
