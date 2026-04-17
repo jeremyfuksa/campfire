@@ -70,6 +70,7 @@ export * from "../components/ui/stepper";
 export * from "../components/ui/switch";
 export * from "../components/ui/table";
 export * from "../components/ui/tabs";
+export * from "../components/ui/text";
 export * from "../components/ui/textarea";
 export * from "../components/ui/time-picker";
 export * from "../components/ui/timeline";
@@ -77,6 +78,7 @@ export * from "../components/ui/toggle-group";
 export * from "../components/ui/toggle";
 export * from "../components/ui/tooltip";
 export * from "../components/ui/tree-view";
+export * from "../components/ui/heading";
 export * from "../components/ui/use-mobile";
 export * from "../components/ui/utils";
 

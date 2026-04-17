@@ -142,6 +142,36 @@
   --interactive-active: var(--primary-800);
   --interactive-disabled: var(--neutral-300);
 
+  /* Z-Index Scale — coordinated layering for overlays */
+  --z-base: 0;
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+  --z-max: 9999;
+
+  /* Motion — UX in Motion principles: easing, duration, stagger
+     Easing (Principle 1): Natural curves, nothing linear.
+     Offset & Delay (Principle 2): Stagger token for choreographed groups.
+     Value Change (Principle 5): duration-color for property transitions. */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-campfire: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-fastest: 75ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+
+  --stagger-delay: 50ms;
+
   /* Spacing Scale (8px base grid) */
   --spacing-0: 0;
   --spacing-1: 0.25rem;  /* 4px */
@@ -491,23 +521,57 @@ body {
    CAMPFIRE CHARACTER ENHANCEMENTS
    =================================== */
 
-/* Campfire easing curve, exposed as a token so components can opt in
-   without hijacking every transition on the page. */
-:root {
-  --ease-campfire: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* Warmer focus states with glow */
 :focus-visible {
   outline: none;
   box-shadow: var(--shadow-focus);
 }
 
-/* Opt-in card elevation. Apply .campfire-card to get hover-lift on cards. */
+/* ===================================
+   MOTION SYSTEM (UX in Motion principles)
+   =================================== */
+
+/* Principle 4 (Transformation) + 5 (Value Change):
+   Entrance, exit, and state-morph keyframes. */
+@keyframes campfire-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes campfire-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes campfire-slide-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes campfire-slide-in-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes campfire-scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes campfire-scale-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+/* Principle 7 (Overlay): slide for sheets and drawers */
+@keyframes campfire-slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes campfire-slide-in-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
 @layer components {
+  /* Principle 1 (Easing): natural hover lift */
   .campfire-card {
     box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.2s var(--ease-campfire);
+    transition: box-shadow var(--duration-normal) var(--ease-out);
   }
   .campfire-card:hover {
     box-shadow: var(--shadow-md);
@@ -515,11 +579,40 @@ body {
 
   .campfire-lift:not(:disabled):hover {
     transform: translateY(-1px);
-    transition: transform 0.15s var(--ease-campfire);
+    transition: transform var(--duration-fast) var(--ease-spring);
   }
   .campfire-lift:not(:disabled):active {
     transform: translateY(0);
   }
+
+  /* Principle 4 (Transformation): entrance utilities */
+  .campfire-enter {
+    animation: campfire-slide-in-up var(--duration-normal) var(--ease-out) both;
+  }
+  .campfire-enter-scale {
+    animation: campfire-scale-in var(--duration-normal) var(--ease-spring) both;
+  }
+  .campfire-enter-fade {
+    animation: campfire-fade-in var(--duration-fast) var(--ease-out) both;
+  }
+
+  /* Principle 2 (Offset & Delay): staggered children.
+     Apply .campfire-stagger to a parent; each child gets a
+     progressively longer delay via --stagger-index. */
+  .campfire-stagger > * {
+    animation-delay: calc(var(--stagger-index, 0) * var(--stagger-delay));
+  }
+  .campfire-stagger > *:nth-child(1)  { --stagger-index: 0; }
+  .campfire-stagger > *:nth-child(2)  { --stagger-index: 1; }
+  .campfire-stagger > *:nth-child(3)  { --stagger-index: 2; }
+  .campfire-stagger > *:nth-child(4)  { --stagger-index: 3; }
+  .campfire-stagger > *:nth-child(5)  { --stagger-index: 4; }
+  .campfire-stagger > *:nth-child(6)  { --stagger-index: 5; }
+  .campfire-stagger > *:nth-child(7)  { --stagger-index: 6; }
+  .campfire-stagger > *:nth-child(8)  { --stagger-index: 7; }
+  .campfire-stagger > *:nth-child(9)  { --stagger-index: 8; }
+  .campfire-stagger > *:nth-child(10) { --stagger-index: 9; }
+  .campfire-stagger > *:nth-child(n+11) { --stagger-index: 10; }
 }
 
 /* Smooth scrolling for better feel */
