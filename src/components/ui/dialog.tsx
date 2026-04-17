@@ -114,11 +114,16 @@ export function DialogContent({ className, children, ...props }: DialogContentPr
   };
 
   return (
-    <div data-slot="dialog-portal" style={{ position: "fixed", inset: 0, zIndex: 50 }}>
+    <div
+      data-slot="dialog-portal"
+      className="fixed inset-0"
+      style={{ zIndex: 'var(--z-modal)' }}
+    >
       <div
         data-slot="dialog-overlay"
         aria-hidden="true"
         className="fixed inset-0 bg-black/50"
+        style={{ animation: 'campfire-fade-in var(--duration-fast) var(--ease-out) both' }}
         onClick={closeDialog}
       />
       <div
@@ -128,9 +133,13 @@ export function DialogContent({ className, children, ...props }: DialogContentPr
         aria-describedby={describedBy}
         data-slot="dialog-content"
         className={cn(
-          "fixed left-1/2 top-1/2 z-50 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-background p-6 shadow-lg focus-visible:outline-none",
+          "fixed left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-background p-6 shadow-lg focus-visible:outline-none",
           className,
         )}
+        style={{
+          zIndex: 'var(--z-modal)',
+          animation: 'campfire-scale-in var(--duration-normal) var(--ease-spring) both',
+        }}
         onKeyDown={handleKeyDown}
         {...props}
       >

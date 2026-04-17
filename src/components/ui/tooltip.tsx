@@ -202,6 +202,7 @@ export function TooltipContent({
       data-align={align}
       aria-labelledby={triggerId}
       className={clsx(className)}
+      style={{ animation: 'campfire-scale-in var(--duration-fast) var(--ease-out) both' }}
       onMouseEnter={composeEventHandlers(onMouseEnter, () => show())}
       onMouseLeave={composeEventHandlers(onMouseLeave, () => hide())}
       {...props}
