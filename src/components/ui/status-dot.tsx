@@ -1,61 +1,67 @@
-import React from 'react';
-import { cn } from './utils';
+import React from "react";
+import { cn } from "./utils";
 
 export type StatusValue =
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'danger'
-  | 'info'
-  | 'neutral'
-  | 'default'
-  | 'active'
-  | 'away'
-  | 'offline';
+  | "success"
+  | "warning"
+  | "error"
+  | "danger"
+  | "info"
+  | "neutral"
+  | "default"
+  | "active"
+  | "away"
+  | "offline";
 
 interface StatusDotProps {
-  status?: StatusValue;
   variant?: StatusValue;
+  /** @deprecated Use `variant` instead. */
+  status?: StatusValue;
   label?: string;
   pulse?: boolean;
   className?: string;
 }
 
-export function StatusDot({ status, variant, label, pulse = false, className }: StatusDotProps) {
-  const activeStatus = status || variant || 'neutral';
-  const statusColors: Record<StatusValue, string> = {
-    success: 'var(--success-600)',
-    warning: 'var(--warning-600)',
-    danger: 'var(--danger-600)',
-    error: 'var(--danger-600)',
-    info: 'var(--info-600)',
-    neutral: 'var(--neutral-500)',
-    default: 'var(--neutral-500)',
-    active: 'var(--success-500)',
-    away: 'var(--warning-500)',
-    offline: 'var(--neutral-400)',
-  };
-  const getStatusColor = () => statusColors[activeStatus] || 'var(--neutral-500)';
+const dotColors: Record<StatusValue, string> = {
+  success: "bg-[var(--success-600)]",
+  warning: "bg-[var(--warning-600)]",
+  danger: "bg-[var(--danger-600)]",
+  error: "bg-[var(--danger-600)]",
+  info: "bg-[var(--info-600)]",
+  neutral: "bg-[var(--neutral-500)]",
+  default: "bg-[var(--neutral-500)]",
+  active: "bg-[var(--success-500)]",
+  away: "bg-[var(--warning-500)]",
+  offline: "bg-[var(--neutral-400)]",
+};
 
-  return (
-    <div className={cn('inline-flex items-center gap-2', className)}>
-      <div className="relative">
-        <div 
-          className="w-2 h-2 rounded-full"
-          style={{ backgroundColor: getStatusColor() }}
-        />
-        {pulse && (
-          <div 
-            className="absolute inset-0 w-2 h-2 rounded-full animate-ping"
-            style={{ backgroundColor: getStatusColor(), opacity: 0.75 }}
-          />
+const StatusDot = React.forwardRef<HTMLDivElement, StatusDotProps>(
+  ({ status, variant, label, pulse = false, className }, ref) => {
+    const resolved = variant ?? status ?? "neutral";
+    const colorClass = dotColors[resolved] ?? dotColors.neutral;
+
+    return (
+      <div ref={ref} className={cn("inline-flex items-center gap-2", className)}>
+        <div className="relative">
+          <div className={cn("w-2 h-2 rounded-full", colorClass)} />
+          {pulse && (
+            <div
+              className={cn(
+                "absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-75",
+                colorClass,
+              )}
+            />
+          )}
+        </div>
+        {label && (
+          <span className="text-sm text-[color:var(--text-primary)]">
+            {label}
+          </span>
         )}
       </div>
-      {label && (
-        <span style={{ fontSize: '14px', color: 'var(--text-primary)' }}>
-          {label}
-        </span>
-      )}
-    </div>
-  );
-}
+    );
+  },
+);
+StatusDot.displayName = "StatusDot";
+
+export { StatusDot };

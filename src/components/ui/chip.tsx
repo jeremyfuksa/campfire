@@ -1,89 +1,75 @@
-import React from 'react';
-import { X } from 'lucide-react';
-import { cn } from './utils';
+import React from "react";
+import { X } from "lucide-react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "./utils";
 
-interface ChipProps {
+const chipVariants = cva(
+  "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-sm transition-colors",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-muted text-foreground border-border",
+        primary:
+          "bg-[var(--primary-100)] text-[var(--primary-700)] border-[var(--primary-200)]",
+        success:
+          "bg-[var(--success-100)] text-[var(--success-800)] border-[var(--success-200)]",
+        warning:
+          "bg-[var(--warning-100)] text-[var(--warning-900)] border-[var(--warning-300)]",
+        danger:
+          "bg-[var(--danger-100)] text-[var(--danger-800)] border-[var(--danger-200)]",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+interface ChipProps extends VariantProps<typeof chipVariants> {
   label?: string;
   children?: React.ReactNode;
-  variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+  /** @deprecated Use `onClose` instead. */
   onRemove?: () => void;
   onClose?: () => void;
   icon?: React.ReactNode;
   className?: string;
 }
 
-export function Chip({
-  label,
-  children,
-  variant = 'default',
-  onRemove,
-  onClose,
-  icon,
-  className,
-}: ChipProps) {
-  const handleRemove = onClose || onRemove;
-  const getVariantStyles = () => {
-    switch (variant) {
-      case 'primary':
-        return {
-          backgroundColor: 'var(--primary-100)',
-          color: 'var(--primary-700)',
-          borderColor: 'var(--primary-200)',
-        };
-      case 'success':
-        return {
-          backgroundColor: 'var(--success-500)',
-          color: 'white',
-          borderColor: 'var(--success-600)',
-        };
-      case 'warning':
-        return {
-          backgroundColor: 'var(--warning-500)',
-          color: 'var(--neutral-900)',
-          borderColor: 'var(--warning-600)',
-        };
-      case 'danger':
-        return {
-          backgroundColor: 'var(--danger-500)',
-          color: 'white',
-          borderColor: 'var(--danger-600)',
-        };
-      default:
-        return {
-          backgroundColor: 'var(--bg-muted)',
-          color: 'var(--text-primary)',
-          borderColor: 'var(--border-default)',
-        };
-    }
-  };
+const Chip = React.forwardRef<HTMLDivElement, ChipProps>(
+  ({ label, children, variant, onRemove, onClose, icon, className }, ref) => {
+    const handleRemove = onClose || onRemove;
 
-  const styles = getVariantStyles();
+    return (
+      <div
+        ref={ref}
+        className={cn(chipVariants({ variant, className }))}
+      >
+        {icon && (
+          <span
+            className="inline-flex items-center"
+            data-testid="chip-icon"
+            aria-hidden="true"
+          >
+            {icon}
+          </span>
+        )}
+        <span>{children || label}</span>
+        {handleRemove && (
+          <button
+            type="button"
+            onClick={handleRemove}
+            aria-label="Remove chip"
+            className="hover:opacity-70 transition-opacity"
+            data-testid="chip-remove"
+          >
+            <X size={12} aria-hidden="true" />
+          </button>
+        )}
+      </div>
+    );
+  },
+);
+Chip.displayName = "Chip";
 
-  return (
-    <div
-      className={cn(
-        'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-sm',
-        className,
-      )}
-      style={styles}
-    >
-      {icon && (
-        <span className="inline-flex items-center" data-testid="chip-icon" aria-hidden="true">
-          {icon}
-        </span>
-      )}
-      <span>{children || label}</span>
-      {handleRemove && (
-        <button
-          type="button"
-          onClick={handleRemove}
-          aria-label="Remove chip"
-          className="hover:opacity-70 transition-opacity"
-          data-testid="chip-remove"
-        >
-          <X size={12} aria-hidden="true" />
-        </button>
-      )}
-    </div>
-  );
-}
+export { Chip, chipVariants };
