@@ -9,10 +9,7 @@ const scale = (name: string) =>
     ]),
   );
 
-const statusScale = (name: string) =>
-  Object.fromEntries(
-    [500, 600, 700].map((step) => [step, `var(--${name}-${step})`]),
-  );
+// statusScale removed — all palettes now use the full 50–950 scale()
 
 const config: Config = {
   darkMode: "class",
@@ -37,10 +34,10 @@ const config: Config = {
           foreground: "var(--text-primary)",
         },
         neutral: scale("neutral"),
-        success: statusScale("success"),
-        warning: statusScale("warning"),
-        danger: statusScale("danger"),
-        info: statusScale("info"),
+        success: scale("success"),
+        warning: scale("warning"),
+        danger: scale("danger"),
+        info: scale("info"),
 
         // Signature colors (Ember in light mode, Ash in dark mode).
         // Mode-aware via CSS custom properties — values flip automatically.

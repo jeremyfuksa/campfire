@@ -52,24 +52,56 @@
   --neutral-950: #1c1f26;
 
   /* Success (Sage/Forest - Natural Green) */
+  --success-50: #f4f9ec;
+  --success-100: #e6f1d4;
+  --success-200: #cfe4ad;
+  --success-300: #b1d27e;
+  --success-400: #9ac35d;
   --success-500: #8fb14b;
   --success-600: #739038;
   --success-700: #5a6f2d;
+  --success-800: #475824;
+  --success-900: #3b4a1e;
+  --success-950: #202810;
 
   /* Warning (Golden Amber - Warm Glow) */
+  --warning-50: #fffdf5;
+  --warning-100: #fef7e0;
+  --warning-200: #feecc0;
+  --warning-300: #fddfa0;
+  --warning-400: #fcd382;
   --warning-500: #f9c574;
   --warning-600: #ef991f;
   --warning-700: #d97706;
+  --warning-800: #b56005;
+  --warning-900: #944f0b;
+  --warning-950: #522a03;
 
   /* Danger (Flamingo - Earthy Red) */
+  --danger-50: #fef5f4;
+  --danger-100: #fee1df;
+  --danger-200: #fcc9c8;
+  --danger-300: #f8a5a4;
+  --danger-400: #f17d7b;
   --danger-500: #e75351;
   --danger-600: #dc3a38;
   --danger-700: #be2b29;
+  --danger-800: #9c2524;
+  --danger-900: #822524;
+  --danger-950: #470f0f;
 
   /* Info (Blue Calx - Muted Blue) */
+  --info-50: #f4f7fb;
+  --info-100: #e8eef6;
+  --info-200: #d5e0ee;
+  --info-300: #c6d3e4;
+  --info-400: #b8c9dc;
   --info-500: #b8c5d9;
   --info-600: #a3b2c9;
   --info-700: #8899b3;
+  --info-800: #6b7d99;
+  --info-900: #576580;
+  --info-950: #384358;
 
   /* Signature Colors: Ember (Light Mode)
      Expressive, named palette for illustrations, accents, and brand moments.
