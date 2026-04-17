@@ -1,6 +1,6 @@
 {
   "name": "@jeremyfuksa/campfire",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
   "author": "Campfire Design System Team",
@@ -100,8 +100,12 @@
     "zod": "^4.0.0"
   },
   "peerDependenciesMeta": {
-    "@hookform/resolvers": { "optional": true },
-    "zod": { "optional": true }
+    "@hookform/resolvers": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "react": "^18.3.1",

@@ -4,6 +4,64 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-04-17
+
+### Fixed
+- **Critical: ESM export path** — `module` and `exports.import` pointed
+  to `dist/index.mjs` (doesn't exist); corrected to `dist/index.js`.
+- Restored `ComponentDocumentation` demo helper deleted in 0.2.0.
+
+### Added
+- **Ember/Ash signature colors** — 14 named tokens (`--clay` through
+  `--stone`) that auto-flip between light (Ember) and dark (Ash) mode.
+  Tailwind utilities: `bg-ember`, `text-pine`, `border-clay`, etc.
+- **Full 50–950 scales** for success, warning, danger, info (were 3
+  steps, now 11 like primary/secondary/neutral).
+- **Motion system** (UX in Motion Manifesto principles):
+  - 6 easing curves, 5 duration tokens, stagger utility
+  - 8 keyframes (fade, slide, scale — entrance and exit)
+  - Wired into Dialog (scale-in), Tooltip (fade+scale), Alert
+    (slide-in), Accordion (token durations), Sheet (token durations)
+- **Z-index scale** — 9 coordinated layers (`--z-dropdown` through
+  `--z-max`), exposed as Tailwind `z-modal` etc.
+- **Text component** — `<Text variant="body|body-lg|muted|subtle|label">`
+- **Heading component** — `<Heading level={1-6}>` consuming the heading
+  token hierarchy.
+- **Alert variants**: success, warning, info (was only default +
+  destructive).
+- **Badge variants**: success, warning, info.
+- **Progress variants**: success, warning, danger, info with track +
+  indicator colors.
+- **Spinner variants**: success, warning, danger, info.
+- **11 new test files** for previously untested components (color-picker,
+  date-range-picker, date-time-picker, numeric-input, rating, spinner,
+  time-picker, timeline, tree-view, use-mobile, utils).
+- **VS Code theme packaged** as installable `.vsix`.
+- **GitHub Actions publish workflow** (`publish.yml`).
+
+### Changed
+- **Ref forwarding**: Input, Textarea, Badge, Progress, Spinner,
+  StatusDot, Chip now use `React.forwardRef` (4 → 11 components).
+- **Chip**: migrated from inline styles to CVA; variant colors changed
+  to lighter tints for better readability. Exports `chipVariants`.
+- **Spinner**: migrated from inline `borderTopColor` to Tailwind classes.
+- **StatusDot**: migrated from inline styles to Tailwind classes.
+- **KeyboardKey**: migrated from inline styles to Tailwind classes.
+- `tailwindcss-animate` wired into Tailwind plugins (was installed but
+  never loaded).
+- `zod`, `@hookform/resolvers` moved to optional peerDependencies.
+
+### Deprecated
+- `StatusDot.status` — use `variant` instead.
+- `Chip.onRemove` — use `onClose` instead.
+
+### Removed
+- 11 orphaned source files (5 demo pages, 3 composites, 2 mdx docs).
+- 78 storybook-static build artifacts from git tracking.
+- 2 `.DS_Store` files, stale `handoff_summary.md`, `TASKS.md`.
+- Dead `src/test/setup.ts` (duplicate of `vitest.setup.ts`).
+- Dead test config block from `vite.config.ts`.
+
 ## [0.2.0] - 2026-04-11
 
 ### Changed - Production Readiness Pass
