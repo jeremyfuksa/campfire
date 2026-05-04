@@ -4,6 +4,31 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-05-04
+
+### Added
+- **JSON-sourced design tokens via Style Dictionary.** Tokens are now
+  authored as W3C DTCG-format JSON under `src/tokens/` and built into
+  multiple distribution formats. `globals.css` is no longer the source
+  of truth; it imports the generated `tokens.generated.css`.
+- **New package exports** for consumption outside Tailwind:
+  - `@jeremyfuksa/campfire/tokens.css` — plain `:root` + `.dark` CSS
+    custom properties, no component bundle
+  - `@jeremyfuksa/campfire/tokens` — typed ES module with the full token
+    tree (`tokens.color.primary[500].value` etc.)
+  - `@jeremyfuksa/campfire/tokens.json` — raw W3C DTCG JSON for Figma
+    Make and other design-tool importers
+  - `@jeremyfuksa/campfire/tokens.dark.json` — dark-mode override values
+- `npm run tokens` now invokes Style Dictionary; the previously broken
+  `scripts/export-tokens.js` reference is replaced.
+
+### Changed
+- `npm run build:lib` cleans `dist/` then runs the token build before
+  `tsup`, so token artifacts ship alongside the component bundle.
+- All ~140 CSS custom property names are preserved; no consumer-visible
+  CSS changes. Tailwind config continues to read `var(--primary-500)`
+  etc. unchanged.
+
 ## [0.3.0] - 2026-04-17
 
 ### Fixed

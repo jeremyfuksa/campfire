@@ -1,6 +1,6 @@
 {
   "name": "@jeremyfuksa/campfire",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Campfire Design System – reusable React components and tokens.",
   "type": "module",
   "author": "Campfire Design System Team",
@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:lib": "tsup",
+    "build:lib": "rm -rf dist && npm run tokens && tsup",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "test": "vitest run src/test",
@@ -34,7 +34,7 @@
     "test:smoke": "npm run test",
     "release": "npm version patch && npm run build:lib && npm publish --access public",
     "preview": "vite preview",
-    "tokens": "node scripts/export-tokens.js"
+    "tokens": "node style-dictionary.config.mjs"
   },
   "main": "dist/index.cjs",
   "module": "dist/index.js",
@@ -48,7 +48,14 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/index.css"
+    "./styles.css": "./dist/index.css",
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js"
+    },
+    "./tokens.json": "./dist/tokens.json",
+    "./tokens.dark.json": "./dist/tokens.dark.json",
+    "./tokens.css": "./dist/tokens.css"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
@@ -94,9 +101,9 @@
     "vaul": "^1.1.1"
   },
   "peerDependencies": {
+    "@hookform/resolvers": "^5.0.0",
     "react": "^18.3.0 || ^19.0.0",
     "react-dom": "^18.3.0 || ^19.0.0",
-    "@hookform/resolvers": "^5.0.0",
     "zod": "^4.0.0"
   },
   "peerDependenciesMeta": {
@@ -108,8 +115,6 @@
     }
   },
   "devDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "@storybook/addon-links": "^10.3.5",
     "@storybook/react": "^10.3.5",
     "@storybook/react-vite": "^10.3.5",
@@ -125,7 +130,10 @@
     "jest-axe": "^9.0.0",
     "jsdom": "^27.3.0",
     "postcss": "^8.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "storybook": "^10.3.5",
+    "style-dictionary": "^5.4.0",
     "tailwindcss": "^3.4.13",
     "tailwindcss-animate": "^1.0.7",
     "tsup": "^8.3.0",

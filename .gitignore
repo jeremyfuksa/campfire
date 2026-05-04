@@ -1,5 +1,6 @@
 node_modules
 dist/
+src/styles/tokens.generated.css
 dist-types/
 storybook-static/
 .parcel-cache
