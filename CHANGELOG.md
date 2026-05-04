@@ -4,6 +4,22 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+### Added
+- **`npm run test:a11y`** runs the 91 axe-core accessibility assertions
+  scattered across the unit test suite. Wired into CI as a required
+  step alongside `test:smoke`.
+
+### Fixed
+- **Slider thumb missing `aria-label`** — Radix's `Slider.Thumb` carries
+  `role="slider"` but inherited no accessible name from the parent.
+  Single-thumb sliders now propagate the parent `aria-label`; range
+  sliders get `"<label> (minimum)"` / `"<label> (maximum)"`. Caught by
+  the new a11y CI gate.
+- **vitest config**: `css: true` regressed after the v4 migration
+  because the larger CSS bundle stack-overflows jsdom's CSSOM. Replaced
+  with `css.include: []` plus `server.deps.inline: [/\\.css$/]` so
+  styles are loaded but not parsed by jsdom.
+
 ## [0.5.0] - 2026-05-04
 
 ### Changed

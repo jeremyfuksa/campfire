@@ -32,6 +32,7 @@
     "test": "vitest run src/test",
     "test:full": "vitest",
     "test:smoke": "npm run test",
+    "test:a11y": "vitest run --testNamePattern=\"accessibility|axe|violations\"",
     "release": "npm version patch && npm run build:lib && npm publish --access public",
     "preview": "vite preview",
     "tokens": "node style-dictionary.config.mjs",

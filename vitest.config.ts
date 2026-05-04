@@ -8,7 +8,17 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
-    css: false,
+    // Stub global stylesheets — jsdom's CSSOM stack-overflows on the v4
+    // bundle, and the tests don't need real styles applied (only computed
+    // properties from inline styles and direct className assertions).
+    server: {
+      deps: {
+        inline: [/\.css$/],
+      },
+    },
+    css: {
+      include: [],
+    },
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
