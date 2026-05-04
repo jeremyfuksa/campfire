@@ -54,12 +54,12 @@ export function TestingExamplesPage() {
           <div className="mb-6">
             <h3 className="mb-3" style={{ fontSize: '12px', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Examples</h3>
             <ul className="space-y-1">
-              <li><a href="#forms" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Forms</a></li>
-              <li><a href="#cards" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Cards</a></li>
-              <li><a href="#data-tables" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Data Tables</a></li>
-              <li><a href="#dashboard" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Dashboard</a></li>
-              <li><a href="#dialogs" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Dialogs</a></li>
-              <li><a href="#notifications" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Notifications</a></li>
+              <li><a href="#forms" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Forms</a></li>
+              <li><a href="#cards" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Cards</a></li>
+              <li><a href="#data-tables" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Data Tables</a></li>
+              <li><a href="#dashboard" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Dashboard</a></li>
+              <li><a href="#dialogs" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Dialogs</a></li>
+              <li><a href="#notifications" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Notifications</a></li>
             </ul>
           </div>
         </nav>
@@ -221,7 +221,7 @@ export function TestingExamplesPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--primary-100)' }}>
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: 'var(--primary-100)' }}>
                       <Flame size={20} style={{ color: 'var(--primary-600)' }} />
                     </div>
                     <div>
@@ -371,7 +371,7 @@ export function TestingExamplesPage() {
                           { user: 'Alex Thompson', action: 'uploaded 3 files', time: '1 day ago', avatar: 'AT' },
                         ].map((activity, index) => (
                           <div key={index} className="flex items-start gap-3">
-                            <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--primary-100)', color: 'var(--primary-700)', fontSize: '12px' }}>
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'var(--primary-100)', color: 'var(--primary-700)', fontSize: '12px' }}>
                               {activity.avatar}
                             </div>
                             <div className="flex-1 min-w-0">

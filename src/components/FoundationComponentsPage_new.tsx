@@ -718,28 +718,28 @@ function AlertSection() {
     >
       <div className="space-y-4 max-w-2xl">
         <Alert style={{ backgroundColor: 'var(--primary-700)', borderColor: 'var(--primary-800)', color: 'white' }} className="flex items-center gap-3">
-          <Info size={16} className="flex-shrink-0" />
+          <Info size={16} className="shrink-0" />
           <AlertDescription className="flex-1" style={{ color: 'white' }}>
             This is an informational message with important details.
           </AlertDescription>
         </Alert>
 
         <Alert style={{ backgroundColor: 'var(--success-700)', borderColor: 'var(--success-700)', color: 'white' }} className="flex items-center gap-3">
-          <CheckCircle2 size={16} className="flex-shrink-0" />
+          <CheckCircle2 size={16} className="shrink-0" />
           <AlertDescription className="flex-1" style={{ color: 'white' }}>
             Your changes have been saved successfully!
           </AlertDescription>
         </Alert>
 
         <Alert style={{ backgroundColor: 'var(--warning-700)', borderColor: 'var(--warning-700)', color: 'white' }} className="flex items-center gap-3">
-          <AlertTriangle size={16} className="flex-shrink-0" />
+          <AlertTriangle size={16} className="shrink-0" />
           <AlertDescription className="flex-1" style={{ color: 'white' }}>
             Warning: This action may have unintended consequences.
           </AlertDescription>
         </Alert>
 
         <Alert variant="destructive" className="flex items-center gap-3">
-          <AlertCircle size={16} className="flex-shrink-0" />
+          <AlertCircle size={16} className="shrink-0" />
           <AlertDescription className="flex-1">
             Error: Unable to complete the request. Please try again.
           </AlertDescription>
@@ -1656,7 +1656,7 @@ function PopoverSection() {
                 {['primary', 'secondary', 'success', 'warning', 'destructive'].map((color) => (
                   <button
                     key={color}
-                    className="w-8 h-8 rounded cursor-pointer border-2 border-transparent hover:border-gray-400"
+                    className="w-8 h-8 rounded-sm cursor-pointer border-2 border-transparent hover:border-gray-400"
                     style={{ backgroundColor: `var(--${color}-600)` }}
                   />
                 ))}

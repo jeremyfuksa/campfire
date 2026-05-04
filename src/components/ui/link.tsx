@@ -20,13 +20,13 @@ export function Link({
   const getVariantClasses = () => {
     switch (variant) {
       case 'subtle':
-        return 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]';
+        return 'text-(--text-secondary) hover:text-(--text-primary)';
       case 'bold':
-        return 'text-[var(--interactive-default)] hover:text-[var(--interactive-hover)]';
+        return 'text-(--interactive-default) hover:text-(--interactive-hover)';
       case 'muted':
-        return 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]';
+        return 'text-(--text-tertiary) hover:text-(--text-secondary)';
       default:
-        return 'text-[var(--interactive-default)] hover:text-[var(--interactive-hover)]';
+        return 'text-(--interactive-default) hover:text-(--interactive-hover)';
     }
   };
 

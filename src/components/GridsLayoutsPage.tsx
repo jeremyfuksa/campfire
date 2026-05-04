@@ -12,19 +12,19 @@ export function GridsLayoutsPage() {
           <div className="mb-6">
             <h3 className="mb-3" style={{ fontSize: '12px', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Grid System</h3>
             <ul className="space-y-1">
-              <li><a href="#spacing-scale" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Spacing Scale</a></li>
-              <li><a href="#grid-overlay" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Grid Overlay</a></li>
-              <li><a href="#containers" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Containers</a></li>
+              <li><a href="#spacing-scale" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Spacing Scale</a></li>
+              <li><a href="#grid-overlay" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Grid Overlay</a></li>
+              <li><a href="#containers" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Containers</a></li>
             </ul>
           </div>
           <div className="mb-6">
             <h3 className="mb-3" style={{ fontSize: '12px', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Layouts</h3>
             <ul className="space-y-1">
-              <li><a href="#single-column" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Single Column</a></li>
-              <li><a href="#two-column" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Two Column</a></li>
-              <li><a href="#three-column" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Three Column</a></li>
-              <li><a href="#sidebar-content" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Sidebar + Content</a></li>
-              <li><a href="#responsive-grid" className="block px-3 py-1.5 rounded transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Responsive Grid</a></li>
+              <li><a href="#single-column" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Single Column</a></li>
+              <li><a href="#two-column" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Two Column</a></li>
+              <li><a href="#three-column" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Three Column</a></li>
+              <li><a href="#sidebar-content" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Sidebar + Content</a></li>
+              <li><a href="#responsive-grid" className="block px-3 py-1.5 rounded-sm transition-colors" style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Responsive Grid</a></li>
             </ul>
           </div>
         </nav>
@@ -72,7 +72,7 @@ export function GridsLayoutsPage() {
                   </div>
                   <div className="flex-1 flex items-center gap-3">
                     <div 
-                      className="h-8 rounded" 
+                      className="h-8 rounded-sm" 
                       style={{ 
                         width: space.value, 
                         backgroundColor: 'var(--primary-500)',
@@ -249,7 +249,7 @@ export function GridsLayoutsPage() {
                   <h3 className="mb-4">Sidebar</h3>
                   <ul className="space-y-2">
                     {['Navigation 1', 'Navigation 2', 'Navigation 3'].map((item) => (
-                      <li key={item} className="px-3 py-2 rounded" style={{ backgroundColor: 'var(--bg-base)', fontSize: '14px', color: 'var(--text-secondary)' }}>
+                      <li key={item} className="px-3 py-2 rounded-sm" style={{ backgroundColor: 'var(--bg-base)', fontSize: '14px', color: 'var(--text-secondary)' }}>
                         {item}
                       </li>
                     ))}

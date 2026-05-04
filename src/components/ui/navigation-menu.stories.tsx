@@ -28,11 +28,11 @@ export const Default = {
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid gap-3 p-4 w-[400px]">
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <div className="font-medium">Product 1</div>
                 <p className="text-sm text-muted-foreground">Description</p>
               </NavigationMenuLink>
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <div className="font-medium">Product 2</div>
                 <p className="text-sm text-muted-foreground">Description</p>
               </NavigationMenuLink>
@@ -43,11 +43,11 @@ export const Default = {
           <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid gap-3 p-4 w-[400px]">
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <div className="font-medium">Solution 1</div>
                 <p className="text-sm text-muted-foreground">Description</p>
               </NavigationMenuLink>
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <div className="font-medium">Solution 2</div>
                 <p className="text-sm text-muted-foreground">Description</p>
               </NavigationMenuLink>
@@ -72,28 +72,28 @@ export const WithGrid = {
           <NavigationMenuTrigger>Features</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid grid-cols-2 gap-3 p-4 w-[600px]">
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <Rocket size={18} className="mb-2" />
                 <div className="font-medium">Fast Performance</div>
                 <p className="text-sm text-muted-foreground">
                   Lightning-fast load times
                 </p>
               </NavigationMenuLink>
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <Shield size={18} className="mb-2" />
                 <div className="font-medium">Secure</div>
                 <p className="text-sm text-muted-foreground">
                   Enterprise-grade security
                 </p>
               </NavigationMenuLink>
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <BarChart3 size={18} className="mb-2" />
                 <div className="font-medium">Analytics</div>
                 <p className="text-sm text-muted-foreground">
                   Detailed insights
                 </p>
               </NavigationMenuLink>
-              <NavigationMenuLink href="#" className="block p-3 rounded hover:bg-accent">
+              <NavigationMenuLink href="#" className="block p-3 rounded-sm hover:bg-accent">
                 <Users size={18} className="mb-2" />
                 <div className="font-medium">Collaboration</div>
                 <p className="text-sm text-muted-foreground">

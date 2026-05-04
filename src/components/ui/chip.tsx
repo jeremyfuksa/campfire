@@ -11,13 +11,13 @@ const chipVariants = cva(
         default:
           "bg-muted text-foreground border-border",
         primary:
-          "bg-[var(--primary-100)] text-[var(--primary-700)] border-[var(--primary-200)]",
+          "bg-(--primary-100) text-(--primary-700) border-(--primary-200)",
         success:
-          "bg-[var(--success-100)] text-[var(--success-800)] border-[var(--success-200)]",
+          "bg-(--success-100) text-(--success-800) border-(--success-200)",
         warning:
-          "bg-[var(--warning-100)] text-[var(--warning-900)] border-[var(--warning-300)]",
+          "bg-(--warning-100) text-(--warning-900) border-(--warning-300)",
         danger:
-          "bg-[var(--danger-100)] text-[var(--danger-800)] border-[var(--danger-200)]",
+          "bg-(--danger-100) text-(--danger-800) border-(--danger-200)",
       },
     },
     defaultVariants: {

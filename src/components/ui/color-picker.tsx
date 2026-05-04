@@ -69,7 +69,7 @@ export function ColorPicker({
           disabled={disabled}
         >
           <div
-            className="h-5 w-5 rounded border"
+            className="h-5 w-5 rounded-sm border"
             style={{ backgroundColor: color }}
           />
           <span className="flex-1 text-left font-mono text-sm">{color}</span>
@@ -148,7 +148,7 @@ export function ColorPicker({
                   onClick={() => handleColorChange(preset)}
                   disabled={disabled}
                   className={cn(
-                    "h-8 w-8 rounded border transition-all",
+                    "h-8 w-8 rounded-sm border transition-all",
                     "hover:scale-110",
                     color === preset && "ring-2 ring-primary ring-offset-2"
                   )}

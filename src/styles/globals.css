@@ -1,21 +1,303 @@
 /* Tokens are authored in src/tokens/*.json and built via Style Dictionary. */
-@import './tokens.generated.css';
+@import './tokens.generated.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-/* Campfire Design System - Foundation v1.0 */
-/* Warm, Natural, Earthy - Like gathering around a campfire */
+@custom-variant dark (&:is(.dark *));
 
-/* Aliases that collide with palette keys at the JSON layer; kept inline. */
-:root {
-  --font-size: 16px;
-  --primary: var(--interactive-default);
-  --secondary: var(--bg-subtle);
-  --border: var(--border-default);
-  --input: var(--border-default);
-  --radius: var(--radius-base);
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+  --color-primary: var(--interactive-default);
+  --color-primary-foreground: var(--text-inverse);
+
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
+  --color-secondary-950: var(--secondary-950);
+  --color-secondary: var(--bg-subtle);
+  --color-secondary-foreground: var(--text-primary);
+
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-950: var(--neutral-950);
+
+  --color-success-50: var(--success-50);
+  --color-success-100: var(--success-100);
+  --color-success-200: var(--success-200);
+  --color-success-300: var(--success-300);
+  --color-success-400: var(--success-400);
+  --color-success-500: var(--success-500);
+  --color-success-600: var(--success-600);
+  --color-success-700: var(--success-700);
+  --color-success-800: var(--success-800);
+  --color-success-900: var(--success-900);
+  --color-success-950: var(--success-950);
+
+  --color-warning-50: var(--warning-50);
+  --color-warning-100: var(--warning-100);
+  --color-warning-200: var(--warning-200);
+  --color-warning-300: var(--warning-300);
+  --color-warning-400: var(--warning-400);
+  --color-warning-500: var(--warning-500);
+  --color-warning-600: var(--warning-600);
+  --color-warning-700: var(--warning-700);
+  --color-warning-800: var(--warning-800);
+  --color-warning-900: var(--warning-900);
+  --color-warning-950: var(--warning-950);
+
+  --color-danger-50: var(--danger-50);
+  --color-danger-100: var(--danger-100);
+  --color-danger-200: var(--danger-200);
+  --color-danger-300: var(--danger-300);
+  --color-danger-400: var(--danger-400);
+  --color-danger-500: var(--danger-500);
+  --color-danger-600: var(--danger-600);
+  --color-danger-700: var(--danger-700);
+  --color-danger-800: var(--danger-800);
+  --color-danger-900: var(--danger-900);
+  --color-danger-950: var(--danger-950);
+
+  --color-info-50: var(--info-50);
+  --color-info-100: var(--info-100);
+  --color-info-200: var(--info-200);
+  --color-info-300: var(--info-300);
+  --color-info-400: var(--info-400);
+  --color-info-500: var(--info-500);
+  --color-info-600: var(--info-600);
+  --color-info-700: var(--info-700);
+  --color-info-800: var(--info-800);
+  --color-info-900: var(--info-900);
+  --color-info-950: var(--info-950);
+
+  --color-clay: var(--clay);
+  --color-flamingo: var(--flamingo);
+  --color-terracotta: var(--terracotta);
+  --color-ember: var(--ember);
+  --color-golden-amber: var(--golden-amber);
+  --color-hay: var(--hay);
+  --color-sage: var(--sage);
+  --color-moss: var(--moss);
+  --color-pine: var(--pine);
+  --color-cello: var(--cello);
+  --color-blue-calx: var(--blue-calx);
+  --color-dusk: var(--dusk);
+  --color-mauve-earth: var(--mauve-earth);
+  --color-stone: var(--stone);
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--bg-base);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--bg-base);
+  --color-popover-foreground: var(--text-primary);
+
+  --color-muted: var(--bg-muted);
+  --color-muted-foreground: var(--text-secondary);
+
+  --color-accent: var(--bg-subtle);
+  --color-accent-foreground: var(--text-primary);
+
+  --color-destructive: var(--danger-600);
+  --color-destructive-foreground: var(--text-inverse);
+
+  --color-border: var(--border-default);
+  --color-input: var(--border-default);
+  --color-ring: var(--interactive-default);
+  --color-input-background: var(--input-background);
+
+  --z-index-base: var(--z-base);
+  --z-index-dropdown: var(--z-dropdown);
+  --z-index-sticky: var(--z-sticky);
+  --z-index-overlay: var(--z-overlay);
+  --z-index-modal: var(--z-modal);
+  --z-index-popover: var(--z-popover);
+  --z-index-toast: var(--z-toast);
+  --z-index-tooltip: var(--z-tooltip);
+  --z-index-max: var(--z-max);
+
+  --default-transition-timing-function: var(--ease-default);
+  --ease-in: var(--ease-in);
+  --ease-out: var(--ease-out);
+  --ease-in-out: var(--ease-in-out);
+  --ease-spring: var(--ease-spring);
+  --ease-campfire: var(--ease-campfire);
+
+  --transition-duration-fastest: var(--duration-fastest);
+  --transition-duration-fast: var(--duration-fast);
+  --transition-duration-normal: var(--duration-normal);
+  --transition-duration-slow: var(--duration-slow);
+  --transition-duration-slower: var(--duration-slower);
+
+  --animate-campfire-enter: campfire-slide-in-up var(--duration-normal)
+    var(--ease-out) both;
+  --animate-campfire-enter-scale: campfire-scale-in var(--duration-normal)
+    var(--ease-spring) both;
+  --animate-campfire-enter-fade: campfire-fade-in var(--duration-fast)
+    var(--ease-out) both;
+
+  @keyframes campfire-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes campfire-slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes campfire-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility campfire-card {
+  /* Principle 1 (Easing): natural hover lift */
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-normal) var(--ease-out);
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@utility campfire-lift {
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+    transition: transform var(--duration-fast) var(--ease-spring);
+  }
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+@utility campfire-enter {
+  /* Principle 4 (Transformation): entrance utilities */
+  animation: campfire-slide-in-up var(--duration-normal) var(--ease-out) both;
+}
+
+@utility campfire-enter-scale {
+  animation: campfire-scale-in var(--duration-normal) var(--ease-spring) both;
+}
+
+@utility campfire-enter-fade {
+  animation: campfire-fade-in var(--duration-fast) var(--ease-out) both;
+}
+
+@utility campfire-stagger {
+  /* Principle 2 (Offset & Delay): staggered children.
+     Apply .campfire-stagger to a parent; each child gets a
+     progressively longer delay via --stagger-index. */
+  & > * {
+    animation-delay: calc(var(--stagger-index, 0) * var(--stagger-delay));
+  }
+  & > *:nth-child(1) {
+    --stagger-index: 0;
+  }
+  & > *:nth-child(2) {
+    --stagger-index: 1;
+  }
+  & > *:nth-child(3) {
+    --stagger-index: 2;
+  }
+  & > *:nth-child(4) {
+    --stagger-index: 3;
+  }
+  & > *:nth-child(5) {
+    --stagger-index: 4;
+  }
+  & > *:nth-child(6) {
+    --stagger-index: 5;
+  }
+  & > *:nth-child(7) {
+    --stagger-index: 6;
+  }
+  & > *:nth-child(8) {
+    --stagger-index: 7;
+  }
+  & > *:nth-child(9) {
+    --stagger-index: 8;
+  }
+  & > *:nth-child(10) {
+    --stagger-index: 9;
+  }
+  & > *:nth-child(n + 11) {
+    --stagger-index: 10;
+  }
+}
+
+@layer utilities {
+  /* Campfire Design System - Foundation v1.0 */
+  /* Warm, Natural, Earthy - Like gathering around a campfire */
+
+  /* Aliases that collide with palette keys at the JSON layer; kept inline. */
+  :root {
+    --font-size: 16px;
+    --primary: var(--interactive-default);
+    --secondary: var(--bg-subtle);
+    --border: var(--border-default);
+    --input: var(--border-default);
+    --radius: var(--radius-base);
+  }
 }
 
 
@@ -118,114 +400,108 @@
   }
 }
 
-html {
-  font-size: var(--font-size);
-  overflow-x: hidden;
-  overflow-y: scroll; /* Force scrollbar gutter to prevent layout shift */
-}
+@layer utilities {
+  html {
+    font-size: var(--font-size);
+    overflow-x: hidden;
+    overflow-y: scroll; /* Force scrollbar gutter to prevent layout shift */
+  }
 
-body {
-  /* Let body be natural height, html handles scroll */
-  overflow: visible;
-  margin: 0;
-}
+  body {
+    /* Let body be natural height, html handles scroll */
+    overflow: visible;
+    margin: 0;
+  }
 
-/* ===================================
+  /* ===================================
    CAMPFIRE CHARACTER ENHANCEMENTS
    =================================== */
 
-/* Warmer focus states with glow */
-:focus-visible {
-  outline: none;
-  box-shadow: var(--shadow-focus);
-}
+  /* Warmer focus states with glow */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
 
-/* ===================================
+  /* ===================================
    MOTION SYSTEM (UX in Motion principles)
    =================================== */
 
-/* Principle 4 (Transformation) + 5 (Value Change):
+  /* Principle 4 (Transformation) + 5 (Value Change):
    Entrance, exit, and state-morph keyframes. */
-@keyframes campfire-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes campfire-fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-@keyframes campfire-slide-in-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes campfire-slide-in-down {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes campfire-scale-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes campfire-scale-out {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.95); }
-}
-/* Principle 7 (Overlay): slide for sheets and drawers */
-@keyframes campfire-slide-in-right {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-@keyframes campfire-slide-in-left {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-@layer components {
-  /* Principle 1 (Easing): natural hover lift */
-  .campfire-card {
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow var(--duration-normal) var(--ease-out);
+  @keyframes campfire-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-  .campfire-card:hover {
-    box-shadow: var(--shadow-md);
+  @keyframes campfire-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
-
-  .campfire-lift:not(:disabled):hover {
-    transform: translateY(-1px);
-    transition: transform var(--duration-fast) var(--ease-spring);
+  @keyframes campfire-slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  .campfire-lift:not(:disabled):active {
-    transform: translateY(0);
+  @keyframes campfire-slide-in-down {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
-  /* Principle 4 (Transformation): entrance utilities */
-  .campfire-enter {
-    animation: campfire-slide-in-up var(--duration-normal) var(--ease-out) both;
+  @keyframes campfire-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
-  .campfire-enter-scale {
-    animation: campfire-scale-in var(--duration-normal) var(--ease-spring) both;
+  @keyframes campfire-scale-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
   }
-  .campfire-enter-fade {
-    animation: campfire-fade-in var(--duration-fast) var(--ease-out) both;
+  /* Principle 7 (Overlay): slide for sheets and drawers */
+  @keyframes campfire-slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
-
-  /* Principle 2 (Offset & Delay): staggered children.
-     Apply .campfire-stagger to a parent; each child gets a
-     progressively longer delay via --stagger-index. */
-  .campfire-stagger > * {
-    animation-delay: calc(var(--stagger-index, 0) * var(--stagger-delay));
+  @keyframes campfire-slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
-  .campfire-stagger > *:nth-child(1)  { --stagger-index: 0; }
-  .campfire-stagger > *:nth-child(2)  { --stagger-index: 1; }
-  .campfire-stagger > *:nth-child(3)  { --stagger-index: 2; }
-  .campfire-stagger > *:nth-child(4)  { --stagger-index: 3; }
-  .campfire-stagger > *:nth-child(5)  { --stagger-index: 4; }
-  .campfire-stagger > *:nth-child(6)  { --stagger-index: 5; }
-  .campfire-stagger > *:nth-child(7)  { --stagger-index: 6; }
-  .campfire-stagger > *:nth-child(8)  { --stagger-index: 7; }
-  .campfire-stagger > *:nth-child(9)  { --stagger-index: 8; }
-  .campfire-stagger > *:nth-child(10) { --stagger-index: 9; }
-  .campfire-stagger > *:nth-child(n+11) { --stagger-index: 10; }
 }
 
 /* Smooth scrolling for better feel */

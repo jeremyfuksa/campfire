@@ -133,7 +133,7 @@ export function DialogContent({ className, children, ...props }: DialogContentPr
         aria-describedby={describedBy}
         data-slot="dialog-content"
         className={cn(
-          "fixed left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-background p-6 shadow-lg focus-visible:outline-none",
+          "fixed left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-background p-6 shadow-lg focus-visible:outline-hidden",
           className,
         )}
         style={{

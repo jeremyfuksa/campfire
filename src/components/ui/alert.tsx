@@ -4,19 +4,19 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./utils";
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current animate-campfire-enter",
+  "relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[--spacing(4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current animate-campfire-enter",
   {
     variants: {
       variant: {
         default: "bg-card text-card-foreground",
         destructive:
-          "text-destructive bg-card [&>svg]:text-current *:data-[slot=alert-description]:text-destructive/90",
+          "text-destructive bg-card [&>svg]:text-current data-[slot=alert-description]:*:text-destructive/90",
         success:
-          "border-[var(--success-200)] bg-[var(--success-50)] text-[var(--success-900)] [&>svg]:text-[var(--success-600)] *:data-[slot=alert-description]:text-[var(--success-800)]",
+          "border-(--success-200) bg-(--success-50) text-(--success-900) [&>svg]:text-(--success-600) data-[slot=alert-description]:*:text-(--success-800)",
         warning:
-          "border-[var(--warning-300)] bg-[var(--warning-50)] text-[var(--warning-900)] [&>svg]:text-[var(--warning-700)] *:data-[slot=alert-description]:text-[var(--warning-800)]",
+          "border-(--warning-300) bg-(--warning-50) text-(--warning-900) [&>svg]:text-(--warning-700) data-[slot=alert-description]:*:text-(--warning-800)",
         info:
-          "border-[var(--info-300)] bg-[var(--info-50)] text-[var(--info-900)] [&>svg]:text-[var(--info-700)] *:data-[slot=alert-description]:text-[var(--info-800)]",
+          "border-(--info-300) bg-(--info-50) text-(--info-900) [&>svg]:text-(--info-700) data-[slot=alert-description]:*:text-(--info-800)",
       },
     },
     defaultVariants: {

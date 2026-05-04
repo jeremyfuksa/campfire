@@ -108,7 +108,7 @@ export function HoverCardContent({ className, children, ...props }: HoverCardCon
       aria-live="polite"
       data-slot="hover-card-content"
       className={clsx(
-        "rounded-md border bg-background p-4 shadow-md focus-visible:outline-none",
+        "rounded-md border bg-background p-4 shadow-md focus-visible:outline-hidden",
         className,
       )}
       onMouseLeave={hide}

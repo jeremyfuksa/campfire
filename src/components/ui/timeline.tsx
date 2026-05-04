@@ -36,7 +36,7 @@ export function Timeline({ items, className }: TimelineProps) {
           )}
 
           {/* Icon/dot */}
-          <div className="relative z-10 flex-shrink-0">
+          <div className="relative z-10 shrink-0">
             <div
               className="flex h-8 w-8 items-center justify-center rounded-full border-2"
               style={{

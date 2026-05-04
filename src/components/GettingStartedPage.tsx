@@ -12,7 +12,7 @@ export function GettingStartedPage({ onOpenReference }: GettingStartedPageProps)
           "radial-gradient(circle at top, rgba(248, 227, 204, 0.4), transparent 60%), var(--bg-base)",
       }}
     >
-      <div className="max-w-6xl mx-auto px-8 py-24 grid gap-12 lg:grid-cols-[3fr,2fr] items-center">
+      <div className="max-w-6xl mx-auto px-8 py-24 grid gap-12 lg:grid-cols-[3fr_2fr] items-center">
         <div>
           <p className="text-xs uppercase tracking-[0.35em]" style={{ color: "var(--text-tertiary)" }}>
             Campfire Design System

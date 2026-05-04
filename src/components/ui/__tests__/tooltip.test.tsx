@@ -288,7 +288,7 @@ describe("Tooltip", () => {
       expect(await screen.findByText("Focused tooltip")).toBeInTheDocument();
     });
 
-    it("hides tooltip on blur", async () => {
+    it("hides tooltip on blur-sm", async () => {
       const user = userEvent.setup();
       render(
         <>

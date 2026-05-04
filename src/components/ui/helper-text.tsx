@@ -46,7 +46,7 @@ export function HelperText({
     >
       {displayIcon && (
         <span
-          className="flex-shrink-0 mt-0.5 inline-flex items-center"
+          className="shrink-0 mt-0.5 inline-flex items-center"
           data-testid={`helper-text-icon-${variant}`}
           aria-hidden="true"
         >

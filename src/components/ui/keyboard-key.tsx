@@ -10,7 +10,7 @@ export function KeyboardKey({ children, className }: KeyboardKeyProps) {
   return (
     <kbd
       className={cn(
-        "inline-flex items-center justify-center px-2 py-1 rounded border shadow-xs min-w-[1.75rem] text-xs font-mono bg-background border-border text-muted-foreground",
+        "inline-flex items-center justify-center px-2 py-1 rounded-sm border shadow-2xs min-w-7 text-xs font-mono bg-background border-border text-muted-foreground",
         className,
       )}
     >

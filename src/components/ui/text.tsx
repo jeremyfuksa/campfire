@@ -5,21 +5,21 @@ import { cn } from "./utils";
 const textVariants = cva("", {
   variants: {
     variant: {
-      body: "text-[length:var(--body-base-size)] font-[number:var(--body-base-weight)] leading-[var(--body-base-line-height)] text-[color:var(--text-primary)]",
+      body: "text-(length:--body-base-size) font-(--body-base-weight) leading-(--body-base-line-height) text-(--text-primary)",
       "body-lg":
-        "text-[length:var(--body-large-size)] font-[number:var(--body-large-weight)] leading-[1.7] text-[color:var(--text-primary)]",
+        "text-(length:--body-large-size) font-(--body-large-weight) leading-[1.7] text-(--text-primary)",
       "body-sm":
-        "text-[length:var(--body-small-size)] font-[number:var(--body-small-weight)] leading-[1.5] text-[color:var(--text-primary)]",
+        "text-(length:--body-small-size) font-(--body-small-weight) leading-normal text-(--text-primary)",
       label:
-        "text-[length:var(--label-base-size)] font-[number:var(--label-base-weight)] leading-[var(--label-base-line-height)] text-[color:var(--text-primary)]",
+        "text-(length:--label-base-size) font-(--label-base-weight) leading-(--label-base-line-height) text-(--text-primary)",
       "label-lg":
-        "text-[length:var(--label-large-size)] font-[number:var(--label-large-weight)] leading-[var(--label-large-line-height)] text-[color:var(--text-primary)]",
+        "text-(length:--label-large-size) font-(--label-large-weight) leading-(--label-large-line-height) text-(--text-primary)",
       "label-sm":
-        "text-[length:var(--label-small-size)] font-[number:var(--label-small-weight)] leading-[var(--label-small-line-height)] text-[color:var(--text-primary)]",
+        "text-(length:--label-small-size) font-(--label-small-weight) leading-(--label-small-line-height) text-(--text-primary)",
       muted:
-        "text-[length:var(--body-base-size)] font-[number:var(--body-base-weight)] leading-[var(--body-base-line-height)] text-[color:var(--text-secondary)]",
+        "text-(length:--body-base-size) font-(--body-base-weight) leading-(--body-base-line-height) text-(--text-secondary)",
       subtle:
-        "text-[length:var(--body-small-size)] font-[number:var(--body-small-weight)] leading-[1.5] text-[color:var(--text-tertiary)]",
+        "text-(length:--body-small-size) font-(--body-small-weight) leading-normal text-(--text-tertiary)",
     },
   },
   defaultVariants: {

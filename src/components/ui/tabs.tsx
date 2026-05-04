@@ -195,7 +195,7 @@ export function TabsContent({ className, value, children, ...props }: TabsConten
       aria-labelledby={labelledBy}
       data-slot="tabs-content"
       data-state={hidden ? "inactive" : "active"}
-      className={cn("flex-1 outline-none", className)}
+      className={cn("flex-1 outline-hidden", className)}
       hidden={hidden}
       {...props}
     >

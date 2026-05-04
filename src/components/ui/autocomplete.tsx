@@ -178,7 +178,7 @@ export function Autocomplete({
                 {option.label}
                 <button
                   onClick={(e) => handleRemove(option.value, e)}
-                  className="hover:bg-muted rounded-sm"
+                  className="hover:bg-muted rounded-xs"
                   disabled={disabled}
                   aria-label={`Remove ${option.label}`}
                 >
@@ -204,7 +204,7 @@ export function Autocomplete({
       </div>
 
       <PopoverContent
-        className="w-[--radix-popover-trigger-width] p-0"
+        className="w-(--radix-popover-trigger-width) p-0"
         align="start"
         onKeyDown={handleKeyDown}
       >
@@ -216,7 +216,7 @@ export function Autocomplete({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={searchPlaceholder}
-              className="placeholder:text-muted-foreground flex h-10 w-full bg-transparent py-3 text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50"
+              className="placeholder:text-muted-foreground flex h-10 w-full bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
               disabled={disabled}
             />
           </div>
@@ -241,7 +241,7 @@ export function Autocomplete({
                     >
                       {multiple && (
                         <div className={cn(
-                          "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border",
+                          "mr-2 flex h-4 w-4 items-center justify-center rounded-xs border",
                           isSelected
                             ? "bg-primary text-primary-foreground border-primary"
                             : "border-neutral-300"

@@ -78,21 +78,21 @@ export const AllStatuses = {
 export const InList = {
   render: () => (
     <div className="space-y-2 w-[300px]">
-      <div className="flex items-center justify-between p-2 border rounded">
+      <div className="flex items-center justify-between p-2 border rounded-sm">
         <span className="text-sm">Server 1</span>
         <div className="flex items-center gap-2">
           <StatusDot status="success" />
           <span className="text-sm text-muted-foreground">Online</span>
         </div>
       </div>
-      <div className="flex items-center justify-between p-2 border rounded">
+      <div className="flex items-center justify-between p-2 border rounded-sm">
         <span className="text-sm">Server 2</span>
         <div className="flex items-center gap-2">
           <StatusDot status="warning" />
           <span className="text-sm text-muted-foreground">Degraded</span>
         </div>
       </div>
-      <div className="flex items-center justify-between p-2 border rounded">
+      <div className="flex items-center justify-between p-2 border rounded-sm">
         <span className="text-sm">Server 3</span>
         <div className="flex items-center gap-2">
           <StatusDot status="error" />

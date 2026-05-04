@@ -23,16 +23,16 @@ interface StatusDotProps {
 }
 
 const dotColors: Record<StatusValue, string> = {
-  success: "bg-[var(--success-600)]",
-  warning: "bg-[var(--warning-600)]",
-  danger: "bg-[var(--danger-600)]",
-  error: "bg-[var(--danger-600)]",
-  info: "bg-[var(--info-600)]",
-  neutral: "bg-[var(--neutral-500)]",
-  default: "bg-[var(--neutral-500)]",
-  active: "bg-[var(--success-500)]",
-  away: "bg-[var(--warning-500)]",
-  offline: "bg-[var(--neutral-400)]",
+  success: "bg-(--success-600)",
+  warning: "bg-(--warning-600)",
+  danger: "bg-(--danger-600)",
+  error: "bg-(--danger-600)",
+  info: "bg-(--info-600)",
+  neutral: "bg-(--neutral-500)",
+  default: "bg-(--neutral-500)",
+  active: "bg-(--success-500)",
+  away: "bg-(--warning-500)",
+  offline: "bg-(--neutral-400)",
 };
 
 const StatusDot = React.forwardRef<HTMLDivElement, StatusDotProps>(
@@ -54,7 +54,7 @@ const StatusDot = React.forwardRef<HTMLDivElement, StatusDotProps>(
           )}
         </div>
         {label && (
-          <span className="text-sm text-[color:var(--text-primary)]">
+          <span className="text-sm text-(--text-primary)">
             {label}
           </span>
         )}
