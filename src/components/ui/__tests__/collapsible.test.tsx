@@ -210,7 +210,8 @@ describe("Collapsible", () => {
         </Collapsible>
       );
 
-      expect(screen.queryByText("Additional information here")).not.toBeVisible();
+      // Radix removes collapsed content from the DOM rather than hiding it.
+      expect(screen.queryByText("Additional information here")).not.toBeInTheDocument();
 
       await user.click(screen.getByText("Show more details"));
       expect(screen.getByText("Additional information here")).toBeInTheDocument();

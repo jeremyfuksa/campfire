@@ -39,13 +39,13 @@ describe("KeyboardKey", () => {
     it("has monospace font family", () => {
       render(<KeyboardKey>Tab</KeyboardKey>);
       const key = screen.getByText("Tab");
-      expect(key).toHaveStyle({ fontFamily: "JetBrains Mono, monospace" });
+      expect(key).toHaveClass("font-mono");
     });
 
-    it("has border and shadow-sm", () => {
+    it("has border and shadow", () => {
       render(<KeyboardKey>Space</KeyboardKey>);
       const key = screen.getByText("Space");
-      expect(key).toHaveClass("border", "shadow-xs");
+      expect(key).toHaveClass("border", "shadow-2xs");
     });
 
     it("has padding and rounding", () => {

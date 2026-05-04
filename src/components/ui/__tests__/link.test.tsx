@@ -158,7 +158,7 @@ describe("Link", () => {
         </Link>
       );
       const link = screen.getByRole("link");
-      expect(link).toHaveStyle({ color: "red" });
+      expect(link).toHaveStyle({ color: "rgb(255, 0, 0)" });
     });
   });
 });
