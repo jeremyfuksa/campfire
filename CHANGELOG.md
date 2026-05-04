@@ -5,11 +5,18 @@ All notable changes to the Campfire Design System.
 ## [Unreleased]
 
 ### Added
+- **16 missing Storybook stories** — every UI component now has a story
+  file. Closed: aspect-ratio, carousel, chart, code-block, copy-button,
+  form, heading, helper-text, input-otp, keyboard-key, link, list-group,
+  resizable, sidebar, sonner, text. Story coverage now 72/72 components.
 - **`npm run test:a11y`** runs the 91 axe-core accessibility assertions
   scattered across the unit test suite. Wired into CI as a required
   step alongside `test:smoke`.
 
 ### Fixed
+- `.storybook/main.ts` used the CommonJS `__dirname` global in an ESM
+  module, so `npm run storybook` and `npx storybook build` failed.
+  Reconstructed `__dirname` from `import.meta.url`.
 - **Slider thumb missing `aria-label`** — Radix's `Slider.Thumb` carries
   `role="slider"` but inherited no accessible name from the parent.
   Single-thumb sliders now propagate the parent `aria-label`; range
