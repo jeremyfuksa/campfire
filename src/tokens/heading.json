@@ -1,0 +1,80 @@
+{
+  "heading": {
+    "display": {
+      "size":           { "$value": "{text.6xl}",          "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.bold}",  "$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.6xl}",   "$type": "dimension" },
+      "letter-spacing": { "$value": "-0.02em",             "$type": "dimension" }
+    },
+    "h1": {
+      "size":           { "$value": "{text.5xl}",          "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.bold}",  "$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.5xl}",   "$type": "dimension" },
+      "letter-spacing": { "$value": "-0.015em",            "$type": "dimension" }
+    },
+    "h2": {
+      "size":           { "$value": "{text.4xl}",            "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.semibold}","$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.4xl}",     "$type": "dimension" },
+      "letter-spacing": { "$value": "-0.01em",               "$type": "dimension" }
+    },
+    "h3": {
+      "size":           { "$value": "{text.3xl}",            "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.semibold}","$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.3xl}",     "$type": "dimension" },
+      "letter-spacing": { "$value": "-0.005em",              "$type": "dimension" }
+    },
+    "h4": {
+      "size":           { "$value": "{text.2xl}",            "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.semibold}","$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.2xl}",     "$type": "dimension" },
+      "letter-spacing": { "$value": "0",                     "$type": "dimension" }
+    },
+    "h5": {
+      "size":           { "$value": "{text.xl}",             "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.medium}",  "$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.xl}",      "$type": "dimension" },
+      "letter-spacing": { "$value": "0",                     "$type": "dimension" }
+    },
+    "h6": {
+      "size":           { "$value": "{text.lg}",             "$type": "dimension" },
+      "weight":         { "$value": "{font.weight.medium}",  "$type": "fontWeight" },
+      "line-height":    { "$value": "{line-height.lg}",      "$type": "dimension" },
+      "letter-spacing": { "$value": "0",                     "$type": "dimension" }
+    }
+  },
+  "body": {
+    "large": {
+      "size":         { "$value": "{text.lg}",             "$type": "dimension" },
+      "weight":       { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height":  { "$value": "1.7",                   "$type": "dimension" }
+    },
+    "base": {
+      "size":         { "$value": "{text.base}",           "$type": "dimension" },
+      "weight":       { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height":  { "$value": "1.6",                   "$type": "dimension" }
+    },
+    "small": {
+      "size":         { "$value": "{text.sm}",             "$type": "dimension" },
+      "weight":       { "$value": "{font.weight.regular}", "$type": "fontWeight" },
+      "line-height":  { "$value": "1.5",                   "$type": "dimension" }
+    }
+  },
+  "label": {
+    "large": {
+      "size":         { "$value": "{text.base}",           "$type": "dimension" },
+      "weight":       { "$value": "{font.weight.medium}",  "$type": "fontWeight" },
+      "line-height":  { "$value": "{line-height.base}",    "$type": "dimension" }
+    },
+    "base": {
+      "size":         { "$value": "{text.sm}",             "$type": "dimension" },
+      "weight":       { "$value": "{font.weight.medium}",  "$type": "fontWeight" },
+      "line-height":  { "$value": "{line-height.sm}",      "$type": "dimension" }
+    },
+    "small": {
+      "size":         { "$value": "{text.xs}",             "$type": "dimension" },
+      "weight":       { "$value": "{font.weight.medium}",  "$type": "fontWeight" },
+      "line-height":  { "$value": "{line-height.xs}",      "$type": "dimension" }
+    }
+  }
+}

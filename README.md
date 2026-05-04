@@ -62,9 +62,37 @@ npm run release     # builds dist/ and publishes to npm
 
 Ensure you're logged in (`npm login`) and have registry permissions.
 
-## Design Tokens → JSON Export
+## Design Tokens
 
-In the docs app (Design Tokens page) you can click **Export JSON** to download `campfire-palettes.json`, which mirrors the palette defined in source and can be imported into other tools.
+Tokens are authored as W3C DTCG-format JSON under `src/tokens/` and built with [Style Dictionary](https://styledictionary.com/) into multiple distribution formats. Run `npm run tokens` to rebuild after editing.
+
+### Consuming tokens outside Tailwind
+
+Three published entrypoints, pick whichever matches your tool:
+
+```ts
+// 1. Plain CSS custom properties (works in any environment)
+import '@jeremyfuksa/campfire/tokens.css';
+//   :root { --primary-500: #607a97; ... }
+//   .dark { --bg-base: var(--neutral-950); ... }
+
+// 2. Typed JS object (for runtime access in React, Node, etc.)
+import tokens from '@jeremyfuksa/campfire/tokens';
+console.log(tokens.color.primary['500'].value); // "#607a97"
+
+// 3. Raw W3C DTCG JSON (for Figma Make, design-tool importers)
+import tokensJson from '@jeremyfuksa/campfire/tokens.json';
+//   { "color": { "primary": { "500": { "$value": "#607a97", "$type": "color" } } } }
+//
+// Dark-mode override values are available at:
+import darkTokens from '@jeremyfuksa/campfire/tokens.dark.json';
+```
+
+Importing the full library stylesheet (`@jeremyfuksa/campfire/styles.css`) already includes these tokens — the standalone `./tokens.css` export is for projects that want tokens *without* the component bundle.
+
+### Docs page export
+
+In the docs app (Design Tokens page) you can also click **Export JSON** to download `campfire-palettes.json`, a flat palette snapshot kept for backward compatibility.
 
 ## Editor & Terminal Themes
 

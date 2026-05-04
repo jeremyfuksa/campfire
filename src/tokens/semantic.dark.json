@@ -1,0 +1,26 @@
+{
+  "bg": {
+    "base":     { "$value": "{neutral.950}", "$type": "color" },
+    "subtle":   { "$value": "{neutral.900}", "$type": "color" },
+    "muted":    { "$value": "{neutral.800}", "$type": "color" },
+    "emphasis": { "$value": "{neutral.50}",  "$type": "color" }
+  },
+  "text": {
+    "primary":   { "$value": "{neutral.50}",  "$type": "color" },
+    "secondary": { "$value": "{neutral.400}", "$type": "color" },
+    "tertiary":  { "$value": "{neutral.500}", "$type": "color" },
+    "disabled":  { "$value": "{neutral.600}", "$type": "color" },
+    "inverse":   { "$value": "{neutral.900}", "$type": "color" }
+  },
+  "border": {
+    "default": { "$value": "{neutral.800}", "$type": "color" },
+    "strong":  { "$value": "{neutral.700}", "$type": "color" },
+    "subtle":  { "$value": "{neutral.900}", "$type": "color" }
+  },
+  "interactive": {
+    "default":  { "$value": "{primary.400}", "$type": "color" },
+    "hover":    { "$value": "{primary.300}", "$type": "color" },
+    "active":   { "$value": "{primary.200}", "$type": "color" },
+    "disabled": { "$value": "{neutral.700}", "$type": "color" }
+  }
+}

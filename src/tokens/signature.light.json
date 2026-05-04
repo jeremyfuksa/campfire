@@ -1,0 +1,16 @@
+{
+  "clay":         { "$value": "#e5beb0", "$type": "color" },
+  "flamingo":     { "$value": "#f08080", "$type": "color" },
+  "terracotta":   { "$value": "#db9073", "$type": "color" },
+  "ember":        { "$value": "#f5a855", "$type": "color" },
+  "golden-amber": { "$value": "#ffc05c", "$type": "color" },
+  "hay":          { "$value": "#f2d88f", "$type": "color" },
+  "sage":         { "$value": "#a8c76f", "$type": "color" },
+  "moss":         { "$value": "#88a055", "$type": "color" },
+  "pine":         { "$value": "#75acaf", "$type": "color" },
+  "cello":        { "$value": "#7da0c0", "$type": "color" },
+  "blue-calx":    { "$value": "#bccfe5", "$type": "color" },
+  "dusk":         { "$value": "#b8a0cc", "$type": "color" },
+  "mauve-earth":  { "$value": "#c898ad", "$type": "color" },
+  "stone":        { "$value": "#a0a8b5", "$type": "color" }
+}

@@ -1,0 +1,19 @@
+{
+  "background":          { "$value": "{bg.base}",              "$type": "color" },
+  "foreground":          { "$value": "{text.primary}",         "$type": "color" },
+  "card":                { "$value": "{bg.base}",              "$type": "color" },
+  "card-foreground":     { "$value": "{text.primary}",         "$type": "color" },
+  "popover":             { "$value": "{bg.base}",              "$type": "color" },
+  "popover-foreground":  { "$value": "{text.primary}",         "$type": "color" },
+  "primary-foreground":  { "$value": "{text.inverse}",         "$type": "color" },
+  "secondary-foreground":{ "$value": "{text.primary}",         "$type": "color" },
+  "muted":               { "$value": "{bg.muted}",             "$type": "color" },
+  "muted-foreground":    { "$value": "{text.secondary}",       "$type": "color" },
+  "accent":              { "$value": "{bg.subtle}",            "$type": "color" },
+  "accent-foreground":   { "$value": "{text.primary}",         "$type": "color" },
+  "destructive":         { "$value": "{danger.600}",           "$type": "color" },
+  "destructive-foreground": { "$value": "{text.inverse}",      "$type": "color" },
+  "input-background":    { "$value": "{bg.base}",              "$type": "color" },
+  "switch-background":   { "$value": "{neutral.300}",          "$type": "color" },
+  "ring":                { "$value": "{interactive.default}",  "$type": "color" }
+}
