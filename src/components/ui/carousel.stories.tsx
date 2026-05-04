@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   Carousel,
   CarouselContent,
@@ -16,11 +16,10 @@ const meta = {
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const slides = ["First", "Second", "Third", "Fourth", "Fifth"];
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <Carousel className="w-72">
       <CarouselContent>
@@ -40,7 +39,7 @@ export const Default: Story = {
   ),
 };
 
-export const MultipleVisible: Story = {
+export const MultipleVisible = {
   render: () => (
     <Carousel className="w-96" opts={{ align: "start" }}>
       <CarouselContent className="-ml-2">
@@ -60,7 +59,7 @@ export const MultipleVisible: Story = {
   ),
 };
 
-export const Vertical: Story = {
+export const Vertical = {
   render: () => (
     <Carousel orientation="vertical" className="w-56" opts={{ align: "start" }}>
       <CarouselContent className="h-72">

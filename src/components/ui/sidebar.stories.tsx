@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Home, Users, Settings, Inbox } from "lucide-react";
 import {
   Sidebar,
@@ -24,7 +24,6 @@ const meta = {
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const items = [
   { title: "Home", icon: Home },
@@ -33,7 +32,7 @@ const items = [
   { title: "Settings", icon: Settings },
 ];
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <SidebarProvider>
       <Sidebar>

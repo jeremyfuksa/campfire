@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Bar, BarChart, CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   type ChartConfig,
@@ -17,7 +17,6 @@ const meta = {
 } satisfies Meta<typeof ChartContainer>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const data = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -33,7 +32,7 @@ const config = {
   mobile: { label: "Mobile", color: "var(--color-secondary-500)" },
 } satisfies ChartConfig;
 
-export const Bars: Story = {
+export const Bars = {
   render: () => (
     <ChartContainer config={config} className="h-72 w-full max-w-2xl">
       <BarChart data={data}>
@@ -48,7 +47,7 @@ export const Bars: Story = {
   ),
 };
 
-export const Lines: Story = {
+export const Lines = {
   render: () => (
     <ChartContainer config={config} className="h-72 w-full max-w-2xl">
       <LineChart data={data}>

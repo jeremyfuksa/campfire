@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { KeyboardKey, KeyboardShortcut } from "./keyboard-key";
 
 const meta = {
@@ -9,13 +9,12 @@ const meta = {
 } satisfies Meta<typeof KeyboardKey>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: { children: "K" },
 };
 
-export const SingleKeys: Story = {
+export const SingleKeys = {
   render: () => (
     <div className="flex gap-2">
       <KeyboardKey>Esc</KeyboardKey>
@@ -26,14 +25,14 @@ export const SingleKeys: Story = {
   ),
 };
 
-export const Shortcut: Story = {
+export const Shortcut = {
   render: () => <KeyboardShortcut keys={["⌘", "K"]} />,
 };
 
-export const ChainedShortcut: Story = {
+export const ChainedShortcut = {
   render: () => <KeyboardShortcut keys={["Ctrl", "Shift", "P"]} />,
 };
 
-export const SequentialShortcut: Story = {
+export const SequentialShortcut = {
   render: () => <KeyboardShortcut keys={["g", "p"]} separator="then" />,
 };

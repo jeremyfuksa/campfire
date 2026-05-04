@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { CopyButton } from "./copy-button";
 
 const meta = {
@@ -20,16 +20,15 @@ const meta = {
 } satisfies Meta<typeof CopyButton>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     text: "campfire-design-system",
     showText: true,
   },
 };
 
-export const IconOnly: Story = {
+export const IconOnly = {
   args: {
     text: "campfire-design-system",
     size: "icon",
@@ -37,7 +36,7 @@ export const IconOnly: Story = {
   },
 };
 
-export const Outline: Story = {
+export const Outline = {
   args: {
     text: "https://example.com/share",
     variant: "outline",

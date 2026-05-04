@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Link } from "./link";
 
 const meta = {
@@ -20,16 +20,15 @@ const meta = {
 } satisfies Meta<typeof Link>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     href: "#",
     children: "Read the docs",
   },
 };
 
-export const External: Story = {
+export const External = {
   args: {
     href: "https://example.com",
     external: true,
@@ -37,7 +36,7 @@ export const External: Story = {
   },
 };
 
-export const Variants: Story = {
+export const Variants = {
   render: () => (
     <div className="flex flex-col gap-2">
       <Link href="#" variant="default">Default link</Link>
@@ -48,7 +47,7 @@ export const Variants: Story = {
   ),
 };
 
-export const UnderlineModes: Story = {
+export const UnderlineModes = {
   render: () => (
     <div className="flex flex-col gap-2">
       <Link href="#" underline="always">Always underlined</Link>

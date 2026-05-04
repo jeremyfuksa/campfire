@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import {
   InputOTP,
@@ -15,9 +15,8 @@ const meta = {
 } satisfies Meta<typeof InputOTP>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const SixDigits: Story = {
+export const SixDigits = {
   render: () => (
     <InputOTP maxLength={6}>
       <InputOTPGroup>
@@ -32,7 +31,7 @@ export const SixDigits: Story = {
   ),
 };
 
-export const WithSeparator: Story = {
+export const WithSeparator = {
   render: () => (
     <InputOTP maxLength={6}>
       <InputOTPGroup>
@@ -50,7 +49,7 @@ export const WithSeparator: Story = {
   ),
 };
 
-export const Controlled: Story = {
+export const Controlled = {
   render: () => {
     const Demo = () => {
       const [value, setValue] = useState("");

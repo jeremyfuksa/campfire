@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { HelperText } from "./helper-text";
 
 const meta = {
@@ -15,36 +15,35 @@ const meta = {
 } satisfies Meta<typeof HelperText>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     children: "We'll never share your email.",
   },
 };
 
-export const Error: Story = {
+export const Error = {
   args: {
     variant: "error",
     children: "Email address is required.",
   },
 };
 
-export const Success: Story = {
+export const Success = {
   args: {
     variant: "success",
     children: "Username is available.",
   },
 };
 
-export const Warning: Story = {
+export const Warning = {
   args: {
     variant: "warning",
     children: "Password strength: weak.",
   },
 };
 
-export const AllVariants: Story = {
+export const AllVariants = {
   render: () => (
     <div className="flex flex-col gap-2 w-80">
       <HelperText>Default supporting copy.</HelperText>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Text } from "./text";
 
 const meta = {
@@ -30,51 +30,50 @@ const meta = {
 } satisfies Meta<typeof Text>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Body: Story = {
+export const Body = {
   args: {
     variant: "body",
     children: "The campfire crackles in the dusk; bring a story to share.",
   },
 };
 
-export const BodyLarge: Story = {
+export const BodyLarge = {
   args: {
     variant: "body-lg",
     children: "The campfire crackles in the dusk; bring a story to share.",
   },
 };
 
-export const BodySmall: Story = {
+export const BodySmall = {
   args: {
     variant: "body-sm",
     children: "The campfire crackles in the dusk; bring a story to share.",
   },
 };
 
-export const Label: Story = {
+export const Label = {
   args: {
     variant: "label",
     children: "Email address",
   },
 };
 
-export const Muted: Story = {
+export const Muted = {
   args: {
     variant: "muted",
     children: "Quiet auxiliary text — supports the primary message without competing with it.",
   },
 };
 
-export const Subtle: Story = {
+export const Subtle = {
   args: {
     variant: "subtle",
     children: "Smallest, lowest-contrast typography for metadata and timestamps.",
   },
 };
 
-export const AllVariants: Story = {
+export const AllVariants = {
   render: () => (
     <div className="flex flex-col gap-3 max-w-md">
       <Text variant="body-lg">Body large — opening sentence weight.</Text>

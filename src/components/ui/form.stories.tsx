@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -20,7 +20,6 @@ const meta = {
 } satisfies Meta<typeof Form>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 type ProfileValues = { username: string; email: string };
 
@@ -79,6 +78,6 @@ const ProfileForm = () => {
   );
 };
 
-export const Default: Story = {
+export const Default = {
   render: () => <ProfileForm />,
 };

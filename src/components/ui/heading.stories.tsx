@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Heading } from "./heading";
 
 const meta = {
@@ -21,28 +21,27 @@ const meta = {
 } satisfies Meta<typeof Heading>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     level: 2,
     children: "Gather around the campfire",
   },
 };
 
-export const Level1: Story = {
+export const Level1 = {
   args: { level: 1, children: "Page title" },
 };
 
-export const Level2: Story = {
+export const Level2 = {
   args: { level: 2, children: "Section title" },
 };
 
-export const Level3: Story = {
+export const Level3 = {
   args: { level: 3, children: "Subsection title" },
 };
 
-export const Hierarchy: Story = {
+export const Hierarchy = {
   render: () => (
     <div className="flex flex-col gap-4 max-w-2xl">
       <Heading level={1}>Heading 1 — page title</Heading>
@@ -55,7 +54,7 @@ export const Hierarchy: Story = {
   ),
 };
 
-export const SemanticOverride: Story = {
+export const SemanticOverride = {
   name: "Visual ≠ semantic level",
   render: () => (
     <div className="flex flex-col gap-2">

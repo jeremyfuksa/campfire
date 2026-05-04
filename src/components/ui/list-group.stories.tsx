@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { ChevronRight, Folder, Star, User } from "lucide-react";
 import { ListGroup, ListGroupItem } from "./list-group";
 
@@ -10,9 +10,8 @@ const meta = {
 } satisfies Meta<typeof ListGroup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
     <ListGroup className="w-80">
       <ListGroupItem>First item</ListGroupItem>
@@ -22,7 +21,7 @@ export const Default: Story = {
   ),
 };
 
-export const WithIcons: Story = {
+export const WithIcons = {
   render: () => (
     <ListGroup className="w-80">
       <ListGroupItem icon={<User size={16} />}>Profile</ListGroupItem>
@@ -32,7 +31,7 @@ export const WithIcons: Story = {
   ),
 };
 
-export const Interactive: Story = {
+export const Interactive = {
   render: () => (
     <ListGroup className="w-80">
       <ListGroupItem

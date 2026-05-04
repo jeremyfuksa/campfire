@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { AspectRatio } from "./aspect-ratio";
 
 const meta = {
@@ -12,7 +12,6 @@ const meta = {
 } satisfies Meta<typeof AspectRatio>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const placeholder = (
   <div className="flex items-center justify-center w-full h-full bg-muted rounded-md text-muted-foreground text-sm">
@@ -20,38 +19,38 @@ const placeholder = (
   </div>
 );
 
-export const Square: Story = {
+export const Square = {
   args: { ratio: 1 },
-  render: (args) => (
+  render: (args: { ratio?: number }) => (
     <div className="w-72">
       <AspectRatio {...args}>{placeholder}</AspectRatio>
     </div>
   ),
 };
 
-export const Sixteen9: Story = {
+export const Sixteen9 = {
   name: "16:9",
   args: { ratio: 16 / 9 },
-  render: (args) => (
+  render: (args: { ratio?: number }) => (
     <div className="w-96">
       <AspectRatio {...args}>{placeholder}</AspectRatio>
     </div>
   ),
 };
 
-export const Four3: Story = {
+export const Four3 = {
   name: "4:3",
   args: { ratio: 4 / 3 },
-  render: (args) => (
+  render: (args: { ratio?: number }) => (
     <div className="w-96">
       <AspectRatio {...args}>{placeholder}</AspectRatio>
     </div>
   ),
 };
 
-export const Portrait: Story = {
+export const Portrait = {
   args: { ratio: 3 / 4 },
-  render: (args) => (
+  render: (args: { ratio?: number }) => (
     <div className="w-64">
       <AspectRatio {...args}>{placeholder}</AspectRatio>
     </div>

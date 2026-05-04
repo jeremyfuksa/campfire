@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   ResizablePanelGroup,
   ResizablePanel,
@@ -13,7 +13,6 @@ const meta = {
 } satisfies Meta<typeof ResizablePanelGroup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const Panel = ({ label }: { label: string }) => (
   <div className="flex h-full items-center justify-center p-6 text-sm text-muted-foreground">
@@ -21,7 +20,7 @@ const Panel = ({ label }: { label: string }) => (
   </div>
 );
 
-export const Horizontal: Story = {
+export const Horizontal = {
   render: () => (
     <ResizablePanelGroup
       direction="horizontal"
@@ -38,7 +37,7 @@ export const Horizontal: Story = {
   ),
 };
 
-export const Vertical: Story = {
+export const Vertical = {
   render: () => (
     <ResizablePanelGroup
       direction="vertical"
@@ -55,7 +54,7 @@ export const Vertical: Story = {
   ),
 };
 
-export const ThreeColumn: Story = {
+export const ThreeColumn = {
   render: () => (
     <ResizablePanelGroup
       direction="horizontal"

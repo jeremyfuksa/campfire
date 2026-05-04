@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { CodeBlock } from "./code-block";
 
 const meta = {
@@ -13,7 +13,6 @@ const meta = {
 } satisfies Meta<typeof CodeBlock>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 const sample = `import { Button } from '@jeremyfuksa/campfire';
 
@@ -21,14 +20,14 @@ export function Example() {
   return <Button>Gather around</Button>;
 }`;
 
-export const Default: Story = {
+export const Default = {
   args: {
     code: sample,
     language: "tsx",
   },
 };
 
-export const WithLineNumbers: Story = {
+export const WithLineNumbers = {
   args: {
     code: sample,
     language: "tsx",
@@ -36,7 +35,7 @@ export const WithLineNumbers: Story = {
   },
 };
 
-export const Bash: Story = {
+export const Bash = {
   args: {
     code: "npm install @jeremyfuksa/campfire\nnpm run dev",
     language: "bash",
