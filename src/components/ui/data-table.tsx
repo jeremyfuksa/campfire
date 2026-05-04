@@ -310,7 +310,7 @@ export function DataTable<T extends Record<string, any>>({
             className={cn(
               'border-input focus-visible:border-ring focus-visible:ring-ring/50',
               'h-8 rounded-md border bg-input-background px-2 text-sm',
-              'outline-none focus-visible:ring-[3px] transition-all'
+              'outline-hidden focus-visible:ring-[3px] transition-all'
             )}
             style={{ color: 'var(--neutral-300)' }}
             aria-label="Rows per page"

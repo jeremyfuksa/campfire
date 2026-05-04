@@ -24,10 +24,10 @@ const sizeClasses = {
 const variantClasses: Record<SpinnerVariant, string> = {
   default: "border-muted-foreground/30 border-t-muted-foreground",
   primary: "border-primary/30 border-t-primary",
-  success: "border-[var(--success-200)] border-t-[var(--success-600)]",
-  warning: "border-[var(--warning-200)] border-t-[var(--warning-600)]",
-  danger: "border-[var(--danger-200)] border-t-[var(--danger-600)]",
-  info: "border-[var(--info-200)] border-t-[var(--info-600)]",
+  success: "border-(--success-200) border-t-(--success-600)",
+  warning: "border-(--warning-200) border-t-(--warning-600)",
+  danger: "border-(--danger-200) border-t-(--danger-600)",
+  info: "border-(--info-200) border-t-(--info-600)",
 };
 
 const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(

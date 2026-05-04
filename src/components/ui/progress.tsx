@@ -9,18 +9,18 @@ type ProgressVariant = "default" | "success" | "warning" | "danger" | "info";
 
 const trackColors: Record<ProgressVariant, string> = {
   default: "bg-primary/20",
-  success: "bg-[var(--success-100)]",
-  warning: "bg-[var(--warning-100)]",
-  danger: "bg-[var(--danger-100)]",
-  info: "bg-[var(--info-100)]",
+  success: "bg-(--success-100)",
+  warning: "bg-(--warning-100)",
+  danger: "bg-(--danger-100)",
+  info: "bg-(--info-100)",
 };
 
 const indicatorColors: Record<ProgressVariant, string> = {
   default: "bg-primary",
-  success: "bg-[var(--success-600)]",
-  warning: "bg-[var(--warning-600)]",
-  danger: "bg-[var(--danger-600)]",
-  info: "bg-[var(--info-600)]",
+  success: "bg-(--success-600)",
+  warning: "bg-(--warning-600)",
+  danger: "bg-(--danger-600)",
+  info: "bg-(--info-600)",
 };
 
 interface ProgressProps

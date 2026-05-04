@@ -46,8 +46,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
         data-slot="switch"
         data-state={currentChecked ? "checked" : "unchecked"}
         className={cn(
-          "peer inline-flex h-[1.15rem] w-8 shrink-0 cursor-pointer appearance-none items-center rounded-full border border-transparent transition-all outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
-          currentChecked ? "bg-primary" : "bg-[var(--switch-background)]",
+          "peer inline-flex h-[1.15rem] w-8 shrink-0 cursor-pointer appearance-none items-center rounded-full border border-transparent transition-all outline-hidden focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
+          currentChecked ? "bg-primary" : "bg-(--switch-background)",
           className,
         )}
         aria-checked={currentChecked}

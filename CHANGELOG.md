@@ -4,6 +4,43 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-05-04
+
+### Changed
+- **Migrated to Tailwind CSS v4** (from v3.4) using the official
+  `@tailwindcss/upgrade` codemod, plus manual reconciliation:
+  - Replaced `tailwind.config.ts` with a CSS-first `@theme { }` block in
+    `src/styles/globals.css` that references the SD-generated CSS
+    variables. The token JSON pipeline is unchanged — `@theme` is the
+    new mapping layer between `var(--primary-500)` and the
+    `bg-primary-500` utility.
+  - Replaced `@tailwind base/components/utilities` directives with
+    `@import 'tailwindcss'`.
+  - PostCSS plugin: `tailwindcss` → `@tailwindcss/postcss`. Removed
+    `autoprefixer` (Tailwind v4 handles prefixing internally).
+  - Dark mode: `darkMode: "class"` → `@custom-variant dark (&:is(.dark *))`.
+  - Custom utilities (`.campfire-card`, `.campfire-lift`, etc.) moved
+    from `@layer components` to v4's `@utility` syntax.
+  - Custom keyframes moved into `@theme` and exposed via
+    `--animate-campfire-enter` etc.
+  - Default border color compat shim added (v4 changed default to
+    `currentcolor`).
+- **Replaced `tailwindcss-animate` with `tw-animate-css`** for v4
+  compatibility. Animation classes (`animate-in`, `fade-in`,
+  `slide-in-from-*`, `zoom-in/out`) keep working unchanged.
+- **Class renames** applied by codemod across 66 files:
+  `outline-none` → `outline-hidden`, `flex-shrink-0` → `shrink-0`,
+  `flex-grow` → `grow`, `shadow-sm` → `shadow-xs`, etc. Manually
+  reverted ~15 false-positive `outline` → `outline-solid` renames in
+  TypeScript variant prop string literals.
+- **Test runner**: `vitest.config.ts` now sets `css: false` because
+  jsdom's CSSOM stack-overflows on the larger v4 bundle. Component
+  tests don't depend on real CSS.
+
+### Removed
+- `tailwind.config.ts` (CSS-first config makes it unnecessary).
+- `tailwindcss-animate`, `autoprefixer` devDependencies.
+
 ## [0.4.0] - 2026-05-04
 
 ### Added

@@ -31,26 +31,26 @@ describe("Link", () => {
     it("renders default variant", () => {
       render(<Link href="/test" variant="default">Default</Link>);
       const link = screen.getByRole("link");
-      expect(link).toHaveClass("text-[var(--interactive-default)]");
+      expect(link).toHaveClass("text-(--interactive-default)");
     });
 
     it("renders subtle variant", () => {
       render(<Link href="/test" variant="subtle">Subtle</Link>);
       const link = screen.getByRole("link");
-      expect(link).toHaveClass("text-[var(--text-secondary)]");
+      expect(link).toHaveClass("text-(--text-secondary)");
     });
 
     it("renders bold variant", () => {
       render(<Link href="/test" variant="bold">Bold</Link>);
       const link = screen.getByRole("link");
-      expect(link).toHaveClass("text-[var(--interactive-default)]");
+      expect(link).toHaveClass("text-(--interactive-default)");
       expect(link).toHaveClass("font-medium");
     });
 
     it("renders muted variant", () => {
       render(<Link href="/test" variant="muted">Muted</Link>);
       const link = screen.getByRole("link");
-      expect(link).toHaveClass("text-[var(--text-tertiary)]");
+      expect(link).toHaveClass("text-(--text-tertiary)");
     });
   });
 

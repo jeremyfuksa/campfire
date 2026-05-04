@@ -35,7 +35,7 @@ export function PageWithSidebar({
     <div className="flex">
       {/* Sidebar - Fixed position, scrollable independently */}
       <aside 
-        className="w-64 flex-shrink-0 border-r overflow-y-auto fixed"
+        className="w-64 shrink-0 border-r overflow-y-auto fixed"
         style={{ 
           borderColor: 'var(--border-default)',
           backgroundColor: 'var(--bg-base)',

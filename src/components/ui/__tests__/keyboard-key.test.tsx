@@ -42,16 +42,16 @@ describe("KeyboardKey", () => {
       expect(key).toHaveStyle({ fontFamily: "JetBrains Mono, monospace" });
     });
 
-    it("has border and shadow", () => {
+    it("has border and shadow-sm", () => {
       render(<KeyboardKey>Space</KeyboardKey>);
       const key = screen.getByText("Space");
-      expect(key).toHaveClass("border", "shadow-sm");
+      expect(key).toHaveClass("border", "shadow-xs");
     });
 
     it("has padding and rounding", () => {
       render(<KeyboardKey>F1</KeyboardKey>);
       const key = screen.getByText("F1");
-      expect(key).toHaveClass("px-2", "py-1", "rounded");
+      expect(key).toHaveClass("px-2", "py-1", "rounded-sm");
     });
   });
 

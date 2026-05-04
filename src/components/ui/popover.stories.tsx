@@ -67,15 +67,15 @@ export const WithList = {
       </PopoverTrigger>
       <PopoverContent className="w-56">
         <div className="space-y-1">
-          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent inline-flex items-center">
+          <button className="w-full text-left px-2 py-1.5 text-sm rounded-sm hover:bg-accent inline-flex items-center">
             <User size={14} className="mr-2" />
             Profile
           </button>
-          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent inline-flex items-center">
+          <button className="w-full text-left px-2 py-1.5 text-sm rounded-sm hover:bg-accent inline-flex items-center">
             <Settings size={14} className="mr-2" />
             Settings
           </button>
-          <button className="w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent inline-flex items-center">
+          <button className="w-full text-left px-2 py-1.5 text-sm rounded-sm hover:bg-accent inline-flex items-center">
             <LogOut size={14} className="mr-2" />
             Logout
           </button>

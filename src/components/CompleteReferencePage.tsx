@@ -421,7 +421,7 @@ export function CompleteReferencePage() {
                     {space.name}
                   </div>
                   <div 
-                    className="h-10 rounded"
+                    className="h-10 rounded-sm"
                     style={{ 
                       width: space.value, 
                       backgroundColor: 'var(--primary-500)',
@@ -791,25 +791,25 @@ export function CompleteReferencePage() {
             <h3 className="mb-6" style={{ fontSize: '28px' }}>Alert</h3>
             <div className="space-y-4 max-w-2xl">
               <Alert style={{ backgroundColor: 'var(--primary-700)', borderColor: 'var(--primary-800)', color: 'white' }} className="flex items-center gap-3">
-                <Info size={16} className="flex-shrink-0" />
+                <Info size={16} className="shrink-0" />
                 <AlertDescription className="flex-1" style={{ color: 'white' }}>
                   This is an informational message.
                 </AlertDescription>
               </Alert>
               <Alert style={{ backgroundColor: 'var(--success-700)', borderColor: 'var(--success-700)', color: 'white' }} className="flex items-center gap-3">
-                <CheckCircle2 size={16} className="flex-shrink-0" />
+                <CheckCircle2 size={16} className="shrink-0" />
                 <AlertDescription className="flex-1" style={{ color: 'white' }}>
                   Your changes have been saved successfully!
                 </AlertDescription>
               </Alert>
               <Alert style={{ backgroundColor: 'var(--warning-700)', borderColor: 'var(--warning-700)', color: 'white' }} className="flex items-center gap-3">
-                <AlertTriangle size={16} className="flex-shrink-0" />
+                <AlertTriangle size={16} className="shrink-0" />
                 <AlertDescription className="flex-1" style={{ color: 'white' }}>
                   Warning: This action may have unintended consequences.
                 </AlertDescription>
               </Alert>
               <Alert variant="destructive" className="flex items-center gap-3">
-                <AlertCircle size={16} className="flex-shrink-0" />
+                <AlertCircle size={16} className="shrink-0" />
                 <AlertDescription className="flex-1">
                   Error: Unable to complete the request.
                 </AlertDescription>
@@ -1283,7 +1283,7 @@ export function CompleteReferencePage() {
             <h3 className="mb-6" style={{ fontSize: '28px' }}>12-Column Grid</h3>
             <div className="grid grid-cols-12 gap-4">
               {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="col-span-1 h-16 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--primary-500)', color: 'white' }}>
+                <div key={i} className="col-span-1 h-16 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--primary-500)', color: 'white' }}>
                   {i + 1}
                 </div>
               ))}
@@ -1314,13 +1314,13 @@ export function CompleteReferencePage() {
               <div>
                 <h4 className="mb-4" style={{ fontSize: '18px', color: 'var(--text-secondary)' }}>Horizontal Stack</h4>
                 <div className="flex gap-4">
-                  <div className="flex-1 h-24 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--primary-200)' }}>
+                  <div className="flex-1 h-24 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--primary-200)' }}>
                     Flex 1
                   </div>
-                  <div className="flex-1 h-24 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--primary-300)' }}>
+                  <div className="flex-1 h-24 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--primary-300)' }}>
                     Flex 1
                   </div>
-                  <div className="flex-1 h-24 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--primary-400)' }}>
+                  <div className="flex-1 h-24 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--primary-400)' }}>
                     Flex 1
                   </div>
                 </div>
@@ -1328,13 +1328,13 @@ export function CompleteReferencePage() {
               <div>
                 <h4 className="mb-4" style={{ fontSize: '18px', color: 'var(--text-secondary)' }}>Vertical Stack</h4>
                 <div className="flex flex-col gap-4 max-w-md">
-                  <div className="h-16 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-200)' }}>
+                  <div className="h-16 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-200)' }}>
                     Item 1
                   </div>
-                  <div className="h-16 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-300)' }}>
+                  <div className="h-16 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-300)' }}>
                     Item 2
                   </div>
-                  <div className="h-16 rounded flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-400)' }}>
+                  <div className="h-16 rounded-sm flex items-center justify-center" style={{ backgroundColor: 'var(--secondary-400)' }}>
                     Item 3
                   </div>
                 </div>
@@ -1346,22 +1346,22 @@ export function CompleteReferencePage() {
           <div className="mb-16">
             <h3 className="mb-6" style={{ fontSize: '28px' }}>Container Widths</h3>
             <div className="space-y-4">
-              <div className="max-w-sm mx-auto p-4 rounded text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <div className="max-w-sm mx-auto p-4 rounded-sm text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
                 max-w-sm (384px)
               </div>
-              <div className="max-w-md mx-auto p-4 rounded text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <div className="max-w-md mx-auto p-4 rounded-sm text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
                 max-w-md (448px)
               </div>
-              <div className="max-w-lg mx-auto p-4 rounded text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <div className="max-w-lg mx-auto p-4 rounded-sm text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
                 max-w-lg (512px)
               </div>
-              <div className="max-w-xl mx-auto p-4 rounded text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <div className="max-w-xl mx-auto p-4 rounded-sm text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
                 max-w-xl (576px)
               </div>
-              <div className="max-w-2xl mx-auto p-4 rounded text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <div className="max-w-2xl mx-auto p-4 rounded-sm text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
                 max-w-2xl (672px)
               </div>
-              <div className="max-w-4xl mx-auto p-4 rounded text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <div className="max-w-4xl mx-auto p-4 rounded-sm text-center" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
                 max-w-4xl (896px)
               </div>
             </div>

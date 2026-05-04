@@ -163,8 +163,8 @@ export const OnCard = {
             Right-click this card for actions
           </p>
           <div className="flex gap-2 pt-2">
-            <span className="text-xs px-2 py-1 bg-muted rounded">React</span>
-            <span className="text-xs px-2 py-1 bg-muted rounded">TypeScript</span>
+            <span className="text-xs px-2 py-1 bg-muted rounded-sm">React</span>
+            <span className="text-xs px-2 py-1 bg-muted rounded-sm">TypeScript</span>
           </div>
         </div>
       </ContextMenuTrigger>

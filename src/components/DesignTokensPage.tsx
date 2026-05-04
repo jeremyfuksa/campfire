@@ -389,7 +389,7 @@ function ColorsSection() {
       <div className="p-6 rounded-xl" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
         <div className="flex items-start gap-4">
           <div 
-            className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+            className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0"
             style={{ backgroundColor: 'var(--secondary-600)' }}
           >
             <Flame size={18} style={{ color: 'white' }} />
@@ -769,7 +769,7 @@ function SpacingSection() {
                 {space.name}
               </div>
               <div 
-                className="h-8 rounded"
+                className="h-8 rounded-sm"
                 style={{ 
                   width: space.value, 
                   backgroundColor: 'var(--primary-500)',
