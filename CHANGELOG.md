@@ -5,12 +5,21 @@ All notable changes to the Campfire Design System.
 ## [Unreleased]
 
 ### Changed
-- **CI now runs the full test suite** (`npm run test:full`) instead of
-  the previous `test:smoke` + `test:a11y` split. With the broken tests
-  fixed (below), the full suite gates every PR — every test has to pass,
-  not just the named subsets.
 - **`test:full` script** corrected from `vitest` (watch mode, hangs in
   CI) to `vitest run` (single-pass).
+- **vitest config tuning** for safer local full-suite runs:
+  `pool: "forks"` + `isolate: true` so each test file gets a fresh
+  jsdom (prevents input-otp's post-teardown setTimeout from crashing
+  a reused worker), plus 30s/30s/10s test/hook/teardown timeouts.
+
+### Known issues
+- **Full test suite (`npm run test:full`) cannot run in CI** — the
+  73-file vitest+jsdom suite OOMs on GitHub Actions ubuntu-latest
+  runners (heap exhaustion after 90+ minutes). CI continues to gate
+  on `test:smoke` + `test:a11y` (~1min combined), which together
+  exercise the most important rendering and accessibility paths.
+  Investigating the per-file memory profile and possible jsdom →
+  happy-dom swap is a follow-up.
 
 ### Fixed
 - **6 broken non-a11y unit tests** that pre-dated the v4 migration's CI

@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run full test suite
-        run: npm run test:full
+      - name: Run smoke tests
+        run: npm run test:smoke
+
+      - name: Run accessibility tests
+        run: npm run test:a11y
 
       - name: Build library
         run: npm run build:lib
