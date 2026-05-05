@@ -11,14 +11,11 @@ export default defineConfig({
     testTimeout: 30000,
     hookTimeout: 30000,
     teardownTimeout: 10000,
-    // Cap concurrent forks to keep peak heap manageable in CI runners.
     // input-otp schedules a setTimeout that touches `window`; if a worker
     // is reused while a timer fires after teardown, it crashes the worker.
-    // Bounded forks + isolate per file = each test file gets a fresh
-    // jsdom window and timers are safely orphaned.
+    // Forks pool with isolate=true gives each test file a fresh process
+    // and a fresh jsdom, so post-teardown timers are safely orphaned.
     pool: "forks",
-    maxForks: 2,
-    minForks: 1,
     isolate: true,
     // Stub global stylesheets — jsdom's CSSOM stack-overflows on the v4
     // bundle, and the tests don't need real styles applied (only computed
