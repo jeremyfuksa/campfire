@@ -4,6 +4,18 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+### Fixed
+- **Dialog: `DialogPortal` and `DialogOverlay` now respect open state**
+  (#16). Both were bare `<div>` passthroughs that rendered
+  unconditionally, so consumers following the shadcn composition
+  pattern `<Dialog><DialogPortal><DialogOverlay
+  className="fixed inset-0 bg-black/50" />...</DialogPortal></Dialog>`
+  saw a permanent dark overlay even when the dialog was closed. Both
+  components now read `useDialogContext()` and return `null` when
+  closed. `DialogContent`'s internal portal+overlay (used by the simple
+  `<Dialog><DialogContent /></Dialog>` pattern) is unchanged. Added
+  three regression tests in `dialog.test.tsx`.
+
 ### Changed
 - **`test:full` script** corrected from `vitest` (watch mode, hangs in
   CI) to `vitest run` (single-pass).

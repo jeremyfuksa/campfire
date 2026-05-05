@@ -235,10 +235,32 @@ export function DialogClose({ className, children, onClick, ...props }: React.Bu
   );
 }
 
+/**
+ * Optional explicit overlay for the shadcn-style composition pattern
+ * `<Dialog><DialogPortal><DialogOverlay/><DialogContent/></DialogPortal></Dialog>`.
+ * Gated on the dialog's open state so it doesn't render an always-on
+ * fixed backdrop when consumers pass classes like `fixed inset-0 bg-black/50`.
+ *
+ * Note: `DialogContent` already renders its own portal + overlay + content
+ * internally for the simpler `<Dialog><DialogContent/></Dialog>` pattern.
+ * Explicit `DialogOverlay`/`DialogPortal` are accepted but optional.
+ */
 export function DialogOverlay(props: React.HTMLAttributes<HTMLDivElement>) {
-  return <div data-slot="dialog-overlay" {...props} />;
+  const { open } = useDialogContext();
+  if (!open) return null;
+  return <div data-slot="dialog-overlay" aria-hidden="true" {...props} />;
 }
 
-export function DialogPortal(props: React.HTMLAttributes<HTMLDivElement>) {
-  return <div data-slot="dialog-portal" {...props} />;
+/**
+ * Optional explicit portal for the shadcn-style composition pattern.
+ * Gated on the dialog's open state so children only mount when the dialog is open.
+ */
+export function DialogPortal({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  const { open } = useDialogContext();
+  if (!open) return null;
+  return (
+    <div data-slot="dialog-portal" {...props}>
+      {children}
+    </div>
+  );
 }
