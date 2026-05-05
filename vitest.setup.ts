@@ -3,6 +3,14 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import { afterEach, beforeAll, vi } from "vitest";
 
+// happy-dom auto-fetches iframe src URLs (jsdom did not). Stub fetch so the
+// aspect-ratio iframe story etc. don't try to talk to example.com.
+if (typeof globalThis.fetch === "function") {
+  globalThis.fetch = vi.fn(async () =>
+    new Response("", { status: 200 }),
+  ) as typeof fetch;
+}
+
 const safeReplaceSync = () => {
   if (typeof CSSStyleSheet === "undefined") return;
   CSSStyleSheet.prototype.replaceSync = function () {
