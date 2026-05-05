@@ -10,6 +10,8 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
+  DialogOverlay,
+  DialogPortal,
 } from "../dialog";
 
 expect.extend(toHaveNoViolations);
@@ -99,5 +101,53 @@ describe("Dialog", () => {
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  // Regression: jeremyfuksa/campfire#16
+  describe("Optional Portal/Overlay composition", () => {
+    it("DialogOverlay does not render when dialog is closed", () => {
+      const { container } = render(
+        <Dialog>
+          <DialogTrigger>Open</DialogTrigger>
+          <DialogPortal>
+            <DialogOverlay className="fixed inset-0 bg-black/50" />
+            <DialogContent>
+              <DialogTitle>Hello</DialogTitle>
+            </DialogContent>
+          </DialogPortal>
+        </Dialog>
+      );
+      expect(container.querySelector('[data-slot="dialog-overlay"]')).not.toBeInTheDocument();
+    });
+
+    it("DialogPortal does not render its children when dialog is closed", () => {
+      const { container } = render(
+        <Dialog>
+          <DialogTrigger>Open</DialogTrigger>
+          <DialogPortal>
+            <div data-testid="portal-child">Should not appear</div>
+          </DialogPortal>
+        </Dialog>
+      );
+      expect(container.querySelector('[data-slot="dialog-portal"]')).not.toBeInTheDocument();
+      expect(container.querySelector('[data-testid="portal-child"]')).not.toBeInTheDocument();
+    });
+
+    it("DialogOverlay renders when dialog is open via defaultOpen", () => {
+      const { container } = render(
+        <Dialog defaultOpen>
+          <DialogPortal>
+            <DialogOverlay className="fixed inset-0 bg-black/50" />
+            <DialogContent>
+              <DialogTitle>Hello</DialogTitle>
+            </DialogContent>
+          </DialogPortal>
+        </Dialog>
+      );
+      // DialogContent renders its own internal portal+overlay; the explicit
+      // <DialogOverlay /> from the composition pattern is the one we expose.
+      const explicitOverlay = container.querySelector('[data-slot="dialog-overlay"][aria-hidden="true"]');
+      expect(explicitOverlay).toBeInTheDocument();
+    });
   });
 });
