@@ -8,6 +8,15 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
+    testTimeout: 30000,
+    hookTimeout: 30000,
+    teardownTimeout: 10000,
+    // input-otp schedules a setTimeout that touches `window`; if a worker
+    // is reused while a timer fires after teardown, it crashes the worker.
+    // Forks pool with isolate=true gives each test file a fresh process
+    // and a fresh jsdom, so post-teardown timers are safely orphaned.
+    pool: "forks",
+    isolate: true,
     // Stub global stylesheets — jsdom's CSSOM stack-overflows on the v4
     // bundle, and the tests don't need real styles applied (only computed
     // properties from inline styles and direct className assertions).

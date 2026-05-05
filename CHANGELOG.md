@@ -4,6 +4,42 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+### Changed
+- **`test:full` script** corrected from `vitest` (watch mode, hangs in
+  CI) to `vitest run` (single-pass).
+- **vitest config tuning** for safer local full-suite runs:
+  `pool: "forks"` + `isolate: true` so each test file gets a fresh
+  jsdom (prevents input-otp's post-teardown setTimeout from crashing
+  a reused worker), plus 30s/30s/10s test/hook/teardown timeouts.
+
+### Known issues
+- **Full test suite (`npm run test:full`) cannot run in CI** — the
+  73-file vitest+jsdom suite OOMs on GitHub Actions ubuntu-latest
+  runners (heap exhaustion after 90+ minutes). CI continues to gate
+  on `test:smoke` + `test:a11y` (~1min combined), which together
+  exercise the most important rendering and accessibility paths.
+  Investigating the per-file memory profile and possible jsdom →
+  happy-dom swap is a follow-up.
+
+### Fixed
+- **6 broken non-a11y unit tests** that pre-dated the v4 migration's CI
+  gate but were hidden by `test:smoke` running only one file:
+  - `keyboard-key.test.tsx` — assertion for `shadow-xs` updated to
+    `shadow-2xs` (component renders the latter post-v4 codemod);
+    font-family check rewritten to assert the `font-mono` class instead
+    of a hardcoded family name (`JetBrains Mono` was never the campfire
+    font — `Fira Code` is).
+  - `link.test.tsx` — `toHaveStyle({ color: "red" })` rewritten to
+    `rgb(255, 0, 0)` to match jsdom's serialized form.
+  - `collapsible.test.tsx` — Radix removes collapsed content from the
+    DOM rather than hiding it, so `not.toBeVisible()` was crashing on
+    `null`. Switched to `not.toBeInTheDocument()`.
+  - `scroll-area.test.tsx` (×2) — Radix's `ScrollAreaScrollbar` is
+    wrapped in `Presence` and only mounts when overflow is detected,
+    which never happens in jsdom (no layout engine). Tests now verify
+    the viewport renders; scrollbar mounting is exercised by Radix's
+    own tests + visual review.
+
 ### Added
 - **16 missing Storybook stories** — every UI component now has a story
   file. Closed: aspect-ratio, carousel, chart, code-block, copy-button,
