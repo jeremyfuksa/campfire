@@ -6,7 +6,20 @@ export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    environment: "jsdom",
+    environment: "happy-dom",
+    environmentOptions: {
+      // Prevent happy-dom from making real network requests for iframes
+      // (recharts/embla iframes try to fetch external URLs in tests).
+      happyDOM: {
+        settings: {
+          disableJavaScriptFileLoading: true,
+          disableJavaScriptEvaluation: false,
+          disableCSSFileLoading: true,
+          disableComputedStyleRendering: true,
+          fetch: { disableSameOriginPolicy: false },
+        },
+      },
+    },
     setupFiles: ["./vitest.setup.ts"],
     testTimeout: 30000,
     hookTimeout: 30000,

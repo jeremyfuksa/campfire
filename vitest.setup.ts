@@ -3,6 +3,26 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import { afterEach, beforeAll, vi } from "vitest";
 
+// happy-dom auto-fetches iframe src URLs (jsdom did not). Stub the iframe
+// src setter so happy-dom never starts a real network request.
+if (typeof HTMLIFrameElement !== "undefined") {
+  Object.defineProperty(HTMLIFrameElement.prototype, "src", {
+    set() {
+      // no-op: prevent happy-dom from loading the iframe page
+    },
+    get() {
+      return this.getAttribute("src") ?? "";
+    },
+    configurable: true,
+  });
+}
+// Also stub global fetch as a belt-and-suspenders measure.
+if (typeof globalThis.fetch === "function") {
+  globalThis.fetch = vi.fn(async () =>
+    new Response("", { status: 200 }),
+  ) as typeof fetch;
+}
+
 const safeReplaceSync = () => {
   if (typeof CSSStyleSheet === "undefined") return;
   CSSStyleSheet.prototype.replaceSync = function () {

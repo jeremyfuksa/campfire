@@ -74,7 +74,7 @@ describe("AspectRatio", () => {
       const { container } = render(
         <AspectRatio ratio={16 / 9}>
           <img
-            src="https://example.com/image.jpg"
+            src="about:blank"
             alt="Landscape"
             style={{ objectFit: "cover" }}
           />
@@ -98,7 +98,7 @@ describe("AspectRatio", () => {
       const { container } = render(
         <AspectRatio ratio={16 / 9}>
           <iframe
-            src="https://example.com/embed"
+            src="about:blank"
             title="Embedded content"
             data-testid="iframe-element"
           />
