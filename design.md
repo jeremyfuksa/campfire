@@ -1,6 +1,3 @@
-# Campfire Design System
-
-```yaml
 ---
 name: Campfire
 description: A warm, dependable React component library built on layered design tokens, semantic theming, and accessible Radix primitives.
@@ -221,7 +218,8 @@ components:
     backgroundColor: "{colors.primary-subtle}"
     textColor: "{colors.primary-active}"
 ---
-```
+
+# Campfire Design System
 
 ## Overview
 
