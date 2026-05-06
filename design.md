@@ -134,22 +134,20 @@ rounded:
   md: 0.75rem
   lg: 1rem
   xl: 1.25rem
-  "2xl": 1.75rem
+  xxl: 1.75rem
   full: 9999px
 spacing:
   unit: 0.25rem
-  "1": 0.25rem
-  "2": 0.5rem
-  "3": 0.75rem
-  "4": 1rem
-  "5": 1.25rem
-  "6": 1.5rem
-  "8": 2rem
-  "10": 2.5rem
-  "12": 3rem
-  "16": 4rem
-  "20": 5rem
-  "24": 6rem
+  xxs: 0.25rem
+  xs: 0.5rem
+  sm: 0.75rem
+  md: 1rem
+  lg: 1.25rem
+  xl: 1.5rem
+  xxl: 2rem
+  xxxl: 2.5rem
+  huge: 3rem
+  giant: 4rem
   container-padding: 1.5rem
   card-gap: 1rem
   section-margin: 4rem
