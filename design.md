@@ -33,63 +33,70 @@ colors:
   on-danger: "#fef5f4"
   info: "#576580"
   on-info: "#f4f7fb"
+  text-heading: "#3d3028"
 typography:
-  display-2xl:
-    fontFamily: Manrope
-    fontSize: 3.75rem
-    fontWeight: 700
-    lineHeight: 4rem
+  heading-h1:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 48px
+    fontWeight: 425
+    lineHeight: 48px
     letterSpacing: -0.02em
-  display-xl:
-    fontFamily: Manrope
-    fontSize: 3rem
-    fontWeight: 700
-    lineHeight: 3.5rem
+    fontVariation: '"WONK" 1, "opsz" 72'
+  heading-h2:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 36px
+    fontWeight: 400
+    lineHeight: 38px
     letterSpacing: -0.02em
-  display-lg:
-    fontFamily: Manrope
-    fontSize: 2.25rem
-    fontWeight: 700
-    lineHeight: 2.5rem
+    fontVariation: '"WONK" 1, "opsz" 72'
+  heading-h3:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 30px
+    fontWeight: 400
+    lineHeight: 33px
     letterSpacing: -0.01em
-  heading-lg:
-    fontFamily: Manrope
-    fontSize: 1.875rem
-    fontWeight: 600
-    lineHeight: 2.25rem
-  heading-md:
-    fontFamily: Manrope
+    fontVariation: '"WONK" 1, "opsz" 72'
+  heading-h4:
+    fontFamily: '"Fraunces", "Georgia", serif'
     fontSize: 1.5rem
-    fontWeight: 600
-    lineHeight: 2rem
-  heading-sm:
-    fontFamily: Manrope
+    fontWeight: 400
+    lineHeight: 28px
+    fontVariation: '"WONK" 1, "opsz" 72'
+  heading-h5:
+    fontFamily: '"Fraunces", "Georgia", serif'
     fontSize: 1.25rem
-    fontWeight: 600
-    lineHeight: 1.75rem
+    fontWeight: 400
+    lineHeight: 32px
+    fontVariation: '"WONK" 1, "opsz" 72'
+  heading-h6:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 1.125rem
+    fontWeight: 400
+    lineHeight: 28px
+    fontVariation: '"WONK" 1, "opsz" 72'
   body-lg:
-    fontFamily: Manrope
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
     fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.75rem
   body-md:
-    fontFamily: Manrope
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
     fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.5rem
   body-sm:
-    fontFamily: Manrope
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
   label-sm:
-    fontFamily: Manrope
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
     fontSize: 0.75rem
     fontWeight: 600
     lineHeight: 1rem
     letterSpacing: 0.04em
   code-md:
-    fontFamily: Fira Code
+    fontFamily: '"Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace'
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
@@ -268,6 +275,36 @@ components:
     backgroundColor: "{colors.focus-ring}"
     rounded: "{rounded.md}"
     height: 2px
+  heading-1:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.heading-h1}"
+  heading-2:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.heading-h2}"
+  heading-3:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.heading-h3}"
+  heading-4:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.heading-h4}"
+  heading-5:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.heading-h5}"
+  heading-6:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.heading-h6}"
+  body-paragraph:
+    textColor: "{colors.on-surface}"
+    typography: "{typography.body-md}"
+  body-lead:
+    textColor: "{colors.on-surface-secondary}"
+    typography: "{typography.body-lg}"
+  code-inline:
+    backgroundColor: "{colors.surface-muted}"
+    textColor: "{colors.on-surface}"
+    typography: "{typography.code-md}"
+    rounded: "{rounded.sm}"
+    padding: 0 0.25rem
 ---
 
 # Campfire Design System
@@ -290,13 +327,17 @@ The palette is anchored by two families and surrounded by neutral and status rol
 
 ## Typography
 
-**Manrope** is the UI typeface — geometric enough to feel modern, humanist enough to stay friendly at small sizes. **Fira Code** handles inline code, snippets, and the documentation site's code blocks.
+Campfire pairs a serif voice with a workhorse sans:
 
-- A 10-step text scale (`xs` → `6xl`) drives both display and body copy. Display sizes use tighter tracking (`-0.02em`) to compensate for optical looseness at large sizes.
-- Weights cluster around regular (400), medium (500), semibold (600), and bold (700). Light (300) and extrabold (800) exist but are reserved for editorial pages — never functional UI.
-- Line-height tokens are paired explicitly with each text size so vertical rhythm stays predictable across components.
-- Headings use semibold by default; bold is reserved for display sizes where extra optical weight is needed.
-- Body copy targets `1rem / 1.5rem` as the default reading size; `body-sm` (14/20) is for dense tables and metadata, never long-form prose.
+- **Fraunces** carries every heading (`h1`–`h6`) and editorial moments like pull quotes, testimonials, and case-study metrics. It is set with `font-variation-settings: "WONK" 1, "opsz" 72` so the optical-size axis tunes the letterforms for display use and the WONK axis adds the subtle character that makes the system feel handmade rather than templated. Headings use a low weight (400, occasionally 425 for h1/hero) — Fraunces holds enough presence at 400 that bolder weights feel shouty.
+- **System sans** (`-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif`) carries body copy, labels, navigation, and UI chrome. Using the platform's native UI font keeps text crisp at small sizes and shaves the network cost of a second display family.
+- **Fira Code** is the monospace voice — code blocks, inline code, dates, eyebrow metadata, and anywhere a tabular feel reinforces structure.
+
+Heading sizes are fluid (`clamp()` between mobile and desktop) but anchored to the discrete sizes captured in the YAML scale. Letter-spacing tightens at display sizes (`-0.02em` for h1/h2) and relaxes back to `0` at h4 and below. Line-height drops below 1.2 only for the largest sizes, where optical spacing is naturally tighter.
+
+Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default.
+
+Heading color is `text-heading` (`#3d3028` light / `#f5e6d0` dark) — a warm near-black/cream pair that reads as ink rather than the neutral gray used for body copy. The contrast between the warm heading and the cool slate UI is intentional: it makes editorial moments feel typeset.
 
 ## Layout
 
