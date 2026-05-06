@@ -33,64 +33,57 @@ colors:
   on-danger: "#fef5f4"
   info: "#576580"
   on-info: "#f4f7fb"
-  text-heading: "#3d3028"
 typography:
   heading-h1:
-    fontFamily: '"Fraunces", "Georgia", serif'
-    fontSize: 48px
-    fontWeight: 425
-    lineHeight: 48px
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontSize: 3rem
+    fontWeight: 700
+    lineHeight: 3.5rem
     letterSpacing: -0.02em
-    fontVariation: '"WONK" 1, "opsz" 72'
   heading-h2:
-    fontFamily: '"Fraunces", "Georgia", serif'
-    fontSize: 36px
-    fontWeight: 400
-    lineHeight: 38px
-    letterSpacing: -0.02em
-    fontVariation: '"WONK" 1, "opsz" 72'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontSize: 2.25rem
+    fontWeight: 700
+    lineHeight: 2.5rem
+    letterSpacing: -0.015em
   heading-h3:
-    fontFamily: '"Fraunces", "Georgia", serif'
-    fontSize: 30px
-    fontWeight: 400
-    lineHeight: 33px
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontSize: 1.875rem
+    fontWeight: 600
+    lineHeight: 2.25rem
     letterSpacing: -0.01em
-    fontVariation: '"WONK" 1, "opsz" 72'
   heading-h4:
-    fontFamily: '"Fraunces", "Georgia", serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.5rem
-    fontWeight: 400
-    lineHeight: 28px
-    fontVariation: '"WONK" 1, "opsz" 72'
+    fontWeight: 600
+    lineHeight: 2rem
   heading-h5:
-    fontFamily: '"Fraunces", "Georgia", serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.25rem
-    fontWeight: 400
-    lineHeight: 32px
-    fontVariation: '"WONK" 1, "opsz" 72'
+    fontWeight: 600
+    lineHeight: 1.75rem
   heading-h6:
-    fontFamily: '"Fraunces", "Georgia", serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.125rem
-    fontWeight: 400
-    lineHeight: 28px
-    fontVariation: '"WONK" 1, "opsz" 72'
+    fontWeight: 600
+    lineHeight: 1.75rem
   body-lg:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.75rem
   body-md:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.5rem
   body-sm:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
   label-sm:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
+    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 0.75rem
     fontWeight: 600
     lineHeight: 1rem
@@ -276,22 +269,22 @@ components:
     rounded: "{rounded.md}"
     height: 2px
   heading-1:
-    textColor: "{colors.text-heading}"
+    textColor: "{colors.on-surface}"
     typography: "{typography.heading-h1}"
   heading-2:
-    textColor: "{colors.text-heading}"
+    textColor: "{colors.on-surface}"
     typography: "{typography.heading-h2}"
   heading-3:
-    textColor: "{colors.text-heading}"
+    textColor: "{colors.on-surface}"
     typography: "{typography.heading-h3}"
   heading-4:
-    textColor: "{colors.text-heading}"
+    textColor: "{colors.on-surface}"
     typography: "{typography.heading-h4}"
   heading-5:
-    textColor: "{colors.text-heading}"
+    textColor: "{colors.on-surface}"
     typography: "{typography.heading-h5}"
   heading-6:
-    textColor: "{colors.text-heading}"
+    textColor: "{colors.on-surface}"
     typography: "{typography.heading-h6}"
   body-paragraph:
     textColor: "{colors.on-surface}"
@@ -327,17 +320,17 @@ The palette is anchored by two families and surrounded by neutral and status rol
 
 ## Typography
 
-Campfire pairs a serif voice with a workhorse sans:
+Campfire is a software design system, so type stays utilitarian: one UI family across every surface and one monospace family scoped strictly to code.
 
-- **Fraunces** carries every heading (`h1`–`h6`) and editorial moments like pull quotes, testimonials, and case-study metrics. It is set with `font-variation-settings: "WONK" 1, "opsz" 72` so the optical-size axis tunes the letterforms for display use and the WONK axis adds the subtle character that makes the system feel handmade rather than templated. Headings use a low weight (400, occasionally 425 for h1/hero) — Fraunces holds enough presence at 400 that bolder weights feel shouty.
-- **System sans** (`-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif`) carries body copy, labels, navigation, and UI chrome. Using the platform's native UI font keeps text crisp at small sizes and shaves the network cost of a second display family.
-- **Fira Code** is the monospace voice — code blocks, inline code, dates, eyebrow metadata, and anywhere a tabular feel reinforces structure.
+- **Manrope** is the only UI typeface. Headings, body copy, labels, navigation, buttons, badges — everything textual that is not code resolves to Manrope (with a system-sans fallback stack). Headings step from h6 to h1 by weight and size; weights cluster on regular (400), semibold (600), and bold (700) at h1/h2.
+- **Fira Code** is reserved exclusively for code: fenced code blocks, inline code, and the docs site's syntax-highlighted snippets. It does not appear in metadata, eyebrows, dates, or any other UI chrome — those use Manrope at small sizes. Mixing monospaced fragments into otherwise-proportional UI degrades scan-ability and is a regression to be caught in review.
+- **Fraunces** is intentionally **not** part of this system. It belongs to the editorial brand (jeremyfuksa.com) where headlines, pull quotes, and case-study metrics call for a display serif. Software products consuming Campfire should not import or apply Fraunces; if a future surface needs an editorial voice, that's a sign it should be built against the editorial system, not Campfire.
 
-Heading sizes are fluid (`clamp()` between mobile and desktop) but anchored to the discrete sizes captured in the YAML scale. Letter-spacing tightens at display sizes (`-0.02em` for h1/h2) and relaxes back to `0` at h4 and below. Line-height drops below 1.2 only for the largest sizes, where optical spacing is naturally tighter.
+Sizing: headings run h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold, -0.01em) → h4 (24/32, semibold) → h5 (20/28, semibold) → h6 (18/28, semibold). Letter-spacing tightens only at the largest sizes; smaller headings stay at default tracking so they sit naturally inside dense UI.
 
 Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default.
 
-Heading color is `text-heading` (`#3d3028` light / `#f5e6d0` dark) — a warm near-black/cream pair that reads as ink rather than the neutral gray used for body copy. The contrast between the warm heading and the cool slate UI is intentional: it makes editorial moments feel typeset.
+Heading color is `on-surface` — same ink as body copy. Color is not used to differentiate hierarchy; size and weight do that work alone.
 
 ## Layout
 
@@ -423,3 +416,5 @@ Campfire ships ~80 React primitives under `src/components/ui/`, all built on Rad
 - Don't stack more than two elevation levels on the same surface. Three nested cards is a layout problem, not a depth problem.
 - Don't bypass `ThemeProvider` to detect dark mode (e.g., reading `matchMedia` directly inside a component). The provider is the single source of truth.
 - Don't reach into legacy tokens (`legacy.*`). They exist for backward compatibility and will be removed at the next major version.
+- Don't introduce Fraunces (or any other display serif) into Campfire surfaces. Fraunces is reserved for the editorial brand; software consuming Campfire should stay on Manrope.
+- Don't use Fira Code outside of code. Dates, metadata eyebrows, tabular labels, and "techy-feeling" accents all stay on Manrope. Fira Code is for code blocks and inline code only.
