@@ -191,6 +191,45 @@
       transform: scale(1);
     }
   }
+
+  /* design.md additions */
+  --color-text-heading: var(--text-heading);
+  --font-heading-editorial: var(--font-heading-editorial);
+
+  --text-editorial-h1: 48px;
+  --text-editorial-h2: 36px;
+  --text-editorial-h3: 30px;
+  --text-editorial-pullquote: 1.5rem;
+  --text-editorial-metric: 1.875rem;
+  --leading-editorial-h1: 48px;
+  --leading-editorial-h2: 38px;
+  --leading-editorial-h3: 33px;
+  --leading-editorial-pullquote: 2rem;
+  --leading-editorial-metric: 2.25rem;
+  --tracking-editorial-h1: -0.02em;
+  --tracking-editorial-h2: -0.02em;
+  --tracking-editorial-h3: -0.01em;
+  --font-weight-editorial-h1: 425;
+  --font-weight-editorial-h2: 400;
+  --font-weight-editorial-h3: 400;
+  --font-weight-editorial-pullquote: 400;
+  --font-weight-editorial-metric: 400;
+
+  --radius-xxl: var(--radius-2xl);
+
+  --spacing-xxs: var(--spacing-1);
+  --spacing-xs: var(--spacing-2);
+  --spacing-sm: var(--spacing-3);
+  --spacing-md: var(--spacing-4);
+  --spacing-lg: var(--spacing-5);
+  --spacing-xl: var(--spacing-6);
+  --spacing-xxl: var(--spacing-8);
+  --spacing-xxxl: var(--spacing-10);
+  --spacing-huge: var(--spacing-12);
+  --spacing-giant: var(--spacing-16);
+  --spacing-container-padding: var(--spacing-6);
+  --spacing-card-gap: var(--spacing-4);
+  --spacing-section-margin: var(--spacing-16);
 }
 
 /*
@@ -297,6 +336,15 @@
     --border: var(--border-default);
     --input: var(--border-default);
     --radius: var(--radius-base);
+
+    /* design.md: editorial typography (Fraunces) + heading ink */
+    --text-heading: #3d3028;
+    --font-heading-editorial: 'Fraunces', 'Georgia', serif;
+    --editorial-font-variation: 'WONK' 1, 'opsz' 72;
+  }
+
+  .dark {
+    --text-heading: #f5e6d0;
   }
 }
 
