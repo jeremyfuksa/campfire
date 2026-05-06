@@ -33,6 +33,7 @@ colors:
   on-danger: "#fef5f4"
   info: "#576580"
   on-info: "#f4f7fb"
+  text-heading: "#3d3028"
 typography:
   heading-h1:
     fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
@@ -93,6 +94,39 @@ typography:
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
+  editorial-h1:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 48px
+    fontWeight: 425
+    lineHeight: 48px
+    letterSpacing: -0.02em
+    fontVariation: '"WONK" 1, "opsz" 72'
+  editorial-h2:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 36px
+    fontWeight: 400
+    lineHeight: 38px
+    letterSpacing: -0.02em
+    fontVariation: '"WONK" 1, "opsz" 72'
+  editorial-h3:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 30px
+    fontWeight: 400
+    lineHeight: 33px
+    letterSpacing: -0.01em
+    fontVariation: '"WONK" 1, "opsz" 72'
+  editorial-pullquote:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 1.5rem
+    fontWeight: 400
+    lineHeight: 2rem
+    fontVariation: '"WONK" 1, "opsz" 72'
+  editorial-metric:
+    fontFamily: '"Fraunces", "Georgia", serif'
+    fontSize: 1.875rem
+    fontWeight: 400
+    lineHeight: 2.25rem
+    fontVariation: '"WONK" 1, "opsz" 72'
 rounded:
   none: 0
   sm: 0.375rem
@@ -298,6 +332,22 @@ components:
     typography: "{typography.code-md}"
     rounded: "{rounded.sm}"
     padding: 0 0.25rem
+  editorial-heading-1:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.editorial-h1}"
+  editorial-heading-2:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.editorial-h2}"
+  editorial-heading-3:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.editorial-h3}"
+  editorial-pullquote:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.editorial-pullquote}"
+    padding: 1rem 1.5rem
+  editorial-metric-value:
+    textColor: "{colors.text-heading}"
+    typography: "{typography.editorial-metric}"
 ---
 
 # Campfire Design System
@@ -320,17 +370,23 @@ The palette is anchored by two families and surrounded by neutral and status rol
 
 ## Typography
 
-Campfire is a software design system, so type stays utilitarian: one UI family across every surface and one monospace family scoped strictly to code.
+Campfire ships three families across two deployment contexts — software UI and editorial — with strict rules about where each family is allowed to appear.
 
-- **Manrope** is the only UI typeface. Headings, body copy, labels, navigation, buttons, badges — everything textual that is not code resolves to Manrope (with a system-sans fallback stack). Headings step from h6 to h1 by weight and size; weights cluster on regular (400), semibold (600), and bold (700) at h1/h2.
-- **Fira Code** is reserved exclusively for code: fenced code blocks, inline code, and the docs site's syntax-highlighted snippets. It does not appear in metadata, eyebrows, dates, or any other UI chrome — those use Manrope at small sizes. Mixing monospaced fragments into otherwise-proportional UI degrades scan-ability and is a regression to be caught in review.
-- **Fraunces** is intentionally **not** part of this system. It belongs to the editorial brand (jeremyfuksa.com) where headlines, pull quotes, and case-study metrics call for a display serif. Software products consuming Campfire should not import or apply Fraunces; if a future surface needs an editorial voice, that's a sign it should be built against the editorial system, not Campfire.
+- **Manrope** is the UI typeface. In software contexts (dashboards, admin tools, product surfaces) it carries every heading, body, label, button, and navigation element. In editorial contexts it still carries body copy, captions, metadata, and chrome. Manrope is the default everywhere; Fraunces is the exception, not the inversion.
+- **Fraunces** is the editorial display face, used **only** when Campfire is deployed to editorial surfaces (e.g., long-form writing, case studies, marketing pages, the personal site). Editorial headings (`editorial-h1`–`editorial-h3`), pull quotes, and case-study metric values use Fraunces at weight 400 (or 425 for h1) with `font-variation-settings: "WONK" 1, "opsz" 72` to engage the optical-size and WONK axes. Software UI surfaces never use Fraunces — using it inside a product UI is a misread of the system, not a stylistic choice.
+- **Fira Code** is reserved exclusively for code: fenced code blocks, inline code, and the docs site's syntax-highlighted snippets. It does not appear in metadata, eyebrows, dates, or any other UI chrome — those stay on Manrope. Mixing monospaced fragments into otherwise-proportional UI degrades scan-ability and is a regression to be caught in review.
 
-Sizing: headings run h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold, -0.01em) → h4 (24/32, semibold) → h5 (20/28, semibold) → h6 (18/28, semibold). Letter-spacing tightens only at the largest sizes; smaller headings stay at default tracking so they sit naturally inside dense UI.
+### Software heading scale (Manrope)
 
-Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default.
+h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold, -0.01em) → h4 (24/32, semibold) → h5 (20/28, semibold) → h6 (18/28, semibold). Letter-spacing tightens only at the largest sizes; smaller headings stay at default tracking so they sit naturally inside dense UI. Heading color is `on-surface` — same ink as body copy; size and weight alone carry hierarchy.
 
-Heading color is `on-surface` — same ink as body copy. Color is not used to differentiate hierarchy; size and weight do that work alone.
+### Editorial heading scale (Fraunces)
+
+`editorial-h1` (48/48, 425) → `editorial-h2` (36/38, 400) → `editorial-h3` (30/33, 400). Pull quotes and case-study metric values draw from `editorial-pullquote` and `editorial-metric`. All editorial Fraunces tokens carry the `"WONK" 1, "opsz" 72` variation. Editorial headings use the `text-heading` color (`#3d3028` light / warm cream dark) — a warm near-black that reads as ink rather than the neutral gray used for body copy. The contrast between the warm heading and the cool slate UI is intentional: it makes editorial moments feel typeset.
+
+### Body, labels, and code
+
+Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default. Labels use `label-sm` (12/16, semibold, +0.04em tracking). Code uses `code-md` and is the only place Fira Code appears.
 
 ## Layout
 
@@ -416,5 +472,6 @@ Campfire ships ~80 React primitives under `src/components/ui/`, all built on Rad
 - Don't stack more than two elevation levels on the same surface. Three nested cards is a layout problem, not a depth problem.
 - Don't bypass `ThemeProvider` to detect dark mode (e.g., reading `matchMedia` directly inside a component). The provider is the single source of truth.
 - Don't reach into legacy tokens (`legacy.*`). They exist for backward compatibility and will be removed at the next major version.
-- Don't introduce Fraunces (or any other display serif) into Campfire surfaces. Fraunces is reserved for the editorial brand; software consuming Campfire should stay on Manrope.
+- Don't use Fraunces in software UI. Fraunces is the editorial display face; deploying it inside a product (dashboards, admin tools, in-app chrome) is a misuse of the system. Software headings use Manrope.
+- Don't use Manrope for editorial display. When Campfire is deployed to editorial surfaces, headlines, pull quotes, and metric values use the `editorial-*` Fraunces tokens — falling back to Manrope flattens the editorial voice.
 - Don't use Fira Code outside of code. Dates, metadata eyebrows, tabular labels, and "techy-feeling" accents all stay on Manrope. Fira Code is for code blocks and inline code only.
