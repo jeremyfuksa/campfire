@@ -8,8 +8,8 @@ colors:
   on-primary: "#f7f8f9"
   primary-subtle: "#ebeef2"
   primary-muted: "#d2dae3"
-  secondary: "#b87b6a"
-  secondary-hover: "#a8654f"
+  secondary: "#8d5443"
+  secondary-hover: "#75473a"
   on-secondary: "#faf6f5"
   surface: "#f7f8f9"
   surface-subtle: "#edeef1"
@@ -19,19 +19,19 @@ colors:
   on-surface: "#2b303b"
   on-surface-secondary: "#5e6371"
   on-surface-tertiary: "#747b8a"
-  on-surface-disabled: "#9299a5"
+  on-surface-disabled: "#5e6371"
   on-surface-inverse: "#f7f8f9"
   border: "#d8dbe0"
   border-subtle: "#edeef1"
   border-strong: "#b8bcc5"
   focus-ring: "#4c627d"
-  success: "#739038"
+  success: "#475824"
   on-success: "#f4f9ec"
   warning: "#ef991f"
   on-warning: "#522a03"
-  danger: "#dc3a38"
+  danger: "#be2b29"
   on-danger: "#fef5f4"
-  info: "#8899b3"
+  info: "#576580"
   on-info: "#f4f7fb"
 typography:
   display-2xl:
@@ -217,6 +217,57 @@ components:
   navigation-link-active:
     backgroundColor: "{colors.primary-subtle}"
     textColor: "{colors.primary-active}"
+  button-secondary-warm:
+    backgroundColor: "{colors.secondary}"
+    textColor: "{colors.on-secondary}"
+    typography: "{typography.label-sm}"
+    rounded: "{rounded.md}"
+    height: 2.5rem
+    padding: 0 1rem
+  button-secondary-warm-hover:
+    backgroundColor: "{colors.secondary-hover}"
+  button-disabled:
+    backgroundColor: "{colors.surface-subtle}"
+    textColor: "{colors.on-surface-disabled}"
+    typography: "{typography.label-sm}"
+    rounded: "{rounded.md}"
+    height: 2.5rem
+    padding: 0 1rem
+  chip-muted:
+    backgroundColor: "{colors.primary-muted}"
+    textColor: "{colors.on-surface}"
+    typography: "{typography.label-sm}"
+    rounded: "{rounded.full}"
+    padding: 0.125rem 0.5rem
+  badge-info:
+    backgroundColor: "{colors.info}"
+    textColor: "{colors.on-info}"
+    typography: "{typography.label-sm}"
+    rounded: "{rounded.full}"
+    padding: 0.125rem 0.5rem
+  caption:
+    textColor: "{colors.on-surface-tertiary}"
+    typography: "{typography.body-sm}"
+  skeleton:
+    backgroundColor: "{colors.surface-muted}"
+    rounded: "{rounded.sm}"
+  footer-inverse:
+    backgroundColor: "{colors.surface-inverse}"
+    textColor: "{colors.on-surface-inverse}"
+    padding: 2rem 1.5rem
+  divider:
+    backgroundColor: "{colors.border}"
+    height: 1px
+  separator-subtle:
+    backgroundColor: "{colors.border-subtle}"
+    height: 1px
+  rule-strong:
+    backgroundColor: "{colors.border-strong}"
+    height: 1px
+  focus-indicator:
+    backgroundColor: "{colors.focus-ring}"
+    rounded: "{rounded.md}"
+    height: 2px
 ---
 
 # Campfire Design System
