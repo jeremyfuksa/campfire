@@ -282,6 +282,20 @@
   animation: campfire-fade-in var(--duration-fast) var(--ease-out) both;
 }
 
+/* Editorial accent utilities. Consume --editorial-accent / --editorial-accent-subtle,
+   which a <EditorialTheme> ancestor can swap. */
+@utility text-editorial-accent {
+  color: var(--editorial-accent);
+}
+
+@utility bg-editorial-accent-subtle {
+  background-color: var(--editorial-accent-subtle);
+}
+
+@utility border-editorial-accent {
+  border-color: var(--editorial-accent);
+}
+
 @utility campfire-stagger {
   /* Principle 2 (Offset & Delay): staggered children.
      Apply .campfire-stagger to a parent; each child gets a
@@ -345,6 +359,36 @@
 
   .dark {
     --text-heading: #f5e6d0;
+  }
+
+  /* Editorial accent themes.
+     Default (no attribute) = warm, set by semantic tokens.
+     Apply via <EditorialTheme tone="cool|deep"> or data-editorial-theme on any ancestor.
+     Software UI never sets this attribute; it's an editorial-only knob. */
+  [data-editorial-theme="warm"] {
+    --editorial-accent: var(--secondary-700);
+    --editorial-accent-subtle: var(--secondary-100);
+  }
+  [data-editorial-theme="cool"] {
+    --editorial-accent: var(--info-900);
+    --editorial-accent-subtle: var(--info-100);
+  }
+  [data-editorial-theme="deep"] {
+    --editorial-accent: var(--success-800);
+    --editorial-accent-subtle: var(--success-100);
+  }
+
+  .dark [data-editorial-theme="warm"] {
+    --editorial-accent: var(--secondary-300);
+    --editorial-accent-subtle: var(--secondary-900);
+  }
+  .dark [data-editorial-theme="cool"] {
+    --editorial-accent: var(--info-400);
+    --editorial-accent-subtle: var(--info-950);
+  }
+  .dark [data-editorial-theme="deep"] {
+    --editorial-accent: var(--success-400);
+    --editorial-accent-subtle: var(--success-900);
   }
 }
 
