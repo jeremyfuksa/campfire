@@ -663,21 +663,21 @@ function TypographySection() {
         <div className="space-y-4">
           <div className="p-4 rounded-lg" style={{ border: '1px solid var(--border-default)' }}>
             <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Primary (Body Text)</div>
-            <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: '24px', color: 'var(--text-primary)' }}>
-              Manrope — The quick brown fox jumps over the lazy dog
+            <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '24px', color: 'var(--text-primary)' }}>
+              Work Sans — The quick brown fox jumps over the lazy dog
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', fontFamily: 'monospace' }}>
-              font-family: 'Manrope', sans-serif;
+              font-family: 'Work Sans', sans-serif;
             </div>
           </div>
 
           <div className="p-4 rounded-lg" style={{ border: '1px solid var(--border-default)' }}>
             <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Monospace (Code)</div>
-            <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '24px', color: 'var(--text-primary)' }}>
-              JetBrains Mono — The quick brown fox jumps over the lazy dog
+            <div style={{ fontFamily: '"Fira Code", monospace', fontSize: '24px', color: 'var(--text-primary)' }}>
+              Fira Code — The quick brown fox jumps over the lazy dog
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', fontFamily: 'monospace' }}>
-              font-family: 'JetBrains Mono', monospace;
+              font-family: 'Fira Code', monospace;
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@
     "6xl": { "$value": "4rem",    "$type": "dimension" }
   },
   "font": {
-    "sans": { "$value": "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "$type": "fontFamily" },
+    "sans": { "$value": "'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "$type": "fontFamily" },
     "mono": { "$value": "'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", "$type": "fontFamily" },
     "weight": {
       "light":      { "$value": "300", "$type": "fontWeight" },

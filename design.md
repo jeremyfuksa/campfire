@@ -36,55 +36,55 @@ colors:
   text-heading: "#3d3028"
 typography:
   heading-h1:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 3rem
     fontWeight: 700
     lineHeight: 3.5rem
     letterSpacing: -0.02em
   heading-h2:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 2.25rem
     fontWeight: 700
     lineHeight: 2.5rem
     letterSpacing: -0.015em
   heading-h3:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.875rem
     fontWeight: 600
     lineHeight: 2.25rem
     letterSpacing: -0.01em
   heading-h4:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.5rem
     fontWeight: 600
     lineHeight: 2rem
   heading-h5:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.25rem
     fontWeight: 600
     lineHeight: 1.75rem
   heading-h6:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.125rem
     fontWeight: 600
     lineHeight: 1.75rem
   body-lg:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.75rem
   body-md:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.5rem
   body-sm:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
   label-sm:
-    fontFamily: 'Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 0.75rem
     fontWeight: 600
     lineHeight: 1rem
@@ -370,11 +370,11 @@ The palette is anchored by two families and surrounded by neutral and status rol
 
 Campfire ships three families across two deployment contexts — software UI and editorial — with strict rules about where each family is allowed to appear.
 
-- **Manrope** is the UI typeface. In software contexts (dashboards, admin tools, product surfaces) it carries every heading, body, label, button, and navigation element. In editorial contexts it still carries body copy, captions, metadata, and chrome. Manrope is the default everywhere; Fraunces is the exception, not the inversion.
+- **Work Sans** is the UI typeface. In software contexts (dashboards, admin tools, product surfaces) it carries every heading, body, label, button, and navigation element. In editorial contexts it still carries body copy, captions, metadata, and chrome. Work Sans is the default everywhere; Fraunces is the exception, not the inversion.
 - **Fraunces** is the editorial display face, used **only** when Campfire is deployed to editorial surfaces (e.g., long-form writing, case studies, marketing pages, the personal site). Editorial headings (`editorial-h1`–`editorial-h3`), pull quotes, and case-study metric values use Fraunces at weight 400 (or 425 for h1) with `font-variation-settings: "WONK" 1, "opsz" 72` to engage the optical-size and WONK axes. Software UI surfaces never use Fraunces — using it inside a product UI is a misread of the system, not a stylistic choice.
-- **Fira Code** is reserved exclusively for code: fenced code blocks, inline code, and the docs site's syntax-highlighted snippets. It does not appear in metadata, eyebrows, dates, or any other UI chrome — those stay on Manrope. Mixing monospaced fragments into otherwise-proportional UI degrades scan-ability and is a regression to be caught in review.
+- **Fira Code** is reserved for technical content. Allowed surfaces: fenced code blocks, inline `<code>`, syntax-highlighted snippets, raw token values rendered as data (hex codes, spacing scales, dimension tokens), keyboard keys (`<kbd>`), and tabular numerics inside data tables and chart tooltips. **Disallowed surfaces (zero exceptions): CTAs, buttons, links, navigation items, eyebrows, dates, badges/tags that aren't displaying a raw token value, hero copy, marketing accents, body prose, and any other "techy-feeling" decoration.** If the element is something a user clicks, taps, or reads as prose, it is Work Sans. The test: is the literal text of this element a piece of code or a raw machine value? If no, it does not get Fira Code.
 
-### Software heading scale (Manrope)
+### Software heading scale (Work Sans)
 
 h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold, -0.01em) → h4 (24/32, semibold) → h5 (20/28, semibold) → h6 (18/28, semibold). Letter-spacing tightens only at the largest sizes; smaller headings stay at default tracking so they sit naturally inside dense UI. Heading color is `on-surface` — same ink as body copy; size and weight alone carry hierarchy.
 
@@ -384,7 +384,7 @@ h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold
 
 ### Body, labels, and code
 
-Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default. Labels use `label-sm` (12/16, semibold, +0.04em tracking). Code uses `code-md` and is the only place Fira Code appears.
+Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default. Labels use `label-sm` (12/16, semibold, +0.04em tracking). Code uses `code-md` and is the canonical home for Fira Code; the only other places Fira Code may appear are the technical surfaces enumerated above (raw token values, `<kbd>`, tabular numerics).
 
 ## Layout
 
@@ -470,6 +470,6 @@ Campfire ships ~80 React primitives under `src/components/ui/`, all built on Rad
 - Don't stack more than two elevation levels on the same surface. Three nested cards is a layout problem, not a depth problem.
 - Don't bypass `ThemeProvider` to detect dark mode (e.g., reading `matchMedia` directly inside a component). The provider is the single source of truth.
 - Don't reach into legacy tokens (`legacy.*`). They exist for backward compatibility and will be removed at the next major version.
-- Don't use Fraunces in software UI. Fraunces is the editorial display face; deploying it inside a product (dashboards, admin tools, in-app chrome) is a misuse of the system. Software headings use Manrope.
-- Don't use Manrope for editorial display. When Campfire is deployed to editorial surfaces, headlines, pull quotes, and metric values use the `editorial-*` Fraunces tokens — falling back to Manrope flattens the editorial voice.
-- Don't use Fira Code outside of code. Dates, metadata eyebrows, tabular labels, and "techy-feeling" accents all stay on Manrope. Fira Code is for code blocks and inline code only.
+- Don't use Fraunces in software UI. Fraunces is the editorial display face; deploying it inside a product (dashboards, admin tools, in-app chrome) is a misuse of the system. Software headings use Work Sans.
+- Don't use Work Sans for editorial display. When Campfire is deployed to editorial surfaces, headlines, pull quotes, and metric values use the `editorial-*` Fraunces tokens — falling back to Work Sans flattens the editorial voice.
+- Don't use Fira Code on non-technical UI. CTAs, buttons, links, navigation, badges, dates, eyebrows, hero copy, and body prose are always Work Sans — no exceptions for "techy" styling. Fira Code is allowed only on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. If the text is something the user reads as language or clicks as an affordance, it is Work Sans.
