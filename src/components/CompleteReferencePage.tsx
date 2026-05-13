@@ -96,7 +96,7 @@ export function CompleteReferencePage() {
           <Badge variant="secondary">React + Tailwind CSS v4</Badge>
           <Badge variant="secondary">shadcn/ui + Radix</Badge>
           <Badge variant="secondary">8px Grid System</Badge>
-          <Badge variant="secondary">Manrope + JetBrains Mono</Badge>
+          <Badge variant="secondary">Work Sans + Fira Code</Badge>
         </div>
       </div>
 
@@ -347,20 +347,20 @@ export function CompleteReferencePage() {
               <h4 className="mb-4" style={{ fontSize: '20px' }}>Font Families</h4>
               <div className="space-y-4">
                 <div className="p-6 rounded-lg" style={{ border: '1px solid var(--border-default)', backgroundColor: 'var(--bg-subtle)' }}>
-                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Primary (Manrope)</div>
-                  <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: '28px' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Primary (Work Sans)</div>
+                  <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '28px' }}>
                     The quick brown fox jumps over the lazy dog
                   </div>
-                  <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: '16px', marginTop: '8px', color: 'var(--text-secondary)' }}>
+                  <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '16px', marginTop: '8px', color: 'var(--text-secondary)' }}>
                     ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
                   </div>
                 </div>
                 <div className="p-6 rounded-lg" style={{ border: '1px solid var(--border-default)', backgroundColor: 'var(--bg-subtle)' }}>
-                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Monospace (JetBrains Mono)</div>
-                  <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '28px' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Monospace (Fira Code)</div>
+                  <div style={{ fontFamily: '"Fira Code", monospace', fontSize: '28px' }}>
                     The quick brown fox jumps over the lazy dog
                   </div>
-                  <div style={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '16px', marginTop: '8px', color: 'var(--text-secondary)' }}>
+                  <div style={{ fontFamily: '"Fira Code", monospace', fontSize: '16px', marginTop: '8px', color: 'var(--text-secondary)' }}>
                     ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
                   </div>
                 </div>
@@ -1514,8 +1514,8 @@ export function CompleteReferencePage() {
             A warm, earthy design system — the grounded complement to Catppuccin
           </p>
           <div className="flex justify-center gap-3 mt-6">
-            <Badge variant="outline">Manrope</Badge>
-            <Badge variant="outline">JetBrains Mono</Badge>
+            <Badge variant="outline">Work Sans</Badge>
+            <Badge variant="outline">Fira Code</Badge>
             <Badge variant="outline">8px Grid</Badge>
             <Badge variant="outline">14 Signature Colors</Badge>
           </div>
