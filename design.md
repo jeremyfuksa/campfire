@@ -382,6 +382,18 @@ h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold
 
 `editorial-h1` (48/48, 425) → `editorial-h2` (36/38, 400) → `editorial-h3` (30/33, 400). Pull quotes and case-study metric values draw from `editorial-pullquote` and `editorial-metric`. All editorial Fraunces tokens carry the `"WONK" 1, "opsz" 72` variation. Editorial headings use the `text-heading` color (`#3d3028` light / warm cream dark) — a warm near-black that reads as ink rather than the neutral gray used for body copy. The contrast between the warm heading and the cool slate UI is intentional: it makes editorial moments feel typeset.
 
+### Editorial accent themes
+
+Editorial surfaces opt into a single accent color that carries through eyebrows, pullquote rules, drop caps, and small chrome. The accent is exposed as a CSS variable (`--editorial-accent`, plus a soft companion `--editorial-accent-subtle` for background tints), which means a section or article can swap tones without restyling its children. Three tones ship:
+
+- **Warm** (default) — clay/terracotta family, drawn from the `secondary` ramp. Reads as fire, ember, sunset.
+- **Cool** — dusk/slate family, drawn from the `info` ramp. Reads as evening, water, distance.
+- **Deep** — moss/forest family, drawn from the `success` ramp. Reads as understory, study, depth.
+
+Activate a tone by wrapping the editorial region in `<EditorialTheme tone="cool">` (or setting `data-editorial-theme="cool"` on any ancestor). All descendant uses of `text-editorial-accent`, `bg-editorial-accent-subtle`, and `border-editorial-accent` pick up the new accent automatically. The primitives `<EditorialEyebrow>`, `<EditorialPullquote>`, and `<EditorialDropCap>` consume these utilities so they recolor with the theme.
+
+Headings remain on `text-heading` regardless of tone. The accent is for **secondary** editorial elements — kickers, pull-quote rules, drop caps, link underlines, ornaments — never for the primary heading text itself. Letting the heading stay on warm ink keeps the editorial voice intact while color tells the story alongside it.
+
 ### Body, labels, and code
 
 Body copy targets `1rem / 1.5rem` as the default reading size; `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default. Labels use `label-sm` (12/16, semibold, +0.04em tracking). Code uses `code-md` and is the canonical home for Fira Code; the only other places Fira Code may appear are the technical surfaces enumerated above (raw token values, `<kbd>`, tabular numerics).
@@ -473,3 +485,5 @@ Campfire ships ~80 React primitives under `src/components/ui/`, all built on Rad
 - Don't use Fraunces in software UI. Fraunces is the editorial display face; deploying it inside a product (dashboards, admin tools, in-app chrome) is a misuse of the system. Software headings use Work Sans.
 - Don't use Work Sans for editorial display. When Campfire is deployed to editorial surfaces, headlines, pull quotes, and metric values use the `editorial-*` Fraunces tokens — falling back to Work Sans flattens the editorial voice.
 - Don't use Fira Code on non-technical UI. CTAs, buttons, links, navigation, badges, dates, eyebrows, hero copy, and body prose are always Work Sans — no exceptions for "techy" styling. Fira Code is allowed only on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. If the text is something the user reads as language or clicks as an affordance, it is Work Sans.
+- Don't apply editorial accent themes (`<EditorialTheme>`, `data-editorial-theme`) to software UI surfaces. The accent system is for editorial pages — long-form writing, case studies, marketing, the personal site. Dashboards, admin tooling, and in-app chrome stay on the primary slate-blue and never pick up warm/cool/deep tones.
+- Don't color the primary heading text with the editorial accent. Editorial headings remain on `text-heading` (warm near-black). The accent rides on smaller elements — eyebrows, pullquote rules, drop caps, ornaments — so the heading reads as ink and color does its work alongside it.

@@ -22,5 +22,9 @@
     "hover":    { "$value": "{primary.700}", "$type": "color" },
     "active":   { "$value": "{primary.800}", "$type": "color" },
     "disabled": { "$value": "{neutral.300}", "$type": "color" }
+  },
+  "editorial": {
+    "accent":        { "$value": "{secondary.700}", "$type": "color" },
+    "accent-subtle": { "$value": "{secondary.100}", "$type": "color" }
   }
 }
