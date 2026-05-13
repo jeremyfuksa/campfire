@@ -4,6 +4,69 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-05-13
+
+### Added
+- **Editorial accent themes** (#26). New per-section color knob for
+  editorial surfaces (long-form writing, case studies, marketing,
+  personal-site posts). Three tones ship — `warm` (clay/terracotta,
+  default), `cool` (dusk/slate), `deep` (moss/forest) — each backed by
+  the existing `secondary`, `info`, and `success` palette ramps so no
+  new colors are introduced. Each tone has matched light + dark
+  pairings. Activation is via `<EditorialTheme tone="cool">` or a
+  `data-editorial-theme="cool"` attribute on any ancestor; descendants
+  pick up `--editorial-accent` and `--editorial-accent-subtle` through
+  the cascade.
+- **New editorial primitives** (#26) exported from the public API:
+  - `<EditorialTheme>` — wrapper that sets the data attribute.
+  - `<EditorialEyebrow>` — kicker label in the active accent.
+  - `<EditorialPullquote>` — Fraunces pullquote with `ruled` (default)
+    or `tinted` variant; optional citation slot.
+  - `<EditorialDropCap>` — large Fraunces first-letter accent.
+- **Editorial utility classes** (#26): `text-editorial-accent`,
+  `bg-editorial-accent-subtle`, `border-editorial-accent`.
+- **`editorial.accent` and `editorial.accent-subtle` semantic tokens**
+  (#26) in `semantic.light.json` / `semantic.dark.json`.
+- **design.md "Editorial accent themes" section** (#26) documenting
+  the three tones, the activation API, and the rule that headings stay
+  on `text-heading` regardless of tone — the accent rides on secondary
+  elements (eyebrows, pullquote rules, drop caps, ornaments) only.
+
+### Changed
+- **Body typeface swapped from Manrope to Work Sans** (#25). Updated
+  Google Fonts import, `font.sans` design token,
+  `--font-heading-h1..h6`/`--font-body-*`/`--font-label-sm` theme
+  variables, and `design.md` body-font references. Consumers loading
+  Campfire's `styles.css` automatically pick up the new font; sites
+  bundling Campfire tokens with their own font loader should switch
+  their Google Fonts import accordingly.
+- **Fira Code scope rewritten** (#25). The rule in `design.md` is now
+  explicit about technical vs. non-technical surfaces. Allowed: code,
+  inline `<code>`, syntax-highlighted snippets, raw token values (hex
+  codes, spacing/dimension), `<kbd>` keys, and tabular numerics in
+  data tables / chart tooltips. Prohibited (zero exceptions): CTAs,
+  buttons, links, navigation, badges, eyebrows, dates, hero copy, body
+  prose, marketing accents, and "techy-feeling" decoration. If the
+  text is something the user reads as language or clicks as an
+  affordance, it is Work Sans.
+- **Showcase font-family labels refreshed** (#25): `DesignTokensPage`
+  and `CompleteReferencePage` now read **Work Sans / Fira Code**
+  instead of the stale **Manrope / JetBrains Mono** display strings.
+
+### Don'ts (new entries in design.md)
+- Don't apply editorial accent themes to software UI surfaces. The
+  accent system is editorial-only; dashboards, admin tooling, and
+  in-app chrome stay on the primary slate-blue.
+- Don't color the primary heading text with the editorial accent —
+  accents are for secondary elements so the heading reads as ink.
+- Don't use Fira Code on non-technical UI. Restated explicitly with an
+  enumerated allowed/disallowed list.
+
+### Fixed
+- **`Collapsible` story repo-name rows no longer use `font-mono`**
+  (#25). Decorative use of mono on non-code list items violated the
+  tightened typography rule.
+
 ### Fixed
 - **Dialog: `DialogPortal` and `DialogOverlay` now respect open state**
   (#16). Both were bare `<div>` passthroughs that rendered
