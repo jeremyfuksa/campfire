@@ -1,9 +1,11 @@
 // Typography — VIOLATION examples and their fixes.
-// Most common gotchas: font-mono on UI, Fraunces in software, stale Manrope.
+// Common gotchas under the new role split (Hanken Grotesk for prose,
+// Work Sans for UI): wrong family on the wrong role, font-mono on UI,
+// Fraunces in software, stale Manrope, missing super-wonk variation.
 
 // ============================================================
 // VIOLATION 1: font-mono on a CTA / button.
-// Buttons are NOT technical content. Use Work Sans (default).
+// Buttons are NOT technical content. They're UI = Work Sans.
 // ============================================================
 export function MonoOnCtaBad() {
   return (
@@ -13,7 +15,7 @@ export function MonoOnCtaBad() {
   );
 }
 
-// ✅ FIX: Drop font-mono. Work Sans is the default; no class needed.
+// ✅ FIX: Drop font-mono. Button inherits Work Sans from <body>.
 export function MonoOnCtaFixed() {
   return (
     <button className="bg-primary px-4 py-2 rounded-md text-white">
@@ -23,7 +25,49 @@ export function MonoOnCtaFixed() {
 }
 
 // ============================================================
-// VIOLATION 2: font-mono on a date / metadata eyebrow.
+// VIOLATION 2: Work Sans forced on a paragraph.
+// Paragraphs are prose = Hanken Grotesk. Don't override.
+// ============================================================
+export function WorkSansOnParagraphBad() {
+  return (
+    <p style={{ fontFamily: "var(--font-sans)" }}>
+      A campfire's warmth is honest.
+    </p>
+  );
+}
+
+// ✅ FIX: Bare <p> automatically picks up --font-body (Hanken Grotesk)
+//        from the global rule. No font-family needed.
+export function WorkSansOnParagraphFixed() {
+  return <p>A campfire's warmth is honest.</p>;
+}
+
+// ============================================================
+// VIOLATION 3: Hanken Grotesk forced on a button or label.
+// Hanken is for prose, not UI. Buttons/labels = Work Sans.
+// ============================================================
+export function HankenOnButtonBad() {
+  return (
+    <button
+      style={{ fontFamily: "var(--font-body)" }}
+      className="bg-primary px-4 py-2 rounded-md text-white"
+    >
+      Save
+    </button>
+  );
+}
+
+// ✅ FIX: Remove the override. Buttons inherit Work Sans.
+export function HankenOnButtonFixed() {
+  return (
+    <button className="bg-primary px-4 py-2 rounded-md text-white">
+      Save
+    </button>
+  );
+}
+
+// ============================================================
+// VIOLATION 4: font-mono on a date / metadata eyebrow.
 // Dates and metadata are language, not code.
 // ============================================================
 export function MonoOnDateBad() {
@@ -37,7 +81,7 @@ export function MonoOnDateBad() {
   );
 }
 
-// ✅ FIX: Default font (Work Sans) for human-readable metadata.
+// ✅ FIX: Default fonts. Heading = Work Sans, paragraph = Hanken Grotesk.
 export function MonoOnDateFixed() {
   return (
     <div>
@@ -50,40 +94,7 @@ export function MonoOnDateFixed() {
 }
 
 // ============================================================
-// VIOLATION 3: font-mono on a tag/badge that's just decorative.
-// Repo names, package names, tag labels — these read as language to
-// the user, not as code. Mono here is "techy-feeling decoration."
-// ============================================================
-export function MonoOnTagBad() {
-  return (
-    <div className="space-y-2">
-      <div className="border rounded-md px-4 py-2 font-mono text-sm">
-        @radix-ui/primitives
-      </div>
-      <div className="border rounded-md px-4 py-2 font-mono text-sm">
-        @stitches/react
-      </div>
-    </div>
-  );
-}
-
-// ✅ FIX: Default font. The package names happen to look "code-ish"
-// but they're list items in a UI, not source code.
-export function MonoOnTagFixed() {
-  return (
-    <div className="space-y-2">
-      <div className="border rounded-md px-4 py-2 text-sm">
-        @radix-ui/primitives
-      </div>
-      <div className="border rounded-md px-4 py-2 text-sm">
-        @stitches/react
-      </div>
-    </div>
-  );
-}
-
-// ============================================================
-// VIOLATION 4: Fraunces in software UI.
+// VIOLATION 5: Fraunces in software UI.
 // Fraunces is editorial-only. Software headings use Work Sans.
 // ============================================================
 export function FrauncesInSoftwareBad() {
@@ -103,9 +114,47 @@ export function FrauncesInSoftwareFixed() {
 }
 
 // ============================================================
-// VIOLATION 5: Stale Manrope reference.
-// Manrope was replaced by Work Sans in v0.7.0. Any Manrope
-// reference in new code is stale.
+// VIOLATION 6: Editorial Fraunces without the super-wonk variation.
+// Plain Fraunces without font-variation-settings looks generic.
+// Always include the variation when using --font-heading-editorial.
+// ============================================================
+export function FrauncesNoVariationBad() {
+  return (
+    <h1
+      style={{
+        fontFamily: "var(--font-heading-editorial)",
+        fontSize: "3rem",
+        color: "var(--text-heading)",
+        // ❌ Missing fontVariationSettings — losing the WONK alts and
+        //    soft terminals that make editorial Fraunces itself.
+      }}
+    >
+      Sitting close to the coals
+    </h1>
+  );
+}
+
+// ✅ FIX: Apply --editorial-font-variation for super wonk.
+export function FrauncesWithVariationFixed() {
+  return (
+    <h1
+      style={{
+        fontFamily: "var(--font-heading-editorial)",
+        fontSize: "3rem",
+        color: "var(--text-heading)",
+        fontVariationSettings: "var(--editorial-font-variation)",
+      }}
+    >
+      Sitting close to the coals
+    </h1>
+  );
+}
+
+// ============================================================
+// VIOLATION 7: Stale Manrope reference.
+// Manrope was replaced by Work Sans in v0.7.0 (and Work Sans was
+// then demoted to UI-only when Hanken Grotesk took over body in
+// v0.8.0). Any Manrope reference is stale.
 // ============================================================
 export function ManropeStaleBad() {
   return (
@@ -115,11 +164,7 @@ export function ManropeStaleBad() {
   );
 }
 
-// ✅ FIX: Use the token, which is now Work Sans.
+// ✅ FIX: Bare <p> uses Hanken Grotesk via --font-body automatically.
 export function ManropeStaleFixed() {
-  return (
-    <p style={{ fontFamily: "var(--font-sans)" }}>
-      Welcome back.
-    </p>
-  );
+  return <p>Welcome back.</p>;
 }

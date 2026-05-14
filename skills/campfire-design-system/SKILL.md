@@ -30,10 +30,11 @@ These are the rules people break even after reading the docs. If you see any of 
 
 1. **Spark — Rule of One.** `text-spark`, `bg-spark`, `ring-spark`, `spark-pulse`, or any `var(--spark)` reference may appear at most **once per rendered screen**. A second instance is always a violation. There is intentionally no `<Spark>` component — the Rule of One is the API. → [reference/spark.md](reference/spark.md)
 2. **Fira Code is technical-only.** `font-mono` and `var(--font-mono)` belong on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. **Never** on CTAs, buttons, links, navigation, badges, eyebrows, dates, hero copy, body prose, or "techy-feeling" decoration. → [reference/typography.md](reference/typography.md)
-3. **Fraunces is editorial-only.** Software UI uses Work Sans for headings. Fraunces appears only in editorial contexts. → [reference/typography.md](reference/typography.md)
-4. **Editorial themes are editorial-only.** `<EditorialTheme>` and `data-editorial-theme="warm|cool|deep"` don't belong inside software UI surfaces. → [reference/editorial.md](reference/editorial.md)
-5. **Editorial accent never colors heading text.** Inside editorial sections, the accent rides on secondary elements only — eyebrows, pullquote rules, drop caps, ornaments. → [reference/editorial.md](reference/editorial.md)
-6. **Body font is Work Sans, not Manrope.** Manrope was replaced in v0.7.0. New code referencing `Manrope` is stale. → [reference/typography.md](reference/typography.md)
+3. **Body prose = Hanken Grotesk; UI = Work Sans.** Mechanical split: paragraphs / ledes / captions / blockquote prose use `--font-body` (Hanken Grotesk). Labels, buttons, navigation, software headings (h1–h6), eyebrows use `--font-sans` (Work Sans). A `<p>` styled with `font-sans` or a `<button>` styled with `font-body` is a violation — there is no "designer's choice" zone. → [reference/typography.md](reference/typography.md)
+4. **Fraunces is editorial-only, with super wonk.** Software UI uses Work Sans for headings. Fraunces appears only in editorial contexts and uses the variation `'opsz' 144, 'SOFT' 100, 'WONK' 1` — full display-grade quirks. → [reference/typography.md](reference/typography.md)
+5. **Editorial themes are editorial-only.** `<EditorialTheme>` and `data-editorial-theme="warm|cool|deep"` don't belong inside software UI surfaces. → [reference/editorial.md](reference/editorial.md)
+6. **Editorial accent never colors heading text.** Inside editorial sections, the accent rides on secondary elements only — eyebrows, pullquote rules, drop caps, ornaments. → [reference/editorial.md](reference/editorial.md)
+7. **Body font is Hanken Grotesk, not Manrope or Work Sans.** Manrope was replaced by Work Sans in v0.7.0; Work Sans was demoted to UI-only when Hanken Grotesk became the body face. Any `Manrope` reference is stale; using Work Sans for paragraphs is also wrong. → [reference/typography.md](reference/typography.md)
 
 ## Reference files (read on demand)
 
