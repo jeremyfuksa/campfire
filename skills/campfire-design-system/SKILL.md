@@ -1,7 +1,6 @@
 ---
 name: campfire-design-system
-description: Apply Campfire Design System rules when working in a project that imports `@jeremyfuksa/campfire`. Use when writing or modifying UI components, choosing colors / typography / tokens, reviewing styles, or whenever the user mentions Campfire, Spark, editorial themes, Work Sans, Fraunces, or Fira Code scope.
-when_to_use: Auto-activates on any TSX/TS/JSX/JS/CSS/SCSS file in a Campfire-consuming project. Manually invoke before writing UI, choosing tokens, or reviewing styles.
+description: Apply Campfire Design System rules when working in a project that imports `@jeremyfuksa/campfire`. Use when writing or modifying UI components, choosing colors / typography / tokens, reviewing styles, or whenever the user mentions Campfire, Spark, editorial themes, Work Sans, Hanken Grotesk, Fraunces, or Fira Code scope. Auto-activates on TSX/TS/JSX/JS/CSS/SCSS files in a Campfire-consuming project.
 paths: "**/*.tsx,**/*.ts,**/*.jsx,**/*.js,**/*.css,**/*.scss"
 ---
 
