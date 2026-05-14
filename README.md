@@ -31,6 +31,54 @@ export function Example() {
 
 **Next.js App Router.** The published bundle marks every entry as `"use client"` so components that use hooks (Dialog, Popover, Sheet, ThemeProvider, etc.) work inside the `app/` directory. Import as usual.
 
+### Loading the fonts in Next.js
+
+Campfire's default `styles.css` pulls fonts via Google Fonts `@import url(...)` — fine in Vite or any plain bundler, but render-blocking and not ideal under Next.js. In a Next.js project, prefer `next/font` to self-host the families and let the framework handle preload + display swap. The Campfire CSS variables consume whatever family stack you provide, so you just need to point `--font-sans`, `--font-body`, and `--font-heading-editorial` at the next/font-generated CSS variables.
+
+```ts
+// app/fonts.ts
+import { Work_Sans, Hanken_Grotesk, Fraunces, Fira_Code } from "next/font/google";
+
+export const workSans = Work_Sans({ subsets: ["latin"], variable: "--campfire-work-sans" });
+export const hankenGrotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--campfire-hanken-grotesk" });
+export const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--campfire-fraunces",
+  axes: ["opsz", "SOFT", "WONK"],
+});
+export const firaCode = Fira_Code({ subsets: ["latin"], variable: "--campfire-fira-code" });
+```
+
+```tsx
+// app/layout.tsx
+import "@jeremyfuksa/campfire/styles.css";
+import "./globals.css"; // your overrides (see below)
+import { workSans, hankenGrotesk, fraunces, firaCode } from "./fonts";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="en"
+      className={`${workSans.variable} ${hankenGrotesk.variable} ${fraunces.variable} ${firaCode.variable}`}
+    >
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+```css
+/* app/globals.css — point Campfire's font tokens at next/font's CSS variables */
+:root {
+  --font-sans: var(--campfire-work-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: var(--campfire-hanken-grotesk), var(--font-sans);
+  --font-heading-editorial: var(--campfire-fraunces), "Georgia", serif;
+  --font-mono: var(--campfire-fira-code), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+```
+
+This gives you next/font's automatic optimization (preload, self-hosting, no FOUT) while keeping Campfire's role-split rules — body prose still uses `--font-body`, UI still uses `--font-sans`, etc.
+
 ### Option 2 — Clone + run locally
 
 ```bash
