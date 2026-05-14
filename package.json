@@ -24,19 +24,18 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "build:lib": "rm -rf dist && npm run tokens && tsup && node scripts/add-use-client.mjs && npm run build:skill",
-    "build:skill": "python3 scripts/package-skill.py skills/campfire-design-system dist",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "predeploy": "npm run build-storybook",
     "deploy": "gh-pages -d storybook-static",
+    "typecheck": "tsc --noEmit",
+    "build:lib": "rm -rf dist && npm run tokens && tsup && node scripts/add-use-client.mjs && npm run build:skill",
+    "build:skill": "python3 scripts/package-skill.py skills/campfire-design-system dist",
     "test": "vitest run src/test",
     "test:full": "vitest run",
     "test:smoke": "npm run test",
     "test:a11y": "vitest run --testNamePattern=\"accessibility|axe|violations\"",
     "release": "npm version patch && npm run build:lib && npm publish --access public",
-    "preview": "vite preview",
     "tokens": "node style-dictionary.config.mjs",
     "prepare": "node style-dictionary.config.mjs"
   },
