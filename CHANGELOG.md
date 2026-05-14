@@ -4,6 +4,51 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-05-14
+
+### Added
+- **`.skill` bundle for drop-in install** (#34). Every published
+  version now ships a pre-built `.skill` archive at
+  `dist/campfire-design-system.skill` — a zip with the canonical
+  `<skill-name>/<path>` layout that unzips directly into
+  `.claude/skills/` and works on any platform where `unzip` exists
+  (including Windows). 20 KB; contains `SKILL.md` plus four
+  `reference/*.md` files and five `examples/*.tsx` files at the
+  layout Claude Code expects.
+
+### Changed
+- **`build:lib` now chains a `build:skill` step** (#34) that invokes
+  `scripts/package-skill.py` — a stdlib-only Python adaptation of
+  [Anthropic's skill-creator packager](https://github.com/anthropics/skills/tree/main/skills/skill-creator).
+  The `.skill` is regenerated as part of every library build, so
+  consumers get a fresh bundle with every release.
+- **`SKILL.md` frontmatter cleanup** (#34): dropped the redundant
+  `when_to_use` field (its content was already captured in
+  `description`). `paths` retained for Claude Code's path-based
+  auto-activation; the vendored validator's allowed-keys list was
+  extended to accept it.
+- **README** — install section reorganized into three options:
+  drop-in `.skill` (most portable, uses `unzip`), symlink the source
+  directory (auto-updates with `npm update`), or `cp -r` the source
+  directory (for environments without symlinks).
+
+### Install paths for the Claude Code skill
+After `npm install @jeremyfuksa/campfire@0.8.1`, pick one:
+
+```bash
+# Option A — drop in the .skill bundle (most portable)
+mkdir -p .claude/skills
+unzip -o node_modules/@jeremyfuksa/campfire/dist/campfire-design-system.skill -d .claude/skills/
+
+# Option B — symlink (auto-updates with `npm update`)
+mkdir -p .claude/skills
+ln -sfn ../node_modules/@jeremyfuksa/campfire/skills/campfire-design-system .claude/skills/
+
+# Option C — copy (works where symlinks don't)
+mkdir -p .claude/skills
+cp -r node_modules/@jeremyfuksa/campfire/skills/campfire-design-system .claude/skills/
+```
+
 ## [0.8.0] - 2026-05-14
 
 ### Added
