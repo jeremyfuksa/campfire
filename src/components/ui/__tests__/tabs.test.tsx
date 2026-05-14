@@ -169,7 +169,8 @@ describe("Tabs", () => {
       );
 
       expect(screen.getByText("Content for Tab 1")).toBeInTheDocument();
-      expect(screen.queryByText("Content for Tab 2")).not.toBeVisible();
+      // Radix unmounts inactive tabpanels by default (no forceMount).
+      expect(screen.queryByText("Content for Tab 2")).not.toBeInTheDocument();
     });
 
     it("has data-slot attribute", () => {
@@ -219,7 +220,8 @@ describe("Tabs", () => {
       await user.click(tab2);
 
       expect(screen.getByText("Content 2")).toBeInTheDocument();
-      expect(screen.queryByText("Content 1")).not.toBeVisible();
+      // Radix unmounts inactive tabpanels by default (no forceMount).
+      expect(screen.queryByText("Content 1")).not.toBeInTheDocument();
     });
 
     it("updates active state on tab switch", async () => {
