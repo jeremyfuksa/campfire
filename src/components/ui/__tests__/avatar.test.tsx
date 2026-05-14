@@ -114,10 +114,14 @@ describe("Avatar", () => {
       expect(image).toBeInTheDocument();
     });
 
-    it("shows fallback when image fails to load", async () => {
+    it("shows fallback when image src is empty", async () => {
+      // Radix Avatar reports an "error" status for an empty/undefined
+      // src (see resolveLoadingStatus in @radix-ui/react-avatar), which
+      // is the cleanest way to trigger fallback rendering in tests
+      // without orchestrating a real load failure on the preloader.
       render(
         <Avatar>
-          <AvatarImage src="https://example.com/invalid.jpg" alt="User" />
+          <AvatarImage src="" alt="User" />
           <AvatarFallback>UN</AvatarFallback>
         </Avatar>
       );
