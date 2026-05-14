@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { AlertCircle, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { cn } from './utils';
 

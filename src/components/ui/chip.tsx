@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { X } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./utils";
@@ -11,13 +11,13 @@ const chipVariants = cva(
         default:
           "bg-muted text-foreground border-border",
         primary:
-          "bg-(--primary-100) text-(--primary-700) border-(--primary-200)",
+          "bg-primary-100 text-primary-700 border-primary-200",
         success:
-          "bg-(--success-100) text-(--success-800) border-(--success-200)",
+          "bg-success-100 text-success-800 border-success-200",
         warning:
-          "bg-(--warning-100) text-(--warning-900) border-(--warning-300)",
+          "bg-warning-100 text-warning-900 border-warning-300",
         danger:
-          "bg-(--danger-100) text-(--danger-800) border-(--danger-200)",
+          "bg-danger-100 text-danger-800 border-danger-200",
       },
     },
     defaultVariants: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { ArrowDown, ArrowUp } from 'lucide-react';
 import { Card, CardContent } from './card';
 

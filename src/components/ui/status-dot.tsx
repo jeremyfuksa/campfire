@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { cn } from "./utils";
 
 export type StatusValue =
@@ -23,16 +23,16 @@ interface StatusDotProps {
 }
 
 const dotColors: Record<StatusValue, string> = {
-  success: "bg-(--success-600)",
-  warning: "bg-(--warning-600)",
-  danger: "bg-(--danger-600)",
-  error: "bg-(--danger-600)",
-  info: "bg-(--info-600)",
-  neutral: "bg-(--neutral-500)",
-  default: "bg-(--neutral-500)",
-  active: "bg-(--success-500)",
-  away: "bg-(--warning-500)",
-  offline: "bg-(--neutral-400)",
+  success: "bg-success-600",
+  warning: "bg-warning-600",
+  danger: "bg-danger-600",
+  error: "bg-danger-600",
+  info: "bg-info-600",
+  neutral: "bg-neutral-500",
+  default: "bg-neutral-500",
+  active: "bg-success-500",
+  away: "bg-warning-500",
+  offline: "bg-neutral-400",
 };
 
 const StatusDot = React.forwardRef<HTMLDivElement, StatusDotProps>(
@@ -54,7 +54,7 @@ const StatusDot = React.forwardRef<HTMLDivElement, StatusDotProps>(
           )}
         </div>
         {label && (
-          <span className="text-sm text-(--text-primary)">
+          <span className="text-sm text-foreground">
             {label}
           </span>
         )}

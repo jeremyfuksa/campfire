@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./utils";
 
-const headingVariants = cva("text-(--text-primary)", {
+const headingVariants = cva("text-foreground", {
   variants: {
     level: {
       1: "text-(length:--heading-h1-size) font-(--heading-h1-weight) leading-(--heading-h1-line-height) tracking-(--heading-h1-letter-spacing)",
