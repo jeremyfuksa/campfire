@@ -37,6 +37,27 @@ npm run dev     # Docs & playground
 npm run build   # Production build of the docs site
 ```
 
+### Claude Code skill (optional)
+
+Campfire ships a [Claude Code](https://docs.claude.com/en/docs/claude-code/skills) skill that teaches Claude the design system's rules — the Spark "Rule of One," the Fira Code scope, when Fraunces is allowed, editorial-theme boundaries, etc. — so suggestions and reviews stay aligned with `design.md` instead of drifting into generic Tailwind defaults.
+
+After installing the package, link the skill into your project:
+
+```bash
+# One-time per project — symlink so it auto-updates with `npm update`
+mkdir -p .claude/skills
+ln -sfn ../../node_modules/@jeremyfuksa/campfire/skills/campfire-design-system.md .claude/skills/
+```
+
+If symlinks aren't an option (some Windows or CI environments), copy instead:
+
+```bash
+mkdir -p .claude/skills
+cp node_modules/@jeremyfuksa/campfire/skills/campfire-design-system.md .claude/skills/
+```
+
+The skill activates whenever you mention Campfire, Spark, editorial themes, Work Sans, Fraunces, or Fira Code — and proactively when Claude is writing or reviewing UI in a project that imports `@jeremyfuksa/campfire`. The authoritative ruleset is the package's bundled `design.md`; the skill just tells Claude to read it.
+
 ## Building the Library Locally
 
 The reusable components live under `src/components` and are re‑exported from `src/lib/index.ts`. Run:
