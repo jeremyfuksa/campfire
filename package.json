@@ -28,8 +28,9 @@
     "build": "tsc && vite build",
     "build:lib": "rm -rf dist && npm run tokens && tsup && node scripts/add-use-client.mjs && npm run build:skill",
     "build:skill": "python3 scripts/package-skill.py skills/campfire-design-system dist",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build-storybook",
+    "deploy": "gh-pages -d storybook-static",
     "test": "vitest run src/test",
     "test:full": "vitest run",
     "test:smoke": "npm run test",
@@ -124,6 +125,7 @@
     }
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^10.3.6",
     "@storybook/addon-links": "^10.3.5",
     "@storybook/react": "^10.3.5",
     "@storybook/react-vite": "^10.3.5",

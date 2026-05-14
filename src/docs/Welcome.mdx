@@ -1,0 +1,49 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Welcome" />
+
+# Campfire Design System
+
+A warm, dependable React component library built on layered design tokens, semantic theming, and accessible Radix primitives. Campfire is the design language for products that should feel like a place to settle in — warm, steady, and quietly confident.
+
+## Where to look
+
+- **Foundations** — the rules. Typography (the four-font role split), Spark (the one vivid accent and its Rule of One), and editorial themes (warm / cool / deep for long-form surfaces).
+- **Components** — the primitives. ~70 React components built on Radix, each with stories showing variants and an a11y-tested implementation.
+- **Editorial** — `EditorialTheme`, `EditorialEyebrow`, `EditorialPullquote`, `EditorialDropCap` — the kit for editorial pages.
+
+## A short tour
+
+**Typography is a role split, not a vibe.** Hanken Grotesk runs body prose. Work Sans runs UI (labels, buttons, navigation, software h1–h6, eyebrows). Fraunces is editorial display only, at full super-wonk variation (`'opsz' 144, 'SOFT' 100, 'WONK' 1`). Fira Code is technical content only — code, raw token values, `<kbd>`, tabular numerics. There is no "designer's choice" zone. See the Typography foundation for the full rules.
+
+**Spark is the one vivid accent, used sparingly.** A single saturated orange (`#ff5a1f` light / `#ff6b35` dark) reserved for high-stakes moments — a live indicator, an unread beacon, the literal flame. Rule of One: max one instance per screen, first use wins. There is intentionally no `<Spark>` component — the rule is the API.
+
+**Editorial themes color secondary elements only.** `<EditorialTheme tone="warm | cool | deep">` swaps an accent across eyebrows, pullquote rules, drop caps, and small chrome. Primary headings always stay on `text-heading`; the accent never colors heading text.
+
+## Install
+
+```bash
+npm install @jeremyfuksa/campfire
+```
+
+```ts
+import "@jeremyfuksa/campfire/styles.css";
+import { Button } from "@jeremyfuksa/campfire";
+```
+
+`styles.css` is opinionated (touches `*`, `h1`–`h6`, `p`, `button`, `input`, scrollbars). Apps mixing Campfire with another design system or reset can import `@jeremyfuksa/campfire/tokens.css` instead — that's CSS variables only, no element styling.
+
+## The Claude Code skill
+
+Campfire ships a Claude Code skill that teaches Claude the design system's rules. In a project that imports `@jeremyfuksa/campfire`:
+
+```bash
+mkdir -p .claude/skills
+unzip -o node_modules/@jeremyfuksa/campfire/dist/campfire-design-system.skill -d .claude/skills/
+```
+
+Any subsequent Claude Code session in the project auto-consults the rules — Spark Rule of One, typography role split, editorial scope, Fira Code scope — before suggesting UI code.
+
+## The canonical rules live in `design.md`
+
+This Storybook is the visual reference. The authoritative ruleset is [`design.md`](https://github.com/jeremyfuksa/campfire/blob/main/design.md) — it ships in the npm tarball at `node_modules/@jeremyfuksa/campfire/design.md` so tooling can reference it directly.

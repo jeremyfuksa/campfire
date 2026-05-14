@@ -1,0 +1,49 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Spark" />
+
+# Spark — the one vivid accent
+
+Campfire is muted by design. Spark is the single saturated orange reserved for high-stakes moments — a live indicator, an unread beacon, the literal flame. Its loudness is earned through scarcity.
+
+## Tokens
+
+| Token | Light | Dark |
+| --- | --- | --- |
+| `--spark` | `#ff5a1f` | `#ff6b35` |
+| `--spark-glow` | `color-mix(srgb, var(--spark) 24%, transparent)` | `color-mix(srgb, var(--spark) 32%, transparent)` |
+
+`--spark-glow` adapts to mode automatically via `color-mix`.
+
+## The Rule of One
+
+> If you can already see Spark on the page, you cannot add another instance. The first use wins.
+
+This is **the rule**, not a guideline. It's enforced by code review. There is intentionally no `<Spark>`, `<SparkBadge>`, or `<SparkDot>` component — the Rule of One is the API. If there's no component to repeat, repetition becomes harder.
+
+## Use Spark for
+
+- **Live, recording, or streaming indicators** — the pulsing dot. Use the `spark-pulse` utility (animates a halo using `--spark-glow`, auto-reduces under `prefers-reduced-motion`).
+- **Critical unread / new-activity beacons** — the "you have one important new thing" dot.
+- **The flame ember in the Campfire logo mark.**
+- **One brand-spark accent per editorial spread** — an underline on a single key word, a glyph between sections.
+- **A single hero CTA in marketing-grade moments** — only when the CTA is the most important action on the page.
+
+## Don't use Spark for
+
+- **General primary actions** — that's `--primary-600`. Spark is not a "more important primary."
+- **Errors or warnings** — those have their own ramps (`danger.*`, `warning.*`).
+- **Hover states, dividers, borders, gradients, chrome** — Spark doesn't get hover variants.
+- **Body text, links, or anything repeated within a single view** — repetition kills the signal.
+- **Decorative tinting** — Spark is signal, not surface.
+
+## Utility classes
+
+| Class | Effect |
+| --- | --- |
+| `text-spark` | `color: var(--spark)` |
+| `bg-spark` | `background-color: var(--spark)` |
+| `ring-spark` | 4px halo using `var(--spark-glow)` |
+| `spark-pulse` | Live-indicator keyframe animation |
+
+See the **Components / Foundations** section for canonical Spark usage examples (live dot, unread beacon, hero CTA, editorial underline).

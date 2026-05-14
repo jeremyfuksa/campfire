@@ -1,10 +1,14 @@
 # Campfire Design System
 
-This repository contains both the Campfire docs/demo app (served via Vite) and a distributable component library that can be consumed from other projects.
+A React component library and design language built on layered design tokens, semantic theming, and accessible Radix primitives. The repo ships:
 
-## Live Site
+- the publishable npm package `@jeremyfuksa/campfire` (~70 components, tokens, the editorial typography system, the Spark accent, and a Claude Code skill),
+- a Storybook docs site deployed to GitHub Pages,
+- a local Vite playground for iterative component development.
 
-The docs/demo site is deployed to GitHub Pages at https://jeremyfuksa.github.io/campfire so you can browse the getting-started flow, design tokens, and components without cloning the repo.
+## Live docs
+
+Storybook is the canonical docs site, deployed to GitHub Pages at https://jeremyfuksa.github.io/campfire. It auto-generates per-component variants and controls from the stories under `src/components/ui/`, plus MDX docs pages in `src/docs/` covering the design rules (Welcome, Typography, Spark). The authoritative ruleset is `design.md`, which also ships in the npm tarball.
 
 ## Getting Started
 
@@ -85,9 +89,12 @@ This gives you next/font's automatic optimization (preload, self-hosting, no FOU
 git clone https://github.com/jeremyfuksa/campfire.git
 cd campfire
 npm install
-npm run dev     # Docs & playground
-npm run build   # Production build of the docs site
+npm run storybook        # Storybook dev server — the canonical docs site
+npm run build-storybook  # Static Storybook build (output: storybook-static/)
+npm run dev              # Vite playground (kept for iterative component dev)
 ```
+
+The deployed docs at https://jeremyfuksa.github.io/campfire come from `storybook build` (configured via `predeploy` → `build-storybook`, `deploy` → `gh-pages -d storybook-static`). The Vite playground at `src/main.tsx` is local-only and is being phased out as Storybook docs pages absorb its content; for now it's still available via `npm run dev`.
 
 ### Claude Code skill (optional)
 

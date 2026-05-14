@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import "../src/styles/fonts.css";
 import "../src/styles/globals.css";
 
 const preview: Preview = {
@@ -10,17 +11,27 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: "dark",
+      default: "campfire-light",
       values: [
-        {
-          name: "dark",
-          value: "#0a0a0a",
-        },
-        {
-          name: "light",
-          value: "#ffffff",
-        },
+        { name: "campfire-light", value: "#f7f8f9" },
+        { name: "campfire-dark", value: "#1c1f26" },
+        { name: "neutral-white", value: "#ffffff" },
+        { name: "neutral-black", value: "#0a0a0a" },
       ],
+    },
+    options: {
+      // Sidebar ordering: docs pages first, then foundations, then editorial,
+      // then components. Anything else falls to the bottom alphabetically.
+      storySort: {
+        order: [
+          "Welcome",
+          "Foundations",
+          ["Typography", "Color", "Spacing", "Motion"],
+          "Editorial",
+          "Components",
+          "*",
+        ],
+      },
     },
   },
 };
