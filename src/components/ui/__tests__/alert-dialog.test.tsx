@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -12,6 +13,8 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
 } from "../alert-dialog";
+
+expect.extend(toHaveNoViolations);
 
 describe("AlertDialog", () => {
   it("renders trigger", () => {
@@ -59,5 +62,17 @@ describe("AlertDialog", () => {
     await user.click(screen.getByText("Delete"));
     expect(await screen.findByRole("button", { name: "Cancel" })).toBeInTheDocument();
     expect(await screen.findByRole("button", { name: "Continue" })).toBeInTheDocument();
+  });
+
+  describe("Accessibility", () => {
+    it("trigger has no axe violations", async () => {
+      const { container } = render(
+        <AlertDialog>
+          <AlertDialogTrigger>Open</AlertDialogTrigger>
+        </AlertDialog>,
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
   });
 });

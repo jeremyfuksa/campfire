@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -9,6 +10,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "../dropdown-menu";
+
+expect.extend(toHaveNoViolations);
 
 describe("DropdownMenu", () => {
   it("renders trigger", () => {
@@ -52,5 +55,15 @@ describe("DropdownMenu", () => {
 
     await user.click(screen.getByText("Menu"));
     expect(await screen.findByText("Actions")).toBeInTheDocument();
+  });
+
+  it("trigger has no axe violations", async () => {
+    const { container } = render(
+      <DropdownMenu>
+        <DropdownMenuTrigger>Open Menu</DropdownMenuTrigger>
+      </DropdownMenu>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

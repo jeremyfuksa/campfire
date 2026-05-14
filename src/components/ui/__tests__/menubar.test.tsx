@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   Menubar,
   MenubarMenu,
@@ -8,6 +9,8 @@ import {
   MenubarContent,
   MenubarItem,
 } from "../menubar";
+
+expect.extend(toHaveNoViolations);
 
 describe("Menubar", () => {
   it("renders correctly", () => {
@@ -55,5 +58,20 @@ describe("Menubar", () => {
 
     await user.click(screen.getByRole("menuitem", { name: "File" }));
     expect(await screen.findByText("New File")).toBeInTheDocument();
+  });
+
+  it("should not have accessibility violations", async () => {
+    const { container } = render(
+      <Menubar>
+        <MenubarMenu>
+          <MenubarTrigger>File</MenubarTrigger>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger>Edit</MenubarTrigger>
+        </MenubarMenu>
+      </Menubar>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

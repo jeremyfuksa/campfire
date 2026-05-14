@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../carousel";
+
+expect.extend(toHaveNoViolations);
 
 describe("Carousel", () => {
   it("renders correctly", () => {
@@ -32,5 +35,18 @@ describe("Carousel", () => {
     );
     expect(screen.getByRole("button", { name: /previous/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /next/i })).toBeInTheDocument();
+  });
+
+  it("should not have accessibility violations", async () => {
+    const { container } = render(
+      <Carousel>
+        <CarouselContent>
+          <CarouselItem>Slide 1</CarouselItem>
+          <CarouselItem>Slide 2</CarouselItem>
+        </CarouselContent>
+      </Carousel>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

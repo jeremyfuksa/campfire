@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   Sheet,
   SheetTrigger,
@@ -9,6 +10,8 @@ import {
   SheetTitle,
   SheetDescription,
 } from "../sheet";
+
+expect.extend(toHaveNoViolations);
 
 describe("Sheet", () => {
   it("renders trigger", () => {
@@ -36,5 +39,15 @@ describe("Sheet", () => {
 
     await user.click(screen.getByText("Open"));
     expect(await screen.findByText("Sheet Title")).toBeInTheDocument();
+  });
+
+  it("trigger has no axe violations", async () => {
+    const { container } = render(
+      <Sheet>
+        <SheetTrigger>Open Sheet</SheetTrigger>
+      </Sheet>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   Drawer,
   DrawerTrigger,
@@ -9,6 +10,8 @@ import {
   DrawerTitle,
   DrawerDescription,
 } from "../drawer";
+
+expect.extend(toHaveNoViolations);
 
 describe("Drawer", () => {
   it("renders trigger", () => {
@@ -36,5 +39,15 @@ describe("Drawer", () => {
 
     await user.click(screen.getByText("Open"));
     expect(await screen.findByText("Drawer Title")).toBeInTheDocument();
+  });
+
+  it("trigger has no axe violations", async () => {
+    const { container } = render(
+      <Drawer>
+        <DrawerTrigger>Open Drawer</DrawerTrigger>
+      </Drawer>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

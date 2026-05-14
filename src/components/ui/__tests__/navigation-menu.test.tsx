@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -8,6 +9,8 @@ import {
   NavigationMenuContent,
   NavigationMenuLink,
 } from "../navigation-menu";
+
+expect.extend(toHaveNoViolations);
 
 describe("NavigationMenu", () => {
   it("renders correctly", () => {
@@ -38,5 +41,19 @@ describe("NavigationMenu", () => {
     );
     expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
+  });
+
+  it("should not have accessibility violations", async () => {
+    const { container } = render(
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/">Home</NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

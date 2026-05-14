@@ -92,6 +92,7 @@ export function FileUpload({
           accept={accept}
           multiple={multiple}
           onChange={handleChange}
+          aria-label={label}
           className="hidden"
         />
         <div className="flex flex-col items-center gap-2">
