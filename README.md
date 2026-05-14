@@ -3,12 +3,13 @@
 A React component library and design language built on layered design tokens, semantic theming, and accessible Radix primitives. The repo ships:
 
 - the publishable npm package `@jeremyfuksa/campfire` (~70 components, tokens, the editorial typography system, the Spark accent, and a Claude Code skill),
-- a Storybook docs site deployed to GitHub Pages,
-- a local Vite playground for iterative component development.
+- a Storybook docs site deployed to GitHub Pages.
+
+Storybook is the only docs/dev surface. The hand-coded Vite playground that lived alongside it was retired in v0.9.x; everything has been ported to Storybook stories or MDX docs pages.
 
 ## Live docs
 
-Storybook is the canonical docs site, deployed to GitHub Pages at https://jeremyfuksa.github.io/campfire. It auto-generates per-component variants and controls from the stories under `src/components/ui/`, plus MDX docs pages in `src/docs/` covering the design rules (Welcome, Typography, Spark). The authoritative ruleset is `design.md`, which also ships in the npm tarball.
+Storybook is deployed to GitHub Pages at https://jeremyfuksa.github.io/campfire. It auto-generates per-component variants and controls from the stories under `src/components/ui/`, plus MDX docs pages in `src/docs/` covering the design rules (Welcome, Foundations / Typography, Foundations / Spark, Foundations / Tokens, Foundations / Layout). The authoritative ruleset is `design.md`, which also ships in the npm tarball.
 
 ## Getting Started
 
@@ -89,12 +90,14 @@ This gives you next/font's automatic optimization (preload, self-hosting, no FOU
 git clone https://github.com/jeremyfuksa/campfire.git
 cd campfire
 npm install
-npm run storybook        # Storybook dev server — the canonical docs site
+npm run storybook        # Storybook dev server (port 6006) — docs + component sandbox
 npm run build-storybook  # Static Storybook build (output: storybook-static/)
-npm run dev              # Vite playground (kept for iterative component dev)
+npm run typecheck        # tsc --noEmit
+npm test                 # Vitest smoke suite
+npm run test:full        # Full vitest suite (~73 component tests)
 ```
 
-The deployed docs at https://jeremyfuksa.github.io/campfire come from `storybook build` (configured via `predeploy` → `build-storybook`, `deploy` → `gh-pages -d storybook-static`). The Vite playground at `src/main.tsx` is local-only and is being phased out as Storybook docs pages absorb its content; for now it's still available via `npm run dev`.
+The deployed docs at https://jeremyfuksa.github.io/campfire come from `storybook build` (`predeploy` → `build-storybook`, `deploy` → `gh-pages -d storybook-static`).
 
 ### Claude Code skill (optional)
 

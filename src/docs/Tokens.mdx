@@ -1,0 +1,195 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Tokens" />
+
+# Design tokens
+
+Tokens are authored as W3C DTCG JSON under `src/tokens/` and built with [Style Dictionary](https://styledictionary.com/) into multiple distribution formats. This page documents every token group and its consumption surface. For the full source, see `src/tokens/*.json` in the repo.
+
+> All token names below render as CSS custom properties (`var(--token-name)`). Tailwind v4 also exposes them as utility classes (`bg-primary-600`, `text-secondary-700`, etc.) via the `@theme` block in `src/styles/globals.css`.
+
+## Consumption — three published entrypoints
+
+```ts
+// 1. Plain CSS custom properties (works in any environment)
+import "@jeremyfuksa/campfire/tokens.css";
+
+// 2. Typed JS object (for runtime access)
+import tokens from "@jeremyfuksa/campfire/tokens";
+console.log(tokens.color.primary["500"].value); // "#607a97"
+
+// 3. Raw W3C DTCG JSON (for Figma Make / design-tool importers)
+import tokensJson from "@jeremyfuksa/campfire/tokens.json";
+import darkTokens from "@jeremyfuksa/campfire/tokens.dark.json";
+```
+
+## Color — palette ramps
+
+Each ramp goes 50/100/200/300/400/500/600/700/800/900/950. Higher numbers = text on light; lower numbers = backgrounds and tints.
+
+| Ramp | Role | Sample tokens |
+| --- | --- | --- |
+| `primary-*` | Slate blue. Actionable elements: buttons, links, focused states. | `--primary-600` (default action), `--primary-700` (hover), `--primary-800` (active) |
+| `secondary-*` | Clay/terracotta. Warmth and accent. **Never** for primary affordances. | `--secondary-700`, `--secondary-100` (default editorial accent) |
+| `neutral-*` | Carries 95% of any screen. Backgrounds (50/100/200), text (500–950). | `--neutral-50` (page bg), `--neutral-900` (text) |
+| `success-*` / `warning-*` / `danger-*` / `info-*` | Status colors. Pair with `on-*` companions for pre-validated contrast. | `--success-600`, `--danger-600`, `--info-900` |
+
+## Color — semantic roles (preferred)
+
+Reach for these before primitives. Defined in `semantic.light.json` / `semantic.dark.json` and switched by the `.dark` class on `<html>`.
+
+```css
+/* Background */
+var(--bg-base)            /* page bg */
+var(--bg-subtle)          /* cards, list rows */
+var(--bg-muted)           /* inset surfaces */
+var(--bg-emphasis)        /* inverted */
+
+/* Text */
+var(--text-primary)       /* default text */
+var(--text-secondary)     /* de-emphasized */
+var(--text-tertiary)      /* captions, metadata */
+var(--text-disabled)
+var(--text-inverse)       /* text on dark bg */
+var(--text-heading)       /* editorial heading ink (warm near-black) */
+
+/* Borders */
+var(--border-default)
+var(--border-strong)
+var(--border-subtle)
+
+/* Interactive */
+var(--interactive-default)   /* = --primary-600 */
+var(--interactive-hover)     /* = --primary-700 */
+var(--interactive-active)    /* = --primary-800 */
+var(--interactive-disabled)
+
+/* Editorial accent (swappable via <EditorialTheme tone="warm | cool | deep">) */
+var(--editorial-accent)
+var(--editorial-accent-subtle)
+```
+
+## Color — signature palette (decorative)
+
+Named brand tones. Use for illustration accents, signature charts, decorative tinting. Each has light + dark mode pairings.
+
+```
+--clay        --flamingo     --terracotta
+--ember       --golden-amber --hay
+--sage        --moss         --pine
+--cello       --blue-calx    --dusk
+--mauve-earth --stone
+```
+
+Plus the special **`--spark`** (`#ff5a1f` light / `#ff6b35` dark) and derived `--spark-glow`. Spark is governed by the **Rule of One** — see Foundations / Spark.
+
+## Typography
+
+See **Foundations / Typography** for the full role split (Hanken Grotesk for prose, Work Sans for UI, Fraunces for editorial display, Fira Code for technical content).
+
+```css
+/* Font families */
+var(--font-sans)              /* Work Sans (UI default) */
+var(--font-body)              /* Hanken Grotesk (prose) */
+var(--font-mono)              /* Fira Code (technical-only) */
+var(--font-heading-editorial) /* Fraunces (editorial-only) */
+
+/* Per-role family tokens */
+var(--font-heading-h1) … var(--font-heading-h6)
+var(--font-body-lg) / --font-body-md / --font-body-sm
+var(--font-label-sm)
+var(--font-code-md)
+var(--font-editorial-h1) / --font-editorial-h2 / --font-editorial-h3
+var(--font-editorial-pullquote) / --font-editorial-metric
+
+/* Editorial display variation (super wonk) */
+var(--editorial-font-variation) /* 'opsz' 144, 'SOFT' 100, 'WONK' 1 */
+```
+
+## Spacing
+
+4px base unit (`0.25rem`). Tailwind utility classes map 1:1.
+
+```css
+var(--spacing-xxs)   /* 1 (0.25rem) */
+var(--spacing-xs)    /* 2 (0.5rem)  */
+var(--spacing-sm)    /* 3 (0.75rem) */
+var(--spacing-md)    /* 4 (1rem)    */
+var(--spacing-lg)    /* 5 (1.25rem) */
+var(--spacing-xl)    /* 6 (1.5rem)  */
+var(--spacing-xxl)   /* 8 (2rem)    */
+var(--spacing-xxxl)  /* 10 (2.5rem) */
+var(--spacing-huge)  /* 12 (3rem)   */
+var(--spacing-giant) /* 16 (4rem)   */
+
+/* Named layout slots */
+var(--spacing-container-padding) /* 1.5rem */
+var(--spacing-card-gap)          /* 1rem */
+var(--spacing-section-margin)    /* 4rem */
+```
+
+## Radii
+
+```css
+var(--radius-sm)      /* 6px  — chips, badges, kbd keys */
+var(--radius-base)    /* 8px  — buttons, inputs, segmented controls */
+var(--radius-md)      /* 12px — small cards, alerts, menus */
+var(--radius-lg)      /* 16px — primary cards, dialogs, drawers */
+var(--radius-xl)      /* marketing surfaces */
+var(--radius-xxl)     /* hero treatments only */
+var(--radius-full)    /* 9999px — avatars, status dots, pill tags */
+```
+
+## Shadows / elevation
+
+Depth is expressed through **borders and tonal shifts first, shadows second**.
+
+```css
+var(--shadow-2xs) / --shadow-xs / --shadow-sm / --shadow-md / --shadow-lg / --shadow-xl
+var(--shadow-focus)   /* the focus ring glow */
+```
+
+Elevation levels:
+- **Level 0 — Page**: `--bg-base`, no border, no shadow.
+- **Level 1 — Section**: `--bg-subtle` background OR `--bg-base` + `--border-subtle`.
+- **Level 2 — Floating**: `--bg-base` + `--border-default` + `--shadow-sm` (popovers, dropdowns).
+- **Level 3 — Modal**: `--bg-base` + `--shadow-lg` + scrim (dialogs only).
+
+## Motion
+
+```css
+/* Durations */
+var(--duration-fastest)  /* 75ms  */
+var(--duration-fast)     /* 150ms */
+var(--duration-normal)   /* 250ms */
+var(--duration-slow)     /* 400ms */
+var(--duration-slower)   /* 600ms */
+
+/* Easings */
+var(--ease-default) / --ease-in / --ease-out / --ease-in-out / --ease-spring / --ease-campfire
+```
+
+Animation utilities (in `globals.css`):
+
+```
+campfire-enter         /* slide+fade up */
+campfire-enter-scale   /* scale in with spring */
+campfire-enter-fade    /* fade only */
+campfire-stagger       /* parent class — children animate in sequence */
+```
+
+## Z-index
+
+```css
+var(--z-base) / --z-dropdown / --z-sticky / --z-overlay / --z-modal
+var(--z-popover) / --z-toast / --z-tooltip / --z-max
+```
+
+Always reach for these instead of raw numbers.
+
+## Lookup recipe
+
+1. **Need a color?** Check semantic roles first. If none fit, check the palette ramps. Tempted to use a signature color? Decorative → signature. Functional → semantic.
+2. **Need a font?** Always start at the typography tokens; never hand-set `font-family` for UI.
+3. **Need spacing/sizing?** Use named tokens, not raw px/rem values.
+4. **Stuck?** Surface to the user. Adding a new token is a deliberate act, not a workaround.
