@@ -157,9 +157,20 @@ describe("Switch", () => {
 
   describe("Validation States", () => {
     it("renders with required attribute", () => {
-      render(<Switch required aria-label="Required" />);
-      const switchElement = screen.getByRole("switch");
-      expect(switchElement).toBeRequired();
+      // Radix's Switch renders as a <button role="switch">. The HTML
+      // `required` constraint applies to the hidden checkbox companion
+      // Radix mounts when the Switch is inside a <form>; without a form,
+      // the constraint surfaces as `aria-required` on the button itself.
+      const { container } = render(
+        <form>
+          <Switch required name="toggle" aria-label="Required" />
+        </form>,
+      );
+      const hiddenInput = container.querySelector(
+        'input[type="checkbox"][name="toggle"]',
+      ) as HTMLInputElement | null;
+      expect(hiddenInput).toBeInTheDocument();
+      expect(hiddenInput).toBeRequired();
     });
   });
 
