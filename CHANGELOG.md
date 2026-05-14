@@ -28,6 +28,18 @@ All notable changes to the Campfire Design System.
 - **`design.md` ships in the npm tarball** (#30). The authoritative
   ruleset is now consumable from `node_modules/@jeremyfuksa/campfire/
   design.md` so the skill (or any tool) can reference it directly.
+- **`.skill` bundle for drop-in install** (#34). Every published
+  version now ships a pre-built `.skill` archive at
+  `dist/campfire-design-system.skill` — a zip with the canonical
+  `<skill-name>/<path>` layout that unzips directly into
+  `.claude/skills/` and works on any platform where `unzip` exists
+  (including Windows). Built by `npm run build:skill` (a stdlib-only
+  Python adaptation of [Anthropic's skill-creator packager](https://github.com/anthropics/skills/tree/main/skills/skill-creator)),
+  and chained into `build:lib` so the `.skill` is regenerated every
+  release. The README now documents three install options: drop-in
+  `.skill` (most portable), symlink the source directory
+  (auto-updates with `npm update`), or `cp -r` the source directory
+  (for environments without symlinks).
 
 ### Changed
 - **Typography overhauled to a 4-font role-split system** (#32):
