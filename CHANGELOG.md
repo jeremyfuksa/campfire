@@ -4,6 +4,127 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-05-14
+
+A consolidation release. Everything below was driven by a full
+audit of the repo: structural cleanup, docs-delivery migration,
+component-consistency pass, and a stack of follow-up refactors.
+
+### Added
+
+- **`<EditorialTheme>` primitives + theme system** (covered earlier
+  in 0.7.0; mentioned again here because Storybook now ships the
+  canonical `Foundations/Editorial` MDX docs page).
+- **Storybook MDX foundation pages** (#40, #41): `Welcome`,
+  `Foundations/Typography`, `Foundations/Spark`,
+  `Foundations/Tokens`, `Foundations/Layout`. The deployed docs at
+  https://jeremyfuksa.github.io/campfire are now Storybook static
+  output; the hand-coded Vite playground that lived alongside has
+  been retired.
+- **Tokens MDX reference** (#41) — comprehensive token catalogue
+  (palette + semantic + signature + typography + spacing + radii +
+  shadows + motion + z-index) replacing the bespoke
+  `DesignTokensPage` Vite surface.
+- **Layout MDX reference** (#41) — grid, application chrome,
+  spacing scale, breakpoints, and layout primitives.
+- **Tabs migration to Radix Tabs primitive** (#45).
+- **Avatar migration to Radix Avatar primitive** (#46), plus a
+  vitest setup patch so happy-dom's lack of network image loading
+  doesn't keep AvatarImage stuck in `loading` state.
+- **HoverCard migration to Radix HoverCard primitive** (#47).
+- **Tooltip migration to Radix Tooltip primitive** (#43), with
+  test-suite rewrite for Radix's screen-reader content duplication.
+- **Switch migration to Radix Switch primitive** (#44).
+- **Axe a11y coverage on 17 previously-uncovered test files**
+  (#48): alert-dialog, calendar, carousel, chart, command,
+  context-menu, drawer, dropdown-menu, file-upload, form,
+  input-otp, menubar, navigation-menu, resizable, sheet, sidebar,
+  sonner.
+- **Expanded story coverage** (#49) for Form, Sidebar, and Sonner
+  — 12 new variant stories collectively (validation states,
+  textarea, disabled, active item, search, badges, collapsible,
+  action toasts, promise toasts, position variants, rich content).
+
+### Changed
+
+- **`legacy.*.json` → `shadcn-compat.*.json`** (#42). The previous
+  name was misleading — the file is load-bearing for Tailwind v4's
+  `@theme` block (defines `--background`, `--card`, `--popover`,
+  `--destructive`, etc. as semantic aliases for shadcn-style
+  class names). Renamed to reflect the actual role.
+- **`timeline.tsx` token bug fixed** (#42). The component had
+  `var(--success)` and `var(--warning)` references that never
+  resolved (only the numbered palette steps exist). Migrated to
+  the numbered semantic tokens. Same PR also migrated
+  `timeline.tsx` and `sonner.tsx` off the shadcn-compat alias
+  layer — no internal components consume the bare-name aliases
+  directly anymore.
+- **Tailwind class-syntax consistency** (#42). Replaced Tailwind
+  v4 arbitrary-value syntax (`bg-(--success-100)` etc.) with
+  semantic classes (`bg-success-100`) across alert, badge, chip,
+  heading, link, progress, spinner, status-dot, text. The
+  arbitrary syntax was bypassing the `@theme` mappings and
+  creating two ways to spell the same color.
+- **React imports standardized** (#42). Switched from
+  `import React` (default) to `import * as React` (namespace) in
+  8 files to match the dominant pattern across the rest of the
+  library.
+- **Accordion stories Meta type** (#42): aligned to the
+  `satisfies Meta<typeof X>` pattern used by the other 73 stories.
+- **`FileUpload`'s hidden `<input>` now has `aria-label`** (#48).
+  axe caught the gap during the coverage expansion. Real bug fix.
+- **`Sheet`/`Drawer` overlay handling** — confirmed correct in
+  Phase 3 audit; no changes needed (PRs landed cleanly on top of
+  the existing Radix-backed implementations).
+- **Vite playground retired** (#41). 10 hand-coded pages + the
+  Vite config + `index.html` deleted. `npm run dev`/`build`/
+  `preview` scripts removed; `npm run storybook` and
+  `npm run typecheck` replace them. `predeploy`/`deploy` point at
+  `storybook build` + `storybook-static/`.
+- **ROADMAP.md, AGENTS.md, design.md brought in sync with reality**
+  (#39, #42). Four "Planned" ROADMAP entries that had shipped
+  (DataTable, Autocomplete, Date/Time pickers, Color Picker)
+  corrected to "Shipped"; Storybook entry corrected; AGENTS.md's
+  stale claims about no test harness, missing build commands, and
+  the long-since-replaced `npm run release` flow rewritten;
+  `design.md`'s legacy-tokens Don't entry rewritten to describe
+  what the shadcn-compat layer actually does.
+- **`FoundationComponentsPage_new.tsx`** renamed to drop the
+  `_new` suffix (#39). The suffix was cruft from a never-renamed
+  rebuild.
+
+### Don'ts (new entries in design.md)
+
+(Already present from earlier releases; surfaced here because
+Storybook now reads `design.md` more directly via the
+`Foundations` MDX pages.)
+
+### Migration notes for downstream consumers
+
+- **No breaking API changes** for the documented public surface.
+  All 5 component migrations (Tooltip / Switch / Tabs / Avatar /
+  HoverCard) preserve the same exported names and prop shapes;
+  internals switched from hand-rolled implementations to Radix
+  primitives.
+- **Tabs unmount inactive panels by default**. The hand-rolled
+  version kept all panels mounted with `hidden={hidden}`. Radix
+  unmounts them. If you depend on always-mounted tabpanel content
+  (for animations or external focus), pass `forceMount` on
+  `TabsContent`.
+- **Avatar now lazily mounts `<img>` after the source loads.** The
+  hand-rolled version always rendered the `<img>`. If you have
+  visual snapshot tests that assert on the `<img>` element being
+  present before load, you'll need either an Image-load mock (see
+  our `vitest.setup.ts` for one approach) or to test against the
+  Fallback.
+- **HoverCard / Tooltip content now render inline** (no Portal) to
+  preserve `container.querySelector` semantics in tests. If you
+  prefer portaled content for layout reasons, wrap `Content` with
+  your own portal.
+- **The deployed docs URL is unchanged**
+  (https://jeremyfuksa.github.io/campfire) but now serves
+  Storybook static output instead of the Vite playground.
+
 ## [0.8.1] - 2026-05-14
 
 ### Added
