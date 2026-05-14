@@ -387,7 +387,9 @@
     /* design.md: editorial typography (Fraunces) + heading ink */
     --text-heading: #3d3028;
     --font-heading-editorial: 'Fraunces', 'Georgia', serif;
-    --editorial-font-variation: 'WONK' 1, 'opsz' 72;
+    /* Super wonk: opsz 144 (full display optical sizing), SOFT 100
+       (maximally soft terminals), WONK 1 (engages quirky alts). */
+    --editorial-font-variation: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
 
     /* Spark — the single vivid accent. Rule of One: max one use per screen.
        See design.md "Spark — the one vivid accent" for usage rules. */
@@ -440,11 +442,23 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
+    /* UI default = Work Sans. Buttons, inputs, labels, navigation, and
+       software headings inherit from here. Long-form prose elements
+       (p, figcaption, blockquote prose) opt into Hanken Grotesk via
+       --font-body in the typography base layer below. */
     font-family: var(--font-sans);
   }
 
   code, kbd, samp, pre {
     font-family: var(--font-mono);
+  }
+
+  /* Long-form prose: Hanken Grotesk reads narrower and more
+     comfortably than Work Sans at 16px paragraph sizes. Applied to
+     bare prose elements; UI elements (buttons/labels/nav) keep
+     Work Sans by inheritance from <body>. */
+  p, figcaption, blockquote {
+    font-family: var(--font-body);
   }
 }
 

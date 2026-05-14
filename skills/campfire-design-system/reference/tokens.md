@@ -51,15 +51,16 @@ Plus the special **`--spark`** (`#ff5a1f` light / `#ff6b35` dark) and derived `-
 
 See `reference/typography.md` for full rules. Quick reference:
 
-- `--font-sans` — Work Sans + system fallbacks
+- `--font-sans` — Work Sans + system fallbacks (UI default; buttons, labels, navigation, software headings inherit from this)
+- `--font-body` — Hanken Grotesk + Work Sans fallback (long-form prose; auto-applied to `<p>`, `<figcaption>`, `<blockquote>`)
 - `--font-mono` — Fira Code + monospace fallbacks (technical-only)
 - `--font-heading-editorial` — Fraunces + serif fallbacks (editorial-only)
-- `--font-heading-h1` through `--font-heading-h6` — software heading scale
-- `--font-body-lg` / `--font-body-md` / `--font-body-sm`
-- `--font-label-sm`
-- `--font-code-md`
-- `--font-editorial-h1` through `--font-editorial-h3`, `--font-editorial-pullquote`, `--font-editorial-metric`
-- `--editorial-font-variation` — `'WONK' 1, 'opsz' 72`
+- `--font-heading-h1` through `--font-heading-h6` — software heading scale (Work Sans)
+- `--font-body-lg` / `--font-body-md` / `--font-body-sm` — body sizes (Hanken Grotesk)
+- `--font-label-sm` — label text (Work Sans)
+- `--font-code-md` — code text (Fira Code)
+- `--font-editorial-h1` through `--font-editorial-h3`, `--font-editorial-pullquote`, `--font-editorial-metric` (Fraunces)
+- `--editorial-font-variation` — `'opsz' 144, 'SOFT' 100, 'WONK' 1` (super wonk: full display optical sizing + maximally soft terminals + WONK alts engaged)
 
 ## Spacing
 

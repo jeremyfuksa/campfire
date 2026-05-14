@@ -96,7 +96,7 @@ export function CompleteReferencePage() {
           <Badge variant="secondary">React + Tailwind CSS v4</Badge>
           <Badge variant="secondary">shadcn/ui + Radix</Badge>
           <Badge variant="secondary">8px Grid System</Badge>
-          <Badge variant="secondary">Work Sans + Fira Code</Badge>
+          <Badge variant="secondary">Hanken Grotesk + Work Sans + Fraunces + Fira Code</Badge>
         </div>
       </div>
 
@@ -347,11 +347,29 @@ export function CompleteReferencePage() {
               <h4 className="mb-4" style={{ fontSize: '20px' }}>Font Families</h4>
               <div className="space-y-4">
                 <div className="p-6 rounded-lg" style={{ border: '1px solid var(--border-default)', backgroundColor: 'var(--bg-subtle)' }}>
-                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Primary (Work Sans)</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Body (Hanken Grotesk)</div>
+                  <div style={{ fontFamily: '"Hanken Grotesk", sans-serif', fontSize: '28px' }}>
+                    The quick brown fox jumps over the lazy dog
+                  </div>
+                  <div style={{ fontFamily: '"Hanken Grotesk", sans-serif', fontSize: '16px', marginTop: '8px', color: 'var(--text-secondary)' }}>
+                    ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
+                  </div>
+                </div>
+                <div className="p-6 rounded-lg" style={{ border: '1px solid var(--border-default)', backgroundColor: 'var(--bg-subtle)' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>UI / Headings (Work Sans)</div>
                   <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '28px' }}>
                     The quick brown fox jumps over the lazy dog
                   </div>
                   <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '16px', marginTop: '8px', color: 'var(--text-secondary)' }}>
+                    ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
+                  </div>
+                </div>
+                <div className="p-6 rounded-lg" style={{ border: '1px solid var(--border-default)', backgroundColor: 'var(--bg-subtle)' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '12px' }}>Editorial display (Fraunces, super wonk)</div>
+                  <div style={{ fontFamily: '"Fraunces", serif', fontSize: '36px', fontWeight: 425, color: 'var(--text-heading)', fontVariationSettings: "'opsz' 144, 'SOFT' 100, 'WONK' 1" }}>
+                    The quick brown fox jumps over the lazy dog
+                  </div>
+                  <div style={{ fontFamily: '"Fraunces", serif', fontSize: '18px', marginTop: '8px', color: 'var(--text-heading)', fontVariationSettings: "'opsz' 144, 'SOFT' 100, 'WONK' 1" }}>
                     ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
                   </div>
                 </div>
@@ -1514,7 +1532,9 @@ export function CompleteReferencePage() {
             A warm, earthy design system — the grounded complement to Catppuccin
           </p>
           <div className="flex justify-center gap-3 mt-6">
+            <Badge variant="outline">Hanken Grotesk</Badge>
             <Badge variant="outline">Work Sans</Badge>
+            <Badge variant="outline">Fraunces</Badge>
             <Badge variant="outline">Fira Code</Badge>
             <Badge variant="outline">8px Grid</Badge>
             <Badge variant="outline">14 Signature Colors</Badge>

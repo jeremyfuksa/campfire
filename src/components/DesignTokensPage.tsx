@@ -662,22 +662,42 @@ function TypographySection() {
         <h3 className="mb-6" style={{ color: 'var(--text-secondary)' }}>Font Families</h3>
         <div className="space-y-4">
           <div className="p-4 rounded-lg" style={{ border: '1px solid var(--border-default)' }}>
-            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Primary (Body Text)</div>
-            <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '24px', color: 'var(--text-primary)' }}>
-              Work Sans — The quick brown fox jumps over the lazy dog
+            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Body prose (Hanken Grotesk)</div>
+            <div style={{ fontFamily: '"Hanken Grotesk", sans-serif', fontSize: '24px', color: 'var(--text-primary)' }}>
+              Hanken Grotesk — The quick brown fox jumps over the lazy dog
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', fontFamily: 'monospace' }}>
-              font-family: 'Work Sans', sans-serif;
+              --font-body
             </div>
           </div>
 
           <div className="p-4 rounded-lg" style={{ border: '1px solid var(--border-default)' }}>
-            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Monospace (Code)</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>UI / Headings (Work Sans)</div>
+            <div style={{ fontFamily: '"Work Sans", sans-serif', fontSize: '24px', color: 'var(--text-primary)' }}>
+              Work Sans — The quick brown fox jumps over the lazy dog
+            </div>
+            <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', fontFamily: 'monospace' }}>
+              --font-sans
+            </div>
+          </div>
+
+          <div className="p-4 rounded-lg" style={{ border: '1px solid var(--border-default)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Editorial display (Fraunces, super wonk)</div>
+            <div style={{ fontFamily: '"Fraunces", serif', fontSize: '32px', fontWeight: 425, color: 'var(--text-heading)', fontVariationSettings: "'opsz' 144, 'SOFT' 100, 'WONK' 1" }}>
+              Fraunces — The quick brown fox jumps over the lazy dog
+            </div>
+            <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', fontFamily: 'monospace' }}>
+              --font-heading-editorial · 'opsz' 144, 'SOFT' 100, 'WONK' 1
+            </div>
+          </div>
+
+          <div className="p-4 rounded-lg" style={{ border: '1px solid var(--border-default)' }}>
+            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)', marginBottom: '8px' }}>Monospace (Fira Code)</div>
             <div style={{ fontFamily: '"Fira Code", monospace', fontSize: '24px', color: 'var(--text-primary)' }}>
               Fira Code — The quick brown fox jumps over the lazy dog
             </div>
             <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '8px', fontFamily: 'monospace' }}>
-              font-family: 'Fira Code', monospace;
+              --font-mono
             </div>
           </div>
         </div>
