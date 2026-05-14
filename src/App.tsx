@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Compass, Palette, Boxes, LayoutGrid, FlaskConical, Flame, Moon, Sun } from "lucide-react";
 import { DesignTokensPage } from "./components/DesignTokensPage";
-import { FoundationComponentsPage } from "./components/FoundationComponentsPage_new";
+import { FoundationComponentsPage } from "./components/FoundationComponentsPage";
 import { CompleteReferencePage } from "./components/CompleteReferencePage";
 import { GridsLayoutsPage } from "./components/GridsLayoutsPage";
 import { TestingExamplesPage } from "./components/TestingExamplesPage";
