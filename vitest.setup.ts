@@ -81,6 +81,50 @@ afterEach(() => {
   cleanup();
 });
 
+// Radix Avatar uses `new window.Image()` to preload the avatar image and
+// then transitions to "loaded" status when `image.complete &&
+// image.naturalWidth > 0` is true (or when a 'load' event fires).
+// happy-dom never starts a real network request, so the image stays
+// in `complete=false, naturalWidth=0` and the visible <img> never
+// mounts in tests. Patch window.Image so the preloader instance is
+// immediately reported as complete after src is set.
+if (typeof window !== "undefined" && typeof window.Image !== "undefined") {
+  const OriginalImage = window.Image;
+  function PatchedImage(this: HTMLImageElement) {
+    const img = new OriginalImage();
+    let _src = "";
+    Object.defineProperty(img, "complete", {
+      get() {
+        return Boolean(_src);
+      },
+      configurable: true,
+    });
+    Object.defineProperty(img, "naturalWidth", {
+      get() {
+        return _src ? 100 : 0;
+      },
+      configurable: true,
+    });
+    Object.defineProperty(img, "src", {
+      get() {
+        return _src;
+      },
+      set(value: string) {
+        _src = value;
+        // Also fire any registered 'load' listeners — Radix attaches one
+        // via addEventListener after this setter runs the first time, but
+        // a later src reassignment (or any non-Radix consumer that
+        // attaches before assignment) needs the event.
+        img.dispatchEvent(new Event("load"));
+      },
+      configurable: true,
+    });
+    return img;
+  }
+  PatchedImage.prototype = OriginalImage.prototype;
+  (window as unknown as { Image: unknown }).Image = PatchedImage;
+}
+
 // Mock ResizeObserver for tests (used by Radix UI components)
 beforeAll(() => {
   global.ResizeObserver = class ResizeObserver {
