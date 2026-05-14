@@ -1,120 +1,48 @@
 "use client";
 
 import * as React from "react";
-import clsx from "clsx";
+import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
-type HoverCardProps = {
-  children: React.ReactNode;
-  open?: boolean;
-  defaultOpen?: boolean;
-  onOpenChange?: (open: boolean) => void;
-};
+import { cn } from "./utils";
 
-type HoverCardContextValue = {
-  open: boolean;
-  show: () => void;
-  hide: () => void;
-};
-
-type HoverCardTriggerProps = React.HTMLAttributes<HTMLElement> & {
-  asChild?: boolean;
-  children: React.ReactNode;
-};
-
-type HoverCardContentProps = React.HTMLAttributes<HTMLDivElement>;
-
-const HoverCardContext = React.createContext<HoverCardContextValue | null>(null);
-
-const useHoverCard = () => {
-  const ctx = React.useContext(HoverCardContext);
-  if (!ctx) throw new Error("HoverCard components must be used within HoverCard");
-  return ctx;
-};
-
-const compose =
-  <E extends React.SyntheticEvent>(user?: (event: E) => void, ours?: (event: E) => void) =>
-  (event: E) => {
-    user?.(event);
-    if (!event.defaultPrevented) {
-      ours?.(event);
-    }
-  };
-
-export function HoverCard({ children, open: controlledOpen, defaultOpen, onOpenChange }: HoverCardProps) {
-  const isControlled = controlledOpen !== undefined;
-  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen ?? false);
-  const open = isControlled ? controlledOpen : uncontrolledOpen;
-
-  const setOpen = React.useCallback(
-    (next: boolean) => {
-      if (!isControlled) {
-        setUncontrolledOpen(next);
-      }
-      onOpenChange?.(next);
-    },
-    [isControlled, onOpenChange]
-  );
-
-  const show = React.useCallback(() => setOpen(true), [setOpen]);
-  const hide = React.useCallback(() => setOpen(false), [setOpen]);
-
-  const value = React.useMemo(() => ({ open, show, hide }), [open, show, hide]);
-
-  return (
-    <HoverCardContext.Provider value={value}>
-      <div data-slot="hover-card">{children}</div>
-    </HoverCardContext.Provider>
-  );
-}
-
-export function HoverCardTrigger({
-  asChild,
-  children,
-  onMouseEnter,
-  onMouseLeave,
-  onFocus,
-  onBlur,
+function HoverCard({
   ...props
-}: HoverCardTriggerProps) {
-  const { show, hide } = useHoverCard();
-  const triggerProps = {
-    "data-slot": "hover-card-trigger",
-    onMouseEnter: compose(onMouseEnter, () => show()),
-    onMouseLeave: compose(onMouseLeave, () => hide()),
-    onFocus: compose(onFocus, () => show()),
-    onBlur: compose(onBlur, () => hide()),
-    ...props,
-  };
+}: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
+  return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />;
+}
 
-  if (asChild && React.isValidElement(children)) {
-    return React.cloneElement(children, triggerProps);
-  }
-
+function HoverCardTrigger({
+  ...props
+}: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
   return (
-    <button type="button" {...triggerProps}>
-      {children}
-    </button>
+    <HoverCardPrimitive.Trigger data-slot="hover-card-trigger" {...props} />
   );
 }
 
-export function HoverCardContent({ className, children, ...props }: HoverCardContentProps) {
-  const { open, hide } = useHoverCard();
-  if (!open) return null;
-
+function HoverCardContent({
+  className,
+  align = "center",
+  sideOffset = 4,
+  ...props
+}: React.ComponentProps<typeof HoverCardPrimitive.Content>) {
   return (
-    <div
-      role="dialog"
-      aria-label="Hover card"
-      aria-live="polite"
-      data-slot="hover-card-content"
-      className={clsx(
-        "rounded-md border bg-background p-4 shadow-md focus-visible:outline-hidden",
-        className,
-      )}
-      onMouseLeave={hide}
-      {...props}
-    >
-      {children}
-    </div>
+    <HoverCardPrimitive.Portal data-slot="hover-card-portal">
+      <HoverCardPrimitive.Content
+        data-slot="hover-card-content"
+        align={align}
+        sideOffset={sideOffset}
+        className={cn(
+          "z-50 w-64 rounded-md border bg-background p-4 shadow-md outline-hidden",
+          "animate-in fade-in-0 zoom-in-95",
+          "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+          "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2",
+          "data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          className,
+        )}
+        {...props}
+      />
+    </HoverCardPrimitive.Portal>
   );
 }
+
+export { HoverCard, HoverCardTrigger, HoverCardContent };
