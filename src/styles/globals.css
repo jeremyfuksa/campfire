@@ -296,6 +296,39 @@
   border-color: var(--editorial-accent);
 }
 
+/* Spark utilities. Use sparingly — see design.md "Spark — the one vivid accent".
+   The Rule of One: max one instance of any spark utility per screen. */
+@utility text-spark {
+  color: var(--spark);
+}
+
+@utility bg-spark {
+  background-color: var(--spark);
+}
+
+@utility ring-spark {
+  box-shadow: 0 0 0 4px var(--spark-glow);
+}
+
+@utility spark-pulse {
+  /* Live-indicator dot. Pair with a small (8–10px) round element. */
+  background-color: var(--spark);
+  box-shadow: 0 0 0 0 var(--spark-glow);
+  animation: spark-pulse 1.6s var(--ease-out) infinite;
+}
+
+@keyframes spark-pulse {
+  0%   { box-shadow: 0 0 0 0 var(--spark-glow); }
+  70%  { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes spark-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 var(--spark-glow); }
+  }
+}
+
 @utility campfire-stagger {
   /* Principle 2 (Offset & Delay): staggered children.
      Apply .campfire-stagger to a parent; each child gets a
@@ -355,10 +388,15 @@
     --text-heading: #3d3028;
     --font-heading-editorial: 'Fraunces', 'Georgia', serif;
     --editorial-font-variation: 'WONK' 1, 'opsz' 72;
+
+    /* Spark — the single vivid accent. Rule of One: max one use per screen.
+       See design.md "Spark — the one vivid accent" for usage rules. */
+    --spark-glow: color-mix(in srgb, var(--spark) 24%, transparent);
   }
 
   .dark {
     --text-heading: #f5e6d0;
+    --spark-glow: color-mix(in srgb, var(--spark) 32%, transparent);
   }
 
   /* Editorial accent themes.

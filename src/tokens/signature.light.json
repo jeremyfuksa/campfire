@@ -1,4 +1,5 @@
 {
+  "spark":        { "$value": "#ff5a1f", "$type": "color" },
   "clay":         { "$value": "#e5beb0", "$type": "color" },
   "flamingo":     { "$value": "#f08080", "$type": "color" },
   "terracotta":   { "$value": "#db9073", "$type": "color" },

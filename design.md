@@ -366,6 +366,32 @@ The palette is anchored by two families and surrounded by neutral and status rol
 - **Status colors** (success/warning/danger/info) are tuned to live alongside the neutrals without screaming. They are paired with `on-*` companions so foreground/background pairings are pre-validated for contrast.
 - **Dark mode** flips `bg.*` and `text.*` semantic roles via a parallel `semantic.dark.json`. Components consume only semantic tokens, so neither the React code nor the Tailwind classes change between modes.
 
+## Spark — the one vivid accent
+
+**Use sparingly.** Campfire is muted by design. Spark is the single saturated orange reserved for high-stakes moments — a live indicator, an unread beacon, the literal flame. Its loudness is earned through scarcity: one instance per screen, max. Everywhere else, defer to the slate/terracotta core.
+
+| Token | Light | Dark | Halo |
+| --- | --- | --- | --- |
+| `--spark` | `#ff5a1f` | `#ff6b35` | `--spark-glow` (derived via `color-mix` from `--spark`) |
+
+**Rule of One.** If you can already see Spark on the page, you cannot add another instance. The first use wins. This is not a guideline; it is the rule, and it is enforced by code review.
+
+### Use Spark for
+- Live, recording, or streaming indicators (the pulsing dot — utility `spark-pulse`).
+- Critical unread / new-activity beacons.
+- The flame ember in the Campfire logo mark.
+- One brand-spark accent per editorial spread (an underline on a single word, a glyph between sections).
+- A single hero CTA in marketing-grade moments.
+
+### Don't use Spark for
+- General primary actions — that's `--primary-600`.
+- Errors or warnings — those have their own ramps (`danger.*`, `warning.*`).
+- Hover states, dividers, borders, gradients, chrome.
+- Body text, links, or anything repeated within a single view.
+- Decorative tinting — Spark is signal, not surface.
+
+Utility classes: `text-spark`, `bg-spark`, `ring-spark` (a 4px halo using `--spark-glow`), and `spark-pulse` (live-indicator animation, automatically reduced under `prefers-reduced-motion`). They are intentionally not bundled into a `<Spark>` component — there is no API to repeat. You write it inline once.
+
 ## Typography
 
 Campfire ships three families across two deployment contexts — software UI and editorial — with strict rules about where each family is allowed to appear.
@@ -487,3 +513,4 @@ Campfire ships ~80 React primitives under `src/components/ui/`, all built on Rad
 - Don't use Fira Code on non-technical UI. CTAs, buttons, links, navigation, badges, dates, eyebrows, hero copy, and body prose are always Work Sans — no exceptions for "techy" styling. Fira Code is allowed only on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. If the text is something the user reads as language or clicks as an affordance, it is Work Sans.
 - Don't apply editorial accent themes (`<EditorialTheme>`, `data-editorial-theme`) to software UI surfaces. The accent system is for editorial pages — long-form writing, case studies, marketing, the personal site. Dashboards, admin tooling, and in-app chrome stay on the primary slate-blue and never pick up warm/cool/deep tones.
 - Don't color the primary heading text with the editorial accent. Editorial headings remain on `text-heading` (warm near-black). The accent rides on smaller elements — eyebrows, pullquote rules, drop caps, ornaments — so the heading reads as ink and color does its work alongside it.
+- Don't repeat Spark within a single view. The Rule of One is the entire point of the color; if it appears more than once on a page, both instances are devalued and you've broken the system. Pick the highest-stakes element on the screen, give Spark to that one, and use the established slate/terracotta/editorial tones for everything else. There is no `<Spark>` component on purpose — there is nothing to repeat.
