@@ -2,6 +2,8 @@
 
 This document outlines the planned enhancements and future development for the Campfire Design System.
 
+> **Audit note (v0.8.x):** This file is being brought back in sync with reality. Several items below were marked "Planned" but have already shipped. The Status fields have been corrected where confirmed. For the authoritative list of what's in each release, see [`CHANGELOG.md`](./CHANGELOG.md); for the public API, see `src/lib/index.ts` and the deployed docs.
+
 ## Overview
 
 The roadmap is organized into phases, prioritizing features that will provide the most value to developers using the design system.
@@ -11,8 +13,8 @@ The roadmap is organized into phases, prioritizing features that will provide th
 ## Phase 1: Advanced Components (High Priority)
 
 ### Data Table Component
-**Status:** Planned
-**Priority:** High
+**Status:** Shipped (v0.3.0)
+**Priority:** Shipped — see `src/components/ui/data-table.tsx` and the DataTable story
 
 Add a comprehensive DataTable component with advanced features:
 
@@ -39,7 +41,7 @@ Add a comprehensive DataTable component with advanced features:
   ```
 
 ### Autocomplete/ComboBox
-**Status:** Planned
+**Status:** Shipped — see `src/components/ui/autocomplete.tsx` (creatable + async + fuzzy)
 **Priority:** High
 
 Enhanced autocomplete component building on the existing Command component:
@@ -64,8 +66,8 @@ Enhanced autocomplete component building on the existing Command component:
   ```
 
 ### Date & Time Pickers
-**Status:** Planned
-**Priority:** High
+**Status:** Shipped — `date-range-picker.tsx`, `date-time-picker.tsx`, `time-picker.tsx`
+**Priority:** Shipped
 
 Extend the existing Calendar component:
 
@@ -80,8 +82,8 @@ Extend the existing Calendar component:
   - Preset ranges (Today, Last 7 days, etc.)
 
 ### Color Picker
-**Status:** Planned
-**Priority:** Medium
+**Status:** Shipped — see `src/components/ui/color-picker.tsx`
+**Priority:** Shipped
 
 Add a color selection component:
 
@@ -137,7 +139,7 @@ Improve the existing Vite-based documentation:
   - Keyboard navigation guides
 
 ### Storybook Integration
-**Status:** Under Consideration
+**Status:** Installed (Storybook v10 configured in `.storybook/`; not deployed). Decision pending on whether to deploy Storybook to gh-pages and retire the custom Vite docs app — see the Phase 2 audit in the v0.8.x cycle.
 **Priority:** Medium
 
 Evaluate adding Storybook alongside the existing Vite demo site:
