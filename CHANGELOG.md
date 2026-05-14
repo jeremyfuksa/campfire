@@ -4,6 +4,96 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-05-14
+
+### Added
+- **`--font-body` token + Hanken Grotesk** (#32). New top-level
+  family token for long-form prose. Hanken Grotesk runs narrower and
+  more comfortably than Work Sans at 16px paragraph sizes; Campfire's
+  body rhythm is now tuned around it. Defined as `'Hanken Grotesk',
+  'Work Sans', -apple-system, ...` so it falls back gracefully if the
+  Google Fonts request is blocked. Auto-applied to bare `<p>`,
+  `<figcaption>`, and `<blockquote>` via `globals.css`.
+- **Campfire Claude Code skill ships in the npm package**
+  (#30, #31). The skill is a directory at
+  `node_modules/@jeremyfuksa/campfire/skills/campfire-design-system/`
+  containing `SKILL.md` (entry), four `reference/*.md` files
+  (typography, spark, editorial, tokens) loaded on demand, and five
+  `examples/*.tsx` files showing correct/violation patterns. The
+  skill auto-activates on any `.tsx`/`.ts`/`.jsx`/`.js`/`.css`/`.scss`
+  file in a Campfire-consuming project, and on any prompt mentioning
+  Campfire / Spark / editorial themes / Work Sans / Fraunces /
+  Fira Code / Hanken Grotesk. README includes a one-line symlink
+  install (auto-updates with `npm update`).
+- **`design.md` ships in the npm tarball** (#30). The authoritative
+  ruleset is now consumable from `node_modules/@jeremyfuksa/campfire/
+  design.md` so the skill (or any tool) can reference it directly.
+
+### Changed
+- **Typography overhauled to a 4-font role-split system** (#32):
+  - **Hanken Grotesk** — body prose (paragraphs, ledes, captions,
+    blockquote text). Auto-applied to bare prose elements.
+  - **Work Sans** — UI typeface (labels, buttons, navigation, software
+    headings h1–h6, eyebrows). Inherited from `<body>` so most UI
+    needs no explicit class.
+  - **Fraunces** — editorial display only (`editorial-h1`–`h3`,
+    pullquote, metric). Cranked to **super wonk**: `'opsz' 144,
+    'SOFT' 100, 'WONK' 1` — full display-grade optical sizing,
+    maximally soft terminals, and the WONK alternates engaged
+    (curling `t`, looping `g`, playful `y`).
+  - **Fira Code** — technical content only (unchanged).
+
+  The body/UI split is **mechanical**: prose → Hanken Grotesk; label /
+  heading / affordance → Work Sans. There is no "designer's choice"
+  zone. design.md states the rule as a one-sentence test.
+- **`--editorial-font-variation`** updated from `'WONK' 1, 'opsz' 72`
+  to `'opsz' 144, 'SOFT' 100, 'WONK' 1` (#32). All editorial Fraunces
+  surfaces now read with full display-grade quirks.
+- **`src/styles/fonts.css`** — adds Hanken Grotesk via Google Fonts
+  (weights 300–800 + italics); expands the Fraunces request to include
+  all four axes (`opsz`, `wght`, `SOFT`, `WONK`) with full ranges so
+  the super-wonk variation actually has the alternates available.
+- **`theme.css`** — `--font-body-lg/md/sm` now reference Hanken
+  Grotesk; `--font-heading-h1..h6` and `--font-label-sm` stay on
+  Work Sans (those are UI, not prose).
+- **`design.md` Typography section** — fully rewritten for the 4-font
+  system. Two new Don'ts: don't mix Hanken/Work Sans by gut; don't use
+  Hanken Grotesk for headings.
+- **`package.json` `files`** — now includes `skills` and `design.md`
+  alongside `dist` (#30). Verified via `npm pack --dry-run`.
+- **README** — new "Claude Code skill (optional)" section with a
+  one-line symlink install (and `cp -r` fallback for environments
+  without symlink support). Updated with the directory layout in #31.
+- **Showcase pages** (`CompleteReferencePage`, `DesignTokensPage`)
+  now display all four font families side-by-side with their roles
+  labeled (#32).
+
+### Don'ts (new entries in design.md)
+- Don't mix Hanken Grotesk and Work Sans by gut. The split is
+  mechanical: prose → Hanken; labels/buttons/navigation/software
+  headings/eyebrows → Work Sans.
+- Don't use Hanken Grotesk for headings. Software h1–h6 are Work Sans;
+  editorial h1–h3 / pullquote / metric are Fraunces. Hanken Grotesk
+  only carries body and caption text.
+
+### Migration notes for downstream consumers
+- If you were relying on `<body>` defaulting to a single sans family
+  for everything, paragraphs will now render in Hanken Grotesk
+  automatically. Buttons, inputs, labels, and software headings
+  remain on Work Sans (no change).
+- If you bundle Campfire tokens alongside your own font loader,
+  switch your Google Fonts import to include `Hanken Grotesk` (300–800
+  + italics) and the full Fraunces axis set (`opsz`, `wght`, `SOFT`,
+  `WONK`). The package's own `fonts.css` already does this if you
+  import `@jeremyfuksa/campfire/styles.css`.
+- The skill is opt-in. To install in your project, after
+  `npm install @jeremyfuksa/campfire`:
+  ```
+  mkdir -p .claude/skills
+  ln -sfn ../node_modules/@jeremyfuksa/campfire/skills/campfire-design-system .claude/skills/
+  ```
+  Or `cp -r` if symlinks aren't available.
+
 ## [0.7.0] - 2026-05-14
 
 ### Added
