@@ -1,11 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
 } from "../input-otp";
+
+expect.extend(toHaveNoViolations);
 
 describe("InputOTP", () => {
   it("renders correctly", () => {
@@ -50,5 +53,20 @@ describe("InputOTP", () => {
     const input = screen.getByRole("textbox");
     await user.type(input, "12");
     expect(input).toHaveValue("12");
+  });
+
+  it("should not have accessibility violations", async () => {
+    const { container } = render(
+      <InputOTP maxLength={4} aria-label="OTP">
+        <InputOTPGroup>
+          <InputOTPSlot index={0} />
+          <InputOTPSlot index={1} />
+          <InputOTPSlot index={2} />
+          <InputOTPSlot index={3} />
+        </InputOTPGroup>
+      </InputOTP>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

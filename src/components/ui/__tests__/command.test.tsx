@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe, toHaveNoViolations } from "jest-axe";
 import {
   Command,
   CommandInput,
@@ -8,6 +9,8 @@ import {
   CommandGroup,
   CommandItem,
 } from "../command";
+
+expect.extend(toHaveNoViolations);
 
 describe("Command", () => {
   it("renders correctly", () => {
@@ -54,5 +57,20 @@ describe("Command", () => {
       </Command>
     );
     expect(screen.getByText("Suggestions")).toBeInTheDocument();
+  });
+
+  it("should not have accessibility violations", async () => {
+    const { container } = render(
+      <Command>
+        <CommandInput placeholder="Search" />
+        <CommandList>
+          <CommandGroup heading="Items">
+            <CommandItem>Item 1</CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </Command>,
+    );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });
