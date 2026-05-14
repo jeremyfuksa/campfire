@@ -12,8 +12,8 @@ const allSources = [
   'signature.dark.json',
   'semantic.light.json',
   'semantic.dark.json',
-  'legacy.light.json',
-  'legacy.dark.json',
+  'shadcn-compat.light.json',
+  'shadcn-compat.dark.json',
   'dimension.json',
   'shadow.json',
   'typography.json',
@@ -23,7 +23,7 @@ const allSources = [
 ].map(f => resolve(tokensDir, f));
 
 const lightSources = allSources.filter(p => !basename(p).includes('.dark.'));
-const darkSourceBasenames = new Set(['signature.dark.json', 'semantic.dark.json', 'legacy.dark.json']);
+const darkSourceBasenames = new Set(['signature.dark.json', 'semantic.dark.json', 'shadcn-compat.dark.json']);
 
 /**
  * Custom CSS format: emit a single selector block with --kebab-case-name: value;

@@ -5,19 +5,19 @@ import { cn } from "./utils";
 const textVariants = cva("", {
   variants: {
     variant: {
-      body: "text-(length:--body-base-size) font-(--body-base-weight) leading-(--body-base-line-height) text-(--text-primary)",
+      body: "text-(length:--body-base-size) font-(--body-base-weight) leading-(--body-base-line-height) text-foreground",
       "body-lg":
-        "text-(length:--body-large-size) font-(--body-large-weight) leading-[1.7] text-(--text-primary)",
+        "text-(length:--body-large-size) font-(--body-large-weight) leading-[1.7] text-foreground",
       "body-sm":
-        "text-(length:--body-small-size) font-(--body-small-weight) leading-normal text-(--text-primary)",
+        "text-(length:--body-small-size) font-(--body-small-weight) leading-normal text-foreground",
       label:
-        "text-(length:--label-base-size) font-(--label-base-weight) leading-(--label-base-line-height) text-(--text-primary)",
+        "text-(length:--label-base-size) font-(--label-base-weight) leading-(--label-base-line-height) text-foreground",
       "label-lg":
-        "text-(length:--label-large-size) font-(--label-large-weight) leading-(--label-large-line-height) text-(--text-primary)",
+        "text-(length:--label-large-size) font-(--label-large-weight) leading-(--label-large-line-height) text-foreground",
       "label-sm":
-        "text-(length:--label-small-size) font-(--label-small-weight) leading-(--label-small-line-height) text-(--text-primary)",
+        "text-(length:--label-small-size) font-(--label-small-weight) leading-(--label-small-line-height) text-foreground",
       muted:
-        "text-(length:--body-base-size) font-(--body-base-weight) leading-(--body-base-line-height) text-(--text-secondary)",
+        "text-(length:--body-base-size) font-(--body-base-weight) leading-(--body-base-line-height) text-muted-foreground",
       subtle:
         "text-(length:--body-small-size) font-(--body-small-weight) leading-normal text-(--text-tertiary)",
     },

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { Inbox } from 'lucide-react';
 import { Button } from './button';
 

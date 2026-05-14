@@ -7,14 +7,14 @@ import {
   AccordionTrigger,
 } from "./accordion";
 
-const meta: Meta<typeof Accordion> = {
+const meta = {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof Accordion>;
 
 export default meta;
 

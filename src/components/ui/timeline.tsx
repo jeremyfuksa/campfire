@@ -17,9 +17,9 @@ export interface TimelineProps {
 
 const statusColors = {
   default: "var(--neutral-400)",
-  success: "var(--success)",
-  error: "var(--destructive)",
-  warning: "var(--warning)",
+  success: "var(--success-600)",
+  error: "var(--danger-600)",
+  warning: "var(--warning-600)",
 };
 
 export function Timeline({ items, className }: TimelineProps) {
@@ -41,7 +41,7 @@ export function Timeline({ items, className }: TimelineProps) {
               className="flex h-8 w-8 items-center justify-center rounded-full border-2"
               style={{
                 borderColor: statusColors[item.status || "default"],
-                backgroundColor: "var(--background)",
+                backgroundColor: "var(--bg-base)",
               }}
             >
               {item.icon || (

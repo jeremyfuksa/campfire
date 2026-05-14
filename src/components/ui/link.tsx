@@ -1,6 +1,6 @@
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
-import { cn } from './utils';
+import * as React from "react";
+import { ExternalLink } from "lucide-react";
+import { cn } from "./utils";
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: 'default' | 'subtle' | 'bold' | 'muted';
@@ -19,14 +19,14 @@ export function Link({
 }: LinkProps) {
   const getVariantClasses = () => {
     switch (variant) {
-      case 'subtle':
-        return 'text-(--text-secondary) hover:text-(--text-primary)';
-      case 'bold':
-        return 'text-(--interactive-default) hover:text-(--interactive-hover)';
-      case 'muted':
-        return 'text-(--text-tertiary) hover:text-(--text-secondary)';
+      case "subtle":
+        return "text-muted-foreground hover:text-foreground";
+      case "bold":
+        return "text-primary hover:text-primary/90";
+      case "muted":
+        return "text-(--text-tertiary) hover:text-muted-foreground";
       default:
-        return 'text-(--interactive-default) hover:text-(--interactive-hover)';
+        return "text-primary hover:text-primary/90";
     }
   };
 
