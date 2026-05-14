@@ -39,24 +39,24 @@ npm run build   # Production build of the docs site
 
 ### Claude Code skill (optional)
 
-Campfire ships a [Claude Code](https://docs.claude.com/en/docs/claude-code/skills) skill that teaches Claude the design system's rules — the Spark "Rule of One," the Fira Code scope, when Fraunces is allowed, editorial-theme boundaries, etc. — so suggestions and reviews stay aligned with `design.md` instead of drifting into generic Tailwind defaults.
+Campfire ships a [Claude Code](https://code.claude.com/docs/en/custom-skills) skill that teaches Claude the design system's rules — the Spark "Rule of One," the Fira Code scope, when Fraunces is allowed, editorial-theme boundaries, etc. — so suggestions and reviews stay aligned with `design.md` instead of drifting into generic Tailwind defaults.
 
-After installing the package, link the skill into your project:
+The skill is a directory (`SKILL.md` entry plus `reference/` rules and `examples/` code) so Claude can load focused context on demand without pulling the whole design system into every prompt. After installing the package, link the directory into your project's `.claude/skills/`:
 
 ```bash
 # One-time per project — symlink so it auto-updates with `npm update`
 mkdir -p .claude/skills
-ln -sfn ../../node_modules/@jeremyfuksa/campfire/skills/campfire-design-system.md .claude/skills/
+ln -sfn ../node_modules/@jeremyfuksa/campfire/skills/campfire-design-system .claude/skills/
 ```
 
 If symlinks aren't an option (some Windows or CI environments), copy instead:
 
 ```bash
 mkdir -p .claude/skills
-cp node_modules/@jeremyfuksa/campfire/skills/campfire-design-system.md .claude/skills/
+cp -r node_modules/@jeremyfuksa/campfire/skills/campfire-design-system .claude/skills/
 ```
 
-The skill activates whenever you mention Campfire, Spark, editorial themes, Work Sans, Fraunces, or Fira Code — and proactively when Claude is writing or reviewing UI in a project that imports `@jeremyfuksa/campfire`. The authoritative ruleset is the package's bundled `design.md`; the skill just tells Claude to read it.
+The skill auto-activates on any TSX/TS/JSX/JS/CSS/SCSS file in the project, and on any prompt that mentions Campfire, Spark, editorial themes, Work Sans, Fraunces, or Fira Code. Claude reads the entry `SKILL.md` first, then pulls focused reference docs (`reference/typography.md`, `reference/spark.md`, `reference/editorial.md`, `reference/tokens.md`) and example snippets (`examples/spark-correct.tsx`, `examples/spark-violation.tsx`, etc.) only when relevant. The package's bundled `design.md` remains the canonical source of truth if anything in the skill ever needs to be cross-checked.
 
 ## Building the Library Locally
 
