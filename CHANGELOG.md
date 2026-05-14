@@ -4,9 +4,24 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
-## [0.6.0] - 2026-05-13
+## [0.7.0] - 2026-05-14
 
 ### Added
+- **Spark — the one vivid accent** (#28). A single saturated orange
+  reserved for high-stakes moments — a live indicator, an unread
+  beacon, the literal flame. Used sparingly under a stated **Rule of
+  One**: max one instance per screen, first use wins. New tokens:
+  `--spark` (`#ff5a1f` light / `#ff6b35` dark) added to
+  `signature.light.json` / `signature.dark.json`, plus `--spark-glow`
+  derived in `globals.css` via `color-mix(in srgb, var(--spark) 24%,
+  transparent)` so the halo adapts to mode automatically. New
+  utilities: `text-spark`, `bg-spark`, `ring-spark` (4px halo using
+  `--spark-glow`), and `spark-pulse` (live-indicator keyframe
+  animation, reduced under `prefers-reduced-motion`). No `<Spark>`
+  component on purpose — the Rule of One is the API. New top-level
+  `design.md` section "Spark — the one vivid accent" documents the
+  rule and the allowed/disallowed surfaces; new Don't entry
+  reinforces "no repeated Spark in a single view."
 - **Editorial accent themes** (#26). New per-section color knob for
   editorial surfaces (long-form writing, case studies, marketing,
   personal-site posts). Three tones ship — `warm` (clay/terracotta,
@@ -61,11 +76,19 @@ All notable changes to the Campfire Design System.
   accents are for secondary elements so the heading reads as ink.
 - Don't use Fira Code on non-technical UI. Restated explicitly with an
   enumerated allowed/disallowed list.
+- Don't repeat Spark within a single view. The Rule of One is the
+  entire point of the color; if it appears more than once on a page,
+  both instances are devalued and you've broken the system.
 
 ### Fixed
 - **`Collapsible` story repo-name rows no longer use `font-mono`**
   (#25). Decorative use of mono on non-code list items violated the
   tightened typography rule.
+
+### Note
+- The previously prepped `0.6.0` was never tagged or published to npm;
+  its scope is rolled into this `0.7.0` release alongside the Spark
+  work (#28).
 
 ### Fixed
 - **Dialog: `DialogPortal` and `DialogOverlay` now respect open state**
