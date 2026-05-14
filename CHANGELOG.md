@@ -4,6 +4,61 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-05-14
+
+The stability commitment. Everything in `src/lib/index.ts` and the
+token catalog in `dist/tokens.*` is now the public API contract;
+breaking changes to either will ship in 2.x. The release also
+introduces tree-shake-friendly per-component subpath imports and
+hardens the build pipeline with bundle-size budgets and a
+story-render smoke test.
+
+### Added
+
+- **Per-component subpath exports.** Every component in
+  `src/components/ui/` is now exposed as its own subpath:
+  `import { Button } from "@jeremyfuksa/campfire/button"`,
+  `import { Dialog, DialogTrigger } from "@jeremyfuksa/campfire/dialog"`,
+  etc. The barrel `import { ... } from "@jeremyfuksa/campfire"`
+  still works for everyone who prefers it. The new entries share
+  code via tsup's `splitting: true` chunks, so importing one
+  component pulls only its dependency graph — measured per-entry
+  cost is 1–10 KB raw / 1–3 KB gzip after splitting.
+- **Bundle-size budget gate** (`scripts/check-bundle-size.mjs`,
+  hooked into `build:lib`). Tracks both aggregate JS/CSS weight
+  and a few representative per-entry costs (`button.js`,
+  `avatar.js`, `chart.js`) so a regression that accidentally
+  inlines a giant shared chunk fails the build. Current baseline:
+  87 KB gzip total JS, 25 KB gzip CSS, ~1–3 KB gzip per
+  individual component import.
+- **Story-render smoke** (`src/test/stories-smoke.test.tsx`).
+  Iterates every export of every `*.stories.tsx` and asserts it
+  renders without throwing. 375 story renders, ~7 s — runs in
+  every CI build alongside the existing smoke suite. Catches
+  broken story imports, removed exports, and crash-on-mount
+  regressions that the per-component tests miss.
+- **`CONTRIBUTING.md`** with the dev loop, commands table, design
+  rules summary, release flow, and PR conventions.
+- **Sync-and-validate script for the exports map**
+  (`scripts/sync-exports.mjs`). Run `npm run validate:exports` to
+  check drift; `npm run sync:exports` to rewrite. `build:lib`
+  validates by default.
+
+### Changed
+
+- **`scripts/add-use-client.mjs` now prepends `"use client";` to
+  every published entry**, not just `dist/index.{js,cjs}`. Required
+  for subpath imports under Next.js App Router to keep their RSC
+  semantics. Internal chunk files and the tokens entry are
+  skipped (they don't ship hooks).
+- **`tsup.config.ts` discovers per-component entries automatically**
+  from `src/components/ui/*.tsx`, so adding a new component only
+  requires the standard triple (component + story + test) and a
+  `node scripts/sync-exports.mjs --write` to register the subpath.
+- **README and docs site framed as the 1.0 stability surface.** No
+  breaking API changes from 0.9.0 → 1.0.0 — the bump is the
+  commitment, not new shape.
+
 ## [0.9.0] - 2026-05-14
 
 A consolidation release. Everything below was driven by a full

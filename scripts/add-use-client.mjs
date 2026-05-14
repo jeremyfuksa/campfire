@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
- * Prepend `"use client";` to dist/index.js and dist/index.cjs so Next.js
- * App Router (and other RSC frameworks) accept the bundled components.
+ * Prepend `"use client";` to every published JS/CJS entry under dist/ so
+ * Next.js App Router (and other RSC frameworks) accept the bundled
+ * components. Both the barrel `dist/index.{js,cjs}` and every per-component
+ * subpath entry need the directive; client hooks live throughout the tree.
  *
  * esbuild treats top-level string literals as no-op expressions and strips
  * them, so adding `"use client";` to the source entry doesn't work. tsup's
@@ -10,32 +12,35 @@
  *
  * Source map references are preserved automatically because they live on
  * trailing `//# sourceMappingURL=` lines.
+ *
+ * Internal split chunks (fonts-*, plus tsup's per-chunk shared code) are
+ * skipped — the directive only matters on entry points consumers import.
  */
 
-import { readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readFile, readdir, writeFile } from "node:fs/promises";
+import { resolve, join } from "node:path";
 
 const DIRECTIVE = '"use client";\n';
-const TARGETS = ["dist/index.js", "dist/index.cjs"];
+const DIST = resolve(process.cwd(), "dist");
 
-for (const relPath of TARGETS) {
-  const absPath = resolve(process.cwd(), relPath);
+const isEntry = (name) =>
+  (name.endsWith(".js") || name.endsWith(".cjs")) &&
+  // skip tokens (no React)
+  !name.startsWith("tokens") &&
+  // skip shared chunk files (have content hashes in the name like `fonts-RCR6IO25.cjs`)
+  !/^[a-z0-9-]+-[A-Z0-9]{8}\.(c?js)$/.test(name);
+
+const files = (await readdir(DIST)).filter(isEntry);
+
+for (const name of files) {
+  const absPath = join(DIST, name);
   const original = await readFile(absPath, "utf8");
 
   if (original.startsWith(DIRECTIVE) || original.startsWith("'use client';")) {
-    console.log(`  unchanged (already present): ${relPath}`);
+    console.log(`  unchanged (already present): ${name}`);
     continue;
   }
 
-  // CJS bundles start with `'use strict';` (Node's own directive).
-  // Insert "use client" before it so both directives sit at the top.
-  let prefix = DIRECTIVE;
-  let body = original;
-  if (original.startsWith("'use strict';")) {
-    prefix = DIRECTIVE;
-    body = original; // keep 'use strict' after "use client"
-  }
-
-  await writeFile(absPath, prefix + body, "utf8");
-  console.log(`  prepended "use client": ${relPath}`);
+  await writeFile(absPath, DIRECTIVE + original, "utf8");
+  console.log(`  prepended "use client": ${name}`);
 }
