@@ -1,3 +1,7 @@
+// The "use client" directive is added to dist/index.{js,cjs} by
+// scripts/add-use-client.mjs after tsup runs — esbuild strips source-level
+// directives, so we prepend them in a post-build step instead.
+
 const globalProcess = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process;
 const isVitest = globalProcess?.env?.VITEST === "true";
 

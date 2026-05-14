@@ -27,6 +27,10 @@ export function Example() {
 }
 ```
 
+> **Note on the stylesheet.** `@jeremyfuksa/campfire/styles.css` is opinionated. It sets a base `font-family`, applies `border-color` defaults to every element via `*, ::before, ::after`, styles bare `h1`–`h6` / `p` / `button` / `input` elements, and includes a custom scrollbar theme. If you're mixing Campfire into an app with its own reset or another design system, you may want to scope these styles by either importing `@jeremyfuksa/campfire/tokens.css` (CSS variables only — no resets, no element styling) or wrapping Campfire-using regions in a class and gating these rules at the consumer level. The component JS itself is framework-neutral; the stylesheet is the opinionated part.
+
+**Next.js App Router.** The published bundle marks every entry as `"use client"` so components that use hooks (Dialog, Popover, Sheet, ThemeProvider, etc.) work inside the `app/` directory. Import as usual.
+
 ### Option 2 — Clone + run locally
 
 ```bash
