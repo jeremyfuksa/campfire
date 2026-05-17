@@ -4,6 +4,51 @@ All notable changes to the Campfire Design System.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-05-17
+
+UI typeface swap: **Work Sans → Space Grotesk**. Hanken Grotesk continues to carry body prose; the mechanical role split (prose → Hanken, UI/label/heading/affordance → sans) is unchanged — only the sans face differs. The major bump reflects the visible breaking change: anything that depended on Work Sans's specific metrics, x-height, or aesthetic will render differently.
+
+### Changed
+
+- **`--font-sans` is now Space Grotesk.** Labels, buttons, navigation,
+  software headings (h1–h6), eyebrows, and all UI chrome now render in
+  Space Grotesk. Space Grotesk is geometric with subtle quirky
+  letterforms — slightly more personality than Work Sans, still
+  workhorse-grade for UI density.
+- **`--font-body` fallback updated** from `'Hanken Grotesk', 'Work Sans', ...`
+  to `'Hanken Grotesk', 'Space Grotesk', ...`. Prose is still Hanken
+  Grotesk first; the fallback only affects environments where Hanken
+  fails to load.
+- **`fonts.css` Google Fonts import** swaps `Work+Sans:wght@300..800`
+  for `Space+Grotesk:wght@300..700`. Space Grotesk does not ship a
+  weight 800; consumers using `--font-weight-extrabold` (800) on UI
+  surfaces will fall back to bold (700) at the browser level.
+- **`design.md`, README, AGENTS.md, CONTRIBUTING.md, and Storybook
+  docs** updated to name Space Grotesk as the UI face throughout.
+  Historical notes about prior typeface swaps (Manrope → Work Sans →
+  Hanken/Space Grotesk lineage) are preserved.
+- **`skills/campfire-design-system/`** SKILL.md description, the
+  high-violation rules (Rules 3, 4, 7), `reference/typography.md`,
+  `reference/tokens.md`, and the typography example files now teach
+  Space Grotesk as the UI face. Auto-activation triggers updated:
+  the skill activates on prompts mentioning Space Grotesk (in
+  addition to Hanken Grotesk, Fraunces, Fira Code).
+- **README `next/font` example** renamed: `Work_Sans` import → `Space_Grotesk`,
+  CSS variable `--campfire-work-sans` → `--campfire-space-grotesk`. The
+  variable name lived in the consumer's own code; consumers following
+  the README will need to rename their local variable.
+
+### Breaking
+
+- Visual rendering of all UI surfaces changes. Designs and screenshots
+  pinned to Work Sans's specific metrics will need updating.
+- Consumers who copied the README's `next/font` example verbatim must
+  rename `--campfire-work-sans` to `--campfire-space-grotesk` in their
+  `globals.css`.
+- The font-weight 800 is no longer available for the UI sans face.
+  Any consumer styling UI elements at weight 800 will silently fall
+  back to 700.
+
 ## [1.0.0] - 2026-05-14
 
 The stability commitment. Everything in `src/lib/index.ts` and the
