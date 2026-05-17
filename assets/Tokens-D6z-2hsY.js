@@ -65,9 +65,9 @@ var(--editorial-accent-subtle)
 `})}),`
 `,(0,c.jsxs)(n.p,{children:[`Plus the special `,(0,c.jsx)(n.strong,{children:(0,c.jsx)(n.code,{children:`--spark`})}),` (`,(0,c.jsx)(n.code,{children:`#ff5a1f`}),` light / `,(0,c.jsx)(n.code,{children:`#ff6b35`}),` dark) and derived `,(0,c.jsx)(n.code,{children:`--spark-glow`}),`. Spark is governed by the `,(0,c.jsx)(n.strong,{children:`Rule of One`}),` — see Foundations / Spark.`]}),`
 `,(0,c.jsx)(n.h2,{id:`typography`,children:`Typography`}),`
-`,(0,c.jsxs)(n.p,{children:[`See `,(0,c.jsx)(n.strong,{children:`Foundations / Typography`}),` for the full role split (Hanken Grotesk for prose, Work Sans for UI, Fraunces for editorial display, Fira Code for technical content).`]}),`
+`,(0,c.jsxs)(n.p,{children:[`See `,(0,c.jsx)(n.strong,{children:`Foundations / Typography`}),` for the full role split (Hanken Grotesk for prose, Space Grotesk for UI, Fraunces for editorial display, Fira Code for technical content).`]}),`
 `,(0,c.jsx)(n.pre,{children:(0,c.jsx)(n.code,{className:`language-css`,children:`/* Font families */
-var(--font-sans)              /* Work Sans (UI default) */
+var(--font-sans)              /* Space Grotesk (UI default) */
 var(--font-body)              /* Hanken Grotesk (prose) */
 var(--font-mono)              /* Fira Code (technical-only) */
 var(--font-heading-editorial) /* Fraunces (editorial-only) */
