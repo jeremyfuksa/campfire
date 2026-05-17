@@ -42,9 +42,9 @@ Campfire's default `styles.css` pulls fonts via Google Fonts `@import url(...)` 
 
 ```ts
 // app/fonts.ts
-import { Work_Sans, Hanken_Grotesk, Fraunces, Fira_Code } from "next/font/google";
+import { Space_Grotesk, Hanken_Grotesk, Fraunces, Fira_Code } from "next/font/google";
 
-export const workSans = Work_Sans({ subsets: ["latin"], variable: "--campfire-work-sans" });
+export const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--campfire-space-grotesk" });
 export const hankenGrotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--campfire-hanken-grotesk" });
 export const fraunces = Fraunces({
   subsets: ["latin"],
@@ -58,13 +58,13 @@ export const firaCode = Fira_Code({ subsets: ["latin"], variable: "--campfire-fi
 // app/layout.tsx
 import "@jeremyfuksa/campfire/styles.css";
 import "./globals.css"; // your overrides (see below)
-import { workSans, hankenGrotesk, fraunces, firaCode } from "./fonts";
+import { spaceGrotesk, hankenGrotesk, fraunces, firaCode } from "./fonts";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${workSans.variable} ${hankenGrotesk.variable} ${fraunces.variable} ${firaCode.variable}`}
+      className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} ${fraunces.variable} ${firaCode.variable}`}
     >
       <body>{children}</body>
     </html>
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ```css
 /* app/globals.css — point Campfire's font tokens at next/font's CSS variables */
 :root {
-  --font-sans: var(--campfire-work-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: var(--campfire-space-grotesk), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: var(--campfire-hanken-grotesk), var(--font-sans);
   --font-heading-editorial: var(--campfire-fraunces), "Georgia", serif;
   --font-mono: var(--campfire-fira-code), ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -126,7 +126,7 @@ mkdir -p .claude/skills
 cp -r node_modules/@jeremyfuksa/campfire/skills/campfire-design-system .claude/skills/
 ```
 
-The skill auto-activates on any TSX/TS/JSX/JS/CSS/SCSS file in the project, and on any prompt that mentions Campfire, Spark, editorial themes, Hanken Grotesk, Work Sans, Fraunces, or Fira Code. Claude reads the entry `SKILL.md` first, then pulls focused reference docs (`reference/typography.md`, `reference/spark.md`, `reference/editorial.md`, `reference/tokens.md`) and example snippets (`examples/spark-correct.tsx`, `examples/spark-violation.tsx`, etc.) only when relevant. The package's bundled `design.md` remains the canonical source of truth if anything in the skill ever needs to be cross-checked.
+The skill auto-activates on any TSX/TS/JSX/JS/CSS/SCSS file in the project, and on any prompt that mentions Campfire, Spark, editorial themes, Hanken Grotesk, Space Grotesk, Fraunces, or Fira Code. Claude reads the entry `SKILL.md` first, then pulls focused reference docs (`reference/typography.md`, `reference/spark.md`, `reference/editorial.md`, `reference/tokens.md`) and example snippets (`examples/spark-correct.tsx`, `examples/spark-violation.tsx`, etc.) only when relevant. The package's bundled `design.md` remains the canonical source of truth if anything in the skill ever needs to be cross-checked.
 
 The `.skill` archive is produced by `npm run build:skill` (a vendored stdlib-Python adaptation of [Anthropic's skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) packager). It's regenerated as part of `npm run build:lib`, so every published version of `@jeremyfuksa/campfire` ships a fresh `.skill`.
 

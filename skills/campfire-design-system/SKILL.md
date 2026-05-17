@@ -1,6 +1,6 @@
 ---
 name: campfire-design-system
-description: Apply Campfire Design System rules when working in a project that imports `@jeremyfuksa/campfire`. Use when writing or modifying UI components, choosing colors / typography / tokens, reviewing styles, or whenever the user mentions Campfire, Spark, editorial themes, Work Sans, Hanken Grotesk, Fraunces, or Fira Code scope. Auto-activates on TSX/TS/JSX/JS/CSS/SCSS files in a Campfire-consuming project.
+description: Apply Campfire Design System rules when working in a project that imports `@jeremyfuksa/campfire`. Use when writing or modifying UI components, choosing colors / typography / tokens, reviewing styles, or whenever the user mentions Campfire, Spark, editorial themes, Space Grotesk, Hanken Grotesk, Fraunces, or Fira Code scope. Auto-activates on TSX/TS/JSX/JS/CSS/SCSS files in a Campfire-consuming project.
 paths: "**/*.tsx,**/*.ts,**/*.jsx,**/*.js,**/*.css,**/*.scss"
 ---
 
@@ -29,15 +29,15 @@ These are the rules people break even after reading the docs. If you see any of 
 
 1. **Spark — Rule of One.** `text-spark`, `bg-spark`, `ring-spark`, `spark-pulse`, or any `var(--spark)` reference may appear at most **once per rendered screen**. A second instance is always a violation. There is intentionally no `<Spark>` component — the Rule of One is the API. → [reference/spark.md](reference/spark.md)
 2. **Fira Code is technical-only.** `font-mono` and `var(--font-mono)` belong on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. **Never** on CTAs, buttons, links, navigation, badges, eyebrows, dates, hero copy, body prose, or "techy-feeling" decoration. → [reference/typography.md](reference/typography.md)
-3. **Body prose = Hanken Grotesk; UI = Work Sans.** Mechanical split: paragraphs / ledes / captions / blockquote prose use `--font-body` (Hanken Grotesk). Labels, buttons, navigation, software headings (h1–h6), eyebrows use `--font-sans` (Work Sans). A `<p>` styled with `font-sans` or a `<button>` styled with `font-body` is a violation — there is no "designer's choice" zone. → [reference/typography.md](reference/typography.md)
-4. **Fraunces is editorial-only, with super wonk.** Software UI uses Work Sans for headings. Fraunces appears only in editorial contexts and uses the variation `'opsz' 144, 'SOFT' 100, 'WONK' 1` — full display-grade quirks. → [reference/typography.md](reference/typography.md)
+3. **Body prose = Hanken Grotesk; UI = Space Grotesk.** Mechanical split: paragraphs / ledes / captions / blockquote prose use `--font-body` (Hanken Grotesk). Labels, buttons, navigation, software headings (h1–h6), eyebrows use `--font-sans` (Space Grotesk). A `<p>` styled with `font-sans` or a `<button>` styled with `font-body` is a violation — there is no "designer's choice" zone. → [reference/typography.md](reference/typography.md)
+4. **Fraunces is editorial-only, with super wonk.** Software UI uses Space Grotesk for headings. Fraunces appears only in editorial contexts and uses the variation `'opsz' 144, 'SOFT' 100, 'WONK' 1` — full display-grade quirks. → [reference/typography.md](reference/typography.md)
 5. **Editorial themes are editorial-only.** `<EditorialTheme>` and `data-editorial-theme="warm|cool|deep"` don't belong inside software UI surfaces. → [reference/editorial.md](reference/editorial.md)
 6. **Editorial accent never colors heading text.** Inside editorial sections, the accent rides on secondary elements only — eyebrows, pullquote rules, drop caps, ornaments. → [reference/editorial.md](reference/editorial.md)
-7. **Body font is Hanken Grotesk, not Manrope or Work Sans.** Manrope was replaced by Work Sans in v0.7.0; Work Sans was demoted to UI-only when Hanken Grotesk became the body face. Any `Manrope` reference is stale; using Work Sans for paragraphs is also wrong. → [reference/typography.md](reference/typography.md)
+7. **Body font is Hanken Grotesk, not Manrope, Work Sans, or Space Grotesk.** Manrope was the body font through v0.6.x; Work Sans replaced it in v0.7.0, then got demoted to UI-only when Hanken Grotesk became the body face in v0.8.0; Work Sans was later replaced by Space Grotesk as the UI face. Any `Manrope` or `Work Sans` reference is stale; using Space Grotesk for paragraphs is also wrong. → [reference/typography.md](reference/typography.md)
 
 ## Reference files (read on demand)
 
-- **[reference/typography.md](reference/typography.md)** — Full typography rules: Work Sans body/heading scale, Fira Code allowed/disallowed surfaces, Fraunces editorial scope.
+- **[reference/typography.md](reference/typography.md)** — Full typography rules: Space Grotesk body/heading scale, Fira Code allowed/disallowed surfaces, Fraunces editorial scope.
 - **[reference/spark.md](reference/spark.md)** — Spark accent: token values, `--spark-glow`, the Rule of One in detail, allowed/disallowed surfaces, the `spark-pulse` animation.
 - **[reference/editorial.md](reference/editorial.md)** — Editorial accent themes (warm/cool/deep), `<EditorialTheme>` activation, the four editorial primitives, heading-color rule.
 - **[reference/tokens.md](reference/tokens.md)** — Token catalogue: color palette, signature colors, semantic roles, spacing, radii, shadows, motion. The "what tokens exist" lookup.
@@ -46,7 +46,7 @@ These are the rules people break even after reading the docs. If you see any of 
 
 - **[examples/spark-correct.tsx](examples/spark-correct.tsx)** — Canonical Spark uses (live indicator, hero CTA, editorial underline). Each example uses Spark exactly once.
 - **[examples/spark-violation.tsx](examples/spark-violation.tsx)** — What NOT to do: multiple Spark instances on one surface, Spark on hover/border/divider.
-- **[examples/typography-correct.tsx](examples/typography-correct.tsx)** — Right uses of Work Sans, Fira Code, Fraunces.
+- **[examples/typography-correct.tsx](examples/typography-correct.tsx)** — Right uses of Space Grotesk, Fira Code, Fraunces.
 - **[examples/typography-violation.tsx](examples/typography-violation.tsx)** — `font-mono` on a CTA, Manrope import, Fraunces in software UI.
 - **[examples/editorial-correct.tsx](examples/editorial-correct.tsx)** — `<EditorialTheme>` wrapping an article with eyebrow, pullquote, drop cap.
 

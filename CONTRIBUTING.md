@@ -43,7 +43,7 @@ If you're adding to `src/lib/index.ts`, you're declaring public API. Treat it as
 
 `design.md` is authoritative. The short version:
 
-- **Typography roles are mechanical**: prose → Hanken Grotesk, UI labels/headings/affordances → Work Sans, editorial display → Fraunces, code-only surfaces → Fira Code.
+- **Typography roles are mechanical**: prose → Hanken Grotesk, UI labels/headings/affordances → Space Grotesk, editorial display → Fraunces, code-only surfaces → Fira Code.
 - **Spark's Rule of One**: at most one Spark-colored thing per viewport. Spark is editorial only — never on UI affordances.
 - **Editorial themes** (`warm`, `cool`, `deep`) scope only to `<EditorialTheme>`-wrapped regions.
 

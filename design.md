@@ -36,55 +36,55 @@ colors:
   text-heading: "#3d3028"
 typography:
   heading-h1:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 3rem
     fontWeight: 700
     lineHeight: 3.5rem
     letterSpacing: -0.02em
   heading-h2:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 2.25rem
     fontWeight: 700
     lineHeight: 2.5rem
     letterSpacing: -0.015em
   heading-h3:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.875rem
     fontWeight: 600
     lineHeight: 2.25rem
     letterSpacing: -0.01em
   heading-h4:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.5rem
     fontWeight: 600
     lineHeight: 2rem
   heading-h5:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.25rem
     fontWeight: 600
     lineHeight: 1.75rem
   heading-h6:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.125rem
     fontWeight: 600
     lineHeight: 1.75rem
   body-lg:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.75rem
   body-md:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.5rem
   body-sm:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
   label-sm:
-    fontFamily: '"Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
     fontSize: 0.75rem
     fontWeight: 600
     lineHeight: 1rem
@@ -394,14 +394,14 @@ Utility classes: `text-spark`, `bg-spark`, `ring-spark` (a 4px halo using `--spa
 
 ## Typography
 
-Campfire ships four families across two deployment contexts — software UI and editorial — with strict rules about where each family is allowed to appear. Two grotesks (Hanken Grotesk + Work Sans) split the sans-serif workload by **role**, not by surface, so the same page can use both without context-switching feeling jarring.
+Campfire ships four families across two deployment contexts — software UI and editorial — with strict rules about where each family is allowed to appear. Two grotesks (Hanken Grotesk + Space Grotesk) split the sans-serif workload by **role**, not by surface, so the same page can use both without context-switching feeling jarring.
 
-- **Hanken Grotesk** is the body typeface — long-form prose, paragraphs, ledes, captions, blockquote text. It runs narrower and more comfortably than Work Sans at 16px reading sizes; Campfire's body rhythm is tuned around it. The rule is mechanical: any element that the reader is *reading as prose* gets Hanken Grotesk. This applies in both software and editorial contexts.
-- **Work Sans** is the UI typeface — labels, buttons, navigation items, software headings (h1–h6), eyebrows, kickers, and chrome. The rule is mechanical: any element that the reader is *interacting with* (clicks, taps, scans as a label) or that functions as a software heading gets Work Sans. The test for the body/UI split: is this text a paragraph of prose, or a label/heading/affordance? Prose → Hanken; label/heading/affordance → Work Sans. There is no "designer's choice" zone in between.
+- **Hanken Grotesk** is the body typeface — long-form prose, paragraphs, ledes, captions, blockquote text. Its calmer letterforms recede into prose, while Space Grotesk's personality is reserved for UI moments; Campfire's body rhythm is tuned around Hanken. The rule is mechanical: any element that the reader is *reading as prose* gets Hanken Grotesk. This applies in both software and editorial contexts.
+- **Space Grotesk** is the UI typeface — labels, buttons, navigation items, software headings (h1–h6), eyebrows, kickers, and chrome. The rule is mechanical: any element that the reader is *interacting with* (clicks, taps, scans as a label) or that functions as a software heading gets Space Grotesk. The test for the body/UI split: is this text a paragraph of prose, or a label/heading/affordance? Prose → Hanken; label/heading/affordance → Space Grotesk. There is no "designer's choice" zone in between.
 - **Fraunces** is the editorial display face, used **only** when Campfire is deployed to editorial surfaces (long-form writing, case studies, marketing pages, the personal site). Editorial headings (`editorial-h1`–`editorial-h3`), pull quotes, and case-study metric values use Fraunces at weight 400 (or 425 for h1) with `font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1` — full display-grade optical sizing, maximally soft terminals, and the WONK axis engaged for quirky alternates. Software UI surfaces never use Fraunces — using it inside a product UI is a misread of the system, not a stylistic choice.
-- **Fira Code** is reserved for technical content. Allowed surfaces: fenced code blocks, inline `<code>`, syntax-highlighted snippets, raw token values rendered as data (hex codes, spacing scales, dimension tokens), keyboard keys (`<kbd>`), and tabular numerics inside data tables and chart tooltips. **Disallowed surfaces (zero exceptions): CTAs, buttons, links, navigation items, eyebrows, dates, badges/tags that aren't displaying a raw token value, hero copy, marketing accents, body prose, and any other "techy-feeling" decoration.** If the element is something a user clicks, taps, or reads as prose, it is Hanken Grotesk (prose) or Work Sans (UI/label) — never Fira Code. The test: is the literal text of this element a piece of code or a raw machine value? If no, it does not get Fira Code.
+- **Fira Code** is reserved for technical content. Allowed surfaces: fenced code blocks, inline `<code>`, syntax-highlighted snippets, raw token values rendered as data (hex codes, spacing scales, dimension tokens), keyboard keys (`<kbd>`), and tabular numerics inside data tables and chart tooltips. **Disallowed surfaces (zero exceptions): CTAs, buttons, links, navigation items, eyebrows, dates, badges/tags that aren't displaying a raw token value, hero copy, marketing accents, body prose, and any other "techy-feeling" decoration.** If the element is something a user clicks, taps, or reads as prose, it is Hanken Grotesk (prose) or Space Grotesk (UI/label) — never Fira Code. The test: is the literal text of this element a piece of code or a raw machine value? If no, it does not get Fira Code.
 
-### Software heading scale (Work Sans)
+### Software heading scale (Space Grotesk)
 
 h1 (48/56, bold, -0.02em) → h2 (36/40, bold, -0.015em) → h3 (30/36, semibold, -0.01em) → h4 (24/32, semibold) → h5 (20/28, semibold) → h6 (18/28, semibold). Letter-spacing tightens only at the largest sizes; smaller headings stay at default tracking so they sit naturally inside dense UI. Heading color is `on-surface` — same ink as body copy; size and weight alone carry hierarchy.
 
@@ -423,7 +423,7 @@ Headings remain on `text-heading` regardless of tone. The accent is for **second
 
 ### Body, labels, and code
 
-Body copy targets `1rem / 1.5rem` as the default reading size and renders in Hanken Grotesk (`--font-body`); `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default. Labels use Work Sans at `label-sm` (12/16, semibold, +0.04em tracking) — labels are UI, not prose. Code uses `code-md` and is the canonical home for Fira Code; the only other places Fira Code may appear are the technical surfaces enumerated above (raw token values, `<kbd>`, tabular numerics).
+Body copy targets `1rem / 1.5rem` as the default reading size and renders in Hanken Grotesk (`--font-body`); `body-lg` (18/28) is reserved for ledes and post-header excerpts; `body-sm` (14/20) is for dense tables and metadata. Never set long-form prose smaller than the default. Labels use Space Grotesk at `label-sm` (12/16, semibold, +0.04em tracking) — labels are UI, not prose. Code uses `code-md` and is the canonical home for Fira Code; the only other places Fira Code may appear are the technical surfaces enumerated above (raw token values, `<kbd>`, tabular numerics).
 
 ## Layout
 
@@ -509,11 +509,11 @@ Campfire ships ~80 React primitives under `src/components/ui/`, all built on Rad
 - Don't stack more than two elevation levels on the same surface. Three nested cards is a layout problem, not a depth problem.
 - Don't bypass `ThemeProvider` to detect dark mode (e.g., reading `matchMedia` directly inside a component). The provider is the single source of truth.
 - Don't reach into the shadcn-compat tokens (`shadcn-compat.light.json` / `shadcn-compat.dark.json`) in new code. They expose bare names like `--background`, `--foreground`, `--card`, `--popover`, `--muted`, `--accent`, `--destructive`, `--ring`, `--input-background`, `--switch-background` so Tailwind v4's `@theme` block (and any shadcn-style class such as `bg-background`, `text-foreground`) can resolve. They're load-bearing — Tailwind v4's `@theme` block currently depends on them — but the file is named `shadcn-compat.*` because new code should reach for the underlying semantic tokens (`bg.base`, `text.primary`, `bg.muted`, `danger.600`, `interactive.default`, etc.) instead. Migrating Tailwind's `@theme` block off the bare-name aliases and dropping the compat file is tracked for a future major version.
-- Don't use Fraunces in software UI. Fraunces is the editorial display face; deploying it inside a product (dashboards, admin tools, in-app chrome) is a misuse of the system. Software headings use Work Sans.
-- Don't use Work Sans for editorial display. When Campfire is deployed to editorial surfaces, headlines, pull quotes, and metric values use the `editorial-*` Fraunces tokens — falling back to Work Sans flattens the editorial voice.
-- Don't mix Hanken Grotesk and Work Sans by gut. The split is mechanical: prose → Hanken Grotesk; labels, buttons, navigation, software headings, eyebrows → Work Sans. If you find yourself reaching for one because it "feels right," check the rule first. The whole point of the role split is that there's no ambiguous middle.
-- Don't use Hanken Grotesk for headings (software or editorial). Software h1–h6 are Work Sans; editorial h1–h3 / pullquote / metric are Fraunces. Hanken Grotesk only carries body and caption text.
-- Don't use Fira Code on non-technical UI. CTAs, buttons, links, navigation, badges, dates, eyebrows, hero copy, and body prose are always Work Sans — no exceptions for "techy" styling. Fira Code is allowed only on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. If the text is something the user reads as language or clicks as an affordance, it is Work Sans.
+- Don't use Fraunces in software UI. Fraunces is the editorial display face; deploying it inside a product (dashboards, admin tools, in-app chrome) is a misuse of the system. Software headings use Space Grotesk.
+- Don't use Space Grotesk for editorial display. When Campfire is deployed to editorial surfaces, headlines, pull quotes, and metric values use the `editorial-*` Fraunces tokens — falling back to Space Grotesk flattens the editorial voice.
+- Don't mix Hanken Grotesk and Space Grotesk by gut. The split is mechanical: prose → Hanken Grotesk; labels, buttons, navigation, software headings, eyebrows → Space Grotesk. If you find yourself reaching for one because it "feels right," check the rule first. The whole point of the role split is that there's no ambiguous middle.
+- Don't use Hanken Grotesk for headings (software or editorial). Software h1–h6 are Space Grotesk; editorial h1–h3 / pullquote / metric are Fraunces. Hanken Grotesk only carries body and caption text.
+- Don't use Fira Code on non-technical UI. CTAs, buttons, links, navigation, badges, dates, eyebrows, hero copy, and body prose are always Space Grotesk — no exceptions for "techy" styling. Fira Code is allowed only on code, raw token values (hex codes, spacing values), `<kbd>` keys, and tabular numerics. If the text is something the user reads as language or clicks as an affordance, it is Space Grotesk.
 - Don't apply editorial accent themes (`<EditorialTheme>`, `data-editorial-theme`) to software UI surfaces. The accent system is for editorial pages — long-form writing, case studies, marketing, the personal site. Dashboards, admin tooling, and in-app chrome stay on the primary slate-blue and never pick up warm/cool/deep tones.
 - Don't color the primary heading text with the editorial accent. Editorial headings remain on `text-heading` (warm near-black). The accent rides on smaller elements — eyebrows, pullquote rules, drop caps, ornaments — so the heading reads as ink and color does its work alongside it.
 - Don't repeat Spark within a single view. The Rule of One is the entire point of the color; if it appears more than once on a page, both instances are devalued and you've broken the system. Pick the highest-stakes element on the screen, give Spark to that one, and use the established slate/terracotta/editorial tones for everything else. There is no `<Spark>` component on purpose — there is nothing to repeat.
