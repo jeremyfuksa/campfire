@@ -1,19 +1,19 @@
 # Typography rules
 
-Four families across two deployment contexts (software UI and editorial). Two of them — Hanken Grotesk and Work Sans — split the sans-serif workload by **role**, not by surface, so the same page can use both without it feeling jarring.
+Four families across two deployment contexts (software UI and editorial). Two of them — Hanken Grotesk and Space Grotesk — split the sans-serif workload by **role**, not by surface, so the same page can use both without it feeling jarring.
 
 ## The role split
 
 | Role                                   | Family          | Token         | Mechanism                             |
 | -------------------------------------- | --------------- | ------------- | ------------------------------------- |
 | Body prose, ledes, captions, blockquote | Hanken Grotesk | `--font-body` | Applied to `<p>`, `<figcaption>`, `<blockquote>` in `globals.css` |
-| Labels, buttons, navigation, software headings, eyebrows, all UI chrome | Work Sans | `--font-sans` | Default on `<body>`; everything inherits it unless overridden |
+| Labels, buttons, navigation, software headings, eyebrows, all UI chrome | Space Grotesk | `--font-sans` | Default on `<body>`; everything inherits it unless overridden |
 | Editorial display (`editorial-h1`–`editorial-h3`, pullquote text, metric values) | Fraunces        | `--font-heading-editorial` | Explicit `font-family: var(--font-heading-editorial)` on editorial elements only |
 | Code, raw token values, `<kbd>`, tabular numerics | Fira Code | `--font-mono` | Applied to `<code>`, `<kbd>`, `<samp>`, `<pre>`; `font-mono` utility for explicit cases |
 
 ## Hanken Grotesk — body prose
 
-Hanken Grotesk runs narrower and more comfortably than Work Sans at 16px paragraph sizes. It carries any element the reader is **reading as prose** — paragraphs, ledes, captions, blockquote text, post-header excerpts. It applies in both software and editorial contexts; "body" is the role, not the surface.
+Hanken Grotesk's calmer letterforms recede into prose at 16px paragraph sizes, while Space Grotesk's personality is better suited to UI moments. It carries any element the reader is **reading as prose** — paragraphs, ledes, captions, blockquote text, post-header excerpts. It applies in both software and editorial contexts; "body" is the role, not the surface.
 
 Token references:
 - `--font-body` (root family)
@@ -21,9 +21,9 @@ Token references:
 
 Body copy targets `1rem / 1.5rem` as the default; `body-lg` (18/28) for ledes and post-header excerpts; `body-sm` (14/20) for dense tables and metadata. Never set long-form prose smaller than the default.
 
-## Work Sans — UI typeface
+## Space Grotesk — UI typeface
 
-Work Sans carries everything the reader is **interacting with** or scanning as a label. Buttons, inputs, dropdowns, navigation items, software headings (h1–h6), tabs, breadcrumbs, badges (when not displaying a raw token value), eyebrows, kickers, captions of UI elements (e.g. table column headers).
+Space Grotesk carries everything the reader is **interacting with** or scanning as a label. Buttons, inputs, dropdowns, navigation items, software headings (h1–h6), tabs, breadcrumbs, badges (when not displaying a raw token value), eyebrows, kickers, captions of UI elements (e.g. table column headers).
 
 Token references:
 - `--font-sans` (root family — the body element default; everything inherits unless overridden)
@@ -42,11 +42,11 @@ When unsure which family an element gets, apply this test:
 > Is this text a paragraph of prose, OR a label / heading / affordance?
 
 - **Prose** (paragraphs, ledes, captions, quoted blocks): Hanken Grotesk via `--font-body`.
-- **Label / heading / affordance** (buttons, navigation, software h1–h6, eyebrows, table headers): Work Sans via `--font-sans` (which is the inherited default, so no class needed).
+- **Label / heading / affordance** (buttons, navigation, software h1–h6, eyebrows, table headers): Space Grotesk via `--font-sans` (which is the inherited default, so no class needed).
 
 There is no third category. If you find yourself reaching for one because it "feels right" without the test giving a clear answer, the design probably needs sharpening, not a font choice.
 
-**Note on history:** Manrope was the body font through v0.6.x and was replaced by Work Sans in v0.7.0. Work Sans then got demoted to UI-only when Hanken Grotesk took over body in v0.8.0. Any `Manrope` reference in new code is stale; any Work Sans reference on a paragraph is also wrong (use `--font-body`).
+**Note on history:** Manrope was the body font through v0.6.x and was replaced by Work Sans in v0.7.0. Work Sans then got demoted to UI-only when Hanken Grotesk took over body in v0.8.0. Work Sans was later replaced by Space Grotesk as the UI face. Any `Manrope` or `Work Sans` reference in new code is stale; any Space Grotesk reference on a paragraph is also wrong (use `--font-body`).
 
 ## Fraunces — editorial-only, super wonk
 
@@ -80,7 +80,7 @@ font-variation-settings: var(--editorial-font-variation);
 
 ### Disallowed surfaces (zero exceptions)
 
-- Software UI headings — those use Work Sans
+- Software UI headings — those use Space Grotesk
 - Body copy — body is Hanken Grotesk even on editorial pages
 - Buttons, navigation, badges, any UI chrome
 
@@ -98,7 +98,7 @@ Editorial headings use `--text-heading` (`#3d3028` light / warm cream `#f5e6d0` 
 
 ## Fira Code — technical-only
 
-Fira Code is the monospace font, reserved for **technical content**. The test for whether a surface gets Fira Code: *is the literal text a piece of code or a raw machine value?* If no, it's prose (Hanken) or UI (Work Sans).
+Fira Code is the monospace font, reserved for **technical content**. The test for whether a surface gets Fira Code: *is the literal text a piece of code or a raw machine value?* If no, it's prose (Hanken) or UI (Space Grotesk).
 
 ### Allowed surfaces
 
@@ -120,7 +120,7 @@ Fira Code is the monospace font, reserved for **technical content**. The test fo
 - Body prose
 - Any "techy-feeling" decoration
 
-If the user reads the text as language or clicks it as an affordance, it is Hanken Grotesk (prose) or Work Sans (UI/label).
+If the user reads the text as language or clicks it as an affordance, it is Hanken Grotesk (prose) or Space Grotesk (UI/label).
 
 Token references:
 - `--font-mono` (root)

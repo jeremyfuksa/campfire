@@ -1,11 +1,11 @@
 // Typography — VIOLATION examples and their fixes.
 // Common gotchas under the new role split (Hanken Grotesk for prose,
-// Work Sans for UI): wrong family on the wrong role, font-mono on UI,
+// Space Grotesk for UI): wrong family on the wrong role, font-mono on UI,
 // Fraunces in software, stale Manrope, missing super-wonk variation.
 
 // ============================================================
 // VIOLATION 1: font-mono on a CTA / button.
-// Buttons are NOT technical content. They're UI = Work Sans.
+// Buttons are NOT technical content. They're UI = Space Grotesk.
 // ============================================================
 export function MonoOnCtaBad() {
   return (
@@ -15,7 +15,7 @@ export function MonoOnCtaBad() {
   );
 }
 
-// ✅ FIX: Drop font-mono. Button inherits Work Sans from <body>.
+// ✅ FIX: Drop font-mono. Button inherits Space Grotesk from <body>.
 export function MonoOnCtaFixed() {
   return (
     <button className="bg-primary px-4 py-2 rounded-md text-white">
@@ -25,10 +25,10 @@ export function MonoOnCtaFixed() {
 }
 
 // ============================================================
-// VIOLATION 2: Work Sans forced on a paragraph.
+// VIOLATION 2: Space Grotesk forced on a paragraph.
 // Paragraphs are prose = Hanken Grotesk. Don't override.
 // ============================================================
-export function WorkSansOnParagraphBad() {
+export function SpaceGroteskOnParagraphBad() {
   return (
     <p style={{ fontFamily: "var(--font-sans)" }}>
       A campfire's warmth is honest.
@@ -38,13 +38,13 @@ export function WorkSansOnParagraphBad() {
 
 // ✅ FIX: Bare <p> automatically picks up --font-body (Hanken Grotesk)
 //        from the global rule. No font-family needed.
-export function WorkSansOnParagraphFixed() {
+export function SpaceGroteskOnParagraphFixed() {
   return <p>A campfire's warmth is honest.</p>;
 }
 
 // ============================================================
 // VIOLATION 3: Hanken Grotesk forced on a button or label.
-// Hanken is for prose, not UI. Buttons/labels = Work Sans.
+// Hanken is for prose, not UI. Buttons/labels = Space Grotesk.
 // ============================================================
 export function HankenOnButtonBad() {
   return (
@@ -57,7 +57,7 @@ export function HankenOnButtonBad() {
   );
 }
 
-// ✅ FIX: Remove the override. Buttons inherit Work Sans.
+// ✅ FIX: Remove the override. Buttons inherit Space Grotesk.
 export function HankenOnButtonFixed() {
   return (
     <button className="bg-primary px-4 py-2 rounded-md text-white">
@@ -81,7 +81,7 @@ export function MonoOnDateBad() {
   );
 }
 
-// ✅ FIX: Default fonts. Heading = Work Sans, paragraph = Hanken Grotesk.
+// ✅ FIX: Default fonts. Heading = Space Grotesk, paragraph = Hanken Grotesk.
 export function MonoOnDateFixed() {
   return (
     <div>
@@ -95,7 +95,7 @@ export function MonoOnDateFixed() {
 
 // ============================================================
 // VIOLATION 5: Fraunces in software UI.
-// Fraunces is editorial-only. Software headings use Work Sans.
+// Fraunces is editorial-only. Software headings use Space Grotesk.
 // ============================================================
 export function FrauncesInSoftwareBad() {
   return (
@@ -108,7 +108,7 @@ export function FrauncesInSoftwareBad() {
   );
 }
 
-// ✅ FIX: Default heading uses Work Sans via --font-heading-h2.
+// ✅ FIX: Default heading uses Space Grotesk via --font-heading-h2.
 export function FrauncesInSoftwareFixed() {
   return <h2 className="text-2xl">Settings</h2>;
 }
@@ -152,9 +152,10 @@ export function FrauncesWithVariationFixed() {
 
 // ============================================================
 // VIOLATION 7: Stale Manrope reference.
-// Manrope was replaced by Work Sans in v0.7.0 (and Work Sans was
-// then demoted to UI-only when Hanken Grotesk took over body in
-// v0.8.0). Any Manrope reference is stale.
+// Manrope was replaced by Work Sans in v0.7.0; Work Sans was demoted
+// to UI-only when Hanken Grotesk took over body in v0.8.0; Work Sans
+// was later replaced by Space Grotesk as the UI face. Any Manrope or
+// Work Sans reference is stale.
 // ============================================================
 export function ManropeStaleBad() {
   return (

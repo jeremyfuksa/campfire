@@ -1,16 +1,16 @@
 // Typography — CORRECT usage examples.
-// Hanken Grotesk for body prose. Work Sans for UI / labels / software
+// Hanken Grotesk for body prose. Space Grotesk for UI / labels / software
 // headings. Fraunces (super wonk) for editorial display only. Fira Code
 // for technical content.
 
 // ============================================================
-// 1. Software UI — heading + button = Work Sans (inherited from <body>).
+// 1. Software UI — heading + button = Space Grotesk (inherited from <body>).
 //    Body paragraph = Hanken Grotesk via the global <p> rule.
 // ============================================================
 export function SoftwareUiCorrect() {
   return (
     <div>
-      {/* Software heading: Work Sans via --font-heading-h2 */}
+      {/* Software heading: Space Grotesk via --font-heading-h2 */}
       <h2>Your dashboard</h2>
 
       {/* Body copy: Hanken Grotesk — globals.css applies --font-body
@@ -19,7 +19,7 @@ export function SoftwareUiCorrect() {
         You have 3 unread messages.
       </p>
 
-      {/* CTA: inherits Work Sans from <body> via --font-sans.
+      {/* CTA: inherits Space Grotesk from <body> via --font-sans.
           NOT font-mono and NOT font-body — buttons are UI. */}
       <button className="bg-primary px-4 py-2 rounded-md text-white">
         Open inbox
@@ -92,12 +92,12 @@ export function TechnicalContentCorrect() {
 
 // ============================================================
 // 4. Editorial — Fraunces with super wonk for the headline.
-//    Body stays Hanken Grotesk; eyebrow stays Work Sans.
+//    Body stays Hanken Grotesk; eyebrow stays Space Grotesk.
 // ============================================================
 export function EditorialCorrect() {
   return (
     <article className="max-w-2xl">
-      {/* Eyebrow: Work Sans (UI/label role) */}
+      {/* Eyebrow: Space Grotesk (UI/label role) */}
       <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
         Field Notes · No. 04
       </span>

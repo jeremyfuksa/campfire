@@ -8,7 +8,7 @@ This repo serves two purposes: it's a Vite docs/playground app **and** a publish
 - `src/components/*.tsx` — docs-app pages (`FoundationComponentsPage`, `DesignTokensPage`, `GridsLayoutsPage`, etc.) plus shared widgets (`ThemeProvider`, `BackgroundGradients`, `PageWithSidebar`).
 - `src/lib/index.ts` — the published library barrel. Anything not re-exported here doesn't ship to consumers.
 - `src/tokens/*.json` — design tokens in W3C DTCG format. Built by `style-dictionary.config.mjs` (run `npm run tokens`) into `src/styles/tokens.generated.css` and the `dist/tokens.*` outputs.
-- `src/styles/` — `globals.css` (Tailwind v4 `@theme` block + base layer), `fonts.css` (Google Fonts import for Work Sans, Hanken Grotesk, Fraunces, Fira Code), `tokens.generated.css` (gitignored, regenerated from `src/tokens/`).
+- `src/styles/` — `globals.css` (Tailwind v4 `@theme` block + base layer), `fonts.css` (Google Fonts import for Space Grotesk, Hanken Grotesk, Fraunces, Fira Code), `tokens.generated.css` (gitignored, regenerated from `src/tokens/`).
 - `design.md` — authoritative design-system rules (typography role split, Spark Rule of One, editorial themes, color tokens). Also ships in the npm tarball.
 - `skills/campfire-design-system/` — a Claude Code skill (SKILL.md + reference docs + examples) that teaches Claude the rules from `design.md`. Packaged into `dist/campfire-design-system.skill` by `npm run build:skill`.
 - `scripts/` — build helpers (`package-skill.py` produces the `.skill` bundle; `add-use-client.mjs` prepends the directive to dist bundles).
@@ -30,7 +30,7 @@ This repo serves two purposes: it's a Vite docs/playground app **and** a publish
 ## Coding Style & Naming Conventions
 - TypeScript function components with hooks. Each component in its own kebab-case `.tsx` file under `src/components/ui/` (the published surface) or PascalCase `.tsx` for docs-app pages.
 - Tailwind utility classes carry most layout. For semantic tokens, prefer the Tailwind classes that resolve to CSS vars (`bg-primary`, `text-muted-foreground`) over inline `style={{ backgroundColor: 'var(...)' }}`.
-- Apply the design-system rules in `design.md` — Spark's Rule of One, the typography role split (Hanken Grotesk for prose, Work Sans for UI, Fraunces for editorial display, Fira Code for technical), editorial themes scoped to editorial surfaces only. The `skills/campfire-design-system/` skill encodes these for AI tooling.
+- Apply the design-system rules in `design.md` — Spark's Rule of One, the typography role split (Hanken Grotesk for prose, Space Grotesk for UI, Fraunces for editorial display, Fira Code for technical), editorial themes scoped to editorial surfaces only. The `skills/campfire-design-system/` skill encodes these for AI tooling.
 - Comments are scarce. Add them only for unusual hacks, hidden invariants, or workarounds.
 
 ## Testing Guidelines

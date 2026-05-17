@@ -442,7 +442,7 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    /* UI default = Work Sans. Buttons, inputs, labels, navigation, and
+    /* UI default = Space Grotesk. Buttons, inputs, labels, navigation, and
        software headings inherit from here. Long-form prose elements
        (p, figcaption, blockquote prose) opt into Hanken Grotesk via
        --font-body in the typography base layer below. */
@@ -453,10 +453,10 @@
     font-family: var(--font-mono);
   }
 
-  /* Long-form prose: Hanken Grotesk reads narrower and more
-     comfortably than Work Sans at 16px paragraph sizes. Applied to
-     bare prose elements; UI elements (buttons/labels/nav) keep
-     Work Sans by inheritance from <body>. */
+  /* Long-form prose: Hanken Grotesk's calmer letterforms recede into
+     paragraph text, while Space Grotesk's personality is reserved for
+     UI moments. Applied to bare prose elements; UI elements
+     (buttons/labels/nav) keep Space Grotesk by inheritance from <body>. */
   p, figcaption, blockquote {
     font-family: var(--font-body);
   }
