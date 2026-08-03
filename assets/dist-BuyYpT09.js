@@ -1,1 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-XedgCGTy.js";var r,i,a=t((()=>{r=e(n(),1),i=globalThis?.document?r.useLayoutEffect:()=>{}}));export{i as n,a as t};

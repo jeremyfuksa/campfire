@@ -1,0 +1,51 @@
+import{a as e,n as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./react-B6tGW3fj.js";import{t as r}from"./jsx-runtime-ATHzeHXA.js";import{n as i,t as a}from"./createLucideIcon-D4Czp6j_.js";import{n as o,t as s}from"./check-B4Mqbaut.js";import{n as c,t as l}from"./chevron-down-C9obF-2S.js";import{n as u,t as d}from"./loader-circle-UZM85fUD.js";import{n as f,t as p}from"./search-Ch90_uef.js";import{n as m,t as h}from"./x-B9OLE3_7.js";import{n as g,t as _}from"./utils-DwVtoTFj.js";import{a as v,l as y,n as b,o as x,t as S}from"./command-Dut7zD57.js";import{i as C,n as w,t as T}from"./popover-BmT-GDOK.js";import{n as E,t as D}from"./badge-BSdAIanZ.js";var O,k;function A(){return(A=t((()=>{i(),O=[[`path`,{d:`M5 12h14`,key:`1ays0h`}],[`path`,{d:`M12 5v14`,key:`s699le`}]],k=a(`plus`,O)})))()}function j({options:e,value:t,onValueChange:n,placeholder:r=`Select...`,emptyText:i=`No results found`,searchPlaceholder:a=`Search...`,multiple:o=!1,disabled:c=!1,className:u,async:f=!1,onSearch:m,loading:g=!1,maxSelected:y,onCreate:C,creatable:E=!1}){let[O,A]=M.useState(!1),[j,P]=M.useState(``),F=M.useRef(null),I=M.useMemo(()=>o&&Array.isArray(t)?t:t?[t]:[],[t,o]),L=M.useMemo(()=>e.filter(e=>I.includes(e.value)),[e,I]),R=M.useMemo(()=>{if(f||!j)return e;let t=j.toLowerCase();return e.filter(e=>{let n=e.label.toLowerCase(),r=e.value.toLowerCase(),i=0;for(let e=0;e<n.length&&i<t.length;e++)n[e]===t[i]&&i++;return i===t.length||n.includes(t)||r.includes(t)})},[e,j,f]);M.useEffect(()=>{if(!f||!m)return;let e=setTimeout(()=>{m(j)},300);return()=>clearTimeout(e)},[j,f,m]);let z=e=>{if(o){let t=I.includes(e)?I.filter(t=>t!==e):[...I,e];if(y&&t.length>y&&!I.includes(e))return;n?.(t)}else n?.(e),A(!1),P(``)},B=(e,t)=>{if(t.stopPropagation(),o){let t=I.filter(t=>t!==e);n?.(t)}},V=()=>{E&&C&&j&&!R.some(e=>e.label.toLowerCase()===j.toLowerCase())&&(C(j),P(``))},H=e=>{e.key===`Escape`&&A(!1)},U=M.useMemo(()=>L.length===0?r:o?`${L.length} selected`:L[0]?.label||r,[L,r,o]),W=E&&j&&!R.some(e=>e.label.toLowerCase()===j.toLowerCase());return(0,N.jsxs)(T,{open:O,onOpenChange:A,children:[(0,N.jsxs)(`div`,{className:_(`border-input focus-within:border-ring focus-within:ring-ring/50`,`flex min-h-9 w-full items-center gap-2 rounded-md border bg-input-background px-3 py-2`,`cursor-pointer transition-all`,`focus-within:ring-[3px]`,c&&`cursor-not-allowed opacity-50`,u),onClick:()=>!c&&A(!0),children:[(0,N.jsxs)(`div`,{className:`flex flex-1 flex-wrap gap-1`,children:[o&&L.length>0?L.map(e=>(0,N.jsxs)(D,{variant:`secondary`,className:`gap-1`,children:[e.label,(0,N.jsx)(`button`,{onClick:t=>B(e.value,t),className:`hover:bg-muted rounded-xs`,disabled:c,"aria-label":`Remove ${e.label}`,children:(0,N.jsx)(h,{size:12,"aria-hidden":`true`})})]},e.value)):null,!o&&L.length>0?(0,N.jsx)(`span`,{className:`text-sm`,children:U}):L.length===0?(0,N.jsx)(`span`,{className:`text-muted-foreground text-sm`,children:r}):null]}),(0,N.jsx)(l,{size:14,className:_(`text-muted-foreground transition-transform`,O&&`rotate-180`),"aria-hidden":`true`})]}),(0,N.jsx)(w,{className:`w-(--radix-popover-trigger-width) p-0`,align:`start`,onKeyDown:H,children:(0,N.jsxs)(S,{children:[(0,N.jsxs)(`div`,{className:`flex items-center border-b px-3`,children:[(0,N.jsx)(p,{size:14,className:`text-muted-foreground mr-2`,"aria-hidden":`true`}),(0,N.jsx)(`input`,{ref:F,value:j,onChange:e=>P(e.target.value),placeholder:a,className:`placeholder:text-muted-foreground flex h-10 w-full bg-transparent py-3 text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50`,disabled:c})]}),(0,N.jsx)(x,{children:g?(0,N.jsxs)(`div`,{className:`py-6 text-center text-sm flex items-center justify-center gap-2`,children:[(0,N.jsx)(d,{size:14,className:`animate-spin`,"aria-hidden":`true`}),`Loading...`]}):R.length===0&&!W?(0,N.jsx)(b,{children:i}):(0,N.jsxs)(N.Fragment,{children:[R.map(e=>{let t=I.includes(e.value);return(0,N.jsxs)(v,{value:e.value,onSelect:()=>!e.disabled&&z(e.value),disabled:e.disabled,children:[o&&(0,N.jsx)(`div`,{className:_(`mr-2 flex h-4 w-4 items-center justify-center rounded-xs border`,t?`bg-primary text-primary-foreground border-primary`:`border-neutral-300`),children:t&&(0,N.jsx)(s,{size:12,"aria-hidden":`true`})}),(0,N.jsx)(`span`,{className:`flex-1`,children:e.label}),!o&&t&&(0,N.jsx)(s,{size:14,className:`text-primary ml-2`,"aria-hidden":`true`})]},e.value)}),W&&(0,N.jsxs)(v,{value:j,onSelect:V,className:`text-primary`,children:[(0,N.jsx)(k,{size:12,className:`mr-2`,"aria-hidden":`true`}),`Create "`,j,`"`]})]})})]})})]})}var M,N;function P(){return(P=t((()=>{M=e(n(),1),o(),c(),u(),A(),f(),m(),y(),C(),E(),g(),N=r(),j.__docgenInfo={description:``,methods:[],displayName:`Autocomplete`,props:{options:{required:!0,tsType:{name:`Array`,elements:[{name:`AutocompleteOption`}],raw:`AutocompleteOption[]`},description:``},value:{required:!1,tsType:{name:`union`,raw:`string | string[]`,elements:[{name:`string`},{name:`Array`,elements:[{name:`string`}],raw:`string[]`}]},description:``},onValueChange:{required:!1,tsType:{name:`signature`,type:`function`,raw:`(value: string | string[]) => void`,signature:{arguments:[{type:{name:`union`,raw:`string | string[]`,elements:[{name:`string`},{name:`Array`,elements:[{name:`string`}],raw:`string[]`}]},name:`value`}],return:{name:`void`}}},description:``},placeholder:{required:!1,tsType:{name:`string`},description:``,defaultValue:{value:`"Select..."`,computed:!1}},emptyText:{required:!1,tsType:{name:`string`},description:``,defaultValue:{value:`"No results found"`,computed:!1}},searchPlaceholder:{required:!1,tsType:{name:`string`},description:``,defaultValue:{value:`"Search..."`,computed:!1}},multiple:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},disabled:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},className:{required:!1,tsType:{name:`string`},description:``},async:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},onSearch:{required:!1,tsType:{name:`signature`,type:`function`,raw:`(query: string) => void`,signature:{arguments:[{type:{name:`string`},name:`query`}],return:{name:`void`}}},description:``},loading:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},maxSelected:{required:!1,tsType:{name:`number`},description:``},onCreate:{required:!1,tsType:{name:`signature`,type:`function`,raw:`(value: string) => void`,signature:{arguments:[{type:{name:`string`},name:`value`}],return:{name:`void`}}},description:``},creatable:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}}}}})))()}var F,I,L,R,z,B,V,H,U,W,G;function K(){return(K=t((()=>{F=n(),P(),I=r(),L=[{value:`apple`,label:`Apple`},{value:`banana`,label:`Banana`},{value:`cherry`,label:`Cherry`},{value:`date`,label:`Date`},{value:`elderberry`,label:`Elderberry`},{value:`fig`,label:`Fig`},{value:`grape`,label:`Grape`},{value:`honeydew`,label:`Honeydew`},{value:`kiwi`,label:`Kiwi`},{value:`lemon`,label:`Lemon`}],R={title:`Components/Autocomplete`,component:j,parameters:{layout:`centered`},tags:[`autodocs`]},z={args:{options:L,placeholder:`Select a fruit`}},B={args:{options:L,value:`banana`}},V={render:()=>{let[e,t]=(0,F.useState)([]);return(0,I.jsx)(`div`,{style:{width:`400px`},children:(0,I.jsx)(j,{options:L,multiple:!0,value:e,onValueChange:e=>t(e),placeholder:`Select fruits`})})}},H={render:()=>{let[e,t]=(0,F.useState)([]);return(0,I.jsx)(`div`,{style:{width:`400px`},children:(0,I.jsx)(j,{options:L,multiple:!0,maxSelected:3,value:e,onValueChange:e=>t(e),placeholder:`Select up to 3 fruits`})})}},U={render:()=>{let[e,t]=(0,F.useState)(L),[n,r]=(0,F.useState)();return(0,I.jsx)(`div`,{style:{width:`400px`},children:(0,I.jsx)(j,{options:e,value:n,onValueChange:e=>r(e),creatable:!0,onCreate:n=>{t([...e,{value:n.toLowerCase(),label:n}]),r(n.toLowerCase())},placeholder:`Select or create a fruit`})})}},W={args:{options:L,disabled:!0,placeholder:`Disabled`}},z.parameters={...z.parameters,docs:{...z.parameters?.docs,source:{originalSource:`{
+  args: {
+    options: fruits,
+    placeholder: "Select a fruit"
+  }
+}`,...z.parameters?.docs?.source}}},B.parameters={...B.parameters,docs:{...B.parameters?.docs,source:{originalSource:`{
+  args: {
+    options: fruits,
+    value: "banana"
+  }
+}`,...B.parameters?.docs?.source}}},V.parameters={...V.parameters,docs:{...V.parameters?.docs,source:{originalSource:`{
+  render: () => {
+    const [value, setValue] = useState<string[]>([]);
+    return <div style={{
+      width: "400px"
+    }}>
+        <Autocomplete options={fruits} multiple value={value} onValueChange={v => setValue(v as string[])} placeholder="Select fruits" />
+      </div>;
+  }
+}`,...V.parameters?.docs?.source}}},H.parameters={...H.parameters,docs:{...H.parameters?.docs,source:{originalSource:`{
+  render: () => {
+    const [value, setValue] = useState<string[]>([]);
+    return <div style={{
+      width: "400px"
+    }}>
+        <Autocomplete options={fruits} multiple maxSelected={3} value={value} onValueChange={v => setValue(v as string[])} placeholder="Select up to 3 fruits" />
+      </div>;
+  }
+}`,...H.parameters?.docs?.source}}},U.parameters={...U.parameters,docs:{...U.parameters?.docs,source:{originalSource:`{
+  render: () => {
+    const [options, setOptions] = useState(fruits);
+    const [value, setValue] = useState<string>();
+    return <div style={{
+      width: "400px"
+    }}>
+        <Autocomplete options={options} value={value} onValueChange={v => setValue(v as string)} creatable onCreate={newValue => {
+        setOptions([...options, {
+          value: newValue.toLowerCase(),
+          label: newValue
+        }]);
+        setValue(newValue.toLowerCase());
+      }} placeholder="Select or create a fruit" />
+      </div>;
+  }
+}`,...U.parameters?.docs?.source}}},W.parameters={...W.parameters,docs:{...W.parameters?.docs,source:{originalSource:`{
+  args: {
+    options: fruits,
+    disabled: true,
+    placeholder: "Disabled"
+  }
+}`,...W.parameters?.docs?.source}}},G=[`Default`,`WithValue`,`Multiple`,`WithMaxSelected`,`Creatable`,`Disabled`]})))()}K();export{U as Creatable,z as Default,W as Disabled,V as Multiple,H as WithMaxSelected,B as WithValue,G as __namedExportsOrder,R as default};

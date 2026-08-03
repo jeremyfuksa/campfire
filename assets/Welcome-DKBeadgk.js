@@ -1,0 +1,28 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{C as t,a as n,o as r,w as i}from"./blocks-CHd2J-Qr.js";import{t as a}from"./jsx-runtime-ATHzeHXA.js";function o(e){let t={a:`a`,code:`code`,h1:`h1`,h2:`h2`,li:`li`,p:`p`,pre:`pre`,strong:`strong`,ul:`ul`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(n,{title:`Welcome`}),`
+`,(0,c.jsx)(t.h1,{id:`campfire-design-system`,children:`Campfire Design System`}),`
+`,(0,c.jsx)(t.p,{children:`A warm, dependable React component library built on layered design tokens, semantic theming, and accessible Radix primitives. Campfire is the design language for products that should feel like a place to settle in — warm, steady, and quietly confident.`}),`
+`,(0,c.jsx)(t.h2,{id:`where-to-look`,children:`Where to look`}),`
+`,(0,c.jsxs)(t.ul,{children:[`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.strong,{children:`Foundations`}),` — the rules. Typography (the four-font role split), Spark (the one vivid accent and its Rule of One), and editorial themes (warm / cool / deep for long-form surfaces).`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.strong,{children:`Components`}),` — the primitives. ~70 React components built on Radix, each with stories showing variants and an a11y-tested implementation.`]}),`
+`,(0,c.jsxs)(t.li,{children:[(0,c.jsx)(t.strong,{children:`Editorial`}),` — `,(0,c.jsx)(t.code,{children:`EditorialTheme`}),`, `,(0,c.jsx)(t.code,{children:`EditorialEyebrow`}),`, `,(0,c.jsx)(t.code,{children:`EditorialPullquote`}),`, `,(0,c.jsx)(t.code,{children:`EditorialDropCap`}),` — the kit for editorial pages.`]}),`
+`]}),`
+`,(0,c.jsx)(t.h2,{id:`a-short-tour`,children:`A short tour`}),`
+`,(0,c.jsxs)(t.p,{children:[(0,c.jsx)(t.strong,{children:`Typography is a role split, not a vibe.`}),` Hanken Grotesk runs body prose. Space Grotesk runs UI (labels, buttons, navigation, software h1–h6, eyebrows). Fraunces is editorial display only, at full super-wonk variation (`,(0,c.jsx)(t.code,{children:`'opsz' 144, 'SOFT' 100, 'WONK' 1`}),`). Fira Code is technical content only — code, raw token values, `,(0,c.jsx)(t.code,{children:`<kbd>`}),`, tabular numerics. There is no "designer's choice" zone. See the Typography foundation for the full rules.`]}),`
+`,(0,c.jsxs)(t.p,{children:[(0,c.jsx)(t.strong,{children:`Spark is the one vivid accent, used sparingly.`}),` A single saturated orange (`,(0,c.jsx)(t.code,{children:`#ff5a1f`}),` light / `,(0,c.jsx)(t.code,{children:`#ff6b35`}),` dark) reserved for high-stakes moments — a live indicator, an unread beacon, the literal flame. Rule of One: max one instance per screen, first use wins. There is intentionally no `,(0,c.jsx)(t.code,{children:`<Spark>`}),` component — the rule is the API.`]}),`
+`,(0,c.jsxs)(t.p,{children:[(0,c.jsx)(t.strong,{children:`Editorial themes color secondary elements only.`}),` `,(0,c.jsx)(t.code,{children:`<EditorialTheme tone="warm | cool | deep">`}),` swaps an accent across eyebrows, pullquote rules, drop caps, and small chrome. Primary headings always stay on `,(0,c.jsx)(t.code,{children:`text-heading`}),`; the accent never colors heading text.`]}),`
+`,(0,c.jsx)(t.h2,{id:`install`,children:`Install`}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-bash`,children:`npm install @jeremyfuksa/campfire
+`})}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-ts`,children:`import "@jeremyfuksa/campfire/styles.css";
+import { Button } from "@jeremyfuksa/campfire";
+`})}),`
+`,(0,c.jsxs)(t.p,{children:[(0,c.jsx)(t.code,{children:`styles.css`}),` is opinionated (touches `,(0,c.jsx)(t.code,{children:`*`}),`, `,(0,c.jsx)(t.code,{children:`h1`}),`–`,(0,c.jsx)(t.code,{children:`h6`}),`, `,(0,c.jsx)(t.code,{children:`p`}),`, `,(0,c.jsx)(t.code,{children:`button`}),`, `,(0,c.jsx)(t.code,{children:`input`}),`, scrollbars). Apps mixing Campfire with another design system or reset can import `,(0,c.jsx)(t.code,{children:`@jeremyfuksa/campfire/tokens.css`}),` instead — that's CSS variables only, no element styling.`]}),`
+`,(0,c.jsx)(t.h2,{id:`the-claude-code-skill`,children:`The Claude Code skill`}),`
+`,(0,c.jsxs)(t.p,{children:[`Campfire ships a Claude Code skill that teaches Claude the design system's rules. In a project that imports `,(0,c.jsx)(t.code,{children:`@jeremyfuksa/campfire`}),`:`]}),`
+`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-bash`,children:`mkdir -p .claude/skills
+unzip -o node_modules/@jeremyfuksa/campfire/dist/campfire-design-system.skill -d .claude/skills/
+`})}),`
+`,(0,c.jsx)(t.p,{children:`Any subsequent Claude Code session in the project auto-consults the rules — Spark Rule of One, typography role split, editorial scope, Fira Code scope — before suggesting UI code.`}),`
+`,(0,c.jsxs)(t.h2,{id:`the-canonical-rules-live-in-designmd`,children:[`The canonical rules live in `,(0,c.jsx)(t.code,{children:`design.md`})]}),`
+`,(0,c.jsxs)(t.p,{children:[`This Storybook is the visual reference. The authoritative ruleset is `,(0,c.jsx)(t.a,{href:`https://github.com/jeremyfuksa/campfire/blob/main/design.md`,rel:`nofollow`,children:(0,c.jsx)(t.code,{children:`design.md`})}),` — it ships in the npm tarball at `,(0,c.jsx)(t.code,{children:`node_modules/@jeremyfuksa/campfire/design.md`}),` so tooling can reference it directly.`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=a(),t(),r()})))()}l();export{s as default};

@@ -1,0 +1,30 @@
+import{a as e,n as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./react-B6tGW3fj.js";import{t as r}from"./jsx-runtime-ATHzeHXA.js";import{n as i,t as a}from"./cloud-upload-CFQI_R2k.js";import{n as o,t as s}from"./file-cDOH0j0F.js";import{n as c,t as l}from"./x-B9OLE3_7.js";import{n as u,t as d}from"./utils-DwVtoTFj.js";import{r as f,t as p}from"./button-CTqIoSi4.js";function m({accept:e,multiple:t=!1,maxSize:n=10,onFilesSelected:r,onFileSelect:i,label:o=`Click to upload`,className:c}){let[u,f]=(0,h.useState)(!1),[m,_]=(0,h.useState)([]),v=(0,h.useRef)(null),y=e=>{if(!e)return;let t=Array.from(e).filter(e=>e.size/1048576<=n);_(t),r?.(t),i?.(t)},b=e=>{e.preventDefault(),f(!0)},x=()=>{f(!1)},S=e=>{e.preventDefault(),f(!1),y(e.dataTransfer.files)},C=()=>{v.current?.click()},w=e=>{y(e.target.files)},T=e=>{let t=m.filter((t,n)=>n!==e);_(t),r?.(t)};return(0,g.jsxs)(`div`,{className:d(`space-y-3`,c),children:[(0,g.jsxs)(`div`,{className:d(`relative border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-all`,u&&`border-primary bg-primary/5`),style:{borderColor:u?`var(--interactive-default)`:`var(--border-default)`,backgroundColor:u?`var(--bg-subtle)`:`transparent`},onDragOver:b,onDragLeave:x,onDrop:S,onClick:C,children:[(0,g.jsx)(`input`,{ref:v,type:`file`,accept:e,multiple:t,onChange:w,"aria-label":o,className:`hidden`}),(0,g.jsxs)(`div`,{className:`flex flex-col items-center gap-2`,children:[(0,g.jsx)(a,{size:32,style:{color:`var(--text-tertiary)`},"aria-hidden":`true`}),(0,g.jsxs)(`div`,{children:[(0,g.jsxs)(`p`,{style:{color:`var(--text-primary)`},children:[(0,g.jsx)(`span`,{style:{color:`var(--interactive-default)`},children:o}),` or drag and drop`]}),(0,g.jsxs)(`p`,{style:{fontSize:`14px`,color:`var(--text-tertiary)`,marginTop:`4px`},children:[e?`${e} files`:`Any file type`,` (max `,n,`MB)`]})]})]})]}),m.length>0&&(0,g.jsx)(`div`,{className:`space-y-2`,children:m.map((e,t)=>(0,g.jsxs)(`div`,{className:`flex items-center justify-between p-3 rounded-lg border`,style:{backgroundColor:`var(--bg-subtle)`,borderColor:`var(--border-default)`},children:[(0,g.jsxs)(`div`,{className:`flex items-center gap-3`,children:[(0,g.jsx)(s,{size:16,style:{color:`var(--text-tertiary)`},"aria-hidden":`true`}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`p`,{style:{fontSize:`14px`,color:`var(--text-primary)`},children:e.name}),(0,g.jsxs)(`p`,{style:{fontSize:`12px`,color:`var(--text-tertiary)`},children:[(e.size/1024).toFixed(1),` KB`]})]})]}),(0,g.jsx)(p,{variant:`ghost`,size:`sm`,onClick:e=>{e.stopPropagation(),T(t)},children:(0,g.jsx)(l,{size:16,"aria-label":`Remove file`})})]},t))})]})}var h,g;function _(){return(_=t((()=>{h=e(n(),1),i(),o(),c(),u(),f(),g=r(),m.__docgenInfo={description:``,methods:[],displayName:`FileUpload`,props:{accept:{required:!1,tsType:{name:`string`},description:``},multiple:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},maxSize:{required:!1,tsType:{name:`number`},description:``,defaultValue:{value:`10`,computed:!1}},onFilesSelected:{required:!1,tsType:{name:`signature`,type:`function`,raw:`(files: File[]) => void`,signature:{arguments:[{type:{name:`Array`,elements:[{name:`File`}],raw:`File[]`},name:`files`}],return:{name:`void`}}},description:``},onFileSelect:{required:!1,tsType:{name:`signature`,type:`function`,raw:`(files: File[]) => void`,signature:{arguments:[{type:{name:`Array`,elements:[{name:`File`}],raw:`File[]`},name:`files`}],return:{name:`void`}}},description:`@deprecated Use onFilesSelected instead.`},label:{required:!1,tsType:{name:`string`},description:``,defaultValue:{value:`"Click to upload"`,computed:!1}},className:{required:!1,tsType:{name:`string`},description:``}}}})))()}var v,y,b,x,S,C,w,T;function E(){return(E=t((()=>{_(),v={title:`Components/FileUpload`,component:m,parameters:{layout:`centered`},tags:[`autodocs`]},y={args:{onFilesSelected:e=>console.log(`Files uploaded:`,e)}},b={args:{onFilesSelected:e=>console.log(`Images uploaded:`,e),accept:`image/*`}},x={args:{onFilesSelected:e=>console.log(`Multiple files:`,e),multiple:!0}},S={args:{onFilesSelected:e=>console.log(`Files uploaded:`,e),maxSize:5}},C={args:{onFilesSelected:e=>console.log(`PDF uploaded:`,e),accept:`application/pdf`}},w={args:{onFilesSelected:e=>console.log(`Files:`,e),disabled:!0}},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  args: {
+    onFilesSelected: (files: File[]) => console.log("Files uploaded:", files)
+  }
+}`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  args: {
+    onFilesSelected: (files: File[]) => console.log("Images uploaded:", files),
+    accept: "image/*"
+  }
+}`,...b.parameters?.docs?.source}}},x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  args: {
+    onFilesSelected: (files: File[]) => console.log("Multiple files:", files),
+    multiple: true
+  }
+}`,...x.parameters?.docs?.source}}},S.parameters={...S.parameters,docs:{...S.parameters?.docs,source:{originalSource:`{
+  args: {
+    onFilesSelected: (files: File[]) => console.log("Files uploaded:", files),
+    maxSize: 5 // MB
+  }
+}`,...S.parameters?.docs?.source}}},C.parameters={...C.parameters,docs:{...C.parameters?.docs,source:{originalSource:`{
+  args: {
+    onFilesSelected: (files: File[]) => console.log("PDF uploaded:", files),
+    accept: "application/pdf"
+  }
+}`,...C.parameters?.docs?.source}}},w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
+  args: {
+    onFilesSelected: (files: File[]) => console.log("Files:", files),
+    disabled: true
+  }
+}`,...w.parameters?.docs?.source}}},T=[`Default`,`ImagesOnly`,`Multiple`,`WithMaxSize`,`PDFOnly`,`Disabled`]})))()}E();export{y as Default,w as Disabled,b as ImagesOnly,x as Multiple,C as PDFOnly,S as WithMaxSize,T as __namedExportsOrder,v as default};

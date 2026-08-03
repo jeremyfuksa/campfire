@@ -1,0 +1,25 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./react-B6tGW3fj.js";import{t as n}from"./jsx-runtime-ATHzeHXA.js";import{n as r,t as i}from"./chevron-right-ByLsb6_d.js";import{n as a,t as o}from"./folder-CTPBBQ5U.js";import{n as s,t as c}from"./star-DjE71FDD.js";import{n as l,t as u}from"./user-D0RLBsr5.js";import{n as d,t as f}from"./utils-DwVtoTFj.js";function p({children:e,className:t}){return(0,h.jsx)(`ul`,{className:f(`rounded-lg overflow-hidden border`,t),style:{borderColor:`var(--border-default)`},children:e})}function m({children:e,icon:t,action:n,onClick:r,active:i=!1,disabled:a=!1,className:o}){let s=!!r&&!a,c=a?void 0:r;return(0,h.jsxs)(`li`,{className:f(`flex items-center justify-between px-4 py-3 border-b last:border-b-0 transition-colors`,s&&`cursor-pointer hover:bg-bg-subtle`,a&&`opacity-60 cursor-not-allowed`,i&&`bg-bg-subtle`,o),style:{borderColor:`var(--border-default)`,backgroundColor:i?`var(--bg-subtle)`:`transparent`},"aria-disabled":a||void 0,onClick:c,children:[(0,h.jsxs)(`div`,{className:`flex items-center gap-3 flex-1`,children:[t&&(0,h.jsx)(`span`,{className:`inline-flex items-center`,"data-testid":`list-group-item-icon`,"aria-hidden":`true`,style:{color:`var(--text-secondary)`},children:t}),(0,h.jsx)(`span`,{style:{color:`var(--text-primary)`},children:e})]}),n&&(0,h.jsx)(`div`,{children:n})]})}var h;function g(){return(g=e((()=>{t(),d(),h=n(),p.__docgenInfo={description:``,methods:[],displayName:`ListGroup`,props:{children:{required:!0,tsType:{name:`ReactReactNode`,raw:`React.ReactNode`},description:``},className:{required:!1,tsType:{name:`string`},description:``}}},m.__docgenInfo={description:``,methods:[],displayName:`ListGroupItem`,props:{children:{required:!0,tsType:{name:`ReactReactNode`,raw:`React.ReactNode`},description:``},icon:{required:!1,tsType:{name:`ReactReactNode`,raw:`React.ReactNode`},description:``},action:{required:!1,tsType:{name:`ReactReactNode`,raw:`React.ReactNode`},description:``},onClick:{required:!1,tsType:{name:`signature`,type:`function`,raw:`() => void`,signature:{arguments:[],return:{name:`void`}}},description:``},active:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},disabled:{required:!1,tsType:{name:`boolean`},description:``,defaultValue:{value:`false`,computed:!1}},className:{required:!1,tsType:{name:`string`},description:``}}}})))()}var _,v,y,b,x,S;function C(){return(C=e((()=>{r(),a(),s(),l(),g(),_=n(),v={title:`Components/ListGroup`,component:p,parameters:{layout:`padded`},tags:[`autodocs`]},y={render:()=>(0,_.jsxs)(p,{className:`w-80`,children:[(0,_.jsx)(m,{children:`First item`}),(0,_.jsx)(m,{children:`Second item`}),(0,_.jsx)(m,{children:`Third item`})]})},b={render:()=>(0,_.jsxs)(p,{className:`w-80`,children:[(0,_.jsx)(m,{icon:(0,_.jsx)(u,{size:16}),children:`Profile`}),(0,_.jsx)(m,{icon:(0,_.jsx)(c,{size:16}),children:`Favorites`}),(0,_.jsx)(m,{icon:(0,_.jsx)(o,{size:16}),children:`Projects`})]})},x={render:()=>(0,_.jsxs)(p,{className:`w-80`,children:[(0,_.jsx)(m,{icon:(0,_.jsx)(u,{size:16}),action:(0,_.jsx)(i,{size:16}),onClick:()=>alert(`Profile clicked`),children:`Profile`}),(0,_.jsx)(m,{icon:(0,_.jsx)(c,{size:16}),action:(0,_.jsx)(i,{size:16}),active:!0,onClick:()=>alert(`Favorites clicked`),children:`Favorites (active)`}),(0,_.jsx)(m,{icon:(0,_.jsx)(o,{size:16}),action:(0,_.jsx)(i,{size:16}),disabled:!0,children:`Projects (disabled)`})]})},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  render: () => <ListGroup className="w-80">
+      <ListGroupItem>First item</ListGroupItem>
+      <ListGroupItem>Second item</ListGroupItem>
+      <ListGroupItem>Third item</ListGroupItem>
+    </ListGroup>
+}`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: () => <ListGroup className="w-80">
+      <ListGroupItem icon={<User size={16} />}>Profile</ListGroupItem>
+      <ListGroupItem icon={<Star size={16} />}>Favorites</ListGroupItem>
+      <ListGroupItem icon={<Folder size={16} />}>Projects</ListGroupItem>
+    </ListGroup>
+}`,...b.parameters?.docs?.source}}},x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  render: () => <ListGroup className="w-80">
+      <ListGroupItem icon={<User size={16} />} action={<ChevronRight size={16} />} onClick={() => alert("Profile clicked")}>
+        Profile
+      </ListGroupItem>
+      <ListGroupItem icon={<Star size={16} />} action={<ChevronRight size={16} />} active onClick={() => alert("Favorites clicked")}>
+        Favorites (active)
+      </ListGroupItem>
+      <ListGroupItem icon={<Folder size={16} />} action={<ChevronRight size={16} />} disabled>
+        Projects (disabled)
+      </ListGroupItem>
+    </ListGroup>
+}`,...x.parameters?.docs?.source}}},S=[`Default`,`WithIcons`,`Interactive`]})))()}C();export{y as Default,x as Interactive,b as WithIcons,S as __namedExportsOrder,v as default};
